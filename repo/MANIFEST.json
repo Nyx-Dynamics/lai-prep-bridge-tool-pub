@@ -1,0 +1,517 @@
+{
+  "package_info": {
+    "name": "LAI-PrEP Bridge Period Decision Support Tool",
+    "version": "2.1.0",
+    "created": "2025-11-26T18:08:18.139458",
+    "total_files": 56,
+    "total_size_bytes": 9291963,
+    "total_size_human": "8.9 MB"
+  },
+  "categories": {
+    "Core Algorithm": {
+      "files": 1,
+      "size": 43141,
+      "size_human": "42.1 KB"
+    },
+    "Command Line Interface": {
+      "files": 1,
+      "size": 15252,
+      "size_human": "14.9 KB"
+    },
+    "Test Suites": {
+      "files": 1,
+      "size": 20104,
+      "size_human": "19.6 KB"
+    },
+    "Configuration": {
+      "files": 8,
+      "size": 165574,
+      "size_human": "161.7 KB"
+    },
+    "Validation Results": {
+      "files": 4,
+      "size": 62958,
+      "size_human": "61.5 KB"
+    },
+    "Figures": {
+      "files": 12,
+      "size": 4887127,
+      "size_human": "4.7 MB"
+    },
+    "Supplementary LaTeX": {
+      "files": 8,
+      "size": 161620,
+      "size_human": "157.8 KB"
+    },
+    "Documentation Markdown": {
+      "files": 15,
+      "size": 209678,
+      "size_human": "204.8 KB"
+    },
+    "Manuscript PDFs": {
+      "files": 3,
+      "size": 3721976,
+      "size_human": "3.5 MB"
+    },
+    "Data Examples": {
+      "files": 1,
+      "size": 1374,
+      "size_human": "1.3 KB"
+    },
+    "Repository Metadata": {
+      "files": 2,
+      "size": 3159,
+      "size_human": "3.1 KB"
+    }
+  },
+  "files": {
+    "code/algorithm/lai_prep_decision_tool_v2_1.py": {
+      "original_name": "lai_prep_decision_tool_v2_1.py",
+      "category": "Core Algorithm",
+      "size_bytes": 43141,
+      "size_human": "42.1 KB",
+      "sha256": "5a2f1fc4712b3cfef0713bf82d107a80cb297d8e0f56509c6ebdd89fbb3bd269",
+      "copied_at": "2025-11-26T18:08:18.103143"
+    },
+    "code/cli/cli.py": {
+      "original_name": "cli.py",
+      "category": "Command Line Interface",
+      "size_bytes": 15252,
+      "size_human": "14.9 KB",
+      "sha256": "3b86cb454e2f9ffd64ea0e32b966c9bcea0f2ee04eee11bff98d57330e624057",
+      "copied_at": "2025-11-26T18:08:18.103572"
+    },
+    "code/tests/test_edge_cases.py": {
+      "original_name": "test_edge_cases.py",
+      "category": "Test Suites",
+      "size_bytes": 20104,
+      "size_human": "19.6 KB",
+      "sha256": "cb76262d5e1f9d166c96d8ff3c9f4d52f49a901e49307c27bc772425b64c97b4",
+      "copied_at": "2025-11-26T18:08:18.103987"
+    },
+    "config/lai_prep_bridge_tool_v2_1_0.json": {
+      "original_name": "lai_prep_bridge_tool_v2_1_0.json",
+      "category": "Configuration",
+      "size_bytes": 89925,
+      "size_human": "87.8 KB",
+      "sha256": "9b0d6213492bff4ff62d66394ada6ac30400cb3f6ff3a9b678eaac48cf47504e",
+      "copied_at": "2025-11-26T18:08:18.104465"
+    },
+    "config/lai_prep_config.json": {
+      "original_name": "lai_prep_config.json",
+      "category": "Configuration",
+      "size_bytes": 25744,
+      "size_human": "25.1 KB",
+      "sha256": "81d9309fe6ffe69ad3bc4dfeaf1c3e33257ac849a30775bb8c5e8d1288122511",
+      "copied_at": "2025-11-26T18:08:18.104833"
+    },
+    "config/.zenodo.json": {
+      "original_name": ".zenodo.json",
+      "category": "Configuration",
+      "size_bytes": 1555,
+      "size_human": "1.5 KB",
+      "sha256": "c5b615d4a73cf3f4a49e80dc3d33ef4561eded29df39b10f72e3252d72fe29b2",
+      "copied_at": "2025-11-26T18:08:18.105222"
+    },
+    "config/validation_1M_results.json": {
+      "original_name": "validation_1M_results.json",
+      "category": "Configuration",
+      "size_bytes": 3697,
+      "size_human": "3.6 KB",
+      "sha256": "878e64c0c5f81f63ef47a075099368363773ee69fb21efa37eec21ab63cac9a0",
+      "copied_at": "2025-11-26T18:08:18.105499"
+    },
+    "config/validation_UNAIDS_21.2M_results.json": {
+      "original_name": "validation_UNAIDS_21.2M_results.json",
+      "category": "Configuration",
+      "size_bytes": 12117,
+      "size_human": "11.8 KB",
+      "sha256": "b2835f23d413bea652e1030664c78ddd941cada9a0e423aa67e9459d60205efe",
+      "copied_at": "2025-11-26T18:08:18.105814"
+    },
+    "config/validation_10M_results.json": {
+      "original_name": "validation_10M_results.json",
+      "category": "Configuration",
+      "size_bytes": 5099,
+      "size_human": "5.0 KB",
+      "sha256": "51e7a8424431baa9feff219057bbccfbc94ef92daa54545eaf24baefb5b76343",
+      "copied_at": "2025-11-26T18:08:18.106133"
+    },
+    "config/example_patient.json": {
+      "original_name": "example_patient.json",
+      "category": "Configuration",
+      "size_bytes": 1730,
+      "size_human": "1.7 KB",
+      "sha256": "e0b711fadc4cab8788742cacc105a325dd8768c99650ba105fedb9a736625333",
+      "copied_at": "2025-11-26T18:08:18.106419"
+    },
+    "config/lai_prep_config_FIXED.json": {
+      "original_name": "lai_prep_config_FIXED.json",
+      "category": "Configuration",
+      "size_bytes": 25707,
+      "size_human": "25.1 KB",
+      "sha256": "6049dc81d1f272b1d976867d1769f221dba26f1b62048305d0f53e3972735579",
+      "copied_at": "2025-11-26T18:08:18.106751"
+    },
+    "validation/WHO_UNAIDS_Policy_Brief.md": {
+      "original_name": "WHO_UNAIDS_Policy_Brief.md",
+      "category": "Validation Results",
+      "size_bytes": 18702,
+      "size_human": "18.3 KB",
+      "sha256": "a3c9bc3eafa8bc1e6e2955c96ae017bd9e3032a1167d7bf871953b2daa89adb8",
+      "copied_at": "2025-11-26T18:08:18.107146"
+    },
+    "validation/UNAIDS_Validation_Analysis.md": {
+      "original_name": "UNAIDS_Validation_Analysis.md",
+      "category": "Validation Results",
+      "size_bytes": 15478,
+      "size_human": "15.1 KB",
+      "sha256": "bd1f285fc2e8c9bb458c0c0c34961585ec4e8063e1534979fe673318be626de9",
+      "copied_at": "2025-11-26T18:08:18.107559"
+    },
+    "validation/VALIDATION_RESULTS.md": {
+      "original_name": "VALIDATION_RESULTS.md",
+      "category": "Validation Results",
+      "size_bytes": 17573,
+      "size_human": "17.2 KB",
+      "sha256": "07935d0e24e32aca9d980533961935cebae2bdc2ba08f5428016163f57907ee9",
+      "copied_at": "2025-11-26T18:08:18.107910"
+    },
+    "validation/UNAIDS_Executive_Summary.md": {
+      "original_name": "UNAIDS_Executive_Summary.md",
+      "category": "Validation Results",
+      "size_bytes": 11205,
+      "size_human": "10.9 KB",
+      "sha256": "3cccea31f805e2f9062a22b9910c65af3e837c95a6a5da23486bd0385a1a113d",
+      "copied_at": "2025-11-26T18:08:18.108213"
+    },
+    "figures/figure_2_Implementation_Paradox.png": {
+      "original_name": "figure_2_Implementation_Paradox.png",
+      "category": "Figures",
+      "size_bytes": 635304,
+      "size_human": "620.4 KB",
+      "sha256": "ff3a03d74fcf826a2c621133af7c9712cfb31d4ce7ba9afebb4942beaca19421",
+      "copied_at": "2025-11-26T18:08:18.109254"
+    },
+    "figures/figure1_cascade_comparison.png": {
+      "original_name": "figure1_cascade_comparison.png",
+      "category": "Figures",
+      "size_bytes": 1124439,
+      "size_human": "1.1 MB",
+      "sha256": "3adf079ebd92398b49b9cefad5f29186e794b2a1116875287fda4f5ad2ba0a06",
+      "copied_at": "2025-11-26T18:08:18.110716"
+    },
+    "figures/figure4_populations.png": {
+      "original_name": "figure4_populations.png",
+      "category": "Figures",
+      "size_bytes": 249842,
+      "size_human": "244.0 KB",
+      "sha256": "26cdbb1072400ded9ac71ee2507ae1f5555055b98753b56428a59e43e014a414",
+      "copied_at": "2025-11-26T18:08:18.111322"
+    },
+    "figures/figure_1A_Oral_PrEP_Cascade.png": {
+      "original_name": "figure_1A_Oral_PrEP_Cascade.png",
+      "category": "Figures",
+      "size_bytes": 232718,
+      "size_human": "227.3 KB",
+      "sha256": "e35b7a195c30c80067a9604678803b18eebc134b62e6eaf6d1624307bbc4e715",
+      "copied_at": "2025-11-26T18:08:18.111922"
+    },
+    "figures/figure7_barriers.png": {
+      "original_name": "figure7_barriers.png",
+      "category": "Figures",
+      "size_bytes": 423326,
+      "size_human": "413.4 KB",
+      "sha256": "897294cc324568207f45b1ea3a5ffbef977d2b09d8a153907ce7493dddee9572",
+      "copied_at": "2025-11-26T18:08:18.114039"
+    },
+    "figures/figure5_interventions.png": {
+      "original_name": "figure5_interventions.png",
+      "category": "Figures",
+      "size_bytes": 262184,
+      "size_human": "256.0 KB",
+      "sha256": "b7afc314293cd5903e0bad678277a8edfd3f48d7debd013df545384f26d31a26",
+      "copied_at": "2025-11-26T18:08:18.115937"
+    },
+    "figures/figure_1B_LAI_PrEP_Cascade.png": {
+      "original_name": "figure_1B_LAI_PrEP_Cascade.png",
+      "category": "Figures",
+      "size_bytes": 225637,
+      "size_human": "220.3 KB",
+      "sha256": "36d2b86342a66f3cdd67bd33d2deba0db3ced0222affc0d88b1ff784f8869a9f",
+      "copied_at": "2025-11-26T18:08:18.116818"
+    },
+    "figures/figure3_convergence.png": {
+      "original_name": "figure3_convergence.png",
+      "category": "Figures",
+      "size_bytes": 259415,
+      "size_human": "253.3 KB",
+      "sha256": "81a2416285f95131bcb4cfc68cddda24c52d94e2b6fa9886f20b5e4620962310",
+      "copied_at": "2025-11-26T18:08:18.117522"
+    },
+    "figures/figure8_impact.png": {
+      "original_name": "figure8_impact.png",
+      "category": "Figures",
+      "size_bytes": 345768,
+      "size_human": "337.7 KB",
+      "sha256": "4e730849486504866adf5e8d8d5697ae7f0ae220117a3ba52c5b9303d0b20b5d",
+      "copied_at": "2025-11-26T18:08:18.118254"
+    },
+    "figures/figure2_workflow.png": {
+      "original_name": "figure2_workflow.png",
+      "category": "Figures",
+      "size_bytes": 307594,
+      "size_human": "300.4 KB",
+      "sha256": "1ef328007d1f7eb1118177d23fde4bec96ed7ad361801d044d42ca38b743b019",
+      "copied_at": "2025-11-26T18:08:18.118903"
+    },
+    "figures/figure6_regional.png": {
+      "original_name": "figure6_regional.png",
+      "category": "Figures",
+      "size_bytes": 563409,
+      "size_human": "550.2 KB",
+      "sha256": "0abc3bbd94f31ae28d0c226abf317aa46c649c0472a29934fe65fbcfef618978",
+      "copied_at": "2025-11-26T18:08:18.119740"
+    },
+    "figures/figure5.png": {
+      "original_name": "figure5.png",
+      "category": "Figures",
+      "size_bytes": 257491,
+      "size_human": "251.5 KB",
+      "sha256": "3db05bbde17d4c095496dcb0fdeb829b0ee04214152405125dc425d5a26ee91d",
+      "copied_at": "2025-11-26T18:08:18.120413"
+    },
+    "supplementary/latex/Supplementary_File_S1_LAI-PrEP_quick_reference_card-2.tex": {
+      "original_name": "Supplementary_File_S1_LAI-PrEP_quick_reference_card-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 7236,
+      "size_human": "7.1 KB",
+      "sha256": "2a7dad010ef5ce112899375475066810573f161203b04c969e7ff3635c5a48a2",
+      "copied_at": "2025-11-26T18:08:18.120936"
+    },
+    "supplementary/latex/Supplementary_File_S6_Non_Technical_Guide-2.tex": {
+      "original_name": "Supplementary_File_S6_Non_Technical_Guide-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 25776,
+      "size_human": "25.2 KB",
+      "sha256": "52f4f7cc7d5a778068cda39b21ac2cc803900e20239bff19302c19ac5b91da13",
+      "copied_at": "2025-11-26T18:08:18.121615"
+    },
+    "supplementary/latex/Supplementary_File_S4_Implementation_Guide-2.tex": {
+      "original_name": "Supplementary_File_S4_Implementation_Guide-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 23569,
+      "size_human": "23.0 KB",
+      "sha256": "c3e884544a6b2178c7e22f36a0aad64c27b7fcb3f20999f2e97da422339fd8cc",
+      "copied_at": "2025-11-26T18:08:18.121993"
+    },
+    "supplementary/latex/Supplementary_File_S7_Complete_Intervention_Library-2.tex": {
+      "original_name": "Supplementary_File_S7_Complete_Intervention_Library-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 26895,
+      "size_human": "26.3 KB",
+      "sha256": "0fde89d30e80b8f6de480887e58951a9b30ab1fcb672f1f692dccdedc2413df3",
+      "copied_at": "2025-11-26T18:08:18.122583"
+    },
+    "supplementary/latex/Supplementary_File_S3_Machine_readable_data_files-2.tex": {
+      "original_name": "Supplementary_File_S3_Machine_readable_data_files-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 20724,
+      "size_human": "20.2 KB",
+      "sha256": "44791842216e40827f0d472ae511a90e1c18263229098fa210a1dc53c640751f",
+      "copied_at": "2025-11-26T18:08:18.123065"
+    },
+    "supplementary/latex/Supplementary_File_S8_Code_Repository-2.tex": {
+      "original_name": "Supplementary_File_S8_Code_Repository-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 21807,
+      "size_human": "21.3 KB",
+      "sha256": "60531246be69d8257078fe88a1d3ea5cf1cfecd9df670492fa438494c8f0f11d",
+      "copied_at": "2025-11-26T18:08:18.123410"
+    },
+    "supplementary/latex/Supplementary_File_S2_Patient_Handout-2.tex": {
+      "original_name": "Supplementary_File_S2_Patient_Handout-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 12213,
+      "size_human": "11.9 KB",
+      "sha256": "fa67406530b8efeb4bbe3650df88b0c211d03f4c87f279a5cf2fadf9845d199b",
+      "copied_at": "2025-11-26T18:08:18.123812"
+    },
+    "supplementary/latex/Supplementary_File_S5_Decision_Flowchart-2.tex": {
+      "original_name": "Supplementary_File_S5_Decision_Flowchart-2.tex",
+      "category": "Supplementary LaTeX",
+      "size_bytes": 23400,
+      "size_human": "22.9 KB",
+      "sha256": "21842df7b99b42d7f881ca5cef77396cc132c9504da5a46a472ca4bbd998b5b1",
+      "copied_at": "2025-11-26T18:08:18.124160"
+    },
+    "documentation/README_v2_1.md": {
+      "original_name": "README_v2_1.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 19945,
+      "size_human": "19.5 KB",
+      "sha256": "f51ca57d91b38e67592f44bb6f67ea714f534af9f90b541c346e1989650810f6",
+      "copied_at": "2025-11-26T18:08:18.124597"
+    },
+    "documentation/CODE_OF_CONDUCT.md": {
+      "original_name": "CODE_OF_CONDUCT.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 9522,
+      "size_human": "9.3 KB",
+      "sha256": "610af3fa4f74f3a361a5757342b5412d8d82ce72af4eb150e6ec17c5820543ba",
+      "copied_at": "2025-11-26T18:08:18.124971"
+    },
+    "documentation/LICENSE.md": {
+      "original_name": "LICENSE.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 9533,
+      "size_human": "9.3 KB",
+      "sha256": "e0e92a7153ea02b504ef416adfce6c60ce17385629aa0d5378dc0dd89cd311d7",
+      "copied_at": "2025-11-26T18:08:18.125385"
+    },
+    "documentation/CHANGELOG.md": {
+      "original_name": "CHANGELOG.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 4074,
+      "size_human": "4.0 KB",
+      "sha256": "d94fc33acac106471084d7574161141df452ee9d07ba158d24df86095c3696fb",
+      "copied_at": "2025-11-26T18:08:18.125700"
+    },
+    "documentation/CONTRIBUTING.md": {
+      "original_name": "CONTRIBUTING.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 11585,
+      "size_human": "11.3 KB",
+      "sha256": "ff998a038df77194b99ce2c00736cea679c0e853d8c0d413abaca8f4bd0cdb8c",
+      "copied_at": "2025-11-26T18:08:18.125924"
+    },
+    "documentation/README_3.md": {
+      "original_name": "README_3.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 19959,
+      "size_human": "19.5 KB",
+      "sha256": "e4ba280b206dbca8aefb0bb53ca328f4fe3384ebb7fe61cd8e530be3ce060913",
+      "copied_at": "2025-11-26T18:08:18.127742"
+    },
+    "documentation/PHARMA_RESTRICTED_LICENSE.md": {
+      "original_name": "PHARMA_RESTRICTED_LICENSE.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 20143,
+      "size_human": "19.7 KB",
+      "sha256": "f365b512c692ea01035351c4f0ab2bccbd6a6fafb818a47ccc14fd53e62a192f",
+      "copied_at": "2025-11-26T18:08:18.129756"
+    },
+    "documentation/SECURITY.md": {
+      "original_name": "SECURITY.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 9835,
+      "size_human": "9.6 KB",
+      "sha256": "b812ce1bf1e4bd82517e751bd892a161e238a76dae5b85f3a2740ec498fcc11e",
+      "copied_at": "2025-11-26T18:08:18.129977"
+    },
+    "documentation/IMPLEMENTATION_CHECKLIST.md": {
+      "original_name": "IMPLEMENTATION_CHECKLIST.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 16032,
+      "size_human": "15.7 KB",
+      "sha256": "bc8b2039e856fe836b12655f4c398ef5f19b7491a584e5674e672063f0715350",
+      "copied_at": "2025-11-26T18:08:18.130298"
+    },
+    "documentation/NON_TECHNICAL_GUIDE.md": {
+      "original_name": "NON_TECHNICAL_GUIDE.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 20632,
+      "size_human": "20.1 KB",
+      "sha256": "d32a81ecf8ba2484ed44890d9ad92383937a5c2df54d00ec960c9f7e61fdaa6a",
+      "copied_at": "2025-11-26T18:08:18.130633"
+    },
+    "documentation/QUICK_REFERENCE_CARD.md": {
+      "original_name": "QUICK_REFERENCE_CARD.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 6128,
+      "size_human": "6.0 KB",
+      "sha256": "8e0cd73a8ce8828a49ffa6fa84e6245d3b79ffdccc2f8be02dab566f9a7e53a0",
+      "copied_at": "2025-11-26T18:08:18.130900"
+    },
+    "documentation/DECISION_FLOWCHART.md": {
+      "original_name": "DECISION_FLOWCHART.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 32208,
+      "size_human": "31.5 KB",
+      "sha256": "9fcb9816185e0f9411fd18ea0616e94b821f69bf224dde20a43b8d803dc2920f",
+      "copied_at": "2025-11-26T18:08:18.131351"
+    },
+    "documentation/INDEX_START_HERE.md": {
+      "original_name": "INDEX_START_HERE.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 17925,
+      "size_human": "17.5 KB",
+      "sha256": "364716b1126c3b2de6a1e2546944ee92567393cfccb867fc41e420aaabd92730",
+      "copied_at": "2025-11-26T18:08:18.131640"
+    },
+    "documentation/PATIENT_HANDOUT.md": {
+      "original_name": "PATIENT_HANDOUT.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 8898,
+      "size_human": "8.7 KB",
+      "sha256": "6172bdefef5c78c00d1f27c656fc41d69d9eb17553fcda369da0fc830c90be27",
+      "copied_at": "2025-11-26T18:08:18.131834"
+    },
+    "documentation/QUICK_REFERENCE.md": {
+      "original_name": "QUICK_REFERENCE.md",
+      "category": "Documentation Markdown",
+      "size_bytes": 3259,
+      "size_human": "3.2 KB",
+      "sha256": "23f900665889543f386fe3e4e22c70d52e6d1ae9339c88b6bf5fd9ef139dd7e6",
+      "copied_at": "2025-11-26T18:08:18.132127"
+    },
+    "manuscripts/Bridging_the_gap_v3_10_supplemental.pdf": {
+      "original_name": "Bridging_the_gap_v3_10_supplemental.pdf",
+      "category": "Manuscript PDFs",
+      "size_bytes": 78573,
+      "size_human": "76.7 KB",
+      "sha256": "3954f22910057a3df7479d527a0604e38662bfe3ed03082a89bb6d8cf2b112cf",
+      "copied_at": "2025-11-26T18:08:18.132415"
+    },
+    "manuscripts/Bridging_the_gap_v3_10_main.pdf": {
+      "original_name": "Bridging_the_gap_v3_10_main.pdf",
+      "category": "Manuscript PDFs",
+      "size_bytes": 914973,
+      "size_human": "893.5 KB",
+      "sha256": "9c5bbac83a2af1773c4465f5a2435d762d70b6c9678c52a50106f336ced30277",
+      "copied_at": "2025-11-26T18:08:18.133622"
+    },
+    "manuscripts/LAI_bridge_tool_v4-6.pdf": {
+      "original_name": "LAI_bridge_tool_v4-6.pdf",
+      "category": "Manuscript PDFs",
+      "size_bytes": 2728430,
+      "size_human": "2.6 MB",
+      "sha256": "330f42a86821f09bc6281594384ace74a76c34b3097d766fcd9807712829b625",
+      "copied_at": "2025-11-26T18:08:18.136502"
+    },
+    "data_examples/example_patients.csv": {
+      "original_name": "example_patients.csv",
+      "category": "Data Examples",
+      "size_bytes": 1374,
+      "size_human": "1.3 KB",
+      "sha256": "4fe21f0998a5427455487719e22692f4db4c084e7e87c505872a572ac4b751d3",
+      "copied_at": "2025-11-26T18:08:18.137045"
+    },
+    "repo/CITATION.cff": {
+      "original_name": "CITATION.cff",
+      "category": "Repository Metadata",
+      "size_bytes": 1443,
+      "size_human": "1.4 KB",
+      "sha256": "0ab9ee061dbdeee018582559d29a23807540d98f6a6ac22b436bfe09a99ca900",
+      "copied_at": "2025-11-26T18:08:18.138933"
+    },
+    "repo/LICENSE": {
+      "original_name": "LICENSE",
+      "category": "Repository Metadata",
+      "size_bytes": 1716,
+      "size_human": "1.7 KB",
+      "sha256": "2d1c672292a0936c985de2eef620f4922a819d2fb924746cd22ecae42c4b4d50",
+      "copied_at": "2025-11-26T18:08:18.139289"
+    }
+  }
+}

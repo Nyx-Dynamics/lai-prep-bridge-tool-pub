@@ -1,0 +1,513 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{blue!50!black}}{\thesubsection}{1em}{}
+
+% Configure listings for JSON
+\lstdefinelanguage{json}{
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{gray!10},
+    literate=
+     *{0}{{{\color{blue!80!black}0}}}{1}
+      {1}{{{\color{blue!80!black}1}}}{1}
+      {2}{{{\color{blue!80!black}2}}}{1}
+      {3}{{{\color{blue!80!black}3}}}{1}
+      {4}{{{\color{blue!80!black}4}}}{1}
+      {5}{{{\color{blue!80!black}5}}}{1}
+      {6}{{{\color{blue!80!black}6}}}{1}
+      {7}{{{\color{blue!80!black}7}}}{1}
+      {8}{{{\color{blue!80!black}8}}}{1}
+      {9}{{{\color{blue!80!black}9}}}{1}
+      {:}{{{\color{black}{:}}}}{1}
+      {,}{{{\color{black}{,}}}}{1}
+      {\{}{{{\color{black}{\{}}}}{1}
+      {\}}{{{\color{black}{\}}}}}{1}
+      {[}{{{\color{black}{[}}}}{1}
+      {]}{{{\color{black}{]}}}}{1},
+}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries Supplementary File S3}\\[0.3cm]
+{\LARGE Machine-Readable Data Files}\\[0.5cm]
+{\large Configuration and Patient Input Examples for LAI-PrEP Bridge Period Decision Support Tool}\\[0.3cm]
+{\normalsize Adrian C. Demidont}\\[0.2cm]
+{\small\textit{Viruses} Journal Supplementary Materials}
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Purpose of This File}
+
+This supplementary file provides machine-readable data files for the LAI-PrEP Bridge Period Decision Support Tool, enabling complete reproducibility and facilitating independent validation:
+
+\begin{enumerate}
+\item \textbf{Configuration File} (\texttt{lai\_prep\_config.json}): Defines algorithmic parameters, evidence-based interventions, population characteristics, and barrier impacts
+\item \textbf{Patient Input Examples}: Demonstrates expected input format and provides realistic test cases for tool validation
+\end{enumerate}
+
+The configuration-driven architecture enables:
+
+\begin{itemize}
+\item \textbf{Parameter updates} without code modification
+\item \textbf{Institutional adaptation} to local contexts and evidence
+\item \textbf{Transparent review} of all algorithmic assumptions
+\item \textbf{Reproducible research} with versioned configurations
+\item \textbf{Evidence integration} as new research emerges
+\end{itemize}
+
+\section{Configuration Structure Overview}
+
+The complete configuration file contains six major sections:
+
+\begin{enumerate}
+\item \textbf{Populations} (7 entries): Baseline attrition rates and priority interventions for each population
+\item \textbf{Barriers} (13 entries): Structural barriers with quantified impacts on bridge period navigation
+\item \textbf{Interventions} (21 entries): Evidence-based interventions with effect sizes and implementation details
+\item \textbf{Healthcare Settings} (8 entries): Setting-specific recommendations and resource availability
+\item \textbf{Risk Categories} (3 entries): Thresholds for risk stratification
+\item \textbf{Algorithm Parameters}: Technical parameters for probability calculations
+\end{enumerate}
+
+\section{Representative Examples}
+
+The following excerpts demonstrate the structure and content of each section. The complete configuration file (\texttt{lai\_prep\_config.json}) is available in the GitHub repository.
+
+\subsection{Population Configuration Example}
+
+Populations are defined with baseline attrition rates derived from clinical trials and real-world implementation studies:
+
+\begin{lstlisting}[language=json,caption={Population configuration excerpt}]
+"populations": {
+  "MSM": {
+    "name": "Men who have sex with men",
+    "baseline_attrition": 0.45,
+    "attrition_range": [0.40, 0.50],
+    "evidence_level": "strong",
+    "evidence_source": "HPTN 083 (n=4,566)",
+    "clinical_notes": "MSM: Address stigma, privacy concerns, and social network disclosure. HPTN 083 showed 89% relative risk reduction.",
+    "priority_interventions": [
+      "PATIENT_NAVIGATION",
+      "PEER_NAVIGATION",
+      "SAME_DAY_SWITCHING"
+    ]
+  },
+  "CISGENDER_WOMEN": {
+    "name": "Cisgender women",
+    "baseline_attrition": 0.55,
+    "attrition_range": [0.50, 0.60],
+    "evidence_level": "strong",
+    "evidence_source": "HPTN 084 (n=3,224), PURPOSE-1 (n=5,338)",
+    "clinical_notes": "Women: Address medical mistrust, structural barriers (transportation, childcare). HPTN 084 showed 89% superior efficacy; PURPOSE-1 had zero infections in 5,338 women.",
+    "priority_interventions": [
+      "PATIENT_NAVIGATION",
+      "TRANSPORTATION_SUPPORT",
+      "CHILDCARE_SUPPORT",
+      "MEDICAL_MISTRUST_INTERVENTION"
+    ]
+  },
+  "PWID": {
+    "name": "People who inject drugs",
+    "baseline_attrition": 0.75,
+    "attrition_range": [0.70, 0.80],
+    "evidence_level": "emerging",
+    "evidence_source": "Oral PrEP cascade extrapolation, PURPOSE-4 (ongoing)",
+    "clinical_notes": "PWID: Harm reduction approach essential. No abstinence requirement. PURPOSE-4 trial (ongoing) will provide critical implementation evidence.",
+    "priority_interventions": [
+      "HARM_REDUCTION_INTEGRATION",
+      "PEER_NAVIGATION",
+      "LOW_BARRIER_PROTOCOLS",
+      "MOBILE_DELIVERY"
+    ]
+  }
+}
+\end{lstlisting}
+
+\subsection{Barrier Configuration Example}
+
+Barriers are quantified based on their impact on bridge period navigation success:
+
+\begin{lstlisting}[language=json,caption={Barrier configuration excerpt}]
+"barriers": {
+  "TRANSPORTATION": {
+    "name": "Transportation barriers",
+    "impact": 0.10,
+    "evidence_level": "strong",
+    "affected_populations": [
+      "CISGENDER_WOMEN",
+      "ADOLESCENT",
+      "PWID",
+      "PREGNANT_LACTATING"
+    ],
+    "description": "Lack of reliable transportation to multiple appointments"
+  },
+  "INSURANCE_DELAYS": {
+    "name": "Insurance authorization delays",
+    "impact": 0.12,
+    "evidence_level": "strong",
+    "affected_populations": [
+      "MSM",
+      "CISGENDER_WOMEN",
+      "TRANSGENDER_WOMEN",
+      "ADOLESCENT",
+      "GENERAL"
+    ],
+    "description": "Prior authorization requirements causing delays"
+  },
+  "HOUSING_INSTABILITY": {
+    "name": "Housing instability",
+    "impact": 0.15,
+    "evidence_level": "strong",
+    "affected_populations": ["PWID"],
+    "description": "Homelessness or unstable housing affecting follow-up"
+  }
+}
+\end{lstlisting}
+
+\subsection{Intervention Configuration Example}
+
+Interventions are defined with evidence-based effect sizes and implementation requirements:
+
+\begin{lstlisting}[language=json,caption={Intervention configuration excerpt}]
+"interventions": {
+  "PATIENT_NAVIGATION": {
+    "name": "Patient navigation services",
+    "improvement": 0.15,
+    "evidence_level": "strong",
+    "evidence_source": "RCT meta-analysis (k=23, OR=1.85)",
+    "mechanisms": ["STRUCTURAL_BARRIER_REDUCTION", "COORDINATION"],
+    "target_barriers": [
+      "TRANSPORTATION",
+      "SCHEDULING_CONFLICTS",
+      "INSURANCE_DELAYS"
+    ],
+    "implementation_complexity": "moderate",
+    "cost_tier": "medium",
+    "description": "Dedicated navigator to coordinate appointments, address barriers, and provide follow-up"
+  },
+  "SAME_DAY_SWITCHING": {
+    "name": "Same-day switching from oral PrEP",
+    "improvement": 0.25,
+    "evidence_level": "strong",
+    "evidence_source": "OPERA cohort (n=302), Trio Health (n=146)",
+    "mechanisms": ["TEMPORAL_COMPRESSION", "ADHERENCE_PRESERVATION"],
+    "target_barriers": ["HIV_TESTING_DELAYS"],
+    "implementation_complexity": "low",
+    "cost_tier": "low",
+    "description": "For patients on oral PrEP: skip oral lead-in, test and inject same day",
+    "eligibility_criteria": "Current oral PrEP use"
+  },
+  "HARM_REDUCTION_INTEGRATION": {
+    "name": "Harm reduction service integration",
+    "improvement": 0.18,
+    "evidence_level": "moderate",
+    "evidence_source": "PWID PrEP cascade studies, harm reduction literature",
+    "mechanisms": ["STIGMA_REDUCTION", "STRUCTURAL_BARRIER_REDUCTION"],
+    "target_barriers": [
+      "SUBSTANCE_USE",
+      "HOUSING_INSTABILITY",
+      "MEDICAL_MISTRUST"
+    ],
+    "implementation_complexity": "high",
+    "cost_tier": "medium",
+    "description": "Integrate LAI-PrEP with syringe services, medication-assisted treatment, housing support"
+  }
+}
+\end{lstlisting}
+
+\subsection{Healthcare Setting Configuration Example}
+
+Healthcare settings specify available interventions and recommended protocols:
+
+\begin{lstlisting}[language=json,caption={Healthcare setting configuration excerpt}]
+"healthcare_settings": {
+  "COMMUNITY_HEALTH_CENTER": {
+    "name": "Community Health Center",
+    "available_interventions": [
+      "PATIENT_NAVIGATION",
+      "TRANSPORTATION_SUPPORT",
+      "ACCELERATED_TESTING",
+      "INSURANCE_SUPPORT",
+      "FLEXIBLE_SCHEDULING"
+    ],
+    "typical_bridge_period_days": 21,
+    "resource_level": "moderate"
+  },
+  "HARM_REDUCTION_PROGRAM": {
+    "name": "Harm Reduction Program/Syringe Services",
+    "available_interventions": [
+      "HARM_REDUCTION_INTEGRATION",
+      "PEER_NAVIGATION",
+      "LOW_BARRIER_PROTOCOLS",
+      "MOBILE_DELIVERY",
+      "FLEXIBLE_SCHEDULING"
+    ],
+    "typical_bridge_period_days": 28,
+    "resource_level": "variable"
+  }
+}
+\end{lstlisting}
+
+\subsection{Risk Stratification Configuration Example}
+
+Risk categories define thresholds for clinical decision-making:
+
+\begin{lstlisting}[language=json,caption={Risk category configuration excerpt}]
+"risk_categories": {
+  "HIGH_RISK": {
+    "threshold": 0.60,
+    "description": "Predicted success rate <40%",
+    "recommended_actions": [
+      "Intensive navigation (minimum 3 contacts)",
+      "Multiple intervention modalities",
+      "Close clinical monitoring",
+      "Consider expedited protocols"
+    ],
+    "intervention_priority": "maximum"
+  },
+  "MODERATE_RISK": {
+    "threshold": 0.40,
+    "description": "Predicted success rate 40-60%",
+    "recommended_actions": [
+      "Standard navigation (minimum 2 contacts)",
+      "Targeted barrier-specific interventions",
+      "Regular follow-up"
+    ],
+    "intervention_priority": "standard"
+  }
+}
+\end{lstlisting}
+
+\subsection{Algorithm Parameters}
+
+Technical parameters control calculation methods:
+
+\begin{lstlisting}[language=json,caption={Algorithm parameters excerpt}]
+"algorithm_parameters": {
+  "barrier_combination_method": "multiplicative",
+  "intervention_combination_method": "additive_with_saturation",
+  "max_cumulative_intervention_effect": 0.45,
+  "use_logit_space": true,
+  "mechanism_diversity_weight": 0.10,
+  "minimum_intervention_effect": 0.02,
+  "description": "Parameters controlling probability calculations and intervention recommendations"
+}
+\end{lstlisting}
+
+\section{Configuration Usage}
+
+\subsection{Loading the Configuration}
+
+The tool loads the configuration at runtime using Python's JSON parser:
+
+\begin{lstlisting}[language=json,caption={Python usage example (pseudocode)}]
+import json
+
+# Load configuration
+with open('lai_prep_config.json', 'r') as f:
+    config = json.load(f)
+
+# Access population data
+msm_baseline = config['populations']['MSM']['baseline_attrition']
+msm_interventions = config['populations']['MSM']['priority_interventions']
+
+# Access barrier data
+transport_impact = config['barriers']['TRANSPORTATION']['impact']
+
+# Access intervention data
+nav_improvement = config['interventions']['PATIENT_NAVIGATION']['improvement']
+\end{lstlisting}
+
+\subsection{Institutional Adaptation}
+
+Institutions can modify the configuration to reflect local contexts:
+
+\begin{enumerate}
+\item \textbf{Update baseline rates}: Adjust population-specific attrition rates based on local data
+\item \textbf{Modify barrier impacts}: Calibrate barrier impacts to local prevalence
+\item \textbf{Add/remove interventions}: Include locally-available interventions or disable unavailable ones
+\item \textbf{Adjust effect sizes}: Update intervention effects based on local implementation outcomes
+\item \textbf{Set resource constraints}: Configure available interventions by healthcare setting
+\end{enumerate}
+
+\subsection{Version Control}
+
+Each configuration file includes version information for reproducibility:
+
+\begin{lstlisting}[language=json,caption={Version metadata}]
+{
+  "version": "2.0.0",
+  "last_updated": "2025-01-12",
+  "description": "Configuration file for LAI-PrEP Bridge Period Decision Support Tool"
+}
+\end{lstlisting}
+
+\section{Evidence Integration}
+
+All parameters are derived from peer-reviewed literature:
+
+\begin{itemize}
+\item \textbf{Baseline attrition rates}: HPTN 083, HPTN 084, PURPOSE trials, real-world cohort studies
+\item \textbf{Barrier impacts}: PrEP cascade literature, implementation science studies
+\item \textbf{Intervention effects}: Randomized controlled trials, systematic reviews, meta-analyses
+\item \textbf{Population differences}: Clinical trial subgroup analyses, epidemiological data
+\end{itemize}
+
+\section{Patient Input Examples}
+
+For reproducibility and tool testing, we provide example patient profiles representing diverse clinical scenarios.
+
+\subsection{Single Patient JSON Example}
+
+Individual patient assessments use JSON format with the following structure:
+
+\begin{lstlisting}[language=json,caption={Example patient input (example\_patient.json)}]
+{
+  "patient_id": "example_001",
+  "population": "PWID",
+  "age": 35,
+  "current_prep_status": "naive",
+  "barriers": [
+    "HOUSING_INSTABILITY",
+    "TRANSPORTATION",
+    "LEGAL_CONCERNS"
+  ],
+  "healthcare_setting": "HARM_REDUCTION",
+  "insurance_status": "uninsured",
+  "recent_hiv_test": false,
+  "transportation_access": false,
+  "childcare_needs": false
+}
+\end{lstlisting}
+
+This example represents a person who injects drugs (PWID) with multiple structural barriers - a high-risk scenario requiring intensive navigation support.
+
+\subsection{Batch Processing CSV Example}
+
+For research or quality improvement projects analyzing multiple patients, CSV format enables efficient batch processing:
+
+\begin{lstlisting}[language=json,caption={Example batch input format (example\_patients.csv)},basicstyle=\scriptsize\ttfamily]
+patient_id,population,age,current_prep_status,barriers,setting,...
+patient_001,MSM,28,oral_prep,SCHEDULING_CONFLICTS,LGBTQ_CENTER,...
+patient_002,CISGENDER_WOMEN,32,naive,"TRANSPORTATION,CHILDCARE",...
+patient_003,PWID,35,naive,"HOUSING_INSTABILITY,LEGAL_CONCERNS",...
+patient_004,ADOLESCENT,17,naive,"PRIVACY_CONCERNS",...
+patient_005,TRANSGENDER_WOMEN,26,discontinued_oral,DISCRIMINATION,...
+\end{lstlisting}
+
+The complete example file contains 10 diverse patients spanning all populations and barrier combinations.
+
+\subsection{Clinical Scenarios Represented}
+
+Example patients cover the full spectrum of bridge period challenges:
+
+\begin{itemize}
+\item \textbf{Low-barrier case}: MSM on oral PrEP, insured, same-day switching candidate
+\item \textbf{Moderate-barrier case}: Cisgender woman, transportation + childcare needs
+\item \textbf{High-barrier case}: PWID, housing instability + multiple barriers
+\item \textbf{Special populations}: Adolescents (privacy), pregnant/lactating (competing priorities)
+\item \textbf{Healthcare settings}: LGBTQ centers, harm reduction programs, community clinics
+\end{itemize}
+
+\subsection{Usage Examples}
+
+These files enable immediate tool testing:
+
+\begin{lstlisting}[language=json,caption={Command-line usage}]
+# Assess single patient
+python cli.py assess -i example_patient.json -o results.json
+
+# Batch process multiple patients
+python cli.py batch -i example_patients.csv -o batch_results.json
+
+# Validate configuration
+python cli.py validate -c lai_prep_config.json
+\end{lstlisting}
+
+\section{Data Availability}
+
+\subsection{Complete Configuration File}
+
+The full \texttt{lai\_prep\_config.json} file (558 lines) containing all populations, barriers, interventions, and algorithm parameters is available at:
+
+\begin{itemize}
+
+\item \textbf{Zenodo DOI}:\url{https://zenodo.org/uploads/17727117#:~:text=10.5281/zenodo.17727117} 
+\end{itemize}
+
+\subsection{Patient Input Examples}
+
+Example patient files for reproducibility testing:
+
+\begin{itemize}
+\item \textbf{example\_patient.json}: Single patient JSON template with inline documentation
+\item \textbf{example\_patients.csv}: Batch file with 10 diverse clinical scenarios
+\item Both available in the GitHub repository under \texttt{/examples/} directory
+\end{itemize}
+
+\subsection{Supplementary Documentation}
+
+Additional implementation materials include:
+
+\begin{itemize}
+\item \textbf{Supplementary File S1}: Clinician Quick-Reference Card
+\item \textbf{Supplementary File S2}: Patient Information Handout
+\item \textbf{Supplementary File S4}: Implementation Guide
+\item \textbf{Supplementary File S5}: Clinical Decision Flowchart
+\item \textbf{Supplementary File S6}: Non-Technical Summary
+\end{itemize}
+
+\section{Quality Assurance}
+
+The configuration undergoes rigorous validation:
+
+\begin{enumerate}
+\item \textbf{JSON schema validation}: Ensures structural integrity
+\item \textbf{Parameter range checking}: Validates all values are within reasonable bounds
+\item \textbf{Reference integrity}: Confirms all intervention/barrier references are valid
+\item \textbf{Evidence documentation}: Requires citation for all effect sizes
+\item \textbf{Unit testing}: 18 edge cases verify correct parameter usage (100\% pass rate)
+\end{enumerate}
+
+\section{Future Updates}
+
+The configuration is designed to evolve with emerging evidence:
+
+\begin{itemize}
+\item \textbf{New trial data}: PURPOSE-4 (PWID), HPTN 084-01 (adolescents), RUBY-4 (serodiscordant couples)
+\item \textbf{Real-world implementation}: Prospective validation studies in diverse settings
+\item \textbf{Cost-effectiveness data}: Economic evaluations of intervention strategies
+\item \textbf{Health equity research}: Population-specific barriers and interventions
+\end{itemize}
+
+Updates will be versioned and documented with change logs to maintain reproducibility.
+
+\vspace{1cm}
+
+\section*{Technical Support}
+
+For questions about the configuration file or tool implementation:
+
+\begin{itemize}
+\item \testbf{Zenodo dataset}: {\href{https://zenodo.org/uploads/17727117#:~:text=10.5281/zenodo.17727117}{LAI-PrEP Bridge Period Clinical Decision Support Tool: Algorithm, Validation Data, and Supporting Evidence for the PrEP Cascade Paradigm Shift}}
+\item \textbf{Email}: acdemidont@nyxdynamics.org
+\item \textbf{Documentation}: Complete API reference and integration guides in repository
+\end{itemize}
+
+\end{document}

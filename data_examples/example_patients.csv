@@ -1,0 +1,11 @@
+patient_id,population,age,current_prep_status,barriers,healthcare_setting,insurance_status,recent_hiv_test,transportation_access,childcare_needs
+patient_001,MSM,28,oral_prep,SCHEDULING_CONFLICTS,LGBTQ_CENTER,insured,true,true,false
+patient_002,CISGENDER_WOMEN,32,naive,"TRANSPORTATION,CHILDCARE,MEDICAL_MISTRUST",COMMUNITY_HEALTH_CENTER,insured,false,false,true
+patient_003,PWID,35,naive,"HOUSING_INSTABILITY,TRANSPORTATION,LEGAL_CONCERNS,SUBSTANCE_USE",HARM_REDUCTION,uninsured,false,false,false
+patient_004,ADOLESCENT,17,naive,"PRIVACY_CONCERNS,LIMITED_NAVIGATION_EXPERIENCE",COMMUNITY_HEALTH_CENTER,parental,false,true,false
+patient_005,TRANSGENDER_WOMEN,26,discontinued_oral,HEALTHCARE_DISCRIMINATION,LGBTQ_CENTER,insured,false,true,false
+patient_006,MSM,45,oral_prep,,PRIVATE_PRACTICE,insured,true,true,false
+patient_007,CISGENDER_WOMEN,29,naive,"TRANSPORTATION,INSURANCE_DELAYS",COMMUNITY_HEALTH_CENTER,underinsured,false,false,true
+patient_008,PWID,40,naive,"HOUSING_INSTABILITY,TRANSPORTATION,LEGAL_CONCERNS,HEALTHCARE_DISCRIMINATION,COMPETING_PRIORITIES",COMMUNITY_HEALTH_CENTER,uninsured,false,false,false
+patient_009,PREGNANT_LACTATING,28,naive,"CHILDCARE,COMPETING_PRIORITIES",COMMUNITY_HEALTH_CENTER,insured,false,true,true
+patient_010,ADOLESCENT,16,naive,"PRIVACY_CONCERNS,TRANSPORTATION,LIMITED_NAVIGATION_EXPERIENCE",MOBILE_CLINIC,parental,false,false,false

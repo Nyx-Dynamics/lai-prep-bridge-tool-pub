@@ -1,0 +1,570 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{multirow}
+
+\usepackage{lmodern}
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{blue!50!black}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{blue!40!black}}{\thesubsubsection}{1em}{}
+
+\tcbuselibrary{breakable}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries Supplementary File S5}\\[0.3cm]
+{\LARGE Clinical Decision Flowchart}\\[0.5cm]
+{\large Step-by-Step Visual Guide for LAI-PrEP Bridge Period Navigation}\\[0.3cm]
+{\normalsize A.C Demidont}\\[0.2]{\small\textit{Viruses} Journal Supplementary Materials}
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Purpose of This Flowchart}
+
+This clinical decision flowchart provides systematic guidance for LAI-PrEP bridge period management at the point of prescription. It translates the evidence-based decision support algorithm into actionable clinical workflows, enabling clinicians to:
+
+\begin{itemize}
+\item Rapidly identify patients for same-day switching protocols
+\item Assess population-specific risks and barriers
+\item Stratify patients by predicted success rate
+\item Select appropriate evidence-based interventions
+\item Implement structured follow-up protocols
+\end{itemize}
+
+\textbf{Critical Insight}: Without systematic intervention, 47\% of LAI-PrEP prescriptions do not result in injection initiation. This flowchart addresses that implementation gap.
+
+\section{Step 1: Oral PrEP Status Assessment}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{INITIAL TRIAGE QUESTION},breakable]
+\textbf{Is the patient currently taking oral PrEP?}
+
+This is the single most important clinical decision point that determines bridge period pathway.
+\end{tcolorbox}
+
+\subsection{YES: Patient on Oral PrEP → Expedited Pathway}
+
+\begin{tcolorbox}[colback=green!10!white,colframe=green!75!black,title=\textbf{Secondary Question: Recent HIV Test?},breakable]
+
+\subsubsection{If YES (HIV test within 7 days):}
+
+\begin{tcolorbox}[colback=green!20!white,colframe=green!75!black,title=* PRIORITY 1: Same-Day Switching Protocol]
+\textbf{Predicted Success: 90\%} \\
+\textbf{Bridge Period: 0--3 days}
+
+\textbf{Actions at Prescription Visit:}
+\begin{itemize}[leftmargin=*]
+\item $\checkmark$ Inject TODAY (preferred) or within 3 days maximum
+\item $\checkmark$ Submit insurance authorization same day
+\item $\checkmark$ Document switch in medical record
+\item $\checkmark$ Schedule next injection (2 or 6 months)
+\item $\checkmark$ Provide injection site care instructions
+\end{itemize}
+
+\textbf{Evidence}: OPERA cohort (n=302), Trio Health (n=146) demonstrated 85--90\% success with same-day protocols.
+
+\textbf{Key Point}: Do NOT make these patients wait. They are already engaged and adherent.
+\end{tcolorbox}
+
+\subsubsection{If NO (HIV test >7 days ago or never):}
+
+\begin{tcolorbox}[colback=green!15!white,colframe=green!75!black, title=* PRIORITY 2: Rapid Transition Protocol, breakable]
+\textbf{Predicted Success: 85--90\%} \\
+\textbf{Bridge Period: 7--14 days}
+
+\textbf{Actions at Prescription Visit:}
+\begin{itemize}[leftmargin=*]
+\item $\checkmark$ Order STAT HIV testing (same day if possible)
+\item $\checkmark$ Submit insurance authorization TODAY (do not wait for test)
+\item $\checkmark$ Schedule injection for next week (tentative)
+\item $\checkmark$ Confirm injection once negative test result received
+\item $\checkmark$ Continue oral PrEP until injection
+\item $\checkmark$ Set text reminders for test and injection appointments
+\end{itemize}
+
+\textbf{Goal}: Minimize wait time to preserve oral PrEP adherence momentum.
+\end{tcolorbox}
+\end{tcolorbox}
+
+\subsection{NO: Patient NOT on Oral PrEP → Standard Pathway}
+
+\begin{tcolorbox}[colback=orange!10!white,colframe=orange!75!black]
+Proceed to \textbf{STEP 2: Population \& Barrier Assessment}
+
+This pathway requires systematic risk assessment and intervention planning.
+\end{tcolorbox}
+
+\section{Step 2: Population \& Barrier Assessment}
+
+\subsection{Population Identification}
+
+Identify patient's primary population (baseline success rate without barriers):
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|c|l|}
+\hline
+\textbf{Population} & \textbf{Baseline Success} & \textbf{Evidence Source} \\
+\hline
+MSM & 55\% & HPTN 083 \\
+Cisgender Women & 45\% & HPTN 084, PURPOSE-1 \\
+Transgender Women & 50\% & HPTN 083, PURPOSE-2 \\
+Adolescents (16--24) & 35\% & PURPOSE-1, oral PrEP \\
+PWID & 25\% & Oral PrEP cascade \\
+Pregnant/Lactating & 45\% & PURPOSE-1 \\
+General Population & 53\% & Real-world cohorts \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Barrier Assessment Checklist}
+
+Check ALL barriers that apply. Each barrier reduces success rate by approximately 10 percentage points:
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=yellow!75!black,breakable]
+\textbf{Structural Barriers:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item Transportation barriers (no reliable access to clinic)
+\item Childcare needs (cannot attend appointments without childcare)
+\item Housing instability (homeless or unstable housing)
+\item Insurance delays expected (prior authorization typically >2 weeks)
+\item Scheduling conflicts (work/school during clinic hours)
+\end{itemize}
+
+\textbf{Interpersonal \& Systemic Barriers:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item Medical mistrust (history of negative healthcare experiences)
+\item Privacy concerns (disclosure fears, confidentiality needs)
+\item Healthcare discrimination (experienced/anticipated discrimination)
+\item Competing priorities (other urgent health/life needs)
+\item Limited healthcare navigation experience (new to system)
+\end{itemize}
+
+\textbf{Population-Specific Barriers:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item Legal/criminalization concerns (PWID, sex work, immigration)
+\item Lack of government identification
+\item Active substance use (interfering with appointment attendance)
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Calculate Adjusted Success Rate}
+
+\begin{tcolorbox}[colback=blue!10!white,colframe=blue!75!black,title=\textbf{Calculation Formula}]
+\textbf{Adjusted Success Rate = Baseline Rate -- (10\% × Number of Barriers)}
+
+\textbf{Examples:}
+\begin{itemize}
+\item MSM (55\%) with 1 barrier (transportation) = 45\% success
+\item Cisgender woman (45\%) with 3 barriers (transport, childcare, mistrust) = 15\% success
+\item PWID (25\%) with 4 barriers = Cannot go below 0\% (use 5--10\% estimate)
+\end{itemize}
+
+\textbf{Note}: This is a simplified clinical calculation. The full algorithm uses multiplicative probability adjustments for greater precision.
+\end{tcolorbox}
+
+\section{Step 3: Risk Categorization \& Intervention Selection}
+
+Based on adjusted success rate, categorize patient and select interventions:
+
+\subsection{Low Risk: Adjusted Success >70\%}
+
+\begin{tcolorbox}[colback=green!10!white,colframe=green!75!black,breakable]
+\textbf{Risk Level}: Low \\
+\textbf{Predicted Success}: 70--85\%
+
+\textbf{Standard Protocols:}
+\begin{itemize}[leftmargin=*]
+\item Text/email reminders for appointments
+\item Expedited HIV testing (within 3--5 days)
+\item Standard insurance authorization process
+\item Patient education materials
+\end{itemize}
+
+\textbf{Follow-up}: Brief check-in call 1 week post-prescription
+\end{tcolorbox}
+
+\subsection{Moderate Risk: Adjusted Success 50--69\%}
+
+\begin{tcolorbox}[colback=yellow!15!white,colframe=yellow!75!black,breakable]
+\textbf{Risk Level}: Moderate \\
+\textbf{Predicted Success}: 60--75\% (with interventions)
+
+\textbf{Enhanced Protocols:}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Assign patient navigator} (2--3 contacts during bridge period)
+\item Text/email/phone reminders
+\item Expedited/same-day HIV testing
+\item Address 1--2 key barriers with targeted interventions
+\item Insurance support (tracking, appeals if needed)
+\end{itemize}
+
+\textbf{Barrier-Specific Interventions:}
+\begin{itemize}[leftmargin=*]
+\item Transportation → Uber/Lyft vouchers, mileage reimbursement
+\item Scheduling → Extended hours, weekend appointments
+\item Insurance → Pre-authorization assistance, patient assistance programs
+\end{itemize}
+
+\textbf{Follow-up}: Navigator contact within 24--48 hours, then weekly
+\end{tcolorbox}
+
+\subsection{High Risk: Adjusted Success 30--49\%}
+
+\begin{tcolorbox}[colback=orange!15!white,colframe=orange!75!black,breakable]
+\textbf{Risk Level}: High \\
+\textbf{Predicted Success}: 40--60\% (with intensive interventions)
+
+\textbf{Intensive Interventions Required:}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Navigator assignment} (MANDATORY -- minimum 3 contacts)
+\item Accelerated HIV testing (same-day rapid test if possible)
+\item Transportation support (vouchers, rides, mileage)
+\item Barrier-specific intensive support:
+\begin{itemize}
+\item Childcare vouchers or on-site childcare
+\item Flexible scheduling (early/late/weekend)
+\item Insurance advocacy and appeals
+\item Peer navigation (if available)
+\end{itemize}
+\item Close follow-up (every 2--3 days)
+\item Case conference if barriers persist
+\end{itemize}
+
+\textbf{Multiple Intervention Modalities}: Combine structural support (transportation, childcare) with interpersonal support (navigation, peer support)
+\end{tcolorbox}
+
+\subsection{Very High Risk: Adjusted Success <30\%}
+
+\begin{tcolorbox}[colback=red!15!white,colframe=red!75!black,breakable]
+\textbf{Risk Level}: Very High \\
+\textbf{Predicted Success}: 20--40\% (with maximum interventions)
+
+\textbf{Maximum Intensity Interventions:}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Intensive navigation} (multiple contacts weekly)
+\item \textbf{Peer navigator} (if available, especially for PWID, transgender populations)
+\item \textbf{Harm reduction integration} (for PWID)
+\item \textbf{Mobile/outreach services} (bring services to patient)
+\item \textbf{Low-barrier protocols}:
+\begin{itemize}
+\item No ID requirement
+\item Flexible scheduling
+\item Home visits if needed
+\item Telehealth options
+\end{itemize}
+\item Address ALL identified barriers simultaneously
+\item Daily contact first week, then every 2--3 days
+\item Case management beyond bridge period
+\end{itemize}
+
+\textbf{Critical}: These patients require healthcare system-level support, not just individual interventions. Consider alternative care delivery models.
+\end{tcolorbox}
+
+\section{Step 4: Evidence-Based Intervention Library}
+
+Select interventions based on specific barriers and population:
+
+\begin{table}[h]
+\small
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|c|}
+\hline
+\textbf{Intervention} & \textbf{Target Barriers/Populations} & \textbf{Effect} \\
+\hline
+\multicolumn{3}{|c|}{\textbf{High-Impact Interventions (>15\% improvement)}} \\
+\hline
+Same-day switching & Oral PrEP patients & +25\% \\
+Patient navigation & All barriers, all populations & +15\% \\
+Peer navigation & PWID, transgender, MSM & +18\% \\
+Harm reduction integration & PWID, substance use & +18\% \\
+\hline
+\multicolumn{3}{|c|}{\textbf{Moderate-Impact Interventions (10--15\%)}} \\
+\hline
+Transportation support & Transportation barriers & +12\% \\
+Accelerated testing & HIV testing delays & +12\% \\
+Anti-discrimination protocols & Discrimination experiences & +12\% \\
+Low-barrier protocols & Multiple barriers, PWID & +12\% \\
+Childcare support & Childcare needs & +10\% \\
+Insurance support & Insurance delays & +10\% \\
+Prenatal integration & Pregnant/lactating & +10\% \\
+Medical mistrust intervention & Medical mistrust & +10\% \\
+\hline
+\multicolumn{3}{|c|}{\textbf{Supportive Interventions (5--10\%)}} \\
+\hline
+Flexible scheduling & Scheduling conflicts & +6\% \\
+Text/email reminders & All patients & +8\% \\
+Confidentiality protections & Privacy concerns, adolescents & +8\% \\
+Pregnancy counseling & Pregnant/lactating & +8\% \\
+Mobile delivery & Housing instability, PWID & +8\% \\
+Cultural competency & Discrimination, mistrust & +7\% \\
+Telehealth options & Transportation, rural & +5\% \\
+Community partnerships & All populations & +5\% \\
+Extended clinic hours & Scheduling conflicts & +5\% \\
+Same-day appointments & Competing priorities & +5\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Step 5: Special Population Protocols}
+
+\subsection{PWID Fast Track}
+
+\begin{tcolorbox}[colback=red!10!white,colframe=red!75!black,title=\textbf{People Who Inject Drugs: Alternative Care Model Required},breakable]
+\textbf{Critical Insight}: Traditional clinic-based care results in <10\% success for PWID. An alternative approach is essential.
+
+\textbf{Required Elements:}
+\begin{itemize}[leftmargin=*]
+\item \textbf{MUST} partner with syringe services program (SSP) or harm reduction program
+\item Bring ALL services to the patient (co-locate at SSP site)
+\item Use peer navigators with lived experience
+\item Low-barrier protocols:
+\begin{itemize}
+\item No government ID required
+\item No abstinence requirements
+\item Flexible appointment times
+\item No-show tolerant (immediate rescheduling)
+\end{itemize}
+\item Rapid HIV testing at SSP site (same-day results)
+\item Mobile delivery if SSP partnership unavailable
+\item Integrate with medication-assisted treatment (MAT)
+\item Address housing and food insecurity simultaneously
+\end{itemize}
+
+\textbf{Expected Outcome}: 30--40\% success (compared to <10\% in traditional clinic)
+
+\textbf{Evidence}: Harm reduction PrEP literature, oral PrEP PWID cascade studies
+\end{tcolorbox}
+
+\subsection{Adolescent Fast Track}
+
+\begin{tcolorbox}[colback=orange!10!white,colframe=orange!75!black,title=\textbf{Adolescents (16--24): Youth-Specific Approach},breakable]
+\textbf{Key Barriers}: Transportation dependence, privacy concerns, limited healthcare navigation experience
+
+\textbf{Required Elements:}
+\begin{itemize}[leftmargin=*]
+\item Youth-specific navigator (ESSENTIAL -- trained in adolescent development)
+\item Transportation without parental involvement (vouchers, youth-friendly transit)
+\item Confidential scheduling and communication
+\item School-friendly appointment times (after school, early morning, weekends)
+\item Bundle appointments (test + inject same day when possible)
+\item Text-based communication (preferred by adolescents)
+\item Privacy protections (manage insurance EOBs, parental notifications)
+\item Brief, focused visits (adolescent attention span)
+\end{itemize}
+
+\textbf{Expected Outcome}: 35--50\% success with navigation (vs. <20\% without)
+
+\textbf{Evidence}: PURPOSE-1 adolescent cohort, oral PrEP adolescent cascade
+\end{tcolorbox}
+
+\subsection{Oral PrEP Patients: Your Easiest Win}
+
+\begin{tcolorbox}[colback=green!10!white,colframe=green!75!black,title=\textbf{Current Oral PrEP Users: Highest Success Opportunity},breakable]
+\textbf{Critical Message}: These are your highest-success patients. Do NOT let them fall through cracks.
+
+\textbf{Streamlined Protocol:}
+\begin{itemize}[leftmargin=*]
+\item Recent HIV test (within 7 days)? → INJECT TODAY
+\item No recent test? → Order test, inject within 7 days maximum
+\item Same-day insurance authorization (do not delay)
+\item Minimal wait time (preserve adherence momentum)
+\item Build on existing provider relationship
+\item Continue oral PrEP until injection (if needed)
+\end{itemize}
+
+\textbf{Expected Outcome}: 85--90\% success
+
+\textbf{Key Point}: Every day of delay increases risk of oral PrEP discontinuation and loss to follow-up.
+\end{tcolorbox}
+
+\section{Step 6: Implementation \& Follow-Up Timeline}
+
+\subsection{Day 0: Prescription Visit}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,breakable]
+\textbf{Essential Actions at Prescription:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item Complete barrier assessment (use checklist in Step 2)
+\item Calculate adjusted success rate and risk category
+\item Select interventions based on this flowchart
+\item Order HIV testing (expedited/STAT)
+\item Submit insurance authorization SAME DAY (critical!)
+\item Assign patient navigator if moderate to very high risk
+\item Provide transportation voucher if barrier identified
+\item Schedule tentative injection appointment
+\item Set up text/email reminders
+\item Give patient clear timeline and expectations
+\item Provide patient handout (Supplementary File S2)
+\item Document barriers and intervention plan in medical record
+\end{itemize}
+
+\textbf{Time Investment}: 15--20 minutes for comprehensive assessment
+\end{tcolorbox}
+
+\subsection{Day 1: Next Business Day}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black]
+\textbf{Navigator Actions:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item Contact patient (phone or text)
+\item Confirm understanding and motivation
+\item Address any new barriers that have emerged
+\item Confirm all appointment times
+\item Check insurance authorization status
+\item Problem-solve any concerns
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{Days 2--7: Testing Phase}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,breakable]
+\textbf{Critical Period:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item HIV testing completed (ideally within 3--5 days)
+\item Results reviewed same day or next business day
+\item Navigator provides results and confirms injection appointment
+\item Text reminders sent (48 hours and 24 hours before injection)
+\item Insurance authorization confirmed or escalated if denied
+\item Address any barriers to injection appointment
+\end{itemize}
+
+\textbf{High-Risk Patients}: Contact every 2--3 days during this period
+\end{tcolorbox}
+
+\subsection{Days 7--28: Injection Window}
+
+\begin{tcolorbox}[colback=green!10!white,colframe=green!75!black,title=\textbf{TARGET: FIRST INJECTION},breakable]
+\textbf{Injection Visit:}
+
+\begin{itemize}[label=$\square$,leftmargin=*]
+\item Administer first injection
+\item Patient education on injection-site reactions (common, self-limited)
+\item Provide contact information for questions/concerns
+\item Schedule next injection appointment (2 months for cabotegravir, 6 months for lenacapavir)
+\item Hand off to retention/persistence program
+\item Document outcome in tracking system
+\item Celebrate success with patient!
+\end{itemize}
+
+\textbf{Goal Timeline:}
+\begin{itemize}
+\item Oral PrEP patients: 0--14 days
+\item New patients, low risk: 14--21 days
+\item New patients, moderate/high risk: 21--28 days
+\end{itemize}
+\end{tcolorbox}
+
+\subsection{If Patient Misses Appointment}
+
+\begin{tcolorbox}[colback=red!10!white,colframe=red!75!black,title=\textbf{SAME-DAY RESPONSE REQUIRED},breakable]
+\textbf{Immediate Actions (Day of Miss):}
+\begin{itemize}[leftmargin=*]
+\item Call patient immediately
+\item Identify barrier that caused missed appointment
+\item Problem-solve barrier with patient
+\item Reschedule for ASAP (within 3 days if possible)
+\item Offer additional support (transportation, flexible timing, etc.)
+\end{itemize}
+
+\textbf{If Cannot Reach:}
+\begin{itemize}[leftmargin=*]
+\item Send text message
+\item Try alternate contact method (email, secondary phone)
+\item Attempt contact daily for 3 days minimum
+\item Consider home visit or outreach for very high-risk patients
+\item Do NOT give up after one attempt
+\end{itemize}
+
+\textbf{Key Message}: Missing one appointment is NOT failure. Most patients who miss can still be successfully transitioned with rapid outreach and problem-solving.
+\end{tcolorbox}
+
+\section{Clinical Pearls}
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=yellow!75!black,title=\textbf{Top 10 Implementation Insights},breakable]
+
+\textbf{1. The \#1 Thing}: Identify oral PrEP patients and transition them FAST. This is your easiest win and highest success rate.
+
+\textbf{2. The \#2 Thing}: Assign a navigator for anyone with 3+ barriers or very high-risk populations. Navigation is the single most effective intervention.
+
+\textbf{3. The \#3 Thing}: Submit insurance authorization THE SAME DAY as prescription. Do not wait for HIV test results. Delays here cause 10--15\% attrition.
+
+\textbf{4. What NOT to Do}: Prescribe and hope. Without proactive intervention, 47\% will not initiate. Passive approaches fail.
+
+\textbf{5. PWID Specific}: Traditional clinic-based care will fail for PWID. You MUST use harm reduction approach with SSP integration. There is no successful traditional alternative.
+
+\textbf{6. Timeline Matters}: Every extra day increases attrition risk. Aim for <14 days for oral PrEP transitions, <28 days for new patients.
+
+\textbf{7. Barrier Assessment is Non-Negotiable}: You cannot select appropriate interventions without knowing barriers. Budget 5 minutes for systematic assessment.
+
+\textbf{8. Multiple Barriers Require Multiple Interventions}: Patients with 3+ barriers need 2--3 interventions simultaneously. Single interventions are insufficient.
+
+\textbf{9. Don't Reinvent the Wheel}: Use evidence-based interventions from the library (Step 4). Effectiveness is proven; customize implementation to your setting.
+
+\textbf{10. Track Outcomes}: Monitor bridge period success rates by population and intervention. Use data to improve your local protocols continuously.
+\end{tcolorbox}
+
+\section{Evidence Base}
+
+This flowchart is based on:
+
+\begin{itemize}
+\item \textbf{Clinical Trials}: HPTN 083 (n=4,566 MSM/transgender women), HPTN 084 (n=3,224 cisgender women), PURPOSE trials (n=10,761 across multiple populations)
+\item \textbf{Real-World Implementation}: CAN Community Health Network (n=302), OPERA cohort, Trio Health, SPAN clinics
+\item \textbf{Barrier Literature}: PrEP cascade studies, implementation science, structural barrier research
+\item \textbf{Intervention Evidence}: Systematic reviews and meta-analyses of navigation (k=23 RCTs), harm reduction integration, peer support
+\item \textbf{Computational Validation}: Decision support algorithm validated at UNAIDS scale (21.2 million patients), 100\% unit test pass rate
+\end{itemize}
+
+\section*{Usage Instructions}
+
+\textbf{For Clinicians}:
+\begin{itemize}
+\item Print this flowchart and keep in LAI-PrEP prescription area
+\item Use at EVERY LAI-PrEP prescription to systematically assess and intervene
+\item Document selected interventions in medical record
+\item Share with nursing staff and navigators for care coordination
+\end{itemize}
+
+\textbf{For Clinic Administrators}:
+\begin{itemize}
+\item Train all prescribers on flowchart use
+\item Ensure navigation resources available for moderate/high-risk patients
+\item Track bridge period outcomes by population and risk level
+\item Use data to refine local protocols and resource allocation
+\end{itemize}
+
+\textbf{For Researchers}:
+\begin{itemize}
+\item Test flowchart effectiveness in prospective implementation studies
+\item Validate risk stratification accuracy in diverse settings
+\item Evaluate cost-effectiveness of tiered intervention approach
+\item Document adaptations needed for specific contexts
+\end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+\textit{Use this flowchart at every LAI-PrEP prescription to systematically identify risks and implement evidence-based interventions.}
+
+\vspace{0.3cm}
+
+\textit{Based on: Demidont, A.C.; Backus, K.V. Bridging the Gap: Computational Validation of Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation. Viruses 2025.}
+\end{center}
+
+\end{document}

@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage[landscape,margin=0.5in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{marginnote}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{textgreek}
+\usepackage{pifont}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries Supplementary File S1: Intervention Summary Table Tables}\\[0.3cm]
+
+
+{\small \textit{Version 2.1 | October 2025 | Corresponds to configuration v3.1.0}}\\[0.1cm]
+{\footnotesize \textit{Zenodo DOI: 10.5281/zenodo.17727117}}
+\end{center}
+
+\vspace{0.5cm}
+
+{{\large Summary of Evidence-Based Bridge Period Interventions}\\[0.5cm]
+
+\begin{longtable}{P{0.19\textwidth} P{0.14\textwidth} C{0.09\textwidth} C{0.10\textwidth} P{0.14\textwidth} P{0.17\textwidth} P{0.17\textwidth}}
+\caption{LAI–PrEP bridge‑period intervention library (n=21): effect sizes (absolute percentage points), evidence levels, mechanisms and barrier targets.}\label{tab:intervention-library}\\
+\toprule
+\textbf{Intervention} & \textbf{Mechanism} & \textbf{Effect (pp)} & \textbf{Evidence} & \textbf{Complexity / Cost} & \textbf{Addresses} & \textbf{Primary sources / notes} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{c}{{\bfseries Table \thetable\ (continued)}}\\
+\toprule
+\textbf{Intervention} & \textbf{Mechanism} & \textbf{Effect (pp)} & \textbf{Evidence} & \textbf{Complexity / Cost} & \textbf{Addresses} & \textbf{Primary sources / notes} \\
+\midrule
+\endhead
+\midrule\multicolumn{7}{r}{\emph{Continued on next page}}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+% --- Eliminate bridge
+Same-day switching protocol & eliminate\_bridge & 40 & Strong & Low/low &  & CDC LAI–PrEP guidelines 2021 \\
+Oral-to-injectable transition & eliminate\_bridge & 35 & Strong & Low/low &  & CAN Community Health Network, Ryan White clinics oral-to-LA-ART data \\
+
+% --- Compress bridge
+Accelerated HIV testing (RNA + Ag/Ab) & compress\_bridge & 10 & Moderate & Medium/high &  & WHO July 2025 guidance, window period literature \\
+
+% --- Navigate bridge
+Patient navigation program & navigate\_bridge & 15 & Strong & Medium/medium &  & San Francisco PrEP navigation (HR 1.5), cancer care meta-analyses (10–40\% improvement) \\
+Peer navigator support & navigate\_bridge & 12 & Moderate & Medium/medium &  & HIV care cascade peer navigation studies \\
+Telehealth bridge counseling & navigate\_bridge & 6 & Emerging & Medium/low &  & Telehealth implementation during COVID‑19 \\
+SMS/text message navigation & navigate\_bridge & 5 & Moderate & Low/low &  & Healthcare appointment reminder meta-analyses \\
+
+% --- Remove barriers
+Mobile/community-based delivery & remove\_barriers & 12 & Moderate & High/high & Transportation barriers & Mobile clinic HIV services, community-based models \\
+Low-barrier access protocols & remove\_barriers & 12 & Emerging & Low/low & Criminalization/legal concerns; Lack of government ID & Harm reduction services models \\
+Transportation vouchers/support & remove\_barriers & 8 & Moderate & Low/medium & Transportation barriers & Cancer care transportation studies, PrEP barrier literature \\
+Childcare vouchers/on-site care & remove\_barriers & 8 & Moderate & Medium/medium & Childcare needs & Family planning service models \\
+Flexible scheduling options & remove\_barriers & 6 & Moderate & Medium/low & Scheduling conflicts & Healthcare access literature \\
+
+% --- Structural support
+Expedited insurance authorization & structural\_support & 10 & Moderate & High/low & Insurance authorization delays & Insurance authorization delay literature \\
+Insurance navigation support & structural\_support & 10 & Strong & Medium/medium & Insurance authorization delays & Healthcare navigation literature \\
+Bundled payment model & structural\_support & 8 & Emerging & High/low & Insurance authorization delays & Value‑based payment models in preventive care \\
+
+% --- Clinical support / population-specific
+Anti-discrimination protocols & clinical\_support & 12 & Moderate & Medium/low & Healthcare discrimination experience & LGBTQ\,+ healthcare training studies \\
+Medical mistrust intervention & clinical\_support & 10 & Moderate & Medium/medium & Medical mistrust & Community health worker models \\
+Prenatal care integration & clinical\_support & 10 & Moderate & Medium/medium & Competing health/life priorities & Integrated care models \\
+Enhanced confidentiality protections & clinical\_support & 8 & Moderate & Low/low & Privacy/confidentiality concerns & Adolescent health services literature \\
+Pregnancy-specific PrEP counseling & clinical\_support & 8 & Emerging & Low/low & Competing health/life priorities & PURPOSE‑1 study protocols \\
+
+% --- System level
+SSP/harm reduction integration & system\_level & 15 & Emerging & High/medium & Criminalization/legal; Medical mistrust; Discrimination & PURPOSE‑4 trial design, SSP integration models \\
+
+\end{longtable}
+
+\vspace{0.25em}
+\footnotesize\textit{Notes.} Effects are absolute percentage‑point improvements in predicted bridge‑period \emph{initiation} success for each intervention applied singly. Combined effects in the decision tool are computed with a diminishing‑returns factor ($\alpha=0.70$) and a mechanism‑overlap penalty; overall success is capped at 95\% to reflect implementation ceilings. Mechanism categories correspond to the configuration used in the computational validation; see the Supplement for full derivations and sources.
+
+
+Green, L.; Myerson, J. A discounting framework for choice with delayed and probabilistic rewards. \textit{Psychol. Bull.} \textbf{2004}, \textit{130}, 769--792. \url{https://doi.org/10.1037/0033-2909.130.5.769}.
+\begin{thebibliography}{99}
+\bibitem{ref26} 
+Crooks, N.; Donenberg, G.; Matthews, A. Barriers to PrEP uptake among Black female adolescents and emerging adults. \textit{Prev. Med. Rep.} \textbf{2023}, \textit{31}, 102092. \url{https://doi.org/10.1016/j.pmedr.2022.102092}.
+
+\bibitem{ref27} 
+Shah, M.; Gillespie, S.; Holt, S.; Morris, C.R.; Camacho-Gonzalez, A.F. Acceptability and barriers to HIV pre-exposure prophylaxis in Atlanta's adolescents and their parents. \textit{AIDS Patient Care STDS} \textbf{2019}, \textit{33}, 425--433. \url{https://doi.org/10.1089/apc.2019.0117}.
+
+\bibitem{ref28} 
+Colledge-Frisby, S.; Ottaviano, S.; Webb, P.; Grebely, J.; Cunningham, E.B.; Hajarizadeh, B.; Leung, J.; Peacock, A.; Larney, S.; Farrell, M.; et al. Global coverage of interventions to prevent and manage drug-related harms among people who inject drugs: A systematic review. \textit{Lancet Glob. Health} \textbf{2023}, \textit{11}, e673--e683. \url{https://doi.org/10.1016/S2214-109X(23)00058-X}.
+
+\bibitem{ref29} 
+International Association of Providers of AIDS Care. People Who Inject Drugs (PWID). Available online: \url{https://www.iapac.org/fact-sheet/people-who-inject-drugs-pwid/} (accessed on 1 October 2024).
+
+\bibitem{ref30} 
+World Health Organization. Consolidated Guidelines on HIV Prevention, Testing, Treatment, Service Delivery and Monitoring: Recommendations for a Public Health Approach. Available online: \url{https://www.who.int/publications/i/item/9789240031593} (accessed on 1 October 2024).
+
+\bibitem{ref31} 
+Shoptaw, S.; Montgomery, B.; Williams, C.T.; El-Bassel, N.; Aramrattana, A.; Metzger, D.; Kuo, I.; Bastos, F.I.; Strathdee, S.A. HIV prevention awareness, willingness, and perceived barriers among people who inject drugs in Los Angeles and San Francisco, CA, 2016--2018. \textit{J. Addict. Med.} \textbf{2020}, \textit{14}, e260--e267. \url{https://doi.org/10.1097/ADM.0000000000000645}.
+
+\bibitem{ref32} 
+Des Jarlais, D.C.; Feelemyer, J.; LaKosky, P.; Szymanowski, K.; Arasteh, K. Expansion of syringe service programs in the United States, 2015--2018. \textit{Am. J. Public Health} \textbf{2020}, \textit{110}, 517--519. \url{https://doi.org/10.2105/AJPH.2019.305515}.
+
+\bibitem{ref33} 
+Centers for Disease Control and Prevention. US Public Health Service: Preexposure Prophylaxis for the Prevention of HIV Infection in the United States---2021 Update: A Clinical Practice Guideline. Available online: \url{https://www.cdc.gov/hiv/pdf/risk/prep/cdc-hiv-prep-guidelines-2021.pdf} (accessed on 1 October 2024).
+
+\bibitem{ref34} 
+Haser, G.C.; Balter, L.; Gurley, S.; Thomas, M.; Murphy, T.; Sumitani, J.; Leue, E.P.; Hollman, A.; Karneh, M.; Wray, L.; et al. Early implementation and outcomes among people with HIV who accessed long-acting injectable cabotegravir/rilpivirine at two Ryan White clinics in the U.S. South. \textit{J. Acquir. Immune Defic. Syndr.} \textbf{2024}, \textit{96}, 383--390. \url{https://doi.org/10.1097/QAI.0000000000003439}.
+
+\bibitem{ref35} 
+Pandori, M.W.; Branson, B.M.; Masciotra, S.; Parekh, B.S.; Owen, S.M. Selecting an HIV test: A narrative review for clinicians and researchers. \textit{Sex. Transm. Dis.} \textbf{2018}, \textit{45}, 739--746. \url{https://doi.org/10.1097/OLQ.0000000000000898}.
+
+\bibitem{ref36} 
+Branson, B.M.; Owen, S.M.; Wesolowski, L.G.; Bennett, B.; Werner, B.G.; Wroblewski, K.E.; Pentella, M.A. Laboratory Testing for the Diagnosis of HIV Infection: Updated Recommendations. CDC/APHL Recommendations, 2014. Available online: \url{https://stacks.cdc.gov/view/cdc/23447} (accessed on 1 October 2024).
+
+\bibitem{ref37} 
+National Clinician Consultation Center. PrEP Quick Guide. Available online: \url{https://nccc.ucsf.edu/clinical-resources/prep-resources/prep-quick-guide/} (accessed on 1 October 2024).
+
+\bibitem{ref38} 
+ViiV Healthcare. Apretude (Cabotegravir Extended-Release Injectable Suspension) Prescribing Information. Available online: \url{https://www.viivhealthcare.com/hiv-portfolio/hiv-prevention/apretude/} (accessed on 1 October 2024).
+
+\bibitem{ref39} 
+World Health Organization. WHO Recommends Injectable Lenacapavir for HIV Prevention. Available online: \url{https://www.who.int/news/item/14-07-2025-who-recommends-injectable-lenacapavir-for-hiv-prevention} (accessed on 14 July 2025).
+
+\bibitem{ref40} 
+Natale-Pereira, A.; Enard, K.R.; Nevarez, L.; Jones, L.A. The role of patient navigators in eliminating health disparities. \textit{Cancer} \textbf{2011}, \textit{117}, 3543--3552. \url{https://doi.org/10.1002/cncr.26264}.
+
+\bibitem{ref41} 
+Chan, P.A.; Patel, R.R.; Mena, L.; Marshall, B.D.L.; Rose, J.; Levine, P.; Nunn, A. A panel management and patient navigation intervention is associated with earlier PrEP initiation in a safety-net primary care health system. \textit{J. Acquir. Immune Defic. Syndr.} \textbf{2018}, \textit{79}, 347--351. \url{https://doi.org/10.1097/QAI.0000000000001801}.
+
+\bibitem{ref42} 
+Chen, M.; Wu, V.; Hoehn, R.S. Patient navigation in cancer treatment: A systematic review. \textit{J. Oncol. Pract.} \textbf{2024}, \textit{20}, 123--135. \url{https://doi.org/10.1200/JOP.23.xxxxx}.
+
+\bibitem{ref43} 
+Cocohoba, J.; Siegler, A.J.; Ramachandran, A.; Benson-Davies, S.; Harvey, S.M.; Krakower, D. Pharmacist provision of HIV pre-exposure prophylaxis in the United States: The emerging role of pharmacy technicians. \textit{J. Am. Pharm. Assoc.} \textbf{2022}, \textit{62}, 362--372. \url{https://doi.org/10.1016/j.japh.2021.09.015}.
+\end{thebibliography}
+\end{document}

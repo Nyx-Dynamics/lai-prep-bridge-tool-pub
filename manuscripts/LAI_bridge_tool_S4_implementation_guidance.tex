@@ -1,0 +1,539 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{blue!50!black}}{\thesubsection}{1em}{}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries Supplementary File S4}\\[0.3cm]
+{\LARGE Implementation Guide for LAI-PrEP Bridge Period Decision Support Tool}\\[0.5cm]
+{\large Computational Validation of Clinical Decision Support Algorithm}\\
+{\large for Long-Acting Injectable PrEP Bridge Period Navigation}\\[0.3cm]
+{\normalsize A.C Demidont, DO}\\[0.2cm]
+{\small\textit{Viruses} Journal Supplementary Materials}
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Purpose of This Guide}
+
+This implementation guide provides preliminary protocols and recommendations for prospective validation of the LAI-PrEP Bridge Period Decision Support Tool. \textbf{Important caveats:}
+
+\begin{itemize}
+\item These materials are \textbf{preliminary} and require refinement through actual implementation experience
+\item Computational validation establishes algorithmic precision, not clinical readiness for unrestricted deployment
+\item All recommendations should be adapted to local context, resources, and patient populations
+\item Prospective validation with real patient outcomes is essential before widespread adoption
+\item Implementation teams should document both successes and failures to enable continuous learning
+\end{itemize}
+
+\section{Staged Implementation Pathway}
+
+Based on our computational validation findings and critical assessment of AI suitability, we propose a structured implementation pathway balancing innovation urgency with patient safety.
+
+\subsection{Phase 1: Immediate Actions (0--6 months)}
+
+\subsubsection{Pilot Site Selection}
+
+Identify \textbf{2--3 diverse clinical settings} representing populations with different baseline success rates and barrier profiles:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Suggested site types:}
+\begin{itemize}
+\item Urban academic center serving men who have sex with men (MSM) --- typically highest baseline success rates but potential insurance/authorization barriers
+\item Community clinic serving cisgender women in high-prevalence area --- moderate baseline rates with transportation, childcare, and structural barriers
+\item Harm reduction program serving people who inject drugs (PWID) --- lowest baseline rates with substance use, stigma, and housing instability barriers
+\end{itemize}
+
+\item \textbf{Site selection criteria:}
+\begin{itemize}
+\item LAI-PrEP prescribing volume: minimum 20--30 patients/year anticipated
+\item Institutional commitment to systematic outcome tracking
+\item Availability of patient navigation or case management resources
+\item Diverse patient population for subgroup analyses
+\item Electronic health record capabilities for data collection
+\item Research infrastructure or quality improvement expertise
+\end{itemize}
+
+\item \textbf{Sample size considerations:}
+\begin{itemize}
+\item Target 50--100 patients per site over 6--12 months
+\item Minimum 150 total patients across all pilot sites for adequate statistical power
+\item Oversample populations with lower baseline success rates (women, PWID, adolescents) to enable equity analyses
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Institutional Review and Adaptation}
+
+Local implementation teams should critically review the external configuration file (\texttt{lai\_prep\_config.json}):
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Barrier prevalence assessment:}
+\begin{itemize}
+\item Do local barrier prevalence rates match national estimates in the configuration?
+\item Example: If local MSM population has 15\% insurance barriers (vs.\ 28\% national), adjust \texttt{insurance\_auth\_barrier\_rate}
+\item Document all parameter modifications with justification
+\end{itemize}
+
+\item \textbf{Intervention availability audit:}
+\begin{itemize}
+\item Which of the 21 interventions are actually available locally?
+\item Example: If expedited HIV testing not available, set \texttt{effect\_size} to 0 for that intervention
+\item Identify locally-available interventions not in the library (candidates for addition)
+\end{itemize}
+
+\item \textbf{Effect size calibration:}
+\begin{itemize}
+\item Are national effect size estimates appropriate for local context?
+\item Example: Patient navigation may have different effectiveness in rural vs.\ urban settings
+\item Consider local pilot data if available; otherwise use default values initially
+\end{itemize}
+
+\item \textbf{Population-specific baseline rates:}
+\begin{itemize}
+\item Review baseline bridge period success rates for each population
+\item Adjust if local data suggest different rates (e.g., high-performing clinic with strong navigation infrastructure)
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Clinician Training}
+
+Train providers to use the tool appropriately while maintaining clinical judgment:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Core competencies:}
+\begin{itemize}
+\item Interpret algorithmic output: understand risk scores, barrier profiles, intervention recommendations
+\item Recognize model limitations: identify when model assumptions may not fit specific patients
+\item Exercise clinical override: document decisions when clinical judgment differs from algorithm
+\item Provide patient-centered care: use recommendations as decision support, not replacement for human judgment
+\end{itemize}
+
+\item \textbf{Training curriculum (suggested 2--3 hour session):}
+\begin{itemize}
+\item \textit{Module 1 (30 min):} LAI-PrEP bridge period attrition crisis and evidence base
+\item \textit{Module 2 (45 min):} Tool architecture, intervention library, mechanism diversity scoring
+\item \textit{Module 3 (45 min):} Clinical case scenarios with tool output interpretation
+\item \textit{Module 4 (30 min):} Documentation requirements, override protocols, feedback mechanisms
+\end{itemize}
+
+\item \textbf{Ongoing support:}
+\begin{itemize}
+\item Weekly case conferences reviewing challenging patients
+\item Monthly calibration meetings comparing predicted vs.\ actual outcomes
+\item Access to implementation science team for technical questions
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Data Collection Protocols}
+
+Establish systematic outcome tracking infrastructure:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Required data elements:}
+\begin{itemize}
+\item Patient demographics: age, gender, race/ethnicity, socioeconomic indicators
+\item Population category: MSM, cisgender women, PWID, adolescents (may overlap)
+\item Baseline assessment: date of LAI-PrEP prescription, identified barriers, risk factors
+\item Algorithmic output: predicted success probability, recommended interventions, mechanism diversity score
+\item Interventions delivered: which recommendations implemented, fidelity assessment, timing
+\item Primary outcome: bridge period success (received first injection within 60 days) vs.\ attrition
+\item Secondary outcomes: time to first injection, barriers encountered, reasons for attrition
+\item Clinical overrides: instances where provider deviated from recommendations with justification
+\end{itemize}
+
+\item \textbf{Data quality assurance:}
+\begin{itemize}
+\item Real-time data entry with validation rules
+\item Monthly audits for completeness and accuracy
+\item Standardized definitions for barriers and interventions
+\item Regular calibration across sites to ensure consistent measurement
+\end{itemize}
+
+\item \textbf{Ethical considerations:}
+\begin{itemize}
+\item Institutional review board approval for research (if applicable)
+\item Quality improvement exemption (if applicable)
+\item Patient consent for data use
+\item Data privacy and security protocols (HIPAA compliance)
+\end{itemize}
+\end{enumerate}
+
+\subsection{Phase 2: Pilot Validation (6--12 months)}
+
+Conduct rigorous evaluation of algorithm performance with real patients:
+
+\subsubsection{Outcome Analysis}
+
+Collect and analyze \textbf{150--300 patient outcomes} across pilot sites:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Calibration assessment:}
+\begin{itemize}
+\item \textit{Overall calibration:} Do predicted success rates match actual rates?
+\item \textit{Subgroup calibration:} Evaluate separately for MSM, women, PWID, adolescents
+\item \textit{Risk stratification:} Compare outcomes across predicted risk quartiles
+\item \textit{Statistical tests:} Hosmer-Lemeshow goodness-of-fit, calibration plots
+\end{itemize}
+
+\item \textbf{Discrimination evaluation:}
+\begin{itemize}
+\item Does the tool effectively separate high-risk from low-risk patients?
+\item Calculate area under the receiver operating characteristic curve (AUROC)
+\item Assess sensitivity and specificity at different risk thresholds
+\item Evaluate positive and negative predictive values
+\end{itemize}
+
+\item \textbf{Intervention effectiveness:}
+\begin{itemize}
+\item Do recommended interventions achieve predicted improvements?
+\item Compare outcomes: interventions received vs.\ not received
+\item Assess dose-response: more interventions → better outcomes?
+\item Evaluate mechanism diversity: Do diverse mechanisms improve outcomes beyond number of interventions?
+\end{itemize}
+
+\item \textbf{Failure mode identification:}
+\begin{itemize}
+\item What patient characteristics result in inaccurate predictions?
+\item Identify barriers not adequately captured in the model
+\item Document intervention implementation challenges
+\item Analyze clinical override patterns (when and why providers deviated)
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Equity Analysis}
+
+Evaluate algorithmic fairness across populations:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Differential calibration:} Does accuracy vary by race, ethnicity, socioeconomic status?
+\item \textbf{Differential benefit:} Do interventions work equally well across subgroups?
+\item \textbf{Access equity:} Are recommended interventions equally available to all populations?
+\item \textbf{Outcome disparities:} Does tool use narrow or widen existing gaps in bridge period success?
+\end{enumerate}
+
+\subsubsection{Parameter Refinement}
+
+Based on pilot data, update configuration parameters:
+
+\begin{enumerate}[leftmargin=*]
+\item Revise barrier prevalence estimates where local rates differ from national
+\item Adjust intervention effect sizes based on observed outcomes
+\item Update population-specific baseline rates if needed
+\item Add new barriers or interventions identified during pilot
+\item Modify mechanism diversity scoring if redundancies observed
+\end{enumerate}
+
+\subsection{Phase 3: Multi-Site Expansion (12--24 months)}
+
+Scale to broader geographic and demographic diversity:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Site expansion:}
+\begin{itemize}
+\item Expand to \textbf{10--15 sites} representing diverse geographies, healthcare systems, and patient populations
+\item Include mix of academic medical centers, community health centers, harm reduction programs, and telehealth providers
+\item Target sites in high-HIV-burden regions (Southern U.S., urban epicenters, rural areas)
+\end{itemize}
+
+\item \textbf{Sample size goals:}
+\begin{itemize}
+\item Collect \textbf{500--1,000 patient outcomes} across all sites
+\item Ensure adequate representation: minimum 100 patients each for MSM, women, PWID, adolescents
+\item Oversample underrepresented populations for subgroup analyses
+\end{itemize}
+
+\item \textbf{Equity analyses:}
+\begin{itemize}
+\item Comprehensive calibration evaluation across race, ethnicity, gender, age, socioeconomic status
+\item Assess intervention access and effectiveness disparities
+\item Document health system adaptations needed to ensure equitable care
+\item Identify populations or settings where algorithm performs poorly
+\end{itemize}
+
+\item \textbf{Dissemination:}
+\begin{itemize}
+\item Publish validation results in peer-reviewed implementation science journal
+\item Present findings at scientific conferences (CROI, IAS, USCA)
+\item Release updated configuration files with refined parameters
+\item Develop implementation toolkit for other sites
+\end{itemize}
+\end{enumerate}
+
+\subsection{Phase 4: Continuous Quality Improvement (24+ months)}
+
+Establish sustainable infrastructure for ongoing monitoring and refinement:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Automated feedback loops:}
+\begin{itemize}
+\item Real-time comparison of predicted vs.\ actual outcomes
+\item Dashboards displaying calibration metrics over time
+\item Alert systems flagging performance degradation
+\item Regular reports to clinical teams and administrators
+\end{itemize}
+
+\item \textbf{Algorithmic drift monitoring:}
+\begin{itemize}
+\item Track changes in calibration and discrimination over time
+\item Identify when recalibration or retraining needed
+\item Distinguish true drift (changing populations) from data quality issues
+\item Implement version control for configuration updates
+\end{itemize}
+
+\item \textbf{Evidence updates:}
+\begin{itemize}
+\item Monitor emerging LAI-PrEP implementation literature
+\item Incorporate new trial results (HPTN 102, HPTN 103, PURPOSE extensions)
+\item Update intervention library as new strategies emerge
+\item Revise effect size estimates based on accumulating evidence
+\end{itemize}
+
+\item \textbf{Implementation support:}
+\begin{itemize}
+\item Develop comprehensive implementation guides
+\item Create training materials and webinars
+\item Establish technical assistance infrastructure
+\item Build community of practice among implementing sites
+\end{itemize}
+
+\item \textbf{International adaptation:}
+\begin{itemize}
+\item Create frameworks for adapting tool to diverse healthcare systems
+\item Conduct validation studies in low- and middle-income countries
+\item Address context-specific barriers (e.g., patent medicine vendors in West Africa)
+\item Ensure cultural appropriateness of interventions
+\end{itemize}
+\end{enumerate}
+
+\section{Research Priorities}
+
+Advancing both the science and practice of bridge period management requires coordinated research across multiple domains:
+
+\subsection{Methodological Innovations}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Synergistic barrier interactions:}
+\begin{itemize}
+\item Current model assumes additive effects; develop methods for modeling synergies
+\item Example: Transportation barriers may interact multiplicatively with childcare barriers
+\item Use machine learning to detect interaction patterns in large datasets
+\item Validate interaction models prospectively
+\end{itemize}
+
+\item \textbf{Time-to-event modeling:}
+\begin{itemize}
+\item Predict not just initiation success, but timing of first injection
+\item Survival analysis methods accounting for right-censoring
+\item Identify intervention effects on time-to-initiation
+\item Enable resource allocation optimization (intensive early support vs.\ extended follow-up)
+\end{itemize}
+
+\item \textbf{Unmeasured barrier detection:}
+\begin{itemize}
+\item Machine learning approaches identifying latent barriers through pattern recognition
+\item Cluster analysis grouping patients with similar failure modes
+\item Natural language processing of clinical notes to identify novel barriers
+\item Semi-supervised learning when labeled training data limited
+\end{itemize}
+
+\item \textbf{Causal inference methods:}
+\begin{itemize}
+\item Distinguish true intervention effects from selection bias
+\item Instrumental variable approaches when randomization infeasible
+\item Propensity score matching for observational comparisons
+\item Difference-in-differences for policy evaluations
+\end{itemize}
+\end{enumerate}
+
+\subsection{Evidence Generation}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{LAI-PrEP-specific trials:}
+\begin{itemize}
+\item Complete HPTN 102 (women) and HPTN 103 (PWID)
+\item PURPOSE-3 examining transgender populations
+\item Adolescent LAI-PrEP implementation trials
+\item Comparative effectiveness: CAB vs.\ lenacapavir bridge periods
+\end{itemize}
+
+\item \textbf{Implementation trials:}
+\begin{itemize}
+\item Randomized comparisons: systematic barrier-focused navigation vs.\ standard care
+\item Stepped-wedge designs for pragmatic evaluation
+\item Effectiveness-implementation hybrid designs
+\item Cost-effectiveness analyses
+\end{itemize}
+
+\item \textbf{Cultural adaptation research:}
+\begin{itemize}
+\item Intervention adaptations for diverse international settings
+\item Community-engaged participatory research methods
+\item Qualitative studies identifying culturally-specific barriers
+\item Validation studies in sub-Saharan Africa, Asia-Pacific, Latin America
+\end{itemize}
+
+\item \textbf{Intersectionality research:}
+\begin{itemize}
+\item Intersection of multiple marginalizations: race, poverty, criminalization, gender identity
+\item Structural violence and bridge period outcomes
+\item Policy interventions addressing root causes of disparities
+\item Community-level interventions beyond individual patient support
+\end{itemize}
+\end{enumerate}
+
+\subsection{Implementation Science}
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Fidelity measurement:}
+\begin{itemize}
+\item Develop validated scales assessing intervention implementation quality
+\item Distinguish fidelity (adherence to protocol) from adaptation (appropriate modifications)
+\item Link fidelity to patient outcomes
+\item Create audit tools for quality assurance
+\end{itemize}
+
+\item \textbf{Sustainability models:}
+\begin{itemize}
+\item Financing mechanisms ensuring navigation programs persist beyond pilot funding
+\item Integration into routine clinical workflows
+\item Workforce development and training pipelines
+\item Policy advocacy for reimbursement of navigation services
+\end{itemize}
+
+\item \textbf{Healthcare system adaptations:}
+\begin{itemize}
+\item Organizational changes required for routine bridge period management
+\item Electronic health record integration requirements
+\item Referral networks and care coordination structures
+\item Performance metrics and quality indicators
+\end{itemize}
+
+\item \textbf{Policy research:}
+\begin{itemize}
+\item Insurance authorization streamlining
+\item Expedited HIV testing protocols
+\item Pharmacy dispensing models
+\item Same-day initiation feasibility
+\item Task-shifting to nurses, pharmacists, community health workers
+\end{itemize}
+\end{enumerate}
+
+\section{Quality Assurance Framework}
+
+\subsection{Performance Monitoring Metrics}
+
+Sites should track the following metrics monthly:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Outcome metrics:}
+\begin{itemize}
+\item Bridge period success rate (overall and by population)
+\item Time from prescription to first injection (median, IQR)
+\item Attrition rate and reasons for attrition
+\item 6-month and 12-month persistence on LAI-PrEP
+\end{itemize}
+
+\item \textbf{Algorithmic performance:}
+\begin{itemize}
+\item Calibration: predicted vs.\ actual success rates
+\item Discrimination: AUROC for risk stratification
+\item Subgroup performance: calibration within populations
+\item Override rate: frequency of clinical judgment overriding recommendations
+\end{itemize}
+
+\item \textbf{Process metrics:}
+\begin{itemize}
+\item Intervention delivery rate: \% of recommended interventions actually provided
+\item Intervention timeliness: lag between recommendation and delivery
+\item Documentation completeness: \% of required data fields captured
+\item Patient engagement: \% accepting navigation services
+\end{itemize}
+
+\item \textbf{Equity metrics:}
+\begin{itemize}
+\item Outcome disparities by race, ethnicity, gender, socioeconomic status
+\item Intervention access disparities
+\item Calibration equity across subgroups
+\item Representation: demographics of patients served vs.\ indicated population
+\end{itemize}
+\end{enumerate}
+
+\subsection{Corrective Action Triggers}
+
+Establish thresholds for initiating corrective actions:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Poor overall calibration:} Predicted-observed difference $>$5 percentage points for 2 consecutive months → Parameter review and recalibration
+
+\item \textbf{Subgroup calibration failure:} Any population with predicted-observed difference $>$10 points → Targeted parameter adjustment for that population
+
+\item \textbf{Declining performance:} Bridge period success rate declining $>$5 points over 3 months → Process evaluation and intervention reinforcement
+
+\item \textbf{Low intervention delivery:} $<$50\% of recommended interventions provided → Workflow redesign and barrier assessment
+
+\item \textbf{Widening disparities:} Outcome gap between populations increasing $>$5 points → Equity-focused intervention
+\end{enumerate}
+
+\section{Limitations and Cautions}
+
+Implementation teams should recognize these important limitations:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Parameter uncertainty:} Many parameters extrapolated from non-LAI-PrEP populations; prospective validation essential
+
+\item \textbf{Local variation:} National estimates may not match local context; adaptation required
+
+\item \textbf{Implementation challenges:} Recommended interventions require resources, training, and organizational commitment
+
+\item \textbf{Patient heterogeneity:} Population-level predictions may not apply to individual patients; clinical judgment essential
+
+\item \textbf{Unmeasured barriers:} Model cannot account for barriers not explicitly measured
+
+\item \textbf{Causal assumptions:} Intervention effects assumed causal; confounding possible in observational validation
+
+\item \textbf{Generalizability:} Validation in U.S. settings may not generalize to international contexts
+
+\item \textbf{Evolving evidence:} LAI-PrEP implementation science rapidly evolving; continuous updates required
+\end{enumerate}
+
+\section{Conclusion}
+
+This implementation guide provides preliminary protocols for prospective validation of the LAI-PrEP Bridge Period Decision Support Tool. Successful implementation requires:
+
+\begin{itemize}
+\item \textbf{Staged deployment} balancing innovation with safety
+\item \textbf{Systematic outcome tracking} enabling evidence-based refinement
+\item \textbf{Equity focus} ensuring benefits reach populations with greatest barriers
+\item \textbf{Continuous learning} from both successes and failures
+\item \textbf{Transparent reporting} building the evidence base for decision support in HIV prevention
+\end{itemize}
+
+These materials should be adapted to local context and refined based on implementation experience. The ultimate goal is translating computational validation into real-world impact: preventing HIV infections by systematically addressing the bridge period attrition crisis.
+
+\vspace{1cm}
+
+\section*{Additional Resources}
+
+\begin{itemize}
+\item \textbf{Supplementary File S1:} Clinician Quick-Reference Card
+\item \textbf{Supplementary File S2:} Patient Information Handout
+\item \textbf{Supplementary File S3:} Machine Readable Data Files
+\item \textbf{Supplementary File S4:} Implementation Guide
+\item \textbf{Supplementary File S5:} Clinical Decision Flowchart
+\item \textbf{Supplementary File S6:} Non-Technical Summary
+\item \textbf{Supplementary File S7:} Complete Intervention Library
+\item \textbf{Supplementary File S8:} Code Repository
+All source code can be located at \textbf{\textbf{Zenodo DOI}:\url{https://zenodo.org/uploads/17727117#:~:text=10.5281/zenodo.17727117}}
+\item \textbf{Technical Support:} [Contact acdemidont@nyxdynamics.org]
+\end{itemize}
+
+\end{document}

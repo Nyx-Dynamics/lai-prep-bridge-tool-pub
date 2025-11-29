@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+title: LAI-PrEP Bridge Period Decision Support Tool
+doi: 10.5281/zenodo.TBD
+message: >-
+  If you use this software, please cite it using the metadata below.
+  Replace the DOI placeholder after Zenodo reserves a DOI for v2.1.1.
+authors:
+  - family-names: Demidont
+    given-names: Adrian C.
+    orcid: https://orcid.org/0000-0002-9216-8569
+version: 2.1.1
+date-released: 2025-11-26
+url: https://github.com/TheonlyqueenAC/lai-prep-bridge-tool
+repository-code: https://github.com/TheonlyqueenAC/lai-prep-bridge-tool
+license: Other
+abstract: >-
+  Clinical decision support for LAI-PrEP bridge period navigation, validated across
+  synthetic populations up to UNAIDS global target scale (21.2M). This release includes
+  algorithmic refinements, explainable JSON export, a command-line interface, and
+  comprehensive validation artifacts.
+keywords:
+  - HIV prevention
+  - pre-exposure prophylaxis
+  - long-acting injectables
+  - cabotegravir
+  - lenacapavir
+  - islatravir
+  - implementation science
+  - clinical decision support
+  - health equity
+  - bridge period
+  - patient navigation
+  - LAI-PrEP
+preferred-citation:
+  type: software
+  authors:
+    - family-names: Demidont
+      given-names: Adrian C.
+      orcid: https://orcid.org/0000-0002-9216-8569
+  title: LAI-PrEP Bridge Period Decision Support Tool
+  version: 2.1.1
+  doi: 10.5281/zenodo.TBD
+  year: 2025
+  url: https://github.com/TheonlyqueenAC/lai-prep-bridge-tool

@@ -1,0 +1,1508 @@
+%  LaTeX support: latex@mdpi.com 
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+\documentclass[viruses,article,submit,pdftex,moreauthors]{Definitions/mdpi} 
+%--------------------
+% Class Options:
+%--------------------
+% journal: viruses
+% article: article type
+% submit: submission mode
+% pdftex: for pdfLaTeX compilation
+% moreauthors: for multiple authors
+
+%=================================================================
+\usepackage{url}
+% MDPI internal commands - do not modify
+\firstpage{1} 
+\makeatletter
+\def\@hreflink{https://zenodo.org/records/17727117} % Default DOI placeholder
+\setcounter{page}{\@firstpage} 
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2025}
+\copyrightyear{2025}
+%\externaleditor{Academic Editor Name} % To be filled by the journal
+\datereceived{ } 
+%\daterevised{ } % Comment out if no revised date
+\dateaccepted{ } 
+\datepublished{ } 
+%\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+
+%=================================================================
+% Add packages and commands here
+\usepackage{placeins}
+\usepackage{tcolorbox}
+\usepackage{threeparttable}
+\usepackage{longtable}
+\usepackage{xurl}  % Allows URLs to break
+
+\setlength{\headheight}{20pt}
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Bridging the Gap: The PrEP Cascade Paradigm Shift for Long-Acting Injectable HIV Prevention}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Bridging the Gap: The PrEP Cascade Paradigm Shift for Long-Acting Injectable HIV Prevention}
+
+% Author Orchid ID: enter ID or remove command
+\newcommand{\orcidauthorA}{0000-0002-9216-8569} % Add \orcidA{} behind the author's name
+
+% Authors, for the paper (add full first names)
+\Author{A.C Demidont, DO $^{1}$\orcidA{}*}
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{A.C Demidont}
+
+% MDPI internal command: Authors, for citation in the left column
+% For Viruses (ACS style journal):
+\AuthorCitation{Demidont, A.C.}
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Independent Researcher - Nyx Dynamics, LLC, Fairfield, CT 06824, USA}
+
+% Contact information of the corresponding author
+\corres{Correspondence: acdemidont@nyxdynamics.org; Tel.: +1-203-247-1177}
+
+% Current address and/or shared authorship
+%\firstnote{Current address: Affiliation.}
+%\secondnote{These authors contributed equally to this work.}
+
+% Simple summary (optional)
+\simplesumm{Long-acting injectable pre-exposure prophylaxis (LAI-PrEP) represents a major advance in HIV prevention with superior efficacy in diverse populations and geographic settings compared to daily pills. However, an implementation paradox threatens real-world impact: only 52.9\% of prescribed patients actually receive their first injection. This review identifies the ``bridge period'' between prescription and injection as the primary bottleneck, proposes a reconceptualized care cascade that explicitly recognizes this period, and presents evidence-based strategies to improve implementation success. Addressing this structural barrier is essential to translate LAI-PrEP's clinical efficacy into meaningful public health impact.}
+
+% Abstract (Do not insert blank lines, i.e. \\) - Approximately 200 words
+\abstract{Long-acting injectable pre-exposure prophylaxis (LAI-PrEP) demonstrates superior efficacy and persistence compared to oral PrEP. However, real-world implementation reveals that only 52.9\% of prescriptions result in injection initiation. This implementation barrier stems from a mismatch between the traditional PrEP cascade---designed for oral formulations---and LAI-PrEP's unique requirements. LAI-PrEP requires navigation of a ``bridge period'' (2--8 weeks) between prescription and first injection to ensure HIV-negative status. We synthesize data from HPTN 083, HPTN 084, PURPOSE-1, and PURPOSE-2 trials (>15,000 participants) with real-world implementation studies to demonstrate that initiation---not persistence---constitutes the primary bottleneck. This review proposes a reconceptualized PrEP cascade explicitly recognizing the bridge period as a distinct, measurable step requiring dedicated management strategies. We examine pharmacological bases for conservative initiation protocols, quantify population-specific barriers, and present evidence-based strategies to improve initiation success. The paradigm shift from individual adherence to system-dependent delivery requires parallel innovations in cascade conceptualization, measurement, and intervention. Addressing this structural barrier is essential to translate LAI-PrEP's extraordinary clinical efficacy into meaningful public health impact, particularly among populations most affected by HIV.}
+
+% Keywords
+\keyword{HIV prevention; pre-exposure prophylaxis; long-acting injectable; cabotegravir; lenacapavir; implementation science; care cascade; health equity; antiretroviral therapy}
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\section{Introduction}
+
+\subsection{The Evolution of HIV Prevention: From Daily Pills to Biannual Injections}
+
+The landscape of HIV prevention has been fundamentally transformed by long-acting injectable pre-exposure prophylaxis (LAI-PrEP), representing a paradigm shift from daily oral medication to infrequent injections administered every two to six months \cite{ref1, ref2}. This innovation directly addresses the challenges of adherence that have limited the real-world effectiveness of oral PrEP, which achieves 99\% efficacy with perfect adherence but only approximately 52\% adherence at six months in clinical practice \cite{ref3,ref4}. 
+
+The reduction in treatment burden is substantial: long-acting formulations reduce the requirement from 365 daily doses to 6 annual appointments (cabotegravir, administered every two months) or 2 annual appointments (lenacapavir, administered every six months) \cite{ref5,ref6}. The once a year lenacapavir formulations currently in Phase 3 development promise to further reduce this burden to a single annual visit \cite{ref7}. This shift from medication-taking to appointment-keeping fundamentally changes the nature of adherence from an individual daily behavior to a healthcare system delivery challenge.
+
+\subsection{Clinical Efficacy: Robust Evidence Across Diverse Populations}
+
+Clinical trials have demonstrated remarkable and consistent efficacy for LAI-PrEP in diverse populations, marking substantial improvements in recruitment, enrollment and retention of marginalized populations which mirror the current global HIV epidemic and have established  strong foundations for implementation.
+
+\subsubsection{Cabotegravir Trials (Every 2 Months)}
+
+HPTN 083 enrolled 4,566 cisgender men who have sex with men (MSM) and transgender women who have sex with men at multiple international sites \cite{ref8}. The trial demonstrated 66\% superior efficacy of cabotegravir compared to oral tenofovir disoproxil fumarate/ emptricitabine (TDF/FTC), with an efficacy rate translating to 89\% relative risk reduction. HPTN 083 (and HPTN 084) maintained superior efficacy in diverse geographic settings and risk profiles, suggesting broad applicability.  
+
+HPTN 084 enrolled 3,224 cisgender women in sub-Saharan Africa and demonstrated a similar superiority of cabotegravir over oral TDF/FTC \cite{ref9}. The trial was stopped early for efficacy, with cabotegravir showing 89\% superior efficacy. In particular, this population had previously shown suboptimal adherence to oral PrEP in other trials, which makes the superior performance of cabotegravir particularly meaningful.
+
+\subsubsection{Lenacapavir Trials (Every 6 Months)}
+
+The PURPOSE program represents the most comprehensive HIV prevention trial program ever conducted, comprising five clinical trials evaluating subcutaneous lenacapavir twice a year in diverse populations around the world.
+
+PURPOSE-1 enrolled 5,338 cisgender women (age 16+) in South Africa and Uganda, including a dedicated adolescent cohort of 124 participants aged 16--17 years \cite{ref10,ref11}. The trial results were extraordinary: ZERO HIV infections occurred in the lenacapavir arm, representing $>$96\% efficacy versus background HIV incidence and 89\% superior efficacy versus oral emtricitabine/tenofovir alafenamide (F/TAF). Among the 56 adolescents who received lenacapavir, zero HIV infections occurred, with pharmacokinetics comparable to adults. Patient preference data strongly favored LAI-PrEP: at Week 52, 67\% of the participants preferred twice-yearly injections over daily pills, with 61\% reporting feeling more protected with injections and 61\% feeling more confident about not missing doses \cite{ref10}.
+
+PURPOSE-2 enrolled 3,265 participants, including cisgender men, transgender women, transgender men and gender-diverse persons, demonstrating a 96\% reduction in HIV incidence versus background HIV incidence (2.37 per 100 person-years) and 89\% superior efficacy compared to daily oral F/TAF \cite{ref12}. Efficacy was consistent across all gender identities. Injection-site reactions led to discontinuation in 26 participants, but the formulation was generally well-tolerated.
+
+PURPOSE-3, PURPOSE-4, and PURPOSE-5 address gaps in HIV prevention research in populations historically underrepresented in HIV Prevention clinical trials:
+
+PURPOSE-3 (ongoing) focuses on adult cisgender women in the United States, with a specific emphasis on Black and Latina women who are historically underrepresented in HIV prevention trials despite a disproportionate HIV burden \cite{ref13}.
+
+PURPOSE-4 (ongoing) represents a paradigm shift by focusing on people who inject drugs (PWID) without involving cessation of drug use, reflecting harm reduction principles \cite{ref13}. PWID have been systematically excluded from previous PrEP trials despite disproportionate HIV risk.
+
+PURPOSE-5 (ongoing) extends global reach to diverse key populations \cite{ref13}.
+
+\subsubsection{Once-Yearly Lenacapavir Development}
+Phase 1 studies of once-yearly lenacapavir tested two intramuscular formulations (5000 mg single dose) in 40 healthy adults \cite{ref7}. Plasma concentrations remained above the effective concentration of 95\% for $\geq$56 weeks, with median trough levels of Week 52 (57.0 and 65.6 ng/mL) actually exceeding twice the yearly lenacapavir levels at Week 26 (23.4 ng/mL). The formulations were well-tolerated and the pain at the injection site resolved mainly within one week. Phase 3 trials are planned for the second half of 2025 \cite{ref7}.
+
+\subsection{Safety Considerations: Lessons from Islatravir}
+
+The development and subsequent discontinuation of islatravir for PrEP provides insights into unique safety considerations for long-acting formulations \cite{ref14,ref15,ref16,ref17}. Unlike oral medications that can be immediately discontinued if safety concerns arise, long-acting agents persist in the body for extended periods, amplifying the consequences of any adverse effects.
+
+Islatravir (MK-8591) was developed as a once-monthly oral formulation and a yearly subdermal implant. Phase 1 trials of the subdermal implant (54 mg and 62 mg doses) demonstrated promising pharmacokinetics, with drug levels maintained above the efficacy threshold for $>$12 months and acceptable tolerability \cite{ref14}. Phase 2a trials of once-monthly oral islatravir (60 mg and 120 mg) achieved efficacy pharmacokinetic thresholds with acceptable tolerability, supporting progression to Phase 3 \cite{ref15}.
+
+The Phase 3 IMPOWER trials -- IMPOWER 22 (cisgender women) and IMPOWER 24 (cisgender men/transgender women) -- were initiated to compare monthly oral islatravir with daily FTC/TDF. IMPOWER 22 enrolled 727 participants before early termination. In particular, zero HIV infections occurred during the blinded phase among islatravir participants, and protection was maintained for 42 days after discontinuation (approximately 5 half-lives) \cite{ref16}.
+
+However, on December 13, 2021, the FDA placed a clinical hold due to decreased total lymphocyte and CD4 counts \cite{ref17}. The development of PrEP was subsequently discontinued, although the investigation continues at lower doses (0.75 mg) for HIV treatment. In post-discontinuation follow-up of IMPOWER 22, 23 of 727 participants (3\%) acquired HIV in the open-label phase, occurring 142--473 days after the last dose of islatravir --17 who originally received islatravir and 6 who originally received F/TDF \cite{ref16}.
+
+The islatravir experience illustrates four principles for LAI-PrEP development.
+
+\subsection{LAI Research Pipeline Considerations}
+\begin{enumerate}
+\item \textbf{Long-acting equals long consequences}: Safety signals cannot be immediately reversed by stopping medication, raising the stakes for any adverse effects.
+\item \textbf{Higher safety bar indicated}: LAI formulations involve more stringent long-term safety monitoring than oral agents, with extended follow-up to detect delayed or cumulative toxicities.
+\item \textbf{Post-discontinuation vulnerability}: The extended pharmacologic tail creates a period where drug levels may be subtherapeutic but still present, potentially affecting both protection and resistance risk.
+\item \textbf{Iterative development}: Following positive Phase II trials data, Merck developed two MK-8527 (next-generation NRTTI)  randomized, active-controlled studies (EXPrESSIVE 10 and ExPReSSIVE 11) sharing the same primary objective of assessing efficacy, safety, and tolerability by comparing the annual incidence of confirmed HIV-1 infections. Participants in both studies will receive either once-monthly oral MK-8527 or daily FTC/TDF (emtricitabine/tenofovir disoproxil fumarate). \cite{ref18}.
+\end{enumerate}
+
+The conservative initiation protocols utilized for cabotegravir and lenacapavir reflect not only concerns about the HIV window period and monotherapy risk, but also the broader principle that long-acting medications involve higher safety standards. The bridge period between prescription and injection serves as part of this safety framework for medications that cannot be rapidly removed from the body.
+
+\begin{quote}
+\textbf{Implication for initiation policy:} Long-acting equals long consequences. Conservative initiation protocols balance safety considerations with patient retention, with evidence suggesting that streamlined processes sufficiently to prevent losing motivated patients during mandatory safety waiting periods. The challenge is balancing safety against attrition risk - a tension unique to long-acting formulations.
+\end{quote}
+
+
+\subsection{The Implementation Reality: A Gap Between Efficacy and Access}
+
+Despite compelling clinical efficacy data ($>$96\% efficacy across diverse populations), strong patient preferences (67\% prefer injections over daily pills) and superior persistence once initiated (81--83\% retention), real-world LAI-PrEP implementation has been disappointingly slow \cite{ref19,ref20,ref21}.
+
+In 2023, LAI-PrEP comprised only 2.5\% of U.S. PrEP prescriptions, increasing slowly since cabotegravir's December 2021 FDA approval \cite{ref19}. Real world implementation studies reveal a substantial gap between prescription and the initiation of oral PrEP treatment: only 52.9\% of prescribed individuals successfully received their first injection \cite{ref20}.
+
+The CAN Community Health Network Study, tracking cabotegravir prescriptions from December 2021 through April 2023, documented that 47.1\% of prescribed individuals were lost during the period between prescription and first injection \cite{ref20}. This attrition occurs after individuals have already:
+\begin{itemize}
+\item Expressed interest in HIV prevention
+\item Undergone initial counseling
+\item Completed baseline testing
+\item Received a prescription
+\item Demonstrated motivation to start PrEP
+\end{itemize}
+
+In stark contrast, retention data among those who successfully initiate LAI-PrEP are remarkably strong. The Trio Health cohort study, following individuals from December 2021 through January 2024, found 81--83\% persistence among those who received their first injection \cite{ref21}. This persistence rate substantially exceeds the approximately 52\% six-month retention rate typically observed for oral PrEP \cite{ref3,ref4}.
+
+This creates a paradox at the heart of LAI-PrEP implementation: the intervention was designed to solve the adherence problem that limits the effectiveness of oral PrEP, and clinical trials demonstrate that it succeeds brilliantly in this goal. However, the solution to the adherence problem has created an initiation problem. The same pharmacokinetic properties that make LAI-PrEP excellent for persistence, such as long half-life and prolonged drug exposure, utilize conservative initiation protocols to prevent monotherapy in undiagnosed HIV infection, creating a structural barrier that eliminates nearly half of potential users before they can experience the superior retention that makes LAI-PrEP advantageous.
+
+\subsection{Scope and Objectives of This Review}
+
+As summarized in Figure \ref{fig:Implementation_paradox}, this implementation paradox represents the central challenge addressed in this review.  
+
+Our specific objectives are to:
+
+\begin{enumerate}
+\item \textbf{Characterize the initiation barrier} as a structural rather than a behavioral challenge unique to LAI-PrEP implementation
+\item \textbf{Propose a reconceptualized PrEP cascade} that explicitly recognizes the bridge period as a distinct, measurable step between prescription and initiation
+\item \textbf{Synthesize clinical trial efficacy data} (HPTN 083, HPTN 084, PURPOSE-1, PURPOSE-2) with real-world implementation evidence to quantify the prescription-to-injection gap
+\item \textbf{Examine population-specific barriers} to bridge period navigation across adolescents, women, people who inject drugs, and other key populations
+\item \textbf{Present evidence-based strategies} for the management of the bridge period, including accelerated diagnostic pathways, oral-to-injectable transitions, patient navigation, and system-level interventions
+\item \textbf{Establish research priorities} to optimize LAI-PrEP initiation in diverse populations and settings
+\end{enumerate}
+
+Using the initiation barrier, we examine the junction where clinical efficacy either translates into real-world impact or does not reach the intended beneficiaries. 
+
+\subsection{Emerging Implementation Evidence: Beyond Initial Reports}
+
+Since the CAN Community Health Network study documenting 52.9\% initiation rates \cite{ref20}, emerging implementation evidence has begun to characterize bridge period barriers in greater detail:
+
+\subsubsection{The EquiPrEP Project}
+
+The EquiPrEP project (Equitable Access to LAI-PrEP), funded by the Centers for Disease Control and Prevention, aims to increase the uptake of LAI-PrEP among populations experiencing HIV-related disparities in the United States \cite{ref51}. The project partners with community organizations serving Black and Latino men who have sex with men, transgender women, and people who inject drugs -- populations showing the highest bridge period attrition in early implementation.
+
+Early findings from EquiPrEP demonstration sites confirm that bridge period navigation is the primary implementation barrier, with patient navigation, same-day HIV testing with results, and co-location of testing and injection services emerging as key facilitators. The project's explicit focus on health equity provides evidence on whether intentional bridge period interventions can reduce or eliminate racial, ethnic, and population-based disparities in LAI-PrEP access.
+
+\subsubsection{Brazil ImPrEP Study}
+
+Brazil's ImPrEP study (Implementation of PrEP) represents the largest PrEP implementation program outside the United States, serving more than 13,000 people through public health clinics \cite{ref49}. The program evaluates the implementation of LAI-PrEP in real-world contexts of the Brazilian health system.
+
+Preliminary data suggest that bridge period challenges in Brazilian settings parallel U.S. findings, but with additional barriers specific to public health system contexts: longer wait times for HIV test results due to centralized laboratory systems, difficulty coordinating injection appointments due to clinic capacity constraints, and transportation barriers in cities with limited public transit.
+
+Importantly, ImPrEP demonstrates that bridge period barriers are not unique to U.S. healthcare systems, but represent a fundamental implementation challenge involving systematic solutions across diverse settings.
+
+\subsubsection{Implementation Science Network Findings}
+
+The HIV Prevention Trials Network (HPTN) has initiated post-trial implementation research to understand the translation of clinical trial efficacy into real-world effectiveness. HPTN 102 and HPTN 103 explicitly examine the implementation of LAI-PrEP among populations that show the highest attrition of the bridge period: women and people who inject drugs, respectively \cite{ref13}.
+
+These studies incorporate implementation science frameworks (RE-AIM, PRISM) to systematically assess not only effectiveness, but also reach, adoption, implementation fidelity, and maintenance, critical components for understanding how to sustain bridge period interventions at scale.
+
+\subsubsection{COVID-19 Pandemic Impact}
+
+The implementation of LAI-PrEP occurred during the COVID-19 pandemic, creating unique challenges for the navigation of the bridge period: clinic closures and capacity reductions extended appointment wait times, telehealth expansion enabled remote counseling but complicated coordination of in-person injection visits, supply chain disruptions created medication stock shortages that extended bridge periods, and patient concerns about exposure to healthcare facilities discouraged appointment attendance.
+
+Post-pandemic implementation benefits from maintaining telehealth innovations that reduced bridge period barriers while restoring the in-person capacity necessary for injection administration and HIV testing.
+
+\subsection{Convergent Evidence on the Primary Barrier}
+
+Across diverse implementation settings and populations, a consistent pattern emerges: LAI-PrEP's primary implementation barrier occurs before initiation, during the bridge period. This contrasts starkly with oral PrEP, where the primary barrier occurs after initiation, during persistence.
+
+This convergent evidence from multiple settings strengthens the rationale for the reconceptualized PrEP cascade proposed in Section 2, which explicitly recognizes bridge period navigation as a distinct measurable cascade step involving targeted interventions.
+
+\section{The Reconceptualized PrEP Cascade: Making the Bridge Period Visible}
+
+\subsection{Traditional vs. LAI-PrEP Care Cascades}
+
+The traditional HIV PrEP cascade, developed for oral formulations, consists of sequential steps: awareness, willingness, prescription, initiation, and persistence \cite{ref23}. In this paradigm, prescription and initiation occur simultaneously or within days; individuals receive their prescription and begin taking oral PrEP immediately, with protection beginning within 7 days for receptive anal exposure or 21 days for receptive vaginal exposure \cite{ref3}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figure_1A_Oral_PrEP_Cascade.png}
+\caption{\footnotesize Oral PrEP Cascade: Post-Initiation Adherence Barrier. The oral PrEP cascade demonstrates same-day start availability with sequential progression through nine steps. The real world efficacy barrier occurs after successful initiation (step 7), with 40â€“48\% discontinuation in general populations due to daily pill burden, side effects, and adherence challenges. Population-specific attrition varies dramatically: transgender women experience the highest discontinuation at 70\%, followed by young MSM at 44â€“69\%, and cisgender women at 48â€“56\%. MSM in general show the most persistent adherence at 38â€“40\% discontinuation. The primary implementation challenge is behavioral (adherence and persistence) rather than structural (access). The circular cascade visualization emphasizes that attrition occurs in the adherence and persistence phase (steps 8 and 9), after patients have successfully navigated awareness, prescription, and initiation barriers. Data sources: HPTN 083 (n=4,566 MSM and transgender women)8, HPTN 084 (n=3,224 cisgender women)9, and PrEP cascade framework23}
+\label{fig:Oral_PrEP_Cascade}
+\end{figure}
+
+This cascade model does not capture the unique implementation considerations 
+of LAI-PrEP, where there is a substantial temporal and procedural gap between 
+prescription and first injection. Unlike oral PrEP's same-day start capability, 
+LAI-PrEP involves confirmation of HIV-negative status through testing with 
+appropriate window period considerations, creating a \textbf{``bridge 
+period''} between clinical decision to prescribe and actual treatment initiation. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figure_1B_LAI_PrEP_Cascade.png}
+\caption{\footnotesize LAI-PrEP Cascade: Pre-Initiation Bridge Period Barrier. LAI-PrEP cascade introduces a "bridge period" between prescription (step 4) and first injection (step 6), creating a distinct bridge navigation step (step 5). The implementation barrier occurs before initiation during bridge period navigation. Implementation data demonstration that 47.1\% of prescribed individuals are lost due to HIV testing requirements, insurance authorization delays, and appointment coordination challenges. This represents a fundamental shift from oral PrEP's post-initiation adherence barrier to a pre-initiation structural barrier. Those who successfully navigate the bridge period demonstrate superior persistence: 81 - 83\% retention compared to oral PrEP's 52\%. However, the bridge period creates a structural barrier that eliminates nearly half of motivated users before they can experience this advantage. The implementation paradox: LAI-PrEP solves the adherence problem but introduces an access problem. Barriers highlighted in red boxes (HIV testing requirements, insurance authorization, appointment scheduling) represent the primary structural obstacles during bridge navigation. Data sources: CAN Community Health Network Study20 (47.1\% bridge period attrition, in patients prescribed LAI-PrEP between December 2021 and April 2023), Trio Health21 (81 - 83\% post-initiation persistence, December 2021 - January 2024), HPTN 083/0848,9 and PURPOSE-1/210,12 (efficacy data)}
+\label{fig:LAI_PrEP_Cascade}
+\end{figure}
+
+
+\subsection{The Bridge Period: Definition and Components}
+
+The bridge period encompasses all activities and time intervals between the provider's decision to prescribe LAI-PrEP and the administration of the first injection. This period varies by formulation, testing strategy, and clinical protocol:
+\textbf{Bridge Period}
+\begin{itemize}
+\item Baseline HIV testing (antigen/antibody test within 7 days of initiation)
+\item Additional HIV-1 RNA tests if suspected recent exposure or if transitioning from oral PrEP/PEP
+\item Coordination of injection appointment
+\item Insurance authorization (if indicated)
+\end{itemize}
+
+\textbf{Extended bridge period}
+\begin{itemize}
+\item Repeat HIV testing if initial testing occurred> 7 days before planned injection
+\item Optional oral lead-in period (cabotegravir: 4 weeks to assess tolerability)
+\item Resolution of insurance denials or prior authorization delays
+\item Patient scheduling conflicts
+\item Transportation or logistical barriers
+\end{itemize}
+
+The bridge period represents a unique structural vulnerability for LAI-PrEP: people remain motivated for prevention (having already navigated awareness, willingness, and prescription steps) but lack protection during delays in treatment initiation. Acquisition of HIV during the bridge period represents a failure of the prevention cascade that did not exist for oral PrEP.
+
+As illustrated in Figure \ref{fig:LAI_PrEP_Cascade}, the structural difference between the oral and LAI-PrEP cascades is fundamental: oral PrEP's primary barrier occurs after initiation (adherence and persistence), while LAI-PrEP's primary barrier occurs before initiation (bridge period navigation). This distinction has significant implications for the implementation strategy and intervention design.
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Bridge Period: Formal Definition]
+\textbf{The LAI-PrEP Bridge Period} is the temporal interval and associated procedural elements between:
+
+\textbf{Start point:} Provider decision to prescribe LAI-PrEP (prescription written or authorized)
+
+\textbf{End point:} Administration of first LAI-PrEP injection
+
+\textbf{Duration:} :
+\begin{itemize}
+\item HIV testing strategy (antigen/antibody alone vs. dual testing with RNA)
+\item Time from last potential HIV exposure
+\item LAI Oral lead-in period (optional for cabotegravir)
+\item Insurance authorization processes
+\item Appointment scheduling and availability
+\end{itemize}
+
+During this bridge period, individuals remain motivated for HIV prevention but lack protection, creating a structural vulnerability unique to LAI-PrEP that did not exist for oral PrEP's same-day start capability.
+\end{tcolorbox}
+\subsection{Proposed Reconceptualized Cascade}
+
+We propose a LAI-PrEP cascade that explicitly recognizes the bridge period as a distinct, measurable step:
+
+\begin{enumerate}
+\item \textbf{Awareness}: Knowledge that LAI-PrEP exists
+\item \textbf{Willingness}: Interest and acceptability of injectable formulations
+\item \textbf{Eligibility}: Clinical and HIV testing criteria met
+\item \textbf{Prescription}: Provider decision to initiate LAI-PrEP
+\item \textbf{BRIDGE PERIOD NAVIGATION}: Successfully complete all requirements between prescription and injection
+\begin{itemize}
+\item HIV testing within the appropriate window
+\item Appointment scheduling and attendance
+\item Insurance/financial barrier resolution
+\item Completion of the optional oral pre-engagement period
+\end{itemize}
+\item \textbf{Injection initiation}: Receipt of the first LAI-PrEP injection
+\item \textbf{Persistence}: Continued receipt of subsequent injections according to protocol
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figure_2_Implementation_Paradox.png}
+\caption{\footnotesize Critical insights comparing where barriers occur in oral PrEP versus LAI-PrEP cascades. Visual representation of the implementation paradox. Left panel (Oral PrEP): Wide entry with same-day initiation allows 100 people to start, but the critical barrier occurs post-initiation with 40 - 48\% discontinuation due to daily pill burden and adherence challenges. Trans women face 70\% discontinuation - the highest of any group. Only 52\% persist at 6 months. Right panel (LAI-PrEP): Narrow entry with mandatory 2 - 8 week bridge period creates structural barriers (HIV testing, insurance authorization, appointment coordination) that eliminate 47.1\% of motivated users before receiving the first injection. However, the 53\% who successfully initiate demonstrate superior persistence (81â€“83\% retention). The Implementation Paradox: LAI-PrEP solves oral PrEP's behavioral adherence problem but creates a new structural access problem. This fundamental shift from post-initiation behavioral barriers to pre-initiation structural barriers involves different implementation strategies focused on system-level interventions rather than individual adherence support. Data sources: HPTN 083/0848,9 (oral discontinuation rates), CAN Community Health Network20 (47.1\% bridge period attrition), Trio Health21 (81 - 83\% LAI-PrEP persistence).}
+\label{fig:Implementation_paradox}
+\end{figure}
+
+This reconceptualized cascade makes visible the step where 47\% of current LAI-PrEP candidates are lost \cite{ref20}. By explicitly naming bridge period navigation as a cascade step, we create accountability for measuring and addressing attrition at this clinical juncture.
+
+\subsection{Measurement Implications}
+
+The reconceptualized cascade involves new metrics:
+
+\textbf{Bridge period success rate}: Proportion of prescribed individuals who receive the first injection (currently 53\%)
+
+\textbf{Duration of the bridge period}: Median time from prescription to first injection (target: <14 days)
+
+\textbf{Causes of attrition of} the bridge period: Categorization of why individuals do not complete the bridge period (testing barriers, insurance denials, appointment no-shows, patient decision, loss to follow-up)
+
+\textbf{Population-stratified bridge metrics}: bridge period success rates and duration for key populations (adolescents, women, PWID, transgender individuals)
+
+These metrics enable the identification of bottlenecks, the comparison between implementation sites, and the evaluation of interventions designed to improve the success of bridge period navigation.
+\subsection{Implementation Monitoring Framework}
+
+To operationalize the reconceptualized cascade, LAI-PrEP programs may benefit from tracking the following metrics:
+
+\textbf{Core Bridge Period Metrics:}
+\begin{enumerate}
+\item \textbf{Bridge period success rate}: Proportion of prescribed individuals who receive the first injection (current baseline: 53\%; target: $\geq$75\%)
+69\item \textbf{Time to injection}: Median and distribution of days from prescription to first injection (target: $<$14 days for 75\% of initiations)
+\item Causes \textbf{Bridge period attrition}: Categorized breakdown - testing barriers, insurance delays, no-show appointments, patient decision, loss of follow-up, provider factors
+\item \textbf{Population-stratified success rates}: bridge period completion by key populations (MSM, women, PWID, adolescents, transgender individuals) to monitor health equity
+\item \textbf{Oral-to-injectable transition rate}: Proportion initiated via same-day switching from oral PrEP (target: maximize this pathway as highest-success route)
+\item \textbf{RNA testing utilization}: Percentage receiving HIV-1 RNA testing at baseline (enables accelerated initiation protocols)
+\item \textbf{Navigation program reach}: Proportion of prescriptions referred to patient navigation services and completion rates among navigated vs. non-navigated individuals
+\end{enumerate}
+These metrics enable programs to: identify bottlenecks, compare performance across implementation sites, evaluate intervention effectiveness, and monitor whether LAI-PrEP implementation reduces or exacerbates HIV prevention disparities.
+
+\section{Population-Specific Bridge Period Barriers}
+
+\subsection{Adolescents (Ages 16--24)}
+
+Adolescents face unique barriers to the navigation of the bridge period despite demonstrating comparable pharmacokinetics and efficacy to adults in PURPOSE-1 (zero infections among 56 adolescents aged 16--17) \cite{ref11}.
+
+\subsubsection{Developmental and Autonomy Barriers}
+
+Adolescence is characterized by emerging autonomy, limited experience in independently navigating healthcare systems, and developmental patterns of present-focused decision-making \cite{ref24}. The temporal delay between prescription and injection may be particularly challenging for this population due to:
+
+\textbf{Temporal discounting}: Adolescents show a greater tendency to discount future benefits compared to immediate rewards \cite{ref25}. A 2--8 week delay between deciding to start PrEP and receiving protection may reduce motivation to complete the bridge period.
+
+\textbf{Limited healthcare navigation experience}: Many adolescents lack experience scheduling appointments, coordinating insurance authorization, or follow-up on referrals independently. Tasks that adults find routine can present significant barriers for adolescents navigating healthcare systems for the first time.
+
+\textbf{Transportation dependence}: Adolescents often depend on parents or guardians for transportation to medical appointments. This creates additional coordination complexity and may raise confidentiality concerns if adolescents have not disclosed sexual activity or HIV prevention benefits from parents.
+
+\subsubsection{Privacy and Parental Involvement}
+
+PrEP privacy concerns are particularly important for adolescents. In surveys of Black female adolescents and emerging adults, 4\% worried their parents would discover PrEP use through insurance explanation of benefits, creating reluctance to initiate despite the high risk of HIV \cite{ref26}. 
+
+Parental consent requirements vary by jurisdiction, but can delay or prevent the initiation of LAI-PrEP even when adolescents are motivated. In dyad studies of adolescent-parent attitudes toward PrEP, both adolescents and parents showed moderate-to-high acceptability (mean 2.2--2.4 on the 3-point scale), but nearly 70\% of adolescents were not sexually active at the time of the survey, suggesting a disconnect between parental acceptance and adolescent need \cite{ref27}.
+
+The bridge period amplifies privacy vulnerabilities: multiple visits for testing, insurance authorization, and injection administration create additional opportunities for inadvertent disclosure to parents or peers.
+
+\subsubsection{Financial and Insurance Barriers}
+
+Adolescents covered by parental insurance may face explanation of benefits (EOB) statements that inadvertently disclose PrEP use to parents. This creates a cruel paradox: adolescents with insurance coverage may be more reluctant to use it than uninsured adolescents who can access care through confidential services.
+
+15\% of black female adolescents reported financial concerns about PrEP costs, with specific concern that ``if it is too high, I probably will not be able to afford it because those types of drugs are too much money'' \cite{ref26}. Insurance authorization delays during the bridge period may be particularly discouraging for adolescents with limited financial resources to pay out-of-pocket while awaiting approval.
+
+\subsubsection{Projected Bridge Period Attrition}
+
+Based on the general population bridge period attrition (47\%) \cite{ref20}, adolescent-specific barriers, and implementation science literature on adolescent participation in preventive services, we project that the attrition of the adolescent bridge period can reach 60--70\%. This estimate acknowledges:
+
+\begin{itemize}
+\item Greater impact of temporal delays on adolescent decision-making
+\item Additional coordination complexity (transportation, parental participation)
+\item Privacy concerns specific to this age group
+\item Limited experience with healthcare navigation
+\item Financial barriers and insurance Complication
+\end{itemize}
+
+The adolescent cohort of PURPOSE-1 demonstrated successful bridge period navigation in a clinical trial context with intensive support \cite{ref11}. However, real-world implementation data demonstrate improved outcomes with population-tailored interventions to achieve comparable success.
+
+\subsection{Women}
+
+Women, particularly Black and Latina women, face intersecting structural barriers that can complicate bridge period navigation.
+
+\subsubsection{Structural Barriers}
+
+The systematic exclusion of women from the initial dissemination of PrEP has created cascading barriers to access \cite{ref26}. Structural barriers documented among women include the following:
+
+\textbf{Transportation}: The lack of reliable transportation represents a barrier to PrEP acceptance among Black adult women \cite{ref26}. The bridge period involves multiple visits (testing, potential repeat testing, injection appointment), increasing transportation challenges.
+
+\textbf{Childcare}: considerations for childcare during medical appointments creates logistical and financial barriers. Women with childcare responsibilities may find it difficult to attend multiple bridge period visits, particularly if appointments involve extended waiting periods after injection.
+
+\textbf{Competing priorities}: Women with caregiving responsibilities for children, partners, or elderly family members can prioritize others' healthcare needs over their own HIV prevention, delaying completion of bridge period protocols.
+
+\subsubsection{Medical Mistrust}
+
+Medical mistrust, rooted in historical and ongoing experiences of medical racism, serves as a barrier to the uptake of PrEP among Black women \cite{ref26}. This manifests itself in several ways relevant to the bridge period:
+
+\textbf{Concern about side effects}: In surveys of African American female adolescents and emerging adults, side effects were the barrier most commonly identified (39\% of respondents) \cite{ref26}. For LAI-PrEP, injection-site reactions represent a novel concern that may be particularly salient during the decision-making window of the bridge period.
+
+\textbf{Skepticism about prevention recommendations}: Women with medical mistrust can question why providers recommend a relatively new prevention modality, particularly one that involves injection. The bridge period provides additional time for doubts to accumulate.
+
+\textbf{Healthcare system discrimination}: Experiences of discrimination in healthcare settings (reported by 40\% of key populations worldwide) \cite{ref28} create a reluctance to return for multiple appointments indicated during the bridge period.
+
+\subsubsection{Clinical Trial Evidence in Women}
+
+HPTN 084 demonstrated 89\% superior efficacy of cabotegravir compared to oral PrEP in cisgender women \cite{ref9}, and PURPOSE-1 achieved zero infections in the lenacapavir arm among 5,338 cisgender women \cite{ref10}. These extraordinary results occurred in clinical trials with intensive retention support.
+
+In the Real-world, attrition during the bridge period period among women may exceed the general population rate of 47\% due to intersecting structural barriers. PURPOSE-3 (ongoing), focusing on U.S. Black and Latina women, will provide evidence on the completion of the bridge period in this population \cite{ref13}.
+
+\subsection{People Who Inject Drugs (PWID)}
+
+People injecting drugs face perhaps the most severe structural barriers to bridge period navigation, despite being at substantial risk for HIV and having indication for PrEP.
+
+\subsubsection{Criminalization and Stigma}
+
+Criminalization of drug use creates multiple barriers to participation in healthcare.
+
+\textbf{Fear of legal consequences}: PWID can avoid healthcare settings due to fear of arrest, particularly in jurisdictions with drug paraphernalia laws \cite{ref29}. The bridge period involves multiple healthcare visits, increasing the perceived legal risk.
+
+\textbf{Healthcare discrimination}: Stigma and discrimination in healthcare settings lead 17\% of PWID to avoid care entirely \cite{ref28}. Even when PWID successfully engage for initial PrEP prescription, discrimination during subsequent bridge period visits may prevent injection initiation.
+
+\textbf{Competing legal priorities}: Involvement in the criminal justice system may make it difficult to attend scheduled appointments during the bridge period. Incarceration during the bridge period represents a structural cause of attrition.
+
+\subsubsection{Housing Instability and Structural Barriers}
+
+Homelessness and housing instability affect substantial proportions of PWID and create cascading barriers to bridge period navigation:
+
+\textbf{Lack of stable address/contact information}: Difficulty receiving appointment reminders or test results without stable housing. Providers may not be able to contact PWID to schedule injection appointments or communicate HIV test results.
+
+\textbf{Transportation barriers}: PWID experiencing homelessness may lack the resources to transport to multiple appointments. The geographic distance from the syringe service programs (which may serve as PrEP delivery sites) compounds this barrier.
+
+\textbf{Lack of identification}: Some PWID lack the government-issued identification specified by some pharmacies or clinics, preventing prescription fulfillment during oral pre-release periods or creating administrative barriers to injection appointments.
+
+\subsubsection{Competing Health Priorities}
+
+PWID experience high rates of co-occurring health conditions that may take precedence over HIV prevention:
+
+\textbf{Substance use disorder}: Active drug use creates competing priorities that can interfere with the attendance of bridge period appointments. However, harm reduction approaches emphasize meeting people where they are rather than involving abstinence.
+
+\textbf{Mental health conditions}: Depression, anxiety, and trauma are common among PWID and may reduce the capacity to navigate healthcare during the bridge period.
+
+\textbf{Acute medical needs}: Injection-related infections, overdose, and other acute health crises may take precedence over HIV prevention during the bridge period.
+
+\subsubsection{Limited PrEP Awareness and Perceived Risk}
+
+Despite CDC and WHO recommendations for PrEP use among PWID \cite{ref30}, awareness remains low. In HIV-negative PWID surveys in Los Angeles and San Francisco, only 40\% were aware of PrEP, and only 2\% were currently taking it \cite{ref31}. Low awareness compounds bridge period attrition: even individuals who successfully receive prescription may have limited understanding of LAI-PrEP's benefits, reducing motivation to complete bridge period protocols.
+
+The perceived HIV risk is often low among PWID, even when the objective risk is substantial. In the same survey, willingness to take PrEP was associated with self-reported risk behaviors and perceived HIV risk \cite{ref31}. PWID who do not perceive themselves as at risk may be less likely to prioritize bridge period completion.
+
+\subsubsection{Harm Reduction Service Integration}
+
+Syringe service programs (SSPs) represent the most promising setting for LAI-PrEP delivery to PWID, offering trusted environments where PWID already accesses services. However, SSPs face resource constraints that may limit capacity for bridge period management:
+
+\textbf{Limited clinical capacity}: Many SSPs are peer-led or have limited clinical staffing, making it difficult to provide HIV testing, manage test results, and administer injections \cite{ref32}.
+
+\textbf{Funding constraints}: SSPs operate with limited and precarious funding, making it difficult to add new services without additional resources.
+
+\textbf{Geographic coverage gaps}: Fewer than 1\% of PWID worldwide live in countries that meet WHO objectives for coverage of the needle and syringe program \cite{ref28}. Limited SSP availability means that many PWID lack access to harm reduction-integrated PrEP delivery.
+
+\subsubsection{Projected Bridge Period Attrition}
+
+Based on general population attrition (47\%), structural barriers specific to PWID, and low baseline PrEP uptake in this population (2\% currently using PrEP despite 40\% awareness \cite{ref31}), we project that bridge period attrition among PWID can reach 70--80\%. This sobering projection acknowledges:
+
+\begin{itemize}
+\item Multiple intersecting structural barriers (criminalization, housing instability, lack of  identification, transportation)
+\item Healthcare discrimination and medical mistrust
+\item Competing health priorities and substance use patterns
+\item Limited PrEP awareness and low perceived risk
+\item Insufficient harm reduction service infrastructure
+\end{itemize}
+
+PURPOSE-4, the first HIV prevention trial centered on PWID without involving discontinuation of drug use, provides important evidence on the completion of the transition period and inform customized interventions \cite{ref13}. However, successful implementation data suggest that healthcare system adaptations in the healthcare system to address the structural barriers facing this population.
+
+\subsection{Other Key Populations}
+
+\subsubsection{Transgender Women}
+
+Transgender women demonstrated excellent results in HPTN 083 (included in the MSM/transgender women cohort) \cite{ref8} and PURPOSE-2 \cite{ref12}. However, real-world bridge period navigation may be complicated by:
+
+\textbf{Healthcare discrimination}: Transgender individuals experience high rates of discrimination in healthcare settings, which can discourage return visits during the bridge period.
+
+\textbf{Gender-affirming hormone therapy interactions}: While no significant interactions have been identified between LAI-PrEP and gender-affirming hormones, concern about potential interactions may create hesitancy during the decision-making process of the bridge period.
+
+\textbf{Economic marginalization}: Transgender women face high rates of unemployment and economic marginalization, creating transportation and financial barriers to the completion of the transition period.
+
+\subsubsection{Men Who Have Sex with Men (MSM)}
+
+MSM constitute the population with the highest current LAI-PrEP uptake, with initial approval of cabotegravir driven by HPTN 083 results \cite{ref8}. However, even among MSM, real-world bridge period attrition of 47\% indicates substantial room for improvement \cite{ref20}. 
+
+Barriers may include
+\begin{itemize}
+\item Stigma of PrEP within social networks
+\item Privacy concerns about injection appointments
+\item Insurance authorization delays
+\item Scheduling conflicts with bimonthly or semi-annual injection schedules
+\end{itemize}
+
+\subsubsection{Pregnant and Lactating Individuals}
+
+PURPOSE-1 represents the first HIV prevention trial to include pregnant and lactating individuals from the beginning \cite{ref13}. Bridge period considerations for this population include:
+
+\textbf{Pregnancy-specific concerns}: Need for pregnancy testing during the bridge period; concerns about fetal safety despite lack of evidence of harm.
+
+\textbf{Access to healthcare during pregnancy}: While pregnancy can increase participation in healthcare, it also introduces competing priorities and multiple appointments that can complicate the navigation of the bridge period.
+
+\textbf{Lactation considerations}: Concerns about drug transfer through breast milk may affect the willingness to complete the bridge period, although available evidence suggests minimal transfer.
+
+\subsection{Equity Implications of Population-Specific Attrition}
+
+Differential bridge period attrition across populations threatens to widen rather than narrow HIV prevention disparities. If adolescents experience 60--70\% attrition, women experience 50--60\% attrition, and PWID experience 70--80\% attrition, while MSM experience 40--50\% attrition, then LAI-PrEP implementation will disproportionately benefit the population already most engaged in HIV prevention.
+
+This creates an equity paradox: LAI-PrEP demonstrates superior clinical efficacy in all populations, with particular promise for populations that face adherence challenges with oral PrEP. However, if bridge period barriers are not addressed, the populations most likely to benefit from LAI-PrEP's adherence advantages may be less likely to successfully initiate treatment.
+
+Population-tailored bridge period interventions demonstrate significant impact on health equity outcomes to ensure LAI-PrEP's extraordinary efficacy translates into public health impact for all populations who need it.
+section{Global Implementation Considerations Beyond the United States}
+
+\subsection{The Global Scale of Implementation Challenge}
+
+Although the primary evidence base for the attrition of the LAI-PrEP bridge period comes from implementation studies in the United States \cite{ref20}, the challenge extends globally with additional complexities in resource-limited settings. The UNAIDS 2025 target of 21.2 million people accessing PrEP services involves implementation of LAI-PrEP in diverse healthcare systems and resource contexts \cite{ref46}.
+
+\subsection{Resource-Limited Settings: Amplified Barriers}
+
+Implementation in low- and middle-income countries (LMICs) faces structural barriers that compound the bridge period challenge beyond those documented in high-resource settings:
+
+\subsubsection{Cold Chain and Storage Requirements}
+
+The LAI-PrEP formulations involve refrigeration (2--8Â°C) for cabotegravir throughout storage \cite{ref5}; lenacapavir may be stored at room temperature (up to 30Â°C) for up to 6 weeks after initial refrigeration \cite{ref52}
+52) \cite{ref5,ref6}. In settings with unreliable electricity or limited refrigeration capacity, maintaining the integrity of the cold chain from the distribution point to the administration creates logistical barriers that prolong the duration of the bridge period. Patients prescribed LAI-PrEP may experience delays while clinics arrange appropriate storage, or may may involve referral to facilities with storage capacity, introducing transportation barriers and referral system navigation requirements.
+
+\subsubsection{Healthcare Workforce Capacity}
+
+Injection administration involves trained healthcare workers with an appropriate clinical space for injection procedures and post-injection observation. Many primary healthcare facilities in sub-Saharan Africa and Asia lack dedicated space for injection services, creating capacity constraints that limit same-day prescription-to-injection protocols. Task-shifting approaches, where community health workers or nurses provide traditionally provided services by physicians, show promise but involve regulatory changes and training programs that take time to implement \cite{ref47}.
+
+\subsubsection{Supply Chain Vulnerabilities}
+
+Global supply chain disruptions disproportionately affect LMICs, where medication shortages are common. Prescription of LAI-PrEP when supply is uncertain creates the risk of extended bridge periods if initial doses are not available. PURPOSE trials demonstrated excellent efficacy in African settings, but clinical trials ensure uninterrupted supply that may not reflect the reality after approval \cite{ref10,ref11}.
+
+\subsection{Sub-Saharan Africa: 62\% of Global Need}
+
+Sub-Saharan Africa (SSA) has the highest HIV burden worldwide and will serve an estimated 62\% of the 21.2 million people who need PrEP by 2025 \cite{ref46}. Implementation in SSA contexts introduces population-specific considerations:
+
+\subsubsection{Community-Based Delivery Models}
+
+Traditional clinic-based care presents access barriers in SSA, where transportation distances, facility hours, and healthcare system discrimination discourage participation. Community-based delivery models, including mobile clinics, community distribution points, and peer-delivery services, have demonstrated success in HIV treatment \cite{ref48}. Adapting these models for LAI-PrEP involves addressing injection-specific considerations (clinical space, storage, trained personnel) while maintaining community accessibility.
+
+The Trio Health cohort study, which showed 81--83\% persistence among those who initiated LAI-PrEP \cite{ref21}, occurred in urban settings in the US with established clinical infrastructure. Whether comparable persistence is achievable in community-based African settings remains to be established through real-world implementation.
+
+\subsubsection{Integration with Existing HIV Services}
+
+SSA has a vast HIV testing and treatment infrastructure developed over two decades. Integrating LAI-PrEP into these services offers advantages (trained staff, established supply chains, community trust) but also challenges (stigma associated with HIV services, provider prioritization of treatment over prevention, capacity constraints in already-strained systems).
+
+The transition period in SSA may benefit from integration, as there is already a HIV testing capacity. However, the distinction between tests for the initiation of treatment (where HIV-positive results trigger immediate action) and testing for prevention eligibility (where HIV-negative results enable delayed action) may create confusion in integrated service delivery.
+
+\subsubsection{Traditional Healthcare Discrimination and Medical Mistrust}
+
+Although medical mistrust affects all populations globally \cite{ref26}, healthcare discrimination in SSA settings is compounded by historical factors, including colonial medicine, coercive HIV testing practices, and ongoing structural violence in healthcare settings \cite{ref28}. Key populations (sex workers, men who have sex with men, transgender individuals) face criminalization in many SSA countries, creating fear of engaging with healthcare systems even for prevention services.
+
+The bridge period amplifies these vulnerabilities: multiple visits create multiple opportunities for discrimination, and delays between prescription and injection provide time for mistrust to discourage follow-through. PURPOSE-1 demonstrated zero infections in the lenacapavir arm among 5,338 African women \cite{ref10}, but the clinical trials with intensive participant support do not reflect routine care experiences.
+
+\subsection{Regional Considerations: Latin America, Asia, and Eastern Europe}
+
+\subsubsection{Latin America and Caribbean}
+
+The region shows growing PrEP implementation, but faces challenges including fragmented healthcare systems involving navigation across multiple providers, high out-of-pocket costs in countries without universal coverage, stigma particularly affecting gay, bisexual, and transgender populations, and regulatory delays in LAI-PrEP approval beyond initial approving countries.
+
+Brazil's ImPrEP program, which evaluates the implementation of LAI-PrEP in real-world public health settings, will provide evidence on the challenges of the bridge period in Latin American contexts \cite{ref49}.
+
+\subsubsection{Asia and Pacific}
+
+Diverse healthcare systems across Asia and the Pacific create region-specific implementation challenges: conservative social contexts in many countries limit open discussion of sexual health and HIV prevention, legal barriers to PrEP access for key populations (particularly men who have sex with men and transgender individuals), limited PrEP awareness even among healthcare providers, and cost barriers in countries without comprehensive insurance coverage or subsidized prevention programs.
+
+PURPOSE trials included Asian sites, but post-approval implementation may benefit from attention to cultural adaptation of counseling approaches, stigma reduction interventions, and policy advocacy to ensure equitable access.
+
+\subsubsection{Eastern Europe and Central Asia}
+
+The region faces unique challenges driven by: criminalization of key populations (particularly people who inject drugs and men who have sex with men), limited harm reduction infrastructure, conservative political environments hostile to HIV prevention for marginalized groups, and healthcare systems transitioning from Soviet-era structures with varying capacity.
+
+Harm reduction services, where they exist, may offer the most promising route to LAI-PrEP delivery to people who inject drugs, but face precarious political and financial support in many countries \cite{ref28}.
+
+\subsection{Global Policy and Financing Considerations}
+
+\subsubsection{WHO Guidance and Country Adoption}
+
+The WHO recommendation for lenacapavir in July 2025 using simplified HIV testing protocols \cite{ref39} represents dynamic global policy support for the implementation of LAI-PrEP. However, translating WHO guidelines into national policy involves regulatory approval processes (varying from months to years by country), national adaptation of guidelines to local contexts, financing mechanisms to support procurement and delivery, and scale-based training of healthcare workers.
+
+The gap between the WHO recommendation and widespread implementation is substantial. Oral PrEP, recommended by the WHO in 2015, achieved only 3.5--3.8 million users worldwide by 2024, far below the need. LAI-PrEP risks similar implementation delays without systematic attention to bridge period barriers.
+
+\subsubsection{Tiered Pricing and Access}
+
+Current LAI-PrEP pricing creates access barriers: cabotegravir costs approximately \$22,200 annually in the United States, although Patient Assistance Programs reduce out-of-pocket costs for insured individuals \cite{ref50}. The price of lenacapavir has not been publicly announced, but is expected to be substantial given the development costs and the twice-yearly dosing.
+
+Generic manufacturing and tiered pricing agreements will be essential for global access. Voluntary licensing agreements, as used for HIV treatment, could enable affordable generic LAI-PrEP in LMICs while maintaining branded pricing in high-income countries. However, negotiating these agreements takes time, potentially delaying implementation in high-burden countries.
+
+\subsection{Implementation Research Priorities for Global Settings}
+
+Gaps in global implementation evidence include:
+
+\begin{enumerate}
+\item \textbf{Real-world bridge period measurement in LMICs}: All current attrition data come from high-resource U.S. settings. Documenting bridge period success rates in African, Asian and Latin American contexts is important.
+
+\item \textbf{Community-based delivery models}: Evidence on the completion of the bridge period when LAI-PrEP is delivered through mobile clinics, community distribution points, or peer-led services.
+
+\item \textbf{Integration with existing services}: Optimal integration strategies with HIV testing and treatment services, sexual and reproductive health services, and harm reduction programs.
+
+\item \textbf{Simplified implementation protocols}: Testing whether bridge period protocols (HIV testing frequency, clinical monitoring) can be simplified in resource-limited settings without compromising safety.
+
+\item \textbf{Cost-effectiveness in diverse settings}: Economic analyses accounting for country-specific costs, healthcare system structures, and HIV epidemiology.
+
+\item \textbf{Health equity monitoring}: Systematic monitoring of whether the implementation of LAI-PrEP reduces or exacerbates existing prevention disparities by geography, socioeconomic status, and key population status.
+\end{enumerate}
+
+The PURPOSE trials provide essential efficacy data across global settings, but effectiveness in routine implementation will depend on successfully navigating the bridge period barriers identified in this review, adapted to each country's specific context.
+
+\section{Evidence-Based Strategies for Bridge Period Management}
+\subsection{Evidence Base and Limitations}
+
+The bridge period management strategies presented in this section synthesize evidence from three sources: (1) direct LAI-PrEP implementation studies (limited but growing), (2) parallel interventions in other injectable medications and HIV care cascade navigation (moderate evidence involving extrapolation), and (3) theoretical projections based on barrier mechanisms and implementation science principles (involving prospective validation). 
+
+Effect sizes marked ``Strong Evidence'' have published effectiveness data from LAI-PrEP or closely related implementations. ``Moderate Evidence'' extrapolates from parallel contexts with supportive preliminary data. ``Emerging Evidence'' represents logical mechanisms that involve validation. All projected improvements could be interpreted as estimates subject to real-world variation based on population characteristics, healthcare system structure, and implementation fidelity.
+
+Programs implementing interventions with appropriate monitoring contribute to the growing evidence base on LAI-PrEP implementation.
+\subsection{Eliminating the Bridge period: Oral-to-Injectable Transitions}
+
+The most effective strategy to reduce the attrition of the bridge period is to eliminate the bridge period entirely through seamless transitions from oral PrEP to LAI-PrEP.
+
+\subsubsection{Rationale for Oral-to-Injectable Pathway}
+
+Individuals who already take oral PrEP have the following:
+\begin{itemize}
+\item Demonstrated motivation for HIV prevention
+\item Established relationship with PrEP provider
+\item Recent negative HIV testing (typically within 3 months)
+\item Experience with PrEP-related monitoring
+\item Proven ability to navigate the healthcare system for prevention services
+\end{itemize}
+
+Transitioning from oral to injectable PrEP eliminates key bridge period barriers:
+
+\textbf{Reduced HIV testing burden}: Current CDC guidelines recommend continued monitoring for individuals switching from oral to injectable PrEP, but do not involve extended bridge periods if HIV testing is up-to-date \cite{ref33}. Negative blood-based HIV antigen/antibody test without confirmatory RNA testing is sufficient when switching without interruption.
+
+\textbf{Established provider relationship}: Existing PrEP users have established care relationships, eliminating the may benefit from navigate new provider engagement during the bridge period.
+
+\textbf{Demonstrated system navigation}: Successful oral PrEP users have already demonstrated the ability to navigate insurance authorization, appointment scheduling, and prescription fulfillment.
+
+\subsubsection{Implementation Evidence}
+
+Real-world evidence demonstrates dramatically higher injection initiation rates among individuals transitioning from oral PrEP compared to PrEP-naive individuals:
+
+\textbf{Atlanta Ryan White Clinics Study}: Among people with HIV referred for long-acting injectable antiretroviral therapy, 50\% successfully access therapy \cite{ref34}. In pARTicular, this 50\% initiation rate occurred despite barriers to LA-ART similar to those facing LAI-PrEP: multiple visits, insurance authorization requirements, and injection scheduling.
+
+\textbf{Extrapolated oral-to-injectable PrEP success}: If we assume similar initiation rates for individuals already engaged in oral PrEP seeking to switch to LAI-PrEP, we would expect approximately 85--90\% successful injection initiation (compared to 53\% for PrEP-naive individuals \cite{ref20}). This represents a 11.5-fold improvement in the relative odds of successful initiation.
+
+The success of oral-to-injectable transitions suggests that the primary barrier is not the injection modality itself, but rather the protocols of the bridge period to establish HIV-negative status and coordinate initial treatment.
+
+\subsubsection{Implementation Strategies}
+
+\textbf{Same-day switching protocols}: For individuals with recent HIV testing (in 7 days), LAI-PrEP injection can be administered at the same visit where the switching decision is made, completely eliminating the bridge period.
+
+\textbf{Proactive switching conversations}: Providers who routinely discuss LAI-PrEP as an option with oral PrEP users, normalizing switching as a standard component of PrEP care rather than involving patient-initiated requests.
+
+\textbf{Simplified authorization}: Insurance plans with expedited authorization pathways for oral-to-injectable switches, recognizing that individuals already approved for oral PrEP may not face additional barriers to injectable formulations.
+
+\textbf{Provider education}: Many providers are unaware of the simplified switching protocols. Education that emphasizes that oral-to-injectable switches do not involve extended bridge periods can reduce unnecessary delays.
+
+\subsubsection{Limitations}
+
+Oral-to-injectable transitions benefit individuals already engaged in oral PrEP but do not address the needs of individuals who have never initiated PrEP or who discontinued oral PrEP due to adherence challenges. Approximately 50\% of oral PrEP users discontinue within 6--12 months \cite{ref4,ref5,ref6}, creating a population who might benefit from LAI-PrEP but who are no longer engaged in prevention care.
+
+Re-engaging individuals who discontinued oral PrEP represents an important secondary target population for LAI-PrEP implementation. These individuals have already demonstrated initial motivation for prevention and may be particularly receptive to a modality that addresses the adherence challenges that led to the discontinuation of oral PrEP.
+
+\subsection{Compressing the Bridge period: Accelerated Diagnostic Pathways}
+
+When an oral-to-injectable transition is not possible, accelerating the bridge period through optimized HIV testing strategies can reduce attrition.
+
+\subsubsection{HIV Testing Window Periods and Technology}
+
+The HIV testing window period---time from infection to test detectability---directly determines minimum bridge period duration:
+
+\textbf{Fourth-generation antigen/antibody tests}: Window period 18--45 days (blood draw) or 18--90 days (fingerstick) post-exposure \cite{ref35}. These combination tests detect both HIV p24 antigen and HIV antibodies, allowing earlier detection than antibody-only tests.
+
+\textbf{HIV-1 RNA (nucleic acid) tests}: Window period 10--33 days after exposure \cite{ref36}. RNA testing detects viral genetic material directly rather than waiting for the antibody response, allowing the earliest possible detection.
+
+\textbf{Third-generation antibody tests}: Window period 23--90 days \cite{ref35}. These tests detect only antibodies and have the longest window period. Rapid point-of-care tests are typically antibody-only.
+
+The substantial difference in window periods has direct implications for bridge period duration:
+
+\begin{itemize}
+\item Antigen/antibody testing alone: a 33–45‑day interval is generally required to minimize the risk of undetected acute infection with Ag/Ab alone.
+\item RNA testing added: adding RNA testing typically permits earlier initiation ($\approx$10--14 days after potential exposure), contingent on local assay availability and risk tolerance.
+\item Antibody-only testing: Requires 90-day window period, making bridge period prohibitively long
+\end{itemize}
+
+\begin{table}[!htbp]
+\caption{HIV testing window periods and programmatic implications for LAI‑PrEP initiation (summarized from CDC/APHL guidance).}
+\label{tab:testing_windows}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Test Type} & \textbf{Window} & \textbf{Min. Bridge} & \textbf{Source} \\
+\midrule
+4th-gen Ag/Ab (blood) & 18--45 days & 6--7 wk & CDC/APHL \cite{ref36} \\
+4th-gen Ag/Ab (fingerstick) & 18--90 days & 13 wk & CDC/APHL \cite{ref36} \\
+HIV-1 RNA (NAT) & 10--33 days & 2--5 wk & CDC/APHL \cite{ref36} \\
+3rd-gen Ab only & 23--90 days & 13 wk & Pandori \cite{ref35} \\
+\textbf{Dual: Ag/Ab + RNA} & \textbf{10--14 days} & \textbf{2--3 wk} & \textbf{CDC \cite{ref33}} \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textbf{Note:} Window periods represent time from HIV exposure to reliable detection. Minimum bridge period calculated as: window period + test turnaround (2--5 days) + scheduling (3--7 days). Dual testing strategy (Ag/Ab + RNA) recommended by CDC for LAI-PrEP initiation enables shortest safe bridge period. WHO July 2025 guidance \cite{ref39} permits simplified protocols using rapid Ag/Ab tests in resource-limited settings, accepting slightly increased residual risk to reduce bridge period attrition. 
+\end{tablenotes}
+\end{table}
+
+\subsubsection{Dual Testing Strategies}
+Current guidelines recommend dual testing (antigen/antibody + RNA) for the initiation of LAI-PrEP when any of the following apply \cite{ref33}:
+\begin{itemize}
+\item Recent (<4 weeks) potential exposure to HIV with signs/symptoms of acute infection
+\item Any PrEP or PEP use in the preceding 3 months
+\item Any injection of cabotegravir in the preceding 12 months
+\end{itemize}
+
+However, some experts recommend routine baseline RNA testing for all LAI-PrEP initiations regardless of exposure history \cite{ref37}. This approach recognizes that
+
+\textbf{Exposure history may be incomplete}: Individuals may not accurately recall or report potential exposures, particularly if exposures occurred during substance use or within complex sexual networks.
+
+\textbf{Acute infection symptoms are nonspecific}: Fever, fatigue, and other acute HIV symptoms overlap with many common conditions, making symptom-based screening insufficiently sensitive.
+
+\textbf{Long-acting formulation increases stakes}: Because LAI-PrEP cannot be immediately discontinued if acute infection is detected, the consequences of missed acute infection are more severe than with oral PrEP.
+
+\subsubsection{Accelerated Testing Protocols}
+
+\textbf{Laboratory-based rapid turnaround}: Negotiate with laboratories for expedited processing (24--48 hours) of LAI-PrEP baseline testing. Many laboratories offer stat processing for emergency situations; establishing LAI-PrEP as a priority category could enable faster results.
+
+\textbf{Point-of-care antigen/antibody testing}: Use rapid antigen/antibody tests on the day of injection with laboratory confirmation pending. The FDA-approved point-of-care antigen/antibody test (Determine HIV-1/2 Ag/Ab Combo) enables the same-day testing, although the performance for antigen detection is variable \cite{ref35}.
+
+\textbf{Presumptive injection with confirmatory testing}: For individuals with recent negative tests (within 7 days) and no reported exposures, administer the first injection with laboratory confirmatory testing sent the same day. This approach accepts a small risk of very recent exposure in exchange for avoiding bridge period delays. Importantly, people could be informed about the importance of returning for test results and the possibility (though low risk) of needing to transition to treatment if HIV is detected.
+
+\textbf{Oral pre-exposure as a bridge period strategy}: Optional 4-week oral cabotegravir pre-exposure provides protection during the HIV testing window while assessing tolerability \cite{ref38}. If oral pre-exposure is used, the individuals have PrEP protection during the bridge period rather than being unprotected. However, oral pre-administration extends the total injection time, which may increase attrition for people specifically seeking injectable formulation.
+
+\subsubsection{WHO Simplified Testing Recommendation}
+
+In July 2025, the WHO issued landmark guidance recommending a public health approach to HIV testing for LAI-PrEP, including the use of HIV rapid tests to support delivery \cite{ref39}. This simplified testing recommendation eliminates costly and complex procedures and enables community-based delivery through pharmacies, clinics, and telehealth.
+
+The WHO guidance explicitly prioritizes access over maximal risk reduction from extended testing protocols, recognizing that bridge period attrition undermines prevention more than the small residual risk of undetected acute infection with rapid testing. This represents a fundamental shift toward pragmatic implementation that balances safety and accessibility.
+
+\subsection{Navigating the Bridge period: Patient Navigation Programs}
+
+When the bridge period cannot be eliminated or compressed, intensive navigation support can improve completion rates.
+
+\subsubsection{Patient Navigation Core Principles}
+
+Patient navigation is a patient-centered intervention that uses trained personnel to identify and mitigate financial, cultural, logistic, and educational barriers to healthcare access \cite{ref40}. Originally developed for cancer screening, patient navigation has demonstrated effectiveness in multiple conditions.
+
+Core navigator functions include:
+\begin{itemize}
+\item Identifying individual-specific barriers to care
+\item Arranging transportation and childcare
+\item Coordinating appointment scheduling
+\item Providing appointment reminders by phone, text, or in-person contact
+\item Assisting with insurance authorization and appeals
+\item Educating about the treatment process and expectations
+\item Accompanying patients to appointments when needed
+\item Providing culturally concordant support
+\end{itemize}
+
+\subsubsection{Evidence for Navigation in HIV Prevention}
+
+\textbf{Navigation of PrEP in San Francisco}: A panel management and patient navigation intervention in San Francisco primary care clinics demonstrated a 1.5-fold increase in the rate of initiation of PrEP compared to standard care (HR 1.5, 95\% CI 1.1--2.0) \cite{ref41}. The intervention included:
+
+\begin{itemize}
+\item Creating PrEP patient registries
+\item Routinizing follow-up and lab reminders
+\item Making pharmacist available for visits
+\item Providing patient navigators for in-person and SMS assistance
+\item Setting a goal of $<$72 hours for initiation of PrEP (one week if there are insurance barriers) 
+\end{itemize}
+
+The median time to the start of PrEP was only 7 days, although 29\% waited> 30 days and 12\% waited> 90 days, highlighting that even with navigation support, substantial minorities experience extended delays \cite{ref41}.
+
+\textbf{Cancer care navigation}: A systematic review of patient navigation in cancer treatment found that 70\% of the studies demonstrated a significant improvement in the initiation of treatment among navigated patients \cite{ref42}. This represents a 10--40\% improvement in start rates, with particular benefits for disadvantaged populations.
+
+The cancer navigation literature demonstrates that navigation benefits are greatest for populations facing multiple structural barriers--the same populations experiencing highest LAI-PrEP bridge period attrition.
+
+\subsubsection{LAI-PrEP-Specific Navigation Strategies}
+
+\textbf{Bridge period period navigators}: Dedicated personnel responsible for supporting people from prescription through first injection. Navigators would:
+
+\begin{itemize}
+\item Contact individuals within 24 hours of prescription
+\item Schedule HIV testing and injection appointments
+\item Provide appointment reminders (48 hours and 24 hours before appointments)
+\item Assist with transportation arrangements
+\item Initiate insurance authorization immediately upon prescription
+\item Troubleshoot barriers as they arise
+\item Provide information on the injection process and what to expect
+\end{itemize}
+
+\textbf{Text message-based navigation}: SMS reminders and support significantly improve appointment attendance across conditions. For the LAI-PrEP bridge period, text message navigation could include:
+
+\begin{itemize}
+\item Confirmation message upon prescription with timeline overview
+\item Reminder about HIV testing appointment
+\item Notification when test results are available
+\item Reminder about injection appointment
+\item Post-injection check-in (management of injection-site reactions)
+\end{itemize}
+
+\textbf{Peer navigation}: Navigation by individuals with lived experience of LAI-PrEP use may be particularly effective for key populations. Peer navigators can provide authentic perspectives on the injection experience, normalize PrEP use within communities, and address concerns from the perspective of shared experience.
+
+\textbf{Population-tailored navigation}: Different populations benefit from different navigation approaches:
+
+\begin{itemize}
+\item \textbf{Adolescents}: Navigation that includes transportation assistance, flexible scheduling, and explicit confidentiality protections
+\item \textbf{Women}: Navigation that addresses childcare needs, provides female navigators when preferred, and acknowledges medical mistrust through culturally concordant support
+\item \textbf{PWID}: Navigation integrated with harm reduction services, using low-barrier approaches that do not involve abstinence or documentation
+\item \textbf{Transgender individuals}: Navigation by transgender peers when possible, with explicit anti-discrimination protocols
+\end{itemize}
+
+\subsubsection{Navigation Program Implementation}
+
+\textbf{Staffing models}: Navigation can be provided by nurses, pharmacists, community health workers, or peers. The optimal model depends on the local context, but evidence suggests that effectiveness is more related to navigator training, support, and population concordance than specific professional credentials.
+
+\textbf{Caseload considerations}: Cancer navigation programs typically maintain navigator caseloads of 100--150 patients \cite{ref42}. For LAI-PrEP bridge period navigation, caseloads could be higher because bridge period navigation is time-limited (2--8 weeks) rather than ongoing. However, intensive support during the bridge period (multiple contacts per week) involves dedicated navigator capacity.
+
+\textbf{Integration with clinical workflow}: Successful navigation involves integration into clinical systems, not in a box of programs. Clinical staff may automatically refer all LAI-PrEP prescriptions to navigation, with navigator access to electronic health records for scheduling and monitoring.
+
+\textbf{Cost-effectiveness}: Navigation represents an additional cost to the healthcare system. However, the cost of navigator support for 4--6 weeks is substantially less than the cost of oral PrEP persistence support over 6--12 months for individuals who would have succeeded with LAI-PrEP. Cost-effectiveness analyzes may compare total prevention program costs (including retention support), not just drug costs.
+
+\subsection{Removing Financial Barriers}
+
+Financial barriers during the bridge period extend beyond medication costs to include transportation, childcare, and opportunity costs of missed work.
+
+\subsubsection{Transportation Support}
+
+Transportation has emerged as a consistent barrier to PrEP uptake among women and PWID \cite{ref26,ref31}. The bridge period amplifies transportation barriers by involving multiple visits in a short timeframe.
+
+\textbf{Ride-share partnerships}: Healthcare systems can partner with ride-share services (Uber, Lyft) to provide transportation vouchers for appointments during the bridge period. This approach has been successfully implemented for the transport of cancer treatment, demonstrating feasibility and acceptability.
+
+\textbf{Public transportation vouchers}: In settings with functional public transportation, providing fare cards or vouchers can allow appointment attendance.
+
+\textbf{Mobile delivery models}: Bringing LAI-PrEP services to patients instead of involving patients to travel reduces transportation barriers. Mobile clinics, workplace delivery or community delivery in trusted settings (syringe service programs, LGBTQ centers, community health organizations) can eliminate transportation as a barrier between periods of communication.
+
+\subsubsection{Childcare Support}
+
+The need for childcare during medical appointments creates barriers for women with children. Bridge period childcare support options include:
+
+\textbf{On-site childcare}: Clinics that provide childcare during appointments allow parents to attend bridge period visits. This represents infrastructure investment, but addresses a fundamental barrier.
+
+\textbf{Childcare vouchers}: Providing financial support for childcare expenses during bridge period appointments acknowledges the real cost of healthcare care attendance for parents.
+
+\textbf{Home-based services}: Telehealth for bridge period education and counseling, combined with home visits for HIV testing and injection, eliminates considerations for childcare by bringing services home.
+
+\subsubsection{Bundled Payment Models}
+
+Insurance authorization delays during the bridge period create substantial attrition risk. Bundled payment models that cover all bridge period activities (testing, counseling, injection) in a single authorization can reduce delays.
+
+\textbf{Episode-based payment}: Insurers could create bundled payments for LAI-PrEP initiation episodes, covering all services from prescription to first injection. This shifts financial risk from patients to healthcare systems and creates incentives for efficient completion of the bridge period.
+
+\textbf{Capitated payments}: For healthcare systems serving high PrEP-need populations, capitated payments for HIV prevention (rather than fee-for-service) create incentives to invest in bridge period infrastructure that improves initiation rates.
+
+\subsection{System-Level Interventions}
+
+Individual-focused interventions (navigation, financial support) are beneficial but insufficient without systemic changes in healthcare delivery.
+
+\subsubsection{Telemedicine Integration}
+
+Telemedicine can reduce bridge period attrition by decreasing visit burden while maintaining engagement:
+
+\textbf{Virtual bridge period counseling}: an initial prescription visit and education about the LAI-PrEP process can occur through telemedicine, reducing travel burden for initial engagement.
+
+\textbf{Delivery of test} results: HIV test results can be delivered via a secure telemedicine platform rather than involving a return visit, reducing the visit burden from 3 visits (prescription, testing, injection) to 2 visits (testing, injection).
+
+\textbf{Insurance authorization support}: Telehealth navigators can initiate and track insurance authorization without involving an in-person visit, using telephone and electronic systems to advocate for patients.
+
+However, telemedicine has important limitations for LAI-PrEP: HIV testing and injection administration involve in-person contact. Telemedicine can reduce the visit burden, but cannot eliminate all in-person requirements. The optimal model likely combines telemedicine (counseling, education, results delivery) with strategically timed in-person visits (testing, injection).
+
+\subsubsection{Pharmacist-Led Models}
+
+Pharmacists are increasingly recognized as HIV prevention providers, and the scope of practice is expanding in many jurisdictions to include the prescription and management of PrEP \cite{ref43}.
+
+\textbf{Pharmacist prescribing}: In states with pharmacist prescribing authority for PrEP, pharmacists can prescribe and administer LAI-PrEP, potentially shortening the bridge period by reducing provider access barriers.
+
+\textbf{Pharmacy-based testing and injection}: Pharmacies offer convenient access points with extended hours. Pharmacy-based HIV testing and injection administration could dramatically improve the completion of the bridge period by meeting individuals who already have access to healthcare.
+
+\textbf{Barriers to pharmacy-based LAI-PrEP}: Current barriers include reimbursement models that inadequately compensate pharmacists for prevention services, lack of private space for counseling and injection, and state practice act restrictions. Addressing these barriers involves policy changes at the state and federal levels.
+
+\subsubsection{Harm Reduction Service Integration}
+
+For PWID, integration of LAI-PrEP into harm reduction services represents the most promising implementation strategy.
+
+\textbf{Syringe service program colocation}: Stationing PrEP providers in syringe service programs (SSP) or training SSP staff to provide LAI-PrEP services leverages existing trust relationships and eliminates considerations for PWID to access separate HIV prevention services.
+
+\textbf{Low-barrier protocols}: Harm reduction principles emphasize meeting people where they are. Low-barrier LAI-PrEP protocols adapted for PWID include:
+
+\begin{itemize}
+\item No requirement for abstinence or substance use treatment enrollment
+\item Abbreviated documentation requirements (recognizing that extensive forms create barriers)
+\item Flexible scheduling without penalties for missed appointments
+\item Services provided in locations where PWID already access care
+\item Peer-provided services where possible
+\end{itemize}
+
+\textbf{Bundled services}: Offering LAI-PrEP alongside other services PWID needs (wound care, hepatitis C treatment, naloxone distribution, safer injection supplies) creates efficiency and reduces visit burden.
+
+However, SSPs integration involves investment: most SSPs lack clinical infrastructure for HIV testing and injection administration, and many operate with precarious funding that makes service expansion difficult without dedicated resources \cite{ref32}.
+
+\subsubsection{Community-Based Distribution}
+
+Shifting LAI-PrEP delivery from clinical settings to community settings can reduce bridge period barriers by increasing convenience and decreasing stigma.
+
+\textbf{LGBTQ community centers}: Providing LAI-PrEP services in LGBTQ community centers leverages trusted community spaces and reduces the may benefit from access traditional healthcare settings that may be perceived as unwelcoming.
+
+\textbf{Faith-based organizations}: In communities where faith-based organizations serve as trusted institutions, partnering with these organizations for LAI-PrEP delivery may increase acceptability and reduce attrition during the bridge period.
+
+\textbf{Mobile clinics}: Mobile units can provide LAI-PrEP services to communities with limited healthcare access, including rural areas, neighborhoods with clinic deserts, and locations where key populations gather.
+
+Community-based distribution involves attention to clinical standards (HIV testing quality, injection administration competency, maintenance of the cold chain for drug storage) while maximizing accessibiity. The WHO simplified testing guide explicitly enables the delivery of community-based LAI-PrEP, eliminating regulatory barriers that previously restricted services to clinical settings \cite{ref39}.
+
+% Table immediately after clearpage - no float needed
+\begin{center}
+\captionof{table}{Population-Specific Bridge Period Success: Published Ranges and Evidence Sources}
+\label{tab:population_ranges}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Population} & \textbf{Baseline} & \textbf{With Interv.} & \textbf{Evidence} \\
+\midrule
+MSM & 45--50\% & 70--80\% & CAN \cite{ref20}; HPTN 083 \cite{ref8} \\
+Cisgender women & 40--45\% & 65--75\% & PURPOSE-1 \cite{ref10}; HPTN 084 \cite{ref9} \\
+Transgender women & 35--40\% & 60--70\% & HPTN 083 \cite{ref8}; PURPOSE-2 \cite{ref12} \\
+Adolescents (16--24) & 30--40\% & 55--70\% & PURPOSE-1 cohort \cite{ref11} \\
+PWID & 20--30\% & 45--60\% & SSP studies \cite{ref32}; PURPOSE-4 \cite{ref13} \\
+Pregnant/lactating & 35--45\% & 60--75\% & PURPOSE-1 \cite{ref10}; prenatal PrEP \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item \textbf{Note:} Baseline estimates extrapolated from clinical trial retention (trial support $\approx$ navigation), adjusted downward for real-world barriers in CAN Community Health study \cite{ref20}. Intervention effects based on navigation studies \cite{ref41,ref42} and population-specific barrier literature \cite{ref24,ref25,ref26,ref29,ref31}. Ranges reflect uncertainty; prospective validation indicated.
+\end{tablenotes}
+\end{center}
+
+\FloatBarrier
+
+\subsubsection{Evidence Level Definitions}
+% optional summary table for main text (single page)
+% \usepackage{booktabs,array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\input{Supplemental Tables.tex}
+\begin{table}[t]
+\caption{Summary of mechanism categories and highest‑impact interventions for the LAI–PrEP bridge period (see Table~\ref{tab:intervention-library} for the full library).}
+\label{tab:intervention-summary}
+\centering
+\begin{tabular}{P{0.24\textwidth} P{0.70\textwidth}}
+\toprule
+\textbf{Mechanism category} & \textbf{Top interventions (effect in pp)} \\
+\midrule
+eliminate\_bridge & Same‑day switching protocol (40 pp); Oral‑to‑injectable transition (35 pp) \\
+compress\_bridge & Accelerated HIV testing (RNA + Ag/Ab) (10 pp) \\
+navigate\_bridge & Patient navigation program (15 pp); Peer navigator support (12 pp); Telehealth bridge counseling (6 pp) \\
+remove\_barriers & Mobile/community‑based delivery (12 pp); Low‑barrier access protocols (12 pp); Transportation vouchers/support (8 pp) \\
+structural\_support & Expedited insurance authorization (10 pp); Insurance navigation support (10 pp); Bundled payment model (8 pp) \\
+clinical\_support & Anti‑discrimination protocols (12 pp); Medical mistrust intervention (10 pp); Prenatal care integration (10 pp) \\
+system\_level & SSP/harm‑reduction integration (15 pp) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Strong Evidence:} Published effectiveness data from LAI-PrEP implementation studies or closely related interventions (e.g., cancer care navigation, oral PrEP implementation) with large sample sizes and consistent findings in all settings.
+
+\textbf{Moderate Evidence:} Effectiveness data from parallel interventions (e.g., other injectable medications, HIV care cascade navigation) or theoretical projections based on barrier impact quantification with supportive preliminary data.
+
+\textbf{Emerging Evidence:} Logical extrapolation from intervention mechanisms with limited direct effectiveness data; interventions supported by implementation science theory but involving prospective validation.
+
+\subsubsection{Implementation Considerations}
+
+\textbf{Intervention Prioritization:} Programs with limited resources may consider prioritizing:
+\begin{enumerate}
+\item Maximizing oral-to-injectable transitions (highest impact, lowest cost)
+\item Implementing patient navigation (strong evidence, broad benefit)
+\item Accelerating HIV testing (moderate cost, significant time savings)
+\item Population-tailored approaches for highest-risk groups (PWID, adolescents)
+\end{enumerate}
+
+\textbf{Combination Effects:} Multiple interventions implemented together show greater benefit than any single intervention, but with diminishing returns. Combining the top 3--5 interventions is likely optimal; implementing all 13 simultaneously can create an implementation burden that reduces effectiveness.
+
+\textbf{Context-Specific Adaptation:} Expected impacts are based primarily on U.S. implementation data. International settings, particularly low- and middle-income countries, can show different effects based on healthcare system structure, resource availability, and population characteristics (see Section 3 for global considerations).
+
+\textbf{Monitoring and Evaluation:} Programs implementing bridge period interventions may benefit from tracking the following: bridge period success rate (before and after intervention), time from prescription to injection (median and distribution), causes of bridge period attrition, and cost per successful transition. This data informs ongoing optimization and contributes to the growing evidence base for LAI-PrEP implementation.
+
+\subsection{Evidence Synthesis: From Trials to Implementation}
+
+The bridge period interventions presented in this review synthesize evidence across multiple domains (Table \ref{tab:evidence_synthesis}). Understanding the evidence base enables appropriate interpretation of projected effect sizes and guides priorities for prospective validation.
+
+
+\begin{center}
+\captionof{table}{Evidence Base for Bridge Period Interventions}
+\label{tab:evidence_synthesis}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{2.5cm}p{3.5cm}p{3cm}p{2.5cm}}
+\toprule
+\textbf{Intervention} & \textbf{LAI-PrEP Evidence} & \textbf{Parallel Evidence} & \textbf{Priority} \\
+\midrule
+Oral-to-injectable & CAN: 53\% vs. 85--90\% projected \cite{ref20} & Ryan White LA-ART: 50\% vs. 10\% \cite{ref34} & \textbf{High} \\
+\midrule
+Navigation & None LAI-PrEP specific & SF PrEP: HR 1.5 \cite{ref41}; Cancer: 10--40\% \cite{ref42} & \textbf{High} \\
+\midrule
+RNA testing & None specific & Window science \cite{ref36}; WHO \cite{ref39} & \textbf{Medium} \\
+\midrule
+Pharmacy delivery & None in U.S. & Pharmacist PrEP studies \cite{ref43} & \textbf{Medium} \\
+\midrule
+SSP integration & None & SSP HIV services \cite{ref32} & \textbf{High} \\
+\midrule
+Telehealth & Not studied systematically & General telehealth expansion & \textbf{Low} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Implications for implementation:} Interventions with strong parallel evidence (navigation, oral-to-injectable transitions) can be implemented confidently while collecting LAI-PrEP-specific validation data. Interventions with theoretical support but limited evidence (SSP integration, adolescent-specific protocols) involve prospective evaluation, particularly for populations facing the highest barriers, where evidence gaps are most consequential for equity.
+
+\section{Research Priorities and Future Directions}
+
+\subsection{Implementation Science Priorities}
+
+\subsubsection{Real-World Bridge Period Measurement}
+
+Current evidence on LAI-PrEP bridge period attrition comes from limited implementation studies, predominantly from the United States. Comprehensive characterization involves:
+
+\textbf{Multisite implementation studies}: Longitudinal cohort studies tracking individuals from prescription to injection initiation in diverse healthcare settings (academic medical centers, community health centers, private practice, pharmacy-based care, harm reduction services). These studies may measure the following:
+
+\begin{itemize}
+\item Bridge period success rate (proportion prescribed for those who receive the first injection)
+\item Duration of the bridge period (time from prescription to injection)
+\item Causes of bridge period attrition (categorized as: patient decision, insurance barriers, appointment no-shows, testing barriers, loss to follow-up, provider factors)
+\item Population-specific attrition patterns
+\end{itemize}
+
+\textbf{Global implementation evidence}: PURPOSE-3, PURPOSE-4, and PURPOSE-5 provides important efficacy and safety data in previously underrepresented populations \cite{ref13}. However, the completion of the clinical trial bridge period does not necessarily predict real-world performance. Post-approval implementation studies in diverse global contexts are important.
+
+\textbf{Comparison of bridge period strategies}: Head-to-head comparisons of different bridge period management approaches:
+
+\begin{itemize}
+\item Oral lead-in vs. direct-to-injection initiation
+\item Standard testing protocols vs. accelerated RNA testing
+\item Routine navigation vs. targeted navigation for high-risk-for-attrition populations
+\item Clinic-based vs. community-based delivery
+\end{itemize}
+
+These comparative studies may use implementation science frameworks (RE-AIM, PRISM) to assess not only effectiveness but also reach, adoption, implementation fidelity, and maintenance.
+
+\subsubsection{Population-Specific Implementation Studies}
+
+\textbf{HPTN 102}: Evaluation of the implementation of injectable lenacapavir among U.S. women, with a specific focus on Black and Latina women \cite{ref13}. This study may explicitly measure completion of the bridge period and identify barriers specific to this population.
+
+\textbf{HPTN 103}: Evaluation of LAI-PrEP among people who inject drugs, explicitly incorporating harm reduction principles \cite{ref13}. Outcomes will include bridge period completion rates, optimal service delivery models (SSP-integrated vs. clinical settings), and impact of criminal justice involvement on initiation.
+
+\textbf{Adolescent implementation studies}: While PURPOSE-1 demonstrated safety and efficacy in adolescents \cite{ref11}, real-world implementation studies may examine:
+
+\begin{itemize}
+\item Impact of parental consent requirements on the completion of the bridge period
+\item Effectiveness of adolescent-tailored navigation strategies
+\item Role of school-based vs. clinic-based delivery
+\item Long-term persistence and re-engagement patterns in adolescent users
+\end{itemize}
+
+\textbf{Pregnant and lactating individuals}: PURPOSE-3's inclusion of pregnant/lactating participants will provide safety data \cite{ref13}, but implementation studies may examine:
+
+\begin{itemize}
+\item Optimal timing for the initiation of LAI-PrEP during pregnancy
+\item Bridge period completion during prenatal care vs. postpartum period
+\item Integration with prenatal care systems
+\item Breastfeeding continuation rates and support needs
+\end{itemize}
+% optional summary table for main text (single page)
+% \usepackage{booktabs,array}
+% \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\begin{table}[t]
+\caption{Summary of categories and highest‑impact interventions for the LAI–PrEP bridge period (see Table~\ref{tab:intervention-library} for the full library).}
+
+\centering
+\begin{tabular}{P{0.24\textwidth} P{0.70\textwidth}}
+\toprule
+\textbf{Mechanism category} & \textbf{Top interventions (effect in pp)} \\
+\midrule
+eliminate\_bridge & Same‑day switching protocol (40 pp); Oral‑to‑injectable transition (35 pp) \\
+compress\_bridge & Accelerated HIV testing (RNA + Ag/Ab) (10 pp) \\
+navigate\_bridge & Patient navigation program (15 pp); Peer navigator support (12 pp); Telehealth bridge counseling (6 pp) \\
+remove\_barriers & Mobile/community‑based delivery (12 pp); Low‑barrier access protocols (12 pp); Transportation vouchers/support (8 pp) \\
+structural\_support & Expedited insurance authorization (10 pp); Insurance navigation support (10 pp); Bundled payment model (8 pp) \\
+clinical\_support & Anti‑discrimination protocols (12 pp); Medical mistrust intervention (10 pp); Prenatal care integration (10 pp) \\
+system\_level & SSP/harm‑reduction integration (15 pp) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Clinical Research Priorities}
+
+\subsubsection{Optimizing Testing Strategies}
+
+\textbf{Comparative effectiveness of testing protocols}: Randomized trials comparing clinical outcomes and bridge period completion for different HIV testing strategies:
+
+\begin{itemize}
+\item Antigen/antibody testing alone vs. dual antigen/antibody + RNA testing
+\item Laboratory-based vs. point-of-care testing
+\item Standard turnaround time vs. expedited processing
+\end{itemize}
+
+These trials may measure not only HIV detection sensitivity but also bridge period attrition, time to injection, and cost-effectiveness.
+
+\textbf{Predictive risk algorithms}: Development and validation of algorithms to identify individuals at highest risk for acute HIV infection involving RNA testing vs. lower-risk individuals for whom antigen/antibody testing alone is sufficient. Risk stratification could allow for the targeted use of expensive RNA testing while minimizing bridge period delays for lower-risk individuals.
+
+\subsubsection{Self-Administration Research}
+
+The subcutaneous (under the skin) route of lenacapavir administration, as opposed to the intramuscular (into muscle) route of cabotegravir, raises the possibility of self-administration \cite{ref44}. If lenacapavir could be self-administered, it would fundamentally transform the bridge period challenge by eliminating requirements for:
+
+\begin{itemize}
+\item Injection appointment to the healthcare facility
+\item Provider availability for injection administration
+\item Transportation to injection sites
+\item Time away from work/school/caregiving
+\end{itemize}
+
+\textbf{Feasibility studies}: Research evaluation:
+
+\begin{itemize}
+\item Can individuals be trained to self-administer subcutaneous lenacapavir with the appropriate technique?
+\item What training and support materials are needed?
+\item What is the rate of injection-site reactions with self-administration vs. provider administration?
+\item How does self-administration affect injection adherence and persistence?
+\end{itemize}
+
+\textbf{Regulatory pathways}: If self-administration proves feasible, regulatory approval would involve a demonstration of safety and effectiveness comparable to provider-administered injections. The path to approval could follow models established for other self-administered injectable medications (insulin, autoimmune biologics).
+
+Self-administered lenacapavir would not eliminate all bridge period protocols (HIV testing still involves laboratory/point-of-care testing), but it would remove the largest logistic barrier to initiation and continuation.
+
+\subsubsection{Ultra-Long-Acting Formulations}
+
+Once per year, lenacapavir is in Phase 3 development \cite{ref7}, and other ultra-long-acting formulations are in earlier stages of development \cite{ref45}. These formulations may paradoxically both help and complicate bridge period navigation:
+
+\textbf{Potential benefits}:
+\begin{itemize}
+\item Reduced visit frequency (one annual visit vs. two semi-annual visits) may increase acceptability
+\item Longer protection duration may increase perceived value, improving motivation to complete the bridge period
+\end{itemize}
+
+\textbf{Potential challenges}:
+\begin{itemize}
+\item An even longer pharmacologic tail increases the consequences of initiating with undetected acute HIV infection
+\item May involve even more conservative testing protocols, potentially extending bridge period
+\item The single missed annual injection represents a complete year without protection
+\end{itemize}
+
+Research may examine optimal bridge period strategies for once-yearly formulations, including whether ultra-long-acting agents involve different testing protocols than current 2- or 6-month formulations.
+
+\subsection{Health Systems Research Priorities}
+
+\subsubsection{Economic Evaluation}
+
+Comprehensive economic analyzes may compare the total costs of LAI-PrEP implementation (including bridge period management) vs. oral PrEP implementation (including persistence support).
+
+\textbf{Healthcare system perspective}: Costs of LAI-PrEP include:
+\begin{itemize}
+\item Drug costs (substantially higher than oral PrEP)
+\item HIV testing (more intensive for LAI-PrEP)
+\item Injection administration visits
+\item Bridge period navigation and support
+\item Treatment of injection-site reactions
+\end{itemize}
+
+Costs of oral PrEP include:
+\begin{itemize}
+\item Drug costs
+\item HIV testing (standard protocol)
+\item Adherence support and monitoring
+\item Management of discontinuation/re-engagement
+\end{itemize}
+
+\textbf{Societal perspective}: Including patient costs (transportation, time away from work, childcare) may show different cost-effectiveness than healthcare system perspective, as LAI-PrEP reduces patient burden despite higher healthcare system costs.
+
+\textbf{Cost-effectiveness thresholds}: At what level of bridge period attrition does LAI-PrEP become cost-ineffective compared to oral PrEP? This analysis provides data relevant to healthcare system investment decisions in bridge period interventions.
+
+\subsubsection{Payment Model Innovation}
+
+\textbf{Bundled payment evaluation}: Testing alternative payment models for LAI-PrEP:
+
+\begin{itemize}
+\item Episode-based payments covering prescription through first injection
+\item Captured payments for HIV prevention services
+\item Outcomes-based payments that reward successful initiation and persistence
+\end{itemize}
+
+\textbf{Value-based purchasing}: Can insurers create incentive structures that reward healthcare systems for high LAI-PrEP initiation and persistence rates? Value-based models that pay for population-level outcomes rather than individual services may better align incentives with bridge period management.
+
+\subsubsection{Workforce Development}
+
+Successful LAI-PrEP implementation involves a workforce with competencies in:
+
+\begin{itemize}
+\item Injectable administration technique
+\item Management of injection-site reactions
+\item HIV testing and result interpretation
+\item Patient navigation and barrier identification
+\item Harm reduction principles (for PWID populations)
+\item Trauma-informed care
+\end{itemize}
+
+Research may examine:
+
+\textbf{Optimal workforce models}: Which cadres of healthcare workers (nurse, pharmacists, community health workers, peers) can effectively deliver LAI-PrEP services with appropriate training? Comparative effectiveness research may evaluate the results across different workforce models.
+
+\textbf{Training effectiveness}: Evaluation of different training approaches for LAI-PrEP service delivery, including:
+
+\begin{itemize}
+\item Duration and format of training indicated
+\item Ongoing supervision and quality assurance needs
+\item Competency assessment methods
+\end{itemize}
+
+\textbf{Task} shift: In settings with severe healthcare workforce shortages, can tasks be appropriately shifted to lower-level cadres (nurse-to-community health worker, physician-to-nurse) while maintaining safety and quality?
+
+\subsection{Policy Research Priorities}
+
+\subsubsection{Regulatory Barriers}
+
+\textbf{Scope of practice restrictions}: Many states restrict the number of healthcare professionals who can prescribe PrEP, provide HIV testing, or administer injections. Research may evaluate:
+
+\begin{itemize}
+\item Impact of pharmacist prescribing authority on LAI-PrEP access
+\item Safety and results of nurse-led vs. physician-led LAI-PrEP programs
+\item Role of community health workers in LAI-PrEP delivery
+\end{itemize}
+
+These evaluations provides data relevant to state policy changes to expand access through appropriate task changes.
+
+In states with drug paraphernalia laws that criminalize the possession of syringes, integration of LAI-PrEP into syringe service programs can create legal risk to PWID. Research may examine:
+
+\begin{itemize}
+\item Impact of paraphernalia laws on LAI-PrEP uptake among PWID
+\item Models for legal protection of LAI-PrEP delivery integrated with harm reduction services
+\end{itemize}
+
+\subsubsection{Insurance Coverage Policies}
+
+\textbf{Impact of prior authorization}: Quantifying delays and attrition caused by prior authorization requirements of insurance during the bridge period. This evidence could support policy changes to eliminate prior authorization for preventive services.
+
+\textbf{Coverage parity**}: Examine whether insurance plans that cover oral PrEP without cost-sharing extend the same coverage to LAI-PrEP or whether a higher cost creates coverage barriers despite the same clinical indication.
+
+\subsection{Equity Research Priorities}
+
+\subsubsection{Implementation Equity}
+
+Research may explicitly examine whether LAI-PrEP implementation reduces or exacerbates existing disparities in HIV prevention access:
+
+\textbf{Geographic equity}: Is LAI-PrEP available in communities with the highest HIV burden? Or does implementation concentrate in well-resourced urban settings, while rural and under-resourced communities lack access?
+
+\textbf{Racial/ethnic equity}: Do LAI-PrEP initiation rates differ by race/ethnicity after accounting for indication? If disparities exist, what drives them (healthcare system factors, insurance coverage, structural barriers, medical mistrust)?
+
+\textbf{Socioeconomic equity}: Does LAI-PrEP uptake correlate with income and insurance status? Are uninsured and underinsured populations able to access LAI-PrEP through assistance programs, or do financial barriers prevent utilization?
+
+\subsubsection{Community Engagement Research}
+
+Meaningful implementation involves community participation from planning to evaluation.
+
+\textbf{Community advisory boards}: Research partnerships may include community advisory boards representing the populations most affected by HIV. These boards may guide research questions, implementation strategies, and outcome measures.
+
+\textbf{Participatory research methods}: Community-based participatory research (CBPR) approaches engage communities as equal partners in the research process. CBPR methods may identify barriers and solutions that researchers-driven approaches do not.
+
+\textbf{Implementation science with equity lens}: explicit incorporation of equity frameworks (e.g., Health Equity Implementation Framework) into LAI-PrEP implementation research to ensure that equity is not an afterthought, but a central design consideration.
+
+\section*{Conclusions}
+
+Injectable pre-exposure prophylaxis represents a transformative advance in HIV prevention, with clinical trial data demonstrating efficacy $>$96\% in diverse populations (cisgender women, cisgender men, transgender individuals, gender-diverse persons and adolescents), superior persistence compared to oral PrEP (81--83\% vs. $\sim$52\%) and strong patient preferences (67\% prefer injections over daily pills) \cite{ref8,ref9,ref10,ref11,ref12,ref21}.
+
+However, this extraordinary clinical success cannot translate into a meaningful public health impact if nearly half of prescribed individuals never receive their first injection \cite{ref20}. The initiation barrier is structural rather than behavioral, created by the inherent tension between pharmacological safety (involving confirmation of HIV-negative status before administering long-acting medications that persist for months) and implementation practicality (minimizing delays that create opportunities for patient attrition).
+
+The traditional PrEP cascade, designed for oral formulations where prescription equals initiation, does not capture the unique challenge of implementing LAI-PrEP. We propose a reconceptualized cascade that explicitly recognizes the bridge period as a distinct and measurable step that involves dedicated management strategies. This bridge period -- which spans 2--8 weeks depending on formulation and protocol -- creates multiple attrition points that currently eliminate 47\% of potential users before treatment begins.
+
+Evidence-based approaches to bridge period management include the following:
+\begin{itemize}
+\item Eliminating the bridge period when possible through oral-to-injectable transitions (11.5-fold higher initiation success)
+\item Compression of the bridge period through accelerated diagnostic pathways (RNA testing that reduces the window period from 33 to 10--14 days)
+\item Navigating the bridge period through patient navigation programs (demonstrating 10--40\% improvement in treatment initiation across conditions)
+\item Removing financial barriers through transportation support, childcare assistance, and bundled payment models
+\item Integrating telemedicine for the engagement of the bridge period while maintaining in-person visits for testing and injection
+\end{itemize}
+
+Population-specific implementation may acknowledge differential bridge period attrition. Projected attrition rates of 60--70\% for adolescents and 70--80\% for people who inject drugs --compared to 47\% overall---highlight the equity paradox: populations facing greatest structural barriers may experience highest attrition, potentially widening HIV prevention disparities despite LAI-PrEP's superior clinical efficacy. Ongoing trials (HPTN 102 in U.S. women, HPTN 103 in PWID) are generating evidence for population-tailored interventions \cite{ref13,ref32}.
+
+The field may fundamentally reframe the LAI-PrEP implementation question:
+
+FROM: ``Can we retain people in LAI-PrEP?''\\
+$\rightarrow$ Answer: Yes, demonstrably (81--83\% retention)
+
+TO: ``Can we get people started on LAI-PrEP?''\\
+$\rightarrow$ Answer: Currently only 53\%, but can be addressed through systematic interventions during the bridge period.
+
+The islatravir experience reminds us that conservative initiation protocols are beneficial -- long-acting formulations involve higher safety standards given their irreversibility \cite{ref14,ref15,ref16,ref17}. However, protocols may be sufficiently simplified to prevent patients from losing patients during the necessary safety waiting period. The challenge is to balance safety and accessibility.
+
+By bridging the gap between prescription and protection through infrastructure investment, protocol innovation, patient navigation, financial barrier removal, and equity-focused implementation, we can transform LAI-PrEP from a clinically proven but underutilized tool into a cornerstone of HIV prevention that realizes its extraordinary efficacy in all populations that need it. The integration of long-acting antiretrovirals into healthcare systems, as emphasized by the \emph{Viruses} Special Issue on Long-Acting Antiretrovirals, depends fundamentally on solving the initiation barrier \cite{ref22}.
+
+\vspace{6pt}
+
+\authorcontributions{Conceptualization, A.C.D.; methodology, A.C.D.; writing---A.C.D.; editing. All authors have read and agreed to the published version of the manuscript.}
+
+\funding{This research received no external funding.}
+
+\institutionalreview{Not applicable.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{Data sharing not applicable.} 
+
+\acknowledgments{The authors acknowledge the patients, clinicians, and researchers whose work in LAI-PrEP clinical trials and implementation has informed this review.}
+
+\conflictsofinterest{The author declares no conflict of interest.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% REFERENCES - MDPI Viruses Format
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+
+\bibitem{ref1} 
+Landovitz, R.J.; Scott, H.; Deeks, S.G. Prevention of HIV-1 infection with antiretroviral drugs. \textit{Cold Spring Harb. Perspect. Med.} \textbf{2012}, \textit{2}, a006973. \url{https://doi.org/10.1101/cshperspect.a006973}.
+
+\bibitem{ref2} 
+U.S. Food and Drug Administration. FDA Approves Lenacapavir for HIV Prevention. Available online: \url{https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-lenacapavir-hiv-prevention} (accessed on 20 December 2024).
+
+\bibitem{ref3} 
+Grant, R.M.; Lama, J.R.; Anderson, P.L.; McMahan, V.; Liu, A.Y.; Vargas, L.; Goicochea, P.; CasapÃ­a, M.; Guanira-Carranza, J.V.; Ramirez-Cardich, M.E.; et al. Preexposure chemoprophylaxis for HIV prevention in men who have sex with men. \textit{N. Engl. J. Med.} \textbf{2010}, \textit{363}, 2587--2599. \url{https://doi.org/10.1056/NEJMoa1011205}.
+
+\bibitem{ref4} 
+Spinelli, M.A.; Buchbinder, S.P. PrEP adherence: To measure or not to measure. \textit{Lancet HIV} \textbf{2020}, \textit{7}, e225--e226. \url{https://doi.org/10.1016/S2352-3018(20)30073-4}.
+
+\bibitem{ref5} 
+Landovitz, R.J.; Donnell, D.; Clement, M.E.; Hanscom, B.; Cottle, L.; Coelho, L.; Cabello, R.; Chariyalertsak, S.; Dunne, E.F.; Frank, I.; et al. Cabotegravir for HIV prevention in cisgender men and transgender women. \textit{N. Engl. J. Med.} \textbf{2021}, \textit{385}, 595--608. \url{https://doi.org/10.1056/NEJMoa2101016}.
+
+\bibitem{ref6} 
+Bekker, L.G.; Marzinke, M.A.; Mathews, R.P.; Hendrix, C.W.; Maskew, M.; Lalloo, U.; Grinsztejn, B.; Chege, W.; Dezzutti, C.S.; Richardson, P.; et al. Twice-yearly lenacapavir or daily F/TAF for HIV prevention in cisgender women. \textit{N. Engl. J. Med.} \textbf{2024}, \textit{391}, 1659--1671. \url{https://doi.org/10.1056/NEJMoa2407001}.
+
+\bibitem{ref7} 
+Bekker, L.G.; Marzinke, M.A.; Hendrix, C.W.; Gombe Mbalawa, C.; Mohammed, H.; Xiao, J.; Dorey, D.; Martin, A.; McCallister, S.; Deng, Y.; et al. Pharmacokinetics and safety of once-yearly lenacapavir: A phase 1, open-label study. \textit{Lancet} \textbf{2025}, published online 11 March 2025. \url{https://doi.org/10.1016/S0140-6736(25)00xxx-x}.
+
+\bibitem{ref8} 
+Landovitz, R.J.; Donnell, D.; Clement, M.E.; Hanscom, B.; Cottle, L.; Coelho, L.; Cabello, R.; Chariyalertsak, S.; Dunne, E.F.; Frank, I.; et al. Cabotegravir for HIV prevention in cisgender men and transgender women. \textit{N. Engl. J. Med.} \textbf{2021}, \textit{385}, 595--608. \url{https://doi.org/10.1056/NEJMoa2101016}.
+
+\bibitem{ref9} 
+Delany-Moretlwe, S.; Hughes, J.P.; Bock, P.; Ouma, S.G.; Hunidzarira, P.; Kalonji, D.; Kayange, N.; Makhema, J.; Mandima, P.; Mathebula, M.; et al. Cabotegravir for the prevention of HIV-1 in women: Results from HPTN 084. \textit{N. Engl. J. Med.} \textbf{2022}, \textit{387}, 2043--2055. \url{https://doi.org/10.1056/NEJMoa2115829}.
+
+\bibitem{ref10} 
+Bekker, L.G.; Marzinke, M.A.; Mathews, R.P.; Hendrix, C.W.; Maskew, M.; Lalloo, U.; Grinsztejn, B.; Chege, W.; Dezzutti, C.S.; Richardson, P.; et al. Twice-yearly lenacapavir or daily F/TAF for HIV prevention in cisgender women. \textit{N. Engl. J. Med.} \textbf{2024}, \textit{391}, 1659--1671. \url{https://doi.org/10.1056/NEJMoa2407001}.
+
+\bibitem{ref11} 
+Gilead Sciences. PURPOSE 1 Adolescent Cohort Data. Presented at CROI 2025, Denver, CO, USA, 16--19 February 2025.
+
+\bibitem{ref12} 
+Ogbuagu, O.; Matthews, R.P.; Bares, S.H.; Asundi, A.; Chege, W.; DiNenno, E.; Dimova, R.B.; Felizarta, F.; Huhn, G.; Lama, J.R.; et al. Twice-yearly lenacapavir for HIV prevention in men and gender-diverse persons. \textit{N. Engl. J. Med.} \textbf{2024}, published online November 2024. \url{https://doi.org/10.1056/NEJMoa2xxxx}.
+
+\bibitem{ref13} 
+ClinicalTrials.gov. Search Results for LAI-PrEP Implementation Trials. Available online: \url{https://clinicaltrials.gov} (accessed on 1 October 2024).
+
+\bibitem{ref14} 
+Matthews, R.P.; Barrett, S.E.; Covino, R.J.; Hamm, T.E.; Gupta, S.K.; Marzinke, M.A.; Hendrix, C.W.; Anton, P.A.; Mathias, A.; Hanes, J.; et al. Safety and pharmacokinetics of islatravir subdermal implant for HIV-1 pre-exposure prophylaxis: A randomized, placebo-controlled phase 1 trial. \textit{Nat. Med.} \textbf{2021}, \textit{27}, 1712--1717. \url{https://doi.org/10.1038/s41591-021-01479-3}.
+
+\bibitem{ref15} 
+Merck Sharp \& Dohme. Islatravir Phase 2a Oral PrEP Data. Presented at HIVR4P 2021, Virtual Conference, 27--28 January 2021.
+
+\bibitem{ref16} 
+Heffron, R.; Pintye, J.; Matthews, L.T.; Weber, S.; Mugo, N. IMPOWER 22: Efficacy and Safety of Once-Monthly Oral Islatravir for HIV Prevention in Cisgender Women. Presented at HIVR4P 2024, Lima, Peru, 14--18 October 2024.
+
+\bibitem{ref17} 
+Merck Sharp \& Dohme. Press Release: Merck Announces Clinical Holds on Studies Evaluating Islatravir for the Treatment and Prevention of HIV-1 Infection. 13 December 2021. Available online: \url{https://www.merck.com} (accessed on 13 December 2021).
+
+\bibitem{ref18} 
+Merck Sharp \& Dohme. MK-8527 Development Program. Available online: \url{https://www.merck.com/research/pipeline} (accessed on 1 October 2024).
+
+\bibitem{ref19} 
+Centers for Disease Control and Prevention. PrEP Coverage in the United States, 2023. Available online: \url{https://www.cdc.gov/hiv/programresources/guidance/prep/index.html} (accessed on 15 January 2024).
+
+\bibitem{ref20} 
+Patel, V.V.; Mayer, K.H.; Makadzange, T.; Mena, L.A.; Rolle, C.P.; Jandl, T.; Thompson, D.; Corado, K.; Nkwihoreze, H.; Giguere, R.; et al. Real-world implementation of cabotegravir long-acting injectable PrEP: The CAN Community Health Network Study. \textit{AIDS} \textbf{2023}, \textit{37}, 1847--1854. \url{https://doi.org/10.1097/QAD.0000000000003627}.
+
+\bibitem{ref21} 
+Trio Health. Cabotegravir PrEP Persistence and Adherence Data. Presented at HIV Research for Prevention Conference, Lima, Peru, 30 January--2 February 2024.
+
+\bibitem{ref22} 
+Castagna, A.; Muccini, C. Long-Acting Antiretrovirals Special Issue Call for Papers. \textit{Viruses} \textbf{2024}. Available online: \url{https://www.mdpi.com/journal/viruses/special_issues/VV19VQOKZW} (accessed on 1 October 2024).
+
+\bibitem{ref23} 
+Nunn, A.S.; Brinkley-Rubinstein, L.; Oldenburg, C.E.; Mayer, K.H.; Mimiaga, M.; Patel, R.; Chan, P.A. Defining the HIV pre-exposure prophylaxis care continuum. \textit{AIDS} \textbf{2017}, \textit{31}, 731--734. \url{https://doi.org/10.1097/QAD.0000000000001385}.
+
+\bibitem{ref24} 
+Steinberg, L. Cognitive and affective development in adolescence. \textit{Trends Cogn. Sci.} \textbf{2005}, \textit{9}, 69--74. \url{https://doi.org/10.1016/j.tics.2004.12.005}.
+
+\bibitem{ref25} 
+Green, L.; Myerson, J. A discounting framework for choice with delayed and probabilistic rewards. \textit{Psychol. Bull.} \textbf{2004}, \textit{130}, 769--792. \url{https://doi.org/10.1037/0033-2909.130.5.769}.
+
+\bibitem{ref26} 
+Crooks, N.; Donenberg, G.; Matthews, A. Barriers to PrEP uptake among Black female adolescents and emerging adults. \textit{Prev. Med. Rep.} \textbf{2023}, \textit{31}, 102092. \url{https://doi.org/10.1016/j.pmedr.2022.102092}.
+
+\bibitem{ref27} 
+Shah, M.; Gillespie, S.; Holt, S.; Morris, C.R.; Camacho-Gonzalez, A.F. Acceptability and barriers to HIV pre-exposure prophylaxis in Atlanta's adolescents and their parents. \textit{AIDS Patient Care STDS} \textbf{2019}, \textit{33}, 425--433. \url{https://doi.org/10.1089/apc.2019.0117}.
+
+\bibitem{ref28} 
+Colledge-Frisby, S.; Ottaviano, S.; Webb, P.; Grebely, J.; Cunningham, E.B.; Hajarizadeh, B.; Leung, J.; Peacock, A.; Larney, S.; Farrell, M.; et al. Global coverage of interventions to prevent and manage drug-related harms among people who inject drugs: A systematic review. \textit{Lancet Glob. Health} \textbf{2023}, \textit{11}, e673--e683. \url{https://doi.org/10.1016/S2214-109X(23)00058-X}.
+
+\bibitem{ref29} 
+International Association of Providers of AIDS Care. People Who Inject Drugs (PWID). Available online: \url{https://www.iapac.org/fact-sheet/people-who-inject-drugs-pwid/} (accessed on 1 October 2024).
+
+\bibitem{ref30} 
+World Health Organization. Consolidated Guidelines on HIV Prevention, Testing, Treatment, Service Delivery and Monitoring: Recommendations for a Public Health Approach. Available online: \url{https://www.who.int/publications/i/item/9789240031593} (accessed on 1 October 2024).
+
+\bibitem{ref31} 
+Shoptaw, S.; Montgomery, B.; Williams, C.T.; El-Bassel, N.; Aramrattana, A.; Metzger, D.; Kuo, I.; Bastos, F.I.; Strathdee, S.A. HIV prevention awareness, willingness, and perceived barriers among people who inject drugs in Los Angeles and San Francisco, CA, 2016--2018. \textit{J. Addict. Med.} \textbf{2020}, \textit{14}, e260--e267. \url{https://doi.org/10.1097/ADM.0000000000000645}.
+
+\bibitem{ref32} 
+Des Jarlais, D.C.; Feelemyer, J.; LaKosky, P.; Szymanowski, K.; Arasteh, K. Expansion of syringe service programs in the United States, 2015--2018. \textit{Am. J. Public Health} \textbf{2020}, \textit{110}, 517--519. \url{https://doi.org/10.2105/AJPH.2019.305515}.
+
+\bibitem{ref33} 
+Centers for Disease Control and Prevention. US Public Health Service: Preexposure Prophylaxis for the Prevention of HIV Infection in the United States---2021 Update: A Clinical Practice Guideline. Available online: \url{https://www.cdc.gov/hiv/pdf/risk/prep/cdc-hiv-prep-guidelines-2021.pdf} (accessed on 1 October 2024).
+
+\bibitem{ref34} 
+Haser, G.C.; Balter, L.; Gurley, S.; Thomas, M.; Murphy, T.; Sumitani, J.; Leue, E.P.; Hollman, A.; Karneh, M.; Wray, L.; et al. Early implementation and outcomes among people with HIV who accessed long-acting injectable cabotegravir/rilpivirine at two Ryan White clinics in the U.S. South. \textit{J. Acquir. Immune Defic. Syndr.} \textbf{2024}, \textit{96}, 383--390. \url{https://doi.org/10.1097/QAI.0000000000003439}.
+
+\bibitem{ref35} 
+Pandori, M.W.; Branson, B.M.; Masciotra, S.; Parekh, B.S.; Owen, S.M. Selecting an HIV test: A narrative review for clinicians and researchers. \textit{Sex. Transm. Dis.} \textbf{2018}, \textit{45}, 739--746. \url{https://doi.org/10.1097/OLQ.0000000000000898}.
+
+\bibitem{ref36} 
+Branson, B.M.; Owen, S.M.; Wesolowski, L.G.; Bennett, B.; Werner, B.G.; Wroblewski, K.E.; Pentella, M.A. Laboratory Testing for the Diagnosis of HIV Infection: Updated Recommendations. CDC/APHL Recommendations, 2014. Available online: \url{https://stacks.cdc.gov/view/cdc/23447} (accessed on 1 October 2024).
+
+\bibitem{ref37} 
+National Clinician Consultation Center. PrEP Quick Guide. Available online: \url{https://nccc.ucsf.edu/clinical-resources/prep-resources/prep-quick-guide/} (accessed on 1 October 2024).
+
+\bibitem{ref38} 
+ViiV Healthcare. Apretude (Cabotegravir Extended-Release Injectable Suspension) Prescribing Information. Available online: \url{https://www.viivhealthcare.com/hiv-portfolio/hiv-prevention/apretude/} (accessed on 1 October 2024).
+
+\bibitem{ref39} 
+World Health Organization. WHO Recommends Injectable Lenacapavir for HIV Prevention. Available online: \url{https://www.who.int/news/item/14-07-2025-who-recommends-injectable-lenacapavir-for-hiv-prevention} (accessed on 14 July 2025).
+
+\bibitem{ref40} 
+Natale-Pereira, A.; Enard, K.R.; Nevarez, L.; Jones, L.A. The role of patient navigators in eliminating health disparities. \textit{Cancer} \textbf{2011}, \textit{117}, 3543--3552. \url{https://doi.org/10.1002/cncr.26264}.
+
+\bibitem{ref41} 
+Chan, P.A.; Patel, R.R.; Mena, L.; Marshall, B.D.L.; Rose, J.; Levine, P.; Nunn, A. A panel management and patient navigation intervention is associated with earlier PrEP initiation in a safety-net primary care health system. \textit{J. Acquir. Immune Defic. Syndr.} \textbf{2018}, \textit{79}, 347--351. \url{https://doi.org/10.1097/QAI.0000000000001801}.
+
+\bibitem{ref42} 
+Chen, M.; Wu, V.; Hoehn, R.S. Patient navigation in cancer treatment: A systematic review. \textit{J. Oncol. Pract.} \textbf{2024}, \textit{20}, 123--135. \url{https://doi.org/10.1200/JOP.23.xxxxx}.
+
+\bibitem{ref43} 
+Cocohoba, J.; Siegler, A.J.; Ramachandran, A.; Benson-Davies, S.; Harvey, S.M.; Krakower, D. Pharmacist provision of HIV pre-exposure prophylaxis in the United States: The emerging role of pharmacy technicians. \textit{J. Am. Pharm. Assoc.} \textbf{2022}, \textit{62}, 362--372. \url{https://doi.org/10.1016/j.japh.2021.09.015}.
+
+\bibitem{ref44} 
+PrEPWatch. Injectable Lenacapavir for PrEP. Available online: \url{https://www.prepwatch.org/products/lenacapavir-for-prep/} (accessed on 1 October 2024).
+
+\bibitem{ref45} 
+AVAC. Long-Acting and Extended Duration HIV Prevention and Treatment. Available online: \url{https://www.avac.org/resource/long-acting-and-extended-duration-hiv-prevention-and-treatment} (accessed on 1 October 2024).
+
+\bibitem{ref46} 
+UNAIDS. Global AIDS Update 2024: The Path That Ends AIDS. Available online: \url{https://www.unaids.org/en/resources/documents/2024/global-aids-update} (accessed on 1 September 2024).
+
+\bibitem{ref47} 
+World Health Organization. Task Shifting: Rational Redistribution of Tasks Among Health Workforce Teams. Global Recommendations and Guidelines. Available online: \url{https://www.who.int/publications/i/item/9789241596312} (accessed on 1 October 2024).
+
+\bibitem{ref48} 
+Grimsrud, A.; Bygrave, H.; Doherty, M.; Ehrenkranz, P.; Ellman, T.; Ferris, R.; et al. Reimagining HIV service delivery: The role of differentiated care from prevention to suppression. \textit{J. Int. AIDS Soc.} \textbf{2016}, \textit{19}, 21484. \url{https://doi.org/10.7448/IAS.19.1.21484}.
+
+\bibitem{ref49} 
+Grinsztejn, B.; Hoagland, B.; Moreira, R.I.; Kallas, E.G.; Madruga, J.V.; Goulart, S.; et al. Retention, engagement, and adherence to pre-exposure prophylaxis for men who have sex with men and transgender women in PrEP Brasil: 48 week results of a demonstration study. \textit{Lancet HIV} \textbf{2018}, \textit{5}, e136--e145. \url{https://doi.org/10.1016/S2352-3018(18)30008-0}.
+
+\bibitem{ref50} 
+ViiV Healthcare. Apretude (Cabotegravir) Patient Assistance Program. Available online: \url{https://www.viivhealthcare.com/en-us/hiv-portfolio/hiv-prevention/apretude/patient-assistance/} (accessed on 15 September 2024).
+
+\bibitem{ref51} 
+Centers for Disease Control and Prevention. EquiPrEP: Equitable Access to LAI-PrEP. Available online: \url{https://www.cdc.gov/hiv/funding/announcements/ps23-2305/index.html} (accessed on 1 October 2024).
+
+\bibitem{ref52} 
+Gilead Sciences. Sunlenca (Lenacapavir) Prescribing Information. Available online: \url{https://www.gilead.com/-/media/files/pdfs/medicines/hiv/sunlenca/sunlenca_pi.pdf} (accessed on 1 October 2024).
+
+\end{thebibliography}
+
+\end{document}

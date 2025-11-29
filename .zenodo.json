@@ -1,0 +1,49 @@
+{
+  "title": "LAI-PrEP Bridge Period Decision Support Tool",
+  "description": "Clinical decision support algorithm for Long-Acting Injectable PrEP (LAI-PrEP) bridge period navigation. Helps clinicians identify patient risk factors and recommend evidence-based interventions to improve the probability of successful transition from prescription to first injection. Validated at UNAIDS global target scale (21.2 million patients).",
+  "creators": [
+    {
+      "name": "Demidont, Adrian C.",
+      "affiliation": "Nyx Dynamics, LLC",
+      "orcid": "0000-0000-0000-0000"
+    },
+    {
+      "name": "Backus, Kandis V.",
+      "affiliation": "Gilead Sciences"
+    }
+  ],
+  "keywords": [
+    "HIV prevention",
+    "PrEP",
+    "long-acting injectable",
+    "cabotegravir",
+    "lenacapavir",
+    "clinical decision support",
+    "implementation science",
+    "health equity",
+    "patient navigation"
+  ],
+  "license": {
+    "id": "other-open"
+  },
+  "upload_type": "software",
+  "publication_date": "2025-11-26",
+  "access_right": "open",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "hiv-prevention"
+    },
+    {
+      "identifier": "clinical-decision-support"
+    }
+  ],
+  "grants": [],
+  "version": "2.1.0"
+}

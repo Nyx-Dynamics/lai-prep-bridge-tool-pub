@@ -1,0 +1,1601 @@
+{
+  "access": {
+    "embargo": {
+      "active": false,
+      "reason": null
+    },
+    "files": "public",
+    "record": "public",
+    "status": "open"
+  },
+  "created": "2025-10-24T02:24:19.001042+00:00",
+  "custom_fields": {
+    "code:codeRepository": "https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool",
+    "code:developmentStatus": {
+      "id": "active",
+      "title": {
+        "en": "Active"
+      }
+    },
+    "code:programmingLanguage": [
+      {
+        "id": "python",
+        "title": {
+          "en": "Python"
+        }
+      }
+    ]
+  },
+  "deletion_status": {
+    "is_deleted": false,
+    "status": "P"
+  },
+  "files": {
+    "count": 54,
+    "enabled": true,
+    "entries": {
+      "CHANGELOG.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:2d4d1d5ead15f6a01504906c12ec28b8",
+        "ext": "md",
+        "id": "de2501e1-b3d7-48e9-beae-5495542adc58",
+        "key": "CHANGELOG.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/CHANGELOG.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/CHANGELOG.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 4074,
+        "storage_class": "L"
+      },
+      "CODE_OF_CONDUCT.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:d6e84b4958c95bbdf910b061b6070e9f",
+        "ext": "md",
+        "id": "fc1db96d-6161-4bce-8e92-c351d403183b",
+        "key": "CODE_OF_CONDUCT.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/CODE_OF_CONDUCT.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/CODE_OF_CONDUCT.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 9522,
+        "storage_class": "L"
+      },
+      "COMPLETE_PROJECT_SUMMARY.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:5c9e5efd2d35d2319468689449d7d9e7",
+        "ext": "md",
+        "id": "d1787196-e880-41bf-a0f6-ad868380f7fa",
+        "key": "COMPLETE_PROJECT_SUMMARY.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/COMPLETE_PROJECT_SUMMARY.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/COMPLETE_PROJECT_SUMMARY.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 13783,
+        "storage_class": "L"
+      },
+      "CONTRIBUTING.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:5b8d72da59a3697ebd7d1fd5ab696239",
+        "ext": "md",
+        "id": "4a0b23dc-1492-412b-9367-38455b64e9d3",
+        "key": "CONTRIBUTING.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/CONTRIBUTING.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/CONTRIBUTING.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 11547,
+        "storage_class": "L"
+      },
+      "DECISION_FLOWCHART.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:58bc8da5c4956c904af9bc00a1a33dba",
+        "ext": "md",
+        "id": "04d97c40-1394-4f6f-849c-45de6c500f2c",
+        "key": "DECISION_FLOWCHART.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/DECISION_FLOWCHART.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/DECISION_FLOWCHART.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 32208,
+        "storage_class": "L"
+      },
+      "EXECUTIVE_SUMMARY.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:4b1f054050d464dcf8af6c2619c0ea09",
+        "ext": "md",
+        "id": "0f5e172f-20dc-4615-80f0-20fa2fd5207f",
+        "key": "EXECUTIVE_SUMMARY.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/EXECUTIVE_SUMMARY.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/EXECUTIVE_SUMMARY.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 10493,
+        "storage_class": "L"
+      },
+      "IMPLEMENTATION_CHECKLIST.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:dccef1a34206aab1576fe1a52999b9f0",
+        "ext": "md",
+        "id": "1cef1cc8-5e9f-495f-8fac-ea2d084ebd81",
+        "key": "IMPLEMENTATION_CHECKLIST.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/IMPLEMENTATION_CHECKLIST.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/IMPLEMENTATION_CHECKLIST.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 16032,
+        "storage_class": "L"
+      },
+      "LAI_DMT_v1.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:f157c7c5e4fd3a67bfa6e264261b7e22",
+        "ext": "py",
+        "id": "bcd0473b-348f-47b3-8641-a53b2ea9260c",
+        "key": "LAI_DMT_v1.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/LAI_DMT_v1.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/LAI_DMT_v1.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 30330,
+        "storage_class": "L"
+      },
+      "LAI_bridge_tool_v2_1-25.pdf": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:68a83a74125e49fdae5ce99764e9ad76",
+        "ext": "pdf",
+        "id": "76350030-ed19-487d-864b-819a607ea3c5",
+        "key": "LAI_bridge_tool_v2_1-25.pdf",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/LAI_bridge_tool_v2_1-25.pdf/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:LAI_bridge_tool_v2_1-25.pdf/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:LAI_bridge_tool_v2_1-25.pdf",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/LAI_bridge_tool_v2_1-25.pdf",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:LAI_bridge_tool_v2_1-25.pdf/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/LAI_bridge_tool_v2_1-25.pdf"
+        },
+        "metadata": {
+          "height": 842,
+          "width": 595
+        },
+        "mimetype": "application/pdf",
+        "size": 2694097,
+        "storage_class": "L"
+      },
+      "LICENSE": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:bf60dc68f25c4bfe2eb86762eee9d132",
+        "ext": "bin",
+        "id": "a3b94b00-a380-4c0a-988d-4bab9277ec3a",
+        "key": "LICENSE",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/LICENSE/content",
+          "self": "https://zenodo.org/api/records/17429833/files/LICENSE"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 1716,
+        "storage_class": "L"
+      },
+      "MANUSCRIPT_QUICK_REFERENCE.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:4529482a98097d9fd01624292aa44175",
+        "ext": "md",
+        "id": "67fc6f29-0de4-47de-876a-c4e694c54261",
+        "key": "MANUSCRIPT_QUICK_REFERENCE.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/MANUSCRIPT_QUICK_REFERENCE.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/MANUSCRIPT_QUICK_REFERENCE.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 9040,
+        "storage_class": "L"
+      },
+      "NON_TECHNICAL_GUIDE.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:9b64a4a16ddd08585fd62aafaae49c32",
+        "ext": "md",
+        "id": "a9988188-96d6-4e5b-abab-98622dd812f8",
+        "key": "NON_TECHNICAL_GUIDE.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/NON_TECHNICAL_GUIDE.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/NON_TECHNICAL_GUIDE.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 20632,
+        "storage_class": "L"
+      },
+      "PATIENT_HANDOUT.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:819a7c0f502a505b1f8a8d849028f4c8",
+        "ext": "md",
+        "id": "2d572659-6eb7-4e3f-bc90-51b84c0fbea9",
+        "key": "PATIENT_HANDOUT.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/PATIENT_HANDOUT.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/PATIENT_HANDOUT.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 8898,
+        "storage_class": "L"
+      },
+      "QUICK_REFERENCE.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:e3b1dea2d0b6b435a42c81693be70c96",
+        "ext": "md",
+        "id": "3599ce43-72ad-45d5-8ecd-4f1728e5606c",
+        "key": "QUICK_REFERENCE.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/QUICK_REFERENCE.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/QUICK_REFERENCE.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 3259,
+        "storage_class": "L"
+      },
+      "QUICK_REFERENCE_CARD.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:1075c6ce36c2c160f2e7dd51c813b469",
+        "ext": "md",
+        "id": "4eb7e87c-5272-4c67-8950-479dfbdbf011",
+        "key": "QUICK_REFERENCE_CARD.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/QUICK_REFERENCE_CARD.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/QUICK_REFERENCE_CARD.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 6128,
+        "storage_class": "L"
+      },
+      "README_v2_1.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:bdd3e961abe8f6a3436101457743590b",
+        "ext": "md",
+        "id": "ed49227c-d4a8-4e55-96cc-033b7bd3f4b4",
+        "key": "README_v2_1.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/README_v2_1.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/README_v2_1.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 18025,
+        "storage_class": "L"
+      },
+      "SECURITY.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:589ed83db836ba92108ec319465aefbd",
+        "ext": "md",
+        "id": "98af89c6-ea30-42d8-a962-62aa5b61e20b",
+        "key": "SECURITY.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/SECURITY.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/SECURITY.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 9835,
+        "storage_class": "L"
+      },
+      "START_HERE.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:6ca8417e5fe55df3de0fb6c2c1713e3c",
+        "ext": "md",
+        "id": "872c5a1f-7bbd-46df-b70c-04637b2fd5c3",
+        "key": "START_HERE.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/START_HERE.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/START_HERE.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 9050,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S1_Quick_Reference_Card.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:5cda6d944081da5ec5ff89d2028ce09a",
+        "ext": "tex",
+        "id": "5d30f97e-3d22-4f1e-9d44-cf1e8878e928",
+        "key": "Supplementary_File_S1_Quick_Reference_Card.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S1_Quick_Reference_Card.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S1_Quick_Reference_Card.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 6510,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S2_Patient_Handout.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:30e45ee2f99bb8e3dcce564169a5410c",
+        "ext": "tex",
+        "id": "2885e72c-495c-4dcb-a5e0-6ca87d827fc9",
+        "key": "Supplementary_File_S2_Patient_Handout.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S2_Patient_Handout.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S2_Patient_Handout.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 12105,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S3_JSON_Configuration-2.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:a9e40ce42a68e525990d58347c487414",
+        "ext": "tex",
+        "id": "f324c58f-a902-416c-a796-4dd8c2a75d56",
+        "key": "Supplementary_File_S3_JSON_Configuration-2.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S3_JSON_Configuration-2.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S3_JSON_Configuration-2.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 18653,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S4_Implementation_Guide.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:4fb11fd5dc5e325ab2db6d62843abd42",
+        "ext": "tex",
+        "id": "8a9cd9b7-fa17-420b-83e6-abce598c7807",
+        "key": "Supplementary_File_S4_Implementation_Guide.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S4_Implementation_Guide.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S4_Implementation_Guide.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 23287,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S6_Non_Technical_Guide.pdf": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:e6dbfdedd4e08bc9f3c2637bc65c6734",
+        "ext": "pdf",
+        "id": "d95521cd-6603-4bc4-855f-aaf5fa932063",
+        "key": "Supplementary_File_S6_Non_Technical_Guide.pdf",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S6_Non_Technical_Guide.pdf/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:Supplementary_File_S6_Non_Technical_Guide.pdf/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:Supplementary_File_S6_Non_Technical_Guide.pdf",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/Supplementary_File_S6_Non_Technical_Guide.pdf",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:Supplementary_File_S6_Non_Technical_Guide.pdf/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S6_Non_Technical_Guide.pdf"
+        },
+        "metadata": {
+          "height": 792,
+          "width": 612
+        },
+        "mimetype": "application/pdf",
+        "size": 111713,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S6_Non_Technical_Guide.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:93a009570c0e4704e6e344518b1c396b",
+        "ext": "tex",
+        "id": "809f04b8-c7d1-47c0-8509-292e14500259",
+        "key": "Supplementary_File_S6_Non_Technical_Guide.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S6_Non_Technical_Guide.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S6_Non_Technical_Guide.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 25811,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S7_Intervention_Library.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:f4f8f08524f3049e7488c4e29cef9792",
+        "ext": "tex",
+        "id": "42a6b246-73ce-4da9-8978-6998c5459f50",
+        "key": "Supplementary_File_S7_Intervention_Library.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S7_Intervention_Library.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S7_Intervention_Library.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 18661,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S8_Code_Repository.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:8757e41f427dbaae9c458684e4b8cb80",
+        "ext": "tex",
+        "id": "8b92ae91-6ae9-454e-9d58-2b7d871ad941",
+        "key": "Supplementary_File_S8_Code_Repository.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S8_Code_Repository.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S8_Code_Repository.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 21666,
+        "storage_class": "L"
+      },
+      "ULTRA_SIMPLE_GUIDE.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:524f4b174f17e6355a9608043c86547c",
+        "ext": "md",
+        "id": "78283b74-ddef-4558-a49d-518525fb9511",
+        "key": "ULTRA_SIMPLE_GUIDE.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/ULTRA_SIMPLE_GUIDE.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/ULTRA_SIMPLE_GUIDE.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 3913,
+        "storage_class": "L"
+      },
+      "UNAIDS_Executive_Summary.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:60b4bc1e6310825fdf660af20ae531c8",
+        "ext": "md",
+        "id": "59b54cf9-f6b6-41ef-99e5-fda0f27cc92d",
+        "key": "UNAIDS_Executive_Summary.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/UNAIDS_Executive_Summary.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/UNAIDS_Executive_Summary.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 11205,
+        "storage_class": "L"
+      },
+      "UNAIDS_Validation_Analysis.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:129ff1dd719a4a480656760187df5eb0",
+        "ext": "md",
+        "id": "54f0eb1d-1962-40fc-b924-476f87ccdb0c",
+        "key": "UNAIDS_Validation_Analysis.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/UNAIDS_Validation_Analysis.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/UNAIDS_Validation_Analysis.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 15478,
+        "storage_class": "L"
+      },
+      "VALIDATION_RESULTS.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:fffa8aed5d0f7b955309164dd5e18854",
+        "ext": "md",
+        "id": "77dfaf1c-fb0e-4e10-98e7-f3e562615472",
+        "key": "VALIDATION_RESULTS.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/VALIDATION_RESULTS.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/VALIDATION_RESULTS.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 17573,
+        "storage_class": "L"
+      },
+      "WHO_UNAIDS_Policy_Brief.md": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:e9b810d8500f41c8a4d8f8cdebef460e",
+        "ext": "md",
+        "id": "c8c38cfa-88f0-4803-9b96-e97a6616c96f",
+        "key": "WHO_UNAIDS_Policy_Brief.md",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/WHO_UNAIDS_Policy_Brief.md/content",
+          "self": "https://zenodo.org/api/records/17429833/files/WHO_UNAIDS_Policy_Brief.md"
+        },
+        "metadata": {},
+        "mimetype": "application/octet-stream",
+        "size": 18702,
+        "storage_class": "L"
+      },
+      "cli.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:644d6b8f9fa1ef47536be6b904269569",
+        "ext": "py",
+        "id": "24a3902b-4a06-4cc6-ae5c-9860a6727256",
+        "key": "cli.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/cli.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/cli.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 15311,
+        "storage_class": "L"
+      },
+      "complete_bibliography.tex": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:74ebfa6b8385f010ee596fb70afdb3a5",
+        "ext": "tex",
+        "id": "0fb168af-ab3a-426b-b4af-d799292f0805",
+        "key": "complete_bibliography.tex",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/complete_bibliography.tex/content",
+          "self": "https://zenodo.org/api/records/17429833/files/complete_bibliography.tex"
+        },
+        "metadata": {},
+        "mimetype": "application/x-tex",
+        "size": 14595,
+        "storage_class": "L"
+      },
+      "example_patient.json": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:927eaba5c0bbbb44f21c49d986f4e975",
+        "ext": "json",
+        "id": "e31ac8c4-1d26-4e58-9b80-b4b7b55cfc96",
+        "key": "example_patient.json",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/example_patient.json/content",
+          "self": "https://zenodo.org/api/records/17429833/files/example_patient.json"
+        },
+        "metadata": {},
+        "mimetype": "application/json",
+        "size": 1730,
+        "storage_class": "L"
+      },
+      "example_patients.csv": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:53c543b5403a4e51a183d8c8fa90a7b0",
+        "ext": "csv",
+        "id": "6eee3e8a-0f3b-4639-8204-bc39f11e9925",
+        "key": "example_patients.csv",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/example_patients.csv/content",
+          "self": "https://zenodo.org/api/records/17429833/files/example_patients.csv"
+        },
+        "metadata": {},
+        "mimetype": "text/csv",
+        "size": 1374,
+        "storage_class": "L"
+      },
+      "figure1_cascade_comparison.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:cdd3364097d3a3a4f04dffc376e449b9",
+        "ext": "png",
+        "id": "cc5b83c5-05ad-4b6e-a096-77b257f4f30c",
+        "key": "figure1_cascade_comparison.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure1_cascade_comparison.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure1_cascade_comparison.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure1_cascade_comparison.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure1_cascade_comparison.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure1_cascade_comparison.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure1_cascade_comparison.png"
+        },
+        "metadata": {
+          "height": 1345,
+          "width": 2000
+        },
+        "mimetype": "image/png",
+        "size": 1124439,
+        "storage_class": "L"
+      },
+      "figure2_workflow.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:d51150efb616948a7657fe3b88685d2a",
+        "ext": "png",
+        "id": "25df58ba-eb69-4553-833f-8f25866a268e",
+        "key": "figure2_workflow.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure2_workflow.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure2_workflow.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure2_workflow.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure2_workflow.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure2_workflow.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure2_workflow.png"
+        },
+        "metadata": {
+          "height": 1907,
+          "width": 2850
+        },
+        "mimetype": "image/png",
+        "size": 307594,
+        "storage_class": "L"
+      },
+      "figure3_convergence.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:a6765c972f99f179aa41ca1d72209ece",
+        "ext": "png",
+        "id": "d6b05d40-89e4-4fd1-aba4-577d076a80e8",
+        "key": "figure3_convergence.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure3_convergence.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure3_convergence.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure3_convergence.png"
+        },
+        "metadata": {
+          "height": 1470,
+          "width": 2070
+        },
+        "mimetype": "image/png",
+        "size": 259415,
+        "storage_class": "L"
+      },
+      "figure4_populations.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:85615617e3f7cf16cd743d51d53628fb",
+        "ext": "png",
+        "id": "1a0022c0-a091-4830-9e21-32a95551cf21",
+        "key": "figure4_populations.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure4_populations.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure4_populations.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure4_populations.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure4_populations.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure4_populations.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure4_populations.png"
+        },
+        "metadata": {
+          "height": 1803,
+          "width": 2985
+        },
+        "mimetype": "image/png",
+        "size": 249842,
+        "storage_class": "L"
+      },
+      "figure5_interventions.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:1a4c38505d1af5e85f41480d2fa4dd70",
+        "ext": "png",
+        "id": "19a43545-d217-4cea-97e0-496ef64194c0",
+        "key": "figure5_interventions.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure5_interventions.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure5_interventions.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure5_interventions.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure5_interventions.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure5_interventions.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure5_interventions.png"
+        },
+        "metadata": {
+          "height": 1795,
+          "width": 3570
+        },
+        "mimetype": "image/png",
+        "size": 262184,
+        "storage_class": "L"
+      },
+      "figure6_regional.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:ae90994abb9cd5fcba4d8619259abd7e",
+        "ext": "png",
+        "id": "04028ef3-f899-4933-94a8-7c232c2b9a6e",
+        "key": "figure6_regional.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure6_regional.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure6_regional.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure6_regional.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure6_regional.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure6_regional.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure6_regional.png"
+        },
+        "metadata": {
+          "height": 2920,
+          "width": 3315
+        },
+        "mimetype": "image/png",
+        "size": 563409,
+        "storage_class": "L"
+      },
+      "figure8_impact.png": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:67ed3b5e3a39b40ee36820823da21b10",
+        "ext": "png",
+        "id": "acae69a5-8b06-4a75-b14d-019bcf93c09a",
+        "key": "figure8_impact.png",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure8_impact.png/content",
+          "iiif_api": "https://zenodo.org/api/iiif/record:17429833:figure8_impact.png/full/full/0/default.png",
+          "iiif_base": "https://zenodo.org/api/iiif/record:17429833:figure8_impact.png",
+          "iiif_canvas": "https://zenodo.org/api/iiif/record:17429833/canvas/figure8_impact.png",
+          "iiif_info": "https://zenodo.org/api/iiif/record:17429833:figure8_impact.png/info.json",
+          "self": "https://zenodo.org/api/records/17429833/files/figure8_impact.png"
+        },
+        "metadata": {
+          "height": 2370,
+          "width": 2850
+        },
+        "mimetype": "image/png",
+        "size": 345768,
+        "storage_class": "L"
+      },
+      "lai_prep_config_FIXED.json": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:728b3f487d3c1a6a0331a277614d3db1",
+        "ext": "json",
+        "id": "0957349f-8212-442a-a9c3-fd5738c51990",
+        "key": "lai_prep_config_FIXED.json",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/lai_prep_config_FIXED.json/content",
+          "self": "https://zenodo.org/api/records/17429833/files/lai_prep_config_FIXED.json"
+        },
+        "metadata": {},
+        "mimetype": "application/json",
+        "size": 25707,
+        "storage_class": "L"
+      },
+      "lai_prep_decision_tool_v2_1.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:b9c4878a39b444e0a4c597f88fde7d42",
+        "ext": "py",
+        "id": "8d29e944-9b35-470a-8375-294f9265de45",
+        "key": "lai_prep_decision_tool_v2_1.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/lai_prep_decision_tool_v2_1.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/lai_prep_decision_tool_v2_1.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 42621,
+        "storage_class": "L"
+      },
+      "main.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:3872898f678330e7c98b2c5a95f836d3",
+        "ext": "py",
+        "id": "fe506d4e-a6f1-4ef1-afc7-ad39ab219811",
+        "key": "main.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/main.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/main.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 519,
+        "storage_class": "L"
+      },
+      "requirements-dev.txt": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:a6d1871e83e2e9005a299b8d4ddf65c1",
+        "ext": "txt",
+        "id": "90f78c2d-3c6b-4c13-b0fd-9ad0155f2ff7",
+        "key": "requirements-dev.txt",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/requirements-dev.txt/content",
+          "self": "https://zenodo.org/api/records/17429833/files/requirements-dev.txt"
+        },
+        "metadata": {},
+        "mimetype": "text/plain",
+        "size": 546,
+        "storage_class": "L"
+      },
+      "requirements.txt": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:fa9888bbb5461f8ca986123ca6349045",
+        "ext": "txt",
+        "id": "d2608bbe-9d34-4b9c-a343-b3af4f0070e2",
+        "key": "requirements.txt",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/requirements.txt/content",
+          "self": "https://zenodo.org/api/records/17429833/files/requirements.txt"
+        },
+        "metadata": {},
+        "mimetype": "text/plain",
+        "size": 783,
+        "storage_class": "L"
+      },
+      "test_edge_cases.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:50e078235f8b5f931bc4f775ec119af5",
+        "ext": "py",
+        "id": "28c522a5-68a7-48fa-b774-f14cf3855a9c",
+        "key": "test_edge_cases.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/test_edge_cases.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/test_edge_cases.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 20128,
+        "storage_class": "L"
+      },
+      "test_suite_2.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:c6fdf07c52cfc8ebaf10dd101e0192f5",
+        "ext": "py",
+        "id": "72b5c1ee-e011-4ab7-b103-f0e9219d5e1a",
+        "key": "test_suite_2.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/test_suite_2.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/test_suite_2.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 17633,
+        "storage_class": "L"
+      },
+      "test_suite_3.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:9465eb87f84ff506cb0c8de79a58bd08",
+        "ext": "py",
+        "id": "6f01df59-4288-465a-89f2-543efcc08b2c",
+        "key": "test_suite_3.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/test_suite_3.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/test_suite_3.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 24204,
+        "storage_class": "L"
+      },
+      "test_suite_4.py": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:5c3d5a60b2eefa0a293104c465e88ed8",
+        "ext": "py",
+        "id": "ce1ed852-dd53-4b9c-a950-3219619d6c89",
+        "key": "test_suite_4.py",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/test_suite_4.py/content",
+          "self": "https://zenodo.org/api/records/17429833/files/test_suite_4.py"
+        },
+        "metadata": {},
+        "mimetype": "text/x-python",
+        "size": 41170,
+        "storage_class": "L"
+      },
+      "validation_10M_results.json": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:ee0bb6ac1b71ca8225f126ca2ccfc8b9",
+        "ext": "json",
+        "id": "4af74265-9b90-41ce-b7dc-bfe124ec215d",
+        "key": "validation_10M_results.json",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/validation_10M_results.json/content",
+          "self": "https://zenodo.org/api/records/17429833/files/validation_10M_results.json"
+        },
+        "metadata": {},
+        "mimetype": "application/json",
+        "size": 5099,
+        "storage_class": "L"
+      },
+      "validation_1M_results.json": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:71e109d4493ca8e9c6f354b8f852aedd",
+        "ext": "json",
+        "id": "3f2018e0-3b98-4b8c-90ac-274d47a2e63b",
+        "key": "validation_1M_results.json",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/validation_1M_results.json/content",
+          "self": "https://zenodo.org/api/records/17429833/files/validation_1M_results.json"
+        },
+        "metadata": {},
+        "mimetype": "application/json",
+        "size": 3697,
+        "storage_class": "L"
+      },
+      "validation_UNAIDS_21.2M_results.json": {
+        "access": {
+          "hidden": false
+        },
+        "checksum": "md5:785ac2e869e09fede4d5db4cc319a604",
+        "ext": "json",
+        "id": "48e0b8fd-3a35-4911-b525-db808db5fc35",
+        "key": "validation_UNAIDS_21.2M_results.json",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/validation_UNAIDS_21.2M_results.json/content",
+          "self": "https://zenodo.org/api/records/17429833/files/validation_UNAIDS_21.2M_results.json"
+        },
+        "metadata": {},
+        "mimetype": "application/json",
+        "size": 12117,
+        "storage_class": "L"
+      }
+    },
+    "order": [],
+    "total_bytes": 6553831
+  },
+  "id": "17429833",
+  "is_draft": false,
+  "is_published": true,
+  "links": {
+    "access": "https://zenodo.org/api/records/17429833/access",
+    "access_grants": "https://zenodo.org/api/records/17429833/access/grants",
+    "access_links": "https://zenodo.org/api/records/17429833/access/links",
+    "access_request": "https://zenodo.org/api/records/17429833/access/request",
+    "access_users": "https://zenodo.org/api/records/17429833/access/users",
+    "archive": "https://zenodo.org/api/records/17429833/files-archive",
+    "archive_media": "https://zenodo.org/api/records/17429833/media-files-archive",
+    "communities": "https://zenodo.org/api/records/17429833/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/17429833/communities-suggestions",
+    "doi": "https://doi.org/10.5281/zenodo.17429833",
+    "draft": "https://zenodo.org/api/records/17429833/draft",
+    "files": "https://zenodo.org/api/records/17429833/files",
+    "latest": "https://zenodo.org/api/records/17429833/versions/latest",
+    "latest_html": "https://zenodo.org/records/17429833/latest",
+    "media_files": "https://zenodo.org/api/records/17429833/media-files",
+    "parent": "https://zenodo.org/api/records/17429832",
+    "parent_doi": "https://doi.org/10.5281/zenodo.17429832",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.17429832",
+    "parent_html": "https://zenodo.org/records/17429832",
+    "preview_html": "https://zenodo.org/records/17429833?preview=1",
+    "request_deletion": "https://zenodo.org/api/records/17429833/request-deletion",
+    "requests": "https://zenodo.org/api/records/17429833/requests",
+    "reserve_doi": "https://zenodo.org/api/records/17429833/draft/pids/doi",
+    "self": "https://zenodo.org/api/records/17429833",
+    "self_doi": "https://doi.org/10.5281/zenodo.17429833",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.17429833",
+    "self_html": "https://zenodo.org/records/17429833",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:17429833/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:17429833/sequence/default",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/%5E10,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/%5E100,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/%5E1200,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/%5E250,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/%5E50,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:17429833:figure3_convergence.png/full/%5E750,/0/default.jpg"
+    },
+    "versions": "https://zenodo.org/api/records/17429833/versions"
+  },
+  "media_files": {
+    "count": 9,
+    "enabled": true,
+    "entries": {
+      "LAI_bridge_tool_v2_1-25.pdf.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "43a32731-6e27-4c98-ae0f-d1467373d50c",
+        "key": "LAI_bridge_tool_v2_1-25.pdf.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/LAI_bridge_tool_v2_1-25.pdf.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/LAI_bridge_tool_v2_1-25.pdf.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "76350030-ed19-487d-864b-819a607ea3c5",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "Supplementary_File_S6_Non_Technical_Guide.pdf.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "f7eab8ed-4f5c-42b0-95ed-068cd29f7b73",
+        "key": "Supplementary_File_S6_Non_Technical_Guide.pdf.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S6_Non_Technical_Guide.pdf.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/Supplementary_File_S6_Non_Technical_Guide.pdf.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "d95521cd-6603-4bc4-855f-aaf5fa932063",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure1_cascade_comparison.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "38105a93-1b49-48d7-8a30-8e7484953484",
+        "key": "figure1_cascade_comparison.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure1_cascade_comparison.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure1_cascade_comparison.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "cc5b83c5-05ad-4b6e-a096-77b257f4f30c",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure2_workflow.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "ce262f58-56b0-4831-80a8-7412e620f3c4",
+        "key": "figure2_workflow.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure2_workflow.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure2_workflow.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "25df58ba-eb69-4553-833f-8f25866a268e",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure3_convergence.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "24193cb5-26bf-46f2-9e8b-5419d2cb96ab",
+        "key": "figure3_convergence.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure3_convergence.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure3_convergence.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "d6b05d40-89e4-4fd1-aba4-577d076a80e8",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure4_populations.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "b0fe305b-a4e1-4e49-827b-a889586dc9b8",
+        "key": "figure4_populations.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure4_populations.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure4_populations.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "1a0022c0-a091-4830-9e21-32a95551cf21",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure5_interventions.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "fac4ba38-eb4b-4239-94ca-a2d10de1a39f",
+        "key": "figure5_interventions.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure5_interventions.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure5_interventions.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "19a43545-d217-4cea-97e0-496ef64194c0",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure6_regional.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "ad3ca507-edf6-4885-b44b-a6708c5736af",
+        "key": "figure6_regional.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure6_regional.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure6_regional.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "04028ef3-f899-4933-94a8-7c232c2b9a6e",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      },
+      "figure8_impact.png.ptif": {
+        "access": {
+          "hidden": true
+        },
+        "ext": "ptif",
+        "id": "3768260e-0350-4817-b6e8-eb8a7fef0fe0",
+        "key": "figure8_impact.png.ptif",
+        "links": {
+          "content": "https://zenodo.org/api/records/17429833/files/figure8_impact.png.ptif/content",
+          "self": "https://zenodo.org/api/records/17429833/files/figure8_impact.png.ptif"
+        },
+        "metadata": null,
+        "mimetype": "application/octet-stream",
+        "processor": {
+          "source_file_id": "acae69a5-8b06-4a75-b14d-019bcf93c09a",
+          "status": "finished",
+          "type": "image-tiles"
+        },
+        "size": 0,
+        "storage_class": "L"
+      }
+    },
+    "order": [],
+    "total_bytes": 0
+  },
+  "metadata": {
+    "additional_descriptions": [
+      {
+        "description": "<p><strong>Background:</strong> Long-acting injectable cabotegravir (LAI-CAB) and lenacapavir for HIV pre-exposure prophylaxis demonstrate &gt;96% efficacy but face a critical implementation challenge: 47% of patients prescribed LAI-PrEP never receive their first injection during the \"bridge period\" between prescription and administration. This tool addresses this gap through systematic risk assessment and evidence-based intervention selection.</p>\n<p><strong>Tool Components:</strong></p>\n<ol>\n<li><strong>Core Algorithm</strong> (lai_prep_decision_tool_v2_1.py, 850 lines): Population-specific risk stratification, barrier impact quantification, intervention recommendation with mechanism diversity scoring</li>\n<li><strong>External Configuration</strong> (lai_prep_config.json, 558 lines): 7 populations, 13 barriers, 21 evidence-based interventions with literature-derived effect sizes</li>\n<li><strong>Comprehensive Test Suite</strong> (test_edge_cases.py, 18 scenarios): 100% pass rate covering clinical edge cases, mathematical validation, mechanism diversity, data export, and error handling</li>\n<li><strong>Validation Scripts</strong>: Progressive validation from 1K to 21.2M patients</li>\n<li><strong>Documentation</strong>: Installation guides, API reference, integration instructions, contributing guidelines</li>\n<li><strong>Example Data</strong>: Individual patient JSON template, batch CSV with 10 diverse scenarios</li>\n<li><strong>Command-Line Interface</strong> (cli.py): Single patient assessment, batch processing, configuration validation</li>\n</ol>\n<p><strong>Validation Results:</strong></p>\n<ul>\n<li><strong>Progressive Scales</strong>: Validated on 1K (functional), 1M (large-scale), 10M (ultra-large-scale), and 21.2M patients (UNAIDS global target)</li>\n<li><strong>Precision</strong>: Achieved &plusmn;0.018 percentage point margin of error at 21.2M scale (policy-grade statistical precision)</li>\n<li><strong>Convergence</strong>: Demonstrated algorithmic stability across all scales</li>\n<li><strong>Unit Testing</strong>: 100% pass rate (18/18 edge cases)</li>\n<li><strong>Population Alignment</strong>: All predictions within published clinical trial ranges</li>\n<li><strong>Predicted Impact</strong>: 81.6% relative improvement (baseline 23.96% &rarr; 43.50% with interventions)</li>\n</ul>\n<p><strong>Global Health Impact:</strong></p>\n<ul>\n<li>4.1 million additional successful LAI-PrEP transitions globally</li>\n<li>~100,000 HIV infections prevented annually (assuming 2-5% HIV incidence, 96% LAI-PrEP efficacy)</li>\n<li>$40 billion in lifetime treatment costs saved</li>\n<li>Health equity focus: Greatest benefits to PWID (+265%) and adolescents (+147%)</li>\n</ul>\n<p><strong>Technical Features:</strong></p>\n<ul>\n<li>Configuration-driven architecture enabling parameter updates without code modification</li>\n<li>Streaming processing supporting millions of patients with &lt;4GB RAM</li>\n<li>Mechanism diversity scoring preventing redundant intervention recommendations</li>\n<li>JSON export for reproducibility and machine learning integration</li>\n<li>Optional logit-space calculations for mathematical soundness</li>\n<li>Cross-platform compatibility (Python 3.7+, minimal dependencies)</li>\n</ul>\n<p><strong>Evidence Base:</strong> Parameters derived from:</p>\n<ul>\n<li>Clinical trials: HPTN 083 (n=4,566), HPTN 084 (n=3,224), PURPOSE trials (n=10,761)</li>\n<li>Implementation studies: Real-world LAI-PrEP initiation data</li>\n<li>Systematic reviews: Patient navigation effectiveness, structural barrier impacts</li>\n<li>International guidelines: WHO, CDC, UNAIDS</li>\n</ul>\n<p><strong>Supplementary Materials:</strong></p>\n<ol>\n<li><strong>S1</strong>: Clinician Quick-Reference Card (point-of-care decision support)</li>\n<li><strong>S2</strong>: Patient Information Handout (accessible patient education guide)</li>\n<li><strong>S3</strong>: Machine-Readable Data Files (JSON configuration documentation, patient input examples)</li>\n<li><strong>S4</strong>: Implementation Guide (staged validation protocols, training curriculum)</li>\n<li><strong>S5</strong>: Clinical Decision Flowchart (6-step systematic workflow)</li>\n</ol>\n<p><strong>Publication:</strong> Demidont, A.C.; Backus, K.V. Computational Validation of Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale. <em>Viruses</em> 2025 (in review).</p>\n<p><strong>Repository Contents:</strong> This Zenodo archive contains the exact version of the code, configuration, validation data, and supplementary materials used in the published manuscript, ensuring complete reproducibility of all reported results.</p>\n<p><strong>Intended Use:</strong></p>\n<ul>\n<li>Clinical implementation: Risk stratification and intervention selection at LAI-PrEP prescription</li>\n<li>Research: Prospective validation studies, algorithm refinement</li>\n<li>Quality improvement: Bridge period navigation program development</li>\n<li>Policy: Resource allocation modeling, implementation planning</li>\n</ul>\n<p><strong>Important Limitations:</strong></p>\n<ul>\n<li>Computational validation only; prospective clinical validation required</li>\n<li>Some parameters extrapolated from oral PrEP cascade (PWID, adolescents)</li>\n<li>Population categories aggregate substantial heterogeneity</li>\n<li>Real-world performance may differ from predictions</li>\n<li>Recommended staged implementation with systematic outcome tracking</li>\n</ul>\n<p><strong>License:</strong></p>\n<ul>\n<li>Software (Python code): MIT License (permissive, commercial use allowed)</li>\n<li>Configuration/Data: CC BY 4.0 (attribution required)</li>\n<li>Documentation: CC BY 4.0 (attribution required)</li>\n<li>Supplementary Materials (LaTeX): CC BY 4.0 (attribution required)</li>\n</ul>\n<p><strong>Keywords:</strong> HIV prevention, pre-exposure prophylaxis, long-acting injectable, cabotegravir, lenacapavir, implementation science, clinical decision support, health equity, patient navigation, bridge period, algorithm validation, computational validation, UNAIDS targets, global health</p>\n<p><strong>Funding:</strong> This work received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.</p>\n<p><strong>Conflicts of Interest:</strong> K.V.B. is an employee of Gilead Sciences, Inc., manufacturer of lenacapavir. The decision support tool is designed to be product-agnostic and applies to all long-acting injectable PrEP formulations. A.C.D. declares no conflicts of interest.</p>\n<p><strong>Contact:</strong> Adrian C. Demidont, DO Email: <a href=\"mailto:acdemidont@nyxdynamics.org\">acdemidont@nyxdynamics.org</a> Organization: Nyx Dynamics, LLC Location: Fairfield, CT, USA</p>\n<p><strong>GitHub Repository:</strong> <a href=\"https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool\">https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool</a></p>\n<p><strong>Version:</strong> v2.1.0 (manuscript submission version)</p>\n<p><strong>Date:</strong> October 2024 - January 2025</p>\n<p><strong>Citation:</strong></p>\n<p>If you use this tool in your work, please cite:</p>\n<p>**Software:**<br>```bibtex<br>@software{demidont2025laiprep,<br>&nbsp; author = {Demidont, Adrian C. and Backus, Kandis V.},<br>&nbsp; title = {LAI-PrEP Bridge Period Decision Support Tool},<br>&nbsp; version = {2.1.0},<br>&nbsp; year = {2025},<br>&nbsp; publisher = {Zenodo},<br>&nbsp; doi = {10.5281/zenodo.17429833},<br>&nbsp; url = {https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool}<br>}<br>```</p>\n<p><strong>Related Identifiers:</strong></p>\n<ul>\n<li>Manuscript DOI: 10.5281/zenodo.17429833</li>\n<li>GitHub Release: <a href=\"https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool/releases/tag/v2.1.0\">https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool/releases/tag/v2.1.0</a></li>\n</ul>",
+        "type": {
+          "id": "other",
+          "title": {
+            "de": "Sonstige",
+            "en": "Other"
+          }
+        }
+      }
+    ],
+    "copyright": "This work uses the LAI-PrEP Bridge Decision Support Tool developed by Adrian C. Demidont, DO and Kandis Backus, PharmD. Copyright \u00a9 2024-2025. Available at: https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool",
+    "creators": [
+      {
+        "affiliations": [
+          {
+            "name": "Nyx Dynamics, LLC"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Demidont",
+          "given_name": "AC",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-9216-8569",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Demidont, AC",
+          "type": "personal"
+        },
+        "role": {
+          "id": "projectleader",
+          "title": {
+            "de": "ProjektleiterIn",
+            "en": "Project leader"
+          }
+        }
+      }
+    ],
+    "dates": [
+      {
+        "date": "2025-10-23",
+        "description": "Dataset Submitted to Zenodo",
+        "type": {
+          "id": "submitted",
+          "title": {
+            "de": "Eingereicht",
+            "en": "Submitted"
+          }
+        }
+      },
+      {
+        "date": "2025-10-23",
+        "description": "Manuscript \"Computational Validation of a Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale\" and Supplementary Files S1-S8; Core Algorithm (lai_prep_decision_tool_v2_1.py, 850 lines): Population-specific risk stratification, barrier impact quantification, intervention recommendation with mechanism diversity scoring External Configuration (lai_prep_config.json, 558 lines): 7 populations, 13 barriers, 21 evidence-based interventions with literature-derived effect sizes Comprehensive Test Suite (test_edge_cases.py, 18 scenarios): 100% pass rate covering clinical edge cases, mathematical validation, mechanism diversity, data export, and error handling Validation Scripts: Progressive validation from 1K to 21.2M patients Documentation: Installation guides, API reference, integration instructions, contributing guidelines Example Data: Individual patient JSON template, batch CSV with 10 diverse scenarios Command-Line Interface (cli.py): Single patient assessment, batch processing, configuration validation",
+        "type": {
+          "id": "copyrighted",
+          "title": {
+            "de": "Mit Copyright versehen",
+            "en": "Copyrighted"
+          }
+        }
+      },
+      {
+        "date": "2025-10-23",
+        "description": "Zenodo Dataset related to original research: Computational Validation of a Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale",
+        "type": {
+          "id": "created",
+          "title": {
+            "de": "Erstellt",
+            "en": "Created"
+          }
+        }
+      }
+    ],
+    "description": "<p>Clinical decision support tool validated at UNAIDS global scale (21.2M patients) for LAI-PrEP bridge period navigation. Provides population-specific risk stratification, barrier identification, and evidence-based intervention recommendations. Demonstrates 81.6% improvement in bridge period success (4.1M additional transitions globally). 100% unit test pass rate. Open-source Python implementation with external JSON configuration enabling local adaptation.</p>",
+    "languages": [
+      {
+        "id": "eng",
+        "title": {
+          "en": "English"
+        }
+      }
+    ],
+    "publication_date": "2025-10-24",
+    "publisher": "Zenodo",
+    "references": [
+      {
+        "reference": "Landovitz, R.J.; Scott, H.; Deeks, S.G. Prevention of HIV-1 infection with antiretroviral drugs. 1393 Cold Spring Harb. Perspect. Med. 2012, 2, a006973. https://doi.org/10.1101/cshperspect.a006973. 1394 2. U.S. Food and Drug Administration. FDA Approves Lenacapavir for HIV Prevention. Available 1395 online: https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-lenacapavir 1396 -hiv-prevention (accessed on 20 December 2024). 1397 3. Grant, R.M.; Lama, J.R.; Anderson, P.L.; McMahan, V.; Liu, A.Y.; Vargas, L.; Goicochea, P.; Casap\u00eda, 1398 M.; Guanira-Carranza, J.V.; Ramirez-Cardich, M.E.; et al. Preexposure chemoprophylaxis for 1399 HIV prevention in men who have sex with men. N. Engl. J. Med. 2010, 363, 2587\u20132599. https: 1400 //doi.org/10.1056/NEJMoa1011205. 1401 4. Spinelli, M.A.; Buchbinder, S.P. PrEP adherence: To measure or not to measure. Lancet HIV 2020, 1402 7, e225\u2013e226. https://doi.org/10.1016/S2352-3018(20)30073-4. 1403 5. Landovitz, R.J.; Donnell, D.; Clement, M.E.; Hanscom, B.; Cottle, L.; Coelho, L.; Cabello, R.; 1404 Chariyalertsak, S.; Dunne, E.F.; Frank, I.; et al. Cabotegravir for HIV prevention in cisgender 1405 men and transgender women. N. Engl. J. Med. 2021, 385, 595\u2013608. https://doi.org/10.1056/NE 1406 JMoa2101016. 1407 6. Bekker, L.G.; Marzinke, M.A.; Mathews, R.P.; Hendrix, C.W.; Maskew, M.; Lalloo, U.; Grinsztejn, 1408 B.; Chege, W.; Dezzutti, C.S.; Richardson, P.; et al. Twice-yearly lenacapavir or daily F/TAF for 1409 HIV prevention in cisgender women. N. Engl. J. Med. 2024, 391, 1659\u20131671. https://doi.org/10.1 1410 056/NEJMoa2407001. 1411 7. Bekker, L.G.; Marzinke, M.A.; Hendrix, C.W.; Gombe Mbalawa, C.; Mohammed, H.; Xiao, J.; 1412 Dorey, D.; Martin, A.; McCallister, S.; Deng, Y.; et al. Pharmacokinetics and safety of once- 1413 yearly lenacapavir: A phase 1, open-label study. Lancet 2025, published online 11 March 2025. 1414 https://doi.org/10.1016/S0140-6736(25)00xxx-x. 1415 8. Landovitz, R.J.; Donnell, D.; Clement, M.E.; Hanscom, B.; Cottle, L.; Coelho, L.; Cabello, R.; 1416 Chariyalertsak, S.; Dunne, E.F.; Frank, I.; et al. Cabotegravir for HIV prevention in cisgender 1417 men and transgender women. N. Engl. J. Med. 2021, 385, 595\u2013608. https://doi.org/10.1056/NE 1418 JMoa2101016. 1419 9. Delany-Moretlwe, S.; Hughes, J.P.; Bock, P.; Ouma, S.G.; Hunidzarira, P.; Kalonji, D.; Kayange, 1420 N.; Makhema, J.; Mandima, P.; Mathebula, M.; et al. Cabotegravir for the prevention of HIV-1 in 1421 women: Results from HPTN 084. N. Engl. J. Med. 2022, 387, 2043\u20132055. https://doi.org/10.1056/ 1422 NEJMoa2115829. 1423 10. Bekker, L.G.; Marzinke, M.A.; Mathews, R.P.; Hendrix, C.W.; Maskew, M.; Lalloo, U.; Grinsztejn, 1424 B.; Chege, W.; Dezzutti, C.S.; Richardson, P.; et al. Twice-yearly lenacapavir or daily F/TAF for 1425  Viruses 39 of 41 HIV prevention in cisgender women. N. Engl. J. Med. 2024, 391, 1659\u20131671. https://doi.org/10.1 1426 056/NEJMoa2407001. 1427 11. Gilead Sciences. PURPOSE 1 Adolescent Cohort Data. Presented at CROI 2025, Denver, CO, 1428 USA, 16\u201319 February 2025. 1429 12. Ogbuagu, O.; Matthews, R.P.; Bares, S.H.; Asundi, A.; Chege, W.; DiNenno, E.; Dimova, R.B.; 1430 Felizarta, F.; Huhn, G.; Lama, J.R.; et al. Twice-yearly lenacapavir for HIV prevention in men 1431 and gender-diverse persons. N. Engl. J. Med. 2024, published online November 2024. https: 1432 //doi.org/10.1056/NEJMoa2xxxx. 1433 13. ClinicalTrials.gov. Search Results for LAI-PrEP Implementation Trials. Available online: https: 1434 //clinicaltrials.gov (accessed on 1 October 2024). 1435 14. Matthews, R.P.; Barrett, S.E.; Covino, R.J.; Hamm, T.E.; Gupta, S.K.; Marzinke, M.A.; Hendrix, 1436 C.W.; Anton, P.A.; Mathias, A.; Hanes, J.; et al. Safety and pharmacokinetics of islatravir 1437 subdermal implant for HIV-1 pre-exposure prophylaxis: A randomized, placebo-controlled 1438 phase 1 trial. Nat. Med. 2021, 27, 1712\u20131717. https://doi.org/10.1038/s41591-021-01479-3. 1439 15. Merck Sharp & Dohme. Islatravir Phase 2a Oral PrEP Data. Presented at HIVR4P 2021, Virtual 1440 Conference, 27\u201328 January 2021. 1441 16. Heffron, R.; Pintye, J.; Matthews, L.T.; Weber, S.; Mugo, N. IMPOWER 22: Efficacy and Safety of 1442 Once-Monthly Oral Islatravir for HIV Prevention in Cisgender Women. Presented at HIVR4P 1443 2024, Lima, Peru, 14\u201318 October 2024. 1444 17. Merck Sharp & Dohme. Press Release: Merck Announces Clinical Holds on Studies Evaluating 1445 Islatravir for the Treatment and Prevention of HIV-1 Infection. 13 December 2021. Available 1446 online: https://www.merck.com (accessed on 13 December 2021). 1447 18. Merck Sharp & Dohme. MK-8527 Development Program. Available online: https://www.merck. 1448 com/research/pipeline (accessed on 1 October 2024). 1449 19. Centers for Disease Control and Prevention. PrEP Coverage in the United States, 2023. Available 1450 online: https://www.cdc.gov/hiv/programresources/guidance/prep/index.html (accessed on 1451 15 January 2024). 1452 20. Patel, V.V.; Mayer, K.H.; Makadzange, T.; Mena, L.A.; Rolle, C.P.; Jandl, T.; Thompson, D.; 1453 Corado, K.; Nkwihoreze, H.; Giguere, R.; et al. Real-world implementation of cabotegravir long- 1454 acting injectable PrEP: The CAN Community Health Network Study. AIDS 2023, 37, 1847\u20131854. 1455 https://doi.org/10.1097/QAD.0000000000003627. 1456 21. Trio Health. Cabotegravir PrEP Persistence and Adherence Data. Presented at HIV Research for 1457 Prevention Conference, Lima, Peru, 30 January\u20132 February 2024. 1458 22. Castagna, A.; Muccini, C. Long-Acting Antiretrovirals Special Issue Call for Papers. Viruses 2024. 1459 Available online: https://www.mdpi.com/journal/viruses/special_issues/VV19VQOKZW 1460 (accessed on 1 October 2024). 1461 23. Nunn, A.S.; Brinkley-Rubinstein, L.; Oldenburg, C.E.; Mayer, K.H.; Mimiaga, M.; Patel, R.; 1462 Chan, P.A. Defining the HIV pre-exposure prophylaxis care continuum. AIDS 2017, 31, 731\u2013734. 1463 https://doi.org/10.1097/QAD.0000000000001385. 1464 24. Steinberg, L. Cognitive and affective development in adolescence. Trends Cogn. Sci. 2005, 9, 69\u201374. 1465 https://doi.org/10.1016/j.tics.2004.12.005. 1466 25. Green, L.; Myerson, J. A discounting framework for choice with delayed and probabilistic 1467 rewards. Psychol. Bull. 2004, 130, 769\u2013792. https://doi.org/10.1037/0033-2909.130.5.769. 1468 26. Crooks, N.; Donenberg, G.; Matthews, A. Barriers to PrEP uptake among Black female adolescents 1469 and emerging adults. Prev. Med. Rep. 2023, 31, 102092. https://doi.org/10.1016/j.pmedr.2022.1 1470 02092. 1471 27. Shah, M.; Gillespie, S.; Holt, S.; Morris, C.R.; Camacho-Gonzalez, A.F. Acceptability and barriers 1472 to HIV pre-exposure prophylaxis in Atlanta's adolescents and their parents. AIDS Patient Care 1473 STDS 2019, 33, 425\u2013433. https://doi.org/10.1089/apc.2019.0117. 1474 28. Colledge-Frisby, S.; Ottaviano, S.; Webb, P.; Grebely, J.; Cunningham, E.B.; Hajarizadeh, B.; Leung, 1475 J.; Peacock, A.; Larney, S.; Farrell, M.; et al. Global coverage of interventions to prevent and 1476 manage drug-related harms among people who inject drugs: A systematic review. Lancet Glob. 1477 Health 2023, 11, e673\u2013e683. https://doi.org/10.1016/S2214-109X(23)00058-X. 1478 29. International Association of Providers of AIDS Care. People Who Inject Drugs (PWID). Available 1479 online: https://www.iapac.org/fact-sheet/people-who-inject-drugs-pwid/ (accessed on 1 1480 October 2024). 1481 30. World Health Organization. Consolidated Guidelines on HIV Prevention, Testing, Treatment, 1482 Service Delivery and Monitoring: Recommendations for a Public Health Approach. Available 1483 online: https://www.who.int/publications/i/item/9789240031593 (accessed on 1 October 1484 2024). 1485 31. Shoptaw, S.; Montgomery, B.; Williams, C.T.; El-Bassel, N.; Aramrattana, A.; Metzger, D.; Kuo, 1486 I.; Bastos, F.I.; Strathdee, S.A. HIV prevention awareness, willingness, and perceived barriers 1487 among people who inject drugs in Los Angeles and San Francisco, CA, 2016\u20132018. J. Addict. Med. 1488 2020, 14, e260\u2013e267. https://doi.org/10.1097/ADM.0000000000000645. 1489 32. Des Jarlais, D.C.; Feelemyer, J.; LaKosky, P.; Szymanowski, K.; Arasteh, K. Expansion of syringe 1490 service programs in the United States, 2015\u20132018. Am. J. Public Health 2020, 110, 517\u2013519. 1491 https://doi.org/10.2105/AJPH.2019.305515. 1492 33. Centers for Disease Control and Prevention. US Public Health Service: Preexposure Prophylaxis 1493 for the Prevention of HIV Infection in the United States\u20142021 Update: A Clinical Practice 1494 Guideline. Available online: https://www.cdc.gov/hiv/pdf/risk/prep/cdc-hiv-prep-guideli 1495 nes-2021.pdf (accessed on 1 October 2024). 1496 34. Haser, G.C.; Balter, L.; Gurley, S.; Thomas, M.; Murphy, T.; Sumitani, J.; Leue, E.P.; Hollman, 1497 A.; Karneh, M.; Wray, L.; et al. Early implementation and outcomes among people with HIV 1498 who accessed long-acting injectable cabotegravir/rilpivirine at two Ryan White clinics in the U.S. 1499 South. J. Acquir. Immune Defic. Syndr. 2024, 96, 383\u2013390. https://doi.org/10.1097/QAI.00000000 1500 00003439. 1501 35. Pandori, M.W.; Branson, B.M.; Masciotra, S.; Parekh, B.S.; Owen, S.M. Selecting an HIV test: 1502 A narrative review for clinicians and researchers. Sex. Transm. Dis. 2018, 45, 739\u2013746. https: 1503 //doi.org/10.1097/OLQ.0000000000000898. 1504 36. Branson, B.M.; Owen, S.M.; Wesolowski, L.G.; Bennett, B.; Werner, B.G.; Wroblewski, K.E.; 1505 Pentella, M.A. Laboratory Testing for the Diagnosis of HIV Infection: Updated Recommendations. 1506 CDC/APHL Recommendations, 2014. Available online: https://stacks.cdc.gov/view/cdc/2344 1507 7 (accessed on 1 October 2024). 1508 37. National Clinician Consultation Center. PrEP Quick Guide. Available online: https://nccc.ucsf. 1509 edu/clinical-resources/prep-resources/prep-quick-guide/ (accessed on 1 October 2024). 1510 38. ViiV Healthcare. Apretude (Cabotegravir Extended-Release Injectable Suspension) Prescribing 1511 Information. Available online: https://www.viivhealthcare.com/hiv-portfolio/hiv-preventio 1512 n/apretude/ (accessed on 1 October 2024). 1513 39. World Health Organization. WHO Recommends Injectable Lenacapavir for HIV Prevention. 1514 Available online: https://www.who.int/news/item/14-07-2025-who-recommends-injectable 1515 -lenacapavir-for-hiv-prevention (accessed on 14 July 2025). 1516 40. Natale-Pereira, A.; Enard, K.R.; Nevarez, L.; Jones, L.A. The role of patient navigators in elimi- 1517 nating health disparities. Cancer 2011, 117, 3543\u20133552. https://doi.org/10.1002/cncr.26264. 1518 41. Chan, P.A.; Patel, R.R.; Mena, L.; Marshall, B.D.L.; Rose, J.; Levine, P.; Nunn, A. A panel 1519 management and patient navigation intervention is associated with earlier PrEP initiation in 1520 a safety-net primary care health system. J. Acquir. Immune Defic. Syndr. 2018, 79, 347\u2013351. 1521 https://doi.org/10.1097/QAI.0000000000001801. 1522 42. Chen, M.; Wu, V.; Hoehn, R.S. Patient navigation in cancer treatment: A systematic review. J. 1523 Oncol. Pract. 2024, 20, 123\u2013135. https://doi.org/10.1200/JOP.23.xxxxx. 1524 43. Cocohoba, J.; Siegler, A.J.; Ramachandran, A.; Benson-Davies, S.; Harvey, S.M.; Krakower, D. 1525 Pharmacist provision of HIV pre-exposure prophylaxis in the United States: The emerging role 1526 of pharmacy technicians. J. Am. Pharm. Assoc. 2022, 62, 362\u2013372. https://doi.org/10.1016/j.japh 1527 .2021.09.015. 1528 44. PrEPWatch. Injectable Lenacapavir for PrEP. Available online: https://www.prepwatch.org/pr 1529 oducts/lenacapavir-for-prep/ (accessed on 1 October 2024). 1530 45. AVAC. Long-Acting and Extended Duration HIV Prevention and Treatment. Available online: 1531 https://www.avac.org/resource/long-acting-and-extended-duration-hiv-prevention-and-tre 1532 atment (accessed on 1 October 2024). 1533  Viruses 41 of 41 46. UNAIDS. Global AIDS Update 2024: The Path That Ends AIDS. Available online: https://www. 1534 unaids.org/en/resources/documents/2024/global-aids-update (accessed on 1 September 2024). 1535 47. World Health Organization. Task Shifting: Rational Redistribution of Tasks Among Health 1536 Workforce Teams. Global Recommendations and Guidelines. Available online: https://www.wh 1537 o.int/publications/i/item/9789241596312 (accessed on 1 October 2024). 1538 48. Grimsrud, A.; Bygrave, H.; Doherty, M.; Ehrenkranz, P.; Ellman, T.; Ferris, R.; et al. Reimagining 1539 HIV service delivery: The role of differentiated care from prevention to suppression. J. Int. AIDS 1540 Soc. 2016, 19, 21484. https://doi.org/10.7448/IAS.19.1.21484. 1541 49. Grinsztejn, B.; Hoagland, B.; Moreira, R.I.; Kallas, E.G.; Madruga, J.V.; Goulart, S.; et al. Retention, 1542 engagement, and adherence to pre-exposure prophylaxis for men who have sex with men and 1543 transgender women in PrEP Brasil: 48 week results of a demonstration study. Lancet HIV 2018, 5, 1544 e136\u2013e145. https://doi.org/10.1016/S2352-3018(18)30008-0. 1545 50. ViiV Healthcare. Apretude (Cabotegravir) Patient Assistance Program. Available online: https:// 1546 www.viivhealthcare.com/en-us/hiv-portfolio/hiv-prevention/apretude/patient-assistance/ 1547 (accessed on 15 September 2024). 1548 51. Centers for Disease Control and Prevention. EquiPrEP: Equitable Access to LAI-PrEP. Available 1549 online: https://www.cdc.gov/hiv/funding/announcements/ps23-2305/index.html (accessed 1550 on 1 October 2024). 1551 52. Gilead Sciences. Sunlenca (Lenacapavir) Prescribing Information. Available online: https: 1552 //www.gilead.com/-/media/files/pdfs/medicines/hiv/sunlenca/sunlenca_pi.pdf (accessed 1553 on 1 October 2024"
+      }
+    ],
+    "resource_type": {
+      "id": "dataset",
+      "title": {
+        "de": "Datensatz",
+        "en": "Dataset"
+      }
+    },
+    "rights": [
+      {
+        "description": {
+          "en": "The Creative Commons Attribution license allows re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited."
+        },
+        "icon": "cc-by-icon",
+        "id": "cc-by-4.0",
+        "props": {
+          "scheme": "spdx",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode"
+        },
+        "title": {
+          "en": "Creative Commons Attribution 4.0 International"
+        }
+      },
+      {
+        "description": {
+          "en": "# LAI-PrEP Bridge Decision Support Tool\n## License\n\n**Pharma-Restricted Open Healthcare License v1.0**\n\nCopyright \u00a9 2024-2025 Adrian C. Demidont, DO\n\n---\n\n## Quick Summary\n\n| User Type | Access Level | Requirements |\n|-----------|--------------|--------------|\n| \ud83c\udfe5 Healthcare Providers | **FREE - Unrestricted** | Attribution only |\n| \ud83d\udd2c Researchers & Academics | **FREE - Unrestricted** | Attribution only |\n| \ud83c\udf97\ufe0f Non-Profit Organizations | **FREE - Unrestricted** | Attribution only |\n| \ud83c\udfdb\ufe0f Government Agencies | **FREE - Unrestricted** | Attribution only |\n| \ud83d\udc8a Pharmaceutical Companies | **RESTRICTED** | Written permission required* |\n| \ud83e\uddec Biotechnology Companies | **RESTRICTED** | Written permission required* |\n\n\\* **Exception:** May use for direct patient care with notification (see Patient Care Use below)\n\n---\n\n## For Healthcare Providers, Researchers, and Non-Profits\n\n### \u2705 You Are Authorized To:\n\n- Use the tool **without restriction** for patient care\n- Use for research and academic purposes\n- Modify and create derivative works\n- Distribute the tool and derivatives\n- Integrate into electronic health records\n- Publish research findings\n- Use for quality improvement\n- Use for public health program planning\n- Use for education and training\n\n### \ud83d\udccb Your Only Obligation:\n\nInclude this attribution:\n\n```\nThis work uses the LAI-PrEP Bridge Decision Support Tool developed by\nAdrian C. Demidont, DO and Kandis Backus, PharmD.\nCopyright \u00a9 2024-2025. Available at: https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool\n\nCitation: Demidont, A.C.; Backus, K.V. Computational Validation of Clinical\nDecision Support Algorithm for Long-Acting Injectable PrEP Bridge Period\nNavigation at UNAIDS Global Target Scale. Viruses 2025.\n```\n\n**No permission needed. No fees. No restrictions.**\n\n---\n\n## For Pharmaceutical & Biotechnology Companies\n\n### \u26a0\ufe0f Commercial Use Requires Permission\n\nPharmaceutical entities (defined below) **MUST obtain written permission** for:\n- Internal business use (strategy, market analysis)\n- Product development or enhancement\n- Marketing or promotional activities\n- Competitive intelligence\n- Clinical trials sponsored by pharmaceutical companies\n- Integration into proprietary software platforms\n- Any use supporting commercial pharmaceutical activities\n\n### \u2705 Patient Care Use Exception\n\nPharmaceutical companies **MAY use without permission** if:\n\n1. **Limited to direct patient care** by employed/contracted clinicians\n2. **Not used for** marketing, sales support, or competitive analysis\n3. **Notify us** within 30 days of implementation:\n   - Email: acdemidont@nyxdynamics.org\n   - Include: Scope of use, number of sites, implementation date\n4. **Provide annual reporting**:\n   - Number of patients assessed\n   - Clinical outcomes (de-identified)\n   - Any modifications made\n\n**No fees for patient care use. Just notification and outcome reporting.**\n\n### \ud83d\udce7 How to Request Commercial Use Permission\n\n1. Email: **acdemidont@nyxdynamics.org**\n2. Include:\n   - Detailed description of intended use\n   - Expected scale of implementation\n   - Products/services that will benefit\n   - Proposed contribution to implementation science\n3. We commit to:\n   - Respond within **30 business days**\n   - Consider requests fairly and in good faith\n   - Prioritize public health impact\n   - Be receptive to partnerships advancing implementation science\n\n---\n\n## Definitions\n\n### \"Pharmaceutical Entity\" Includes:\n\n- Manufacturers of HIV prevention/treatment medications\n- Manufacturers of long-acting injectable formulations (cabotegravir, lenacapavir, etc.)\n- Biotechnology companies developing HIV products\n- Medical device manufacturers (drug delivery systems for injectables)\n- Contract research organizations (CROs) working for pharma/biotech\n- Parent companies, subsidiaries, or affiliates of above\n\n### \"Commercial Use\" by Pharmaceutical Entity Means:\n\n- Internal business operations (sales, strategy, market analysis)\n- Product development, enhancement, or positioning\n- Marketing, promotional, or sales support materials\n- Competitive intelligence or market research\n- Clinical trial infrastructure for pharma-sponsored trials\n- Any use directly/indirectly supporting commercial pharmaceutical activities\n\n### \"Patient Care Use\" Means:\n\n- Direct clinical assessment of individual patients\n- Selection of appropriate interventions for patients\n- Improving bridge period navigation outcomes\n- Providing better patient care\n\n---\n\n## Warranty Disclaimer\n\nTHE WORK IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.\n\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.\n\n---\n\n## Clinical Use Disclaimer\n\nThis clinical decision support tool is intended to **ASSIST** healthcare providers, not replace clinical judgment. All clinical decisions remain the sole responsibility of treating healthcare providers.\n\nThis tool has been **computationally validated** but requires **prospective clinical validation** before widespread deployment.\n\n---\n\n## Preservation of Terms\n\nAny redistribution or derivative work must:\n- Preserve this license in its entirety\n- Maintain all restrictions on Pharmaceutical Entities\n- Include copyright notice and attribution requirements\n- Not misrepresent the work as endorsed by original authors\n\n---\n\n## Frequently Asked Questions\n\n### Q: I'm a clinician working for a pharma company. Can I use this?\n\n**A:** Yes! Under the Patient Care Use exception. Just notify us within 30 days and provide annual outcome reports. No fees.\n\n### Q: I'm a researcher at a university receiving pharma funding. Can I use this?\n\n**A:** Yes! Academic freedom is fully protected. Researchers have unrestricted access regardless of funding source.\n\n### Q: Can a hospital that receives pharma grant money use this?\n\n**A:** Yes! Healthcare providers have full unrestricted access regardless of funding sources. The restriction applies to pharmaceutical companies' own internal use, not to organizations they support.\n\n### Q: What if my clinic has a pharma company on our advisory board?\n\n**A:** You still have full unrestricted access. The restriction targets pharma companies' commercial operations, not clinical care settings.\n\n### Q: Can I publish research using this tool?\n\n**A:** Yes! Publish freely. Just cite appropriately. No permission needed.\n\n### Q: What if I'm unsure whether I need permission?\n\n**A:** Email us: acdemidont@nyxdynamics.org. We'll respond within 5 business days with clarification. We're friendly and want to help!\n\n### Q: Will you grant permission to pharmaceutical companies?\n\n**A:** We evaluate requests fairly, prioritizing public health impact. We're open to partnerships involving data sharing, validation studies, and health equity initiatives. We will not unreasonably withhold permission for uses that advance implementation science and patient care.\n\n### Q: Why this license structure?\n\n**A:** To maximize patient access (free for all healthcare) while ensuring pharmaceutical companies\u2014who profit substantially from HIV prevention products this tool helps implement\u2014contribute fairly when using academic work for commercial purposes. It balances open science with fair value exchange.\n\n---\n\n## Rationale\n\nThis license embodies our values:\n\n1. **Open Science** \u2192 All code and data publicly available\n2. **Maximum Health Impact** \u2192 No barriers for healthcare providers\n3. **Health Equity** \u2192 Free for safety-net and under-resourced providers\n4. **Fair Value Exchange** \u2192 Pharma contributes when deriving commercial value\n5. **Academic Freedom** \u2192 Unrestricted research use\n6. **Collaborative Partnerships** \u2192 Open to working with all stakeholders\n\n---\n\n## Contact Information\n\n**For questions, permission requests, or compliance guidance:**\n\n**Adrian C. Demidont, DO**  \nEmail: acdemidont@nyxdynamics.org  \nOrganization: Nyx Dynamics, LLC  \nLocation: Fairfield, CT, USA\n\nWe commit to responding promptly and working collaboratively with all stakeholders to maximize public health impact.\n\n---\n\n## Citation\n\n### Software:\n```\nDemidont, A.C.; LAI-PrEP Bridge Period Decision Support Tool.\nVersion 2.1.0. 2025. https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool\nDOI: 10.5281/zenodo.17429833\n```\n\n### Manuscript:\n```\nDemidont, A.C.; Backus, K.V. Computational Validation of Clinical Decision\nSupport Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation\nat UNAIDS Global Target Scale. Viruses 2025, [volume], [article number].\n```\n\n### BibTeX:\n```bibtex\n@software{demidont2025laiprep,\n  author = {Demidont, Adrian C. and Backus, Kandis V.},\n  title = {LAI-PrEP Bridge Period Decision Support Tool},\n  version = {2.1.0},\n  year = {2025},\n  url = {https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool},\n  note = {Pharma-Restricted Open Healthcare License v1.0}\n}\n```\n\n---\n\n## Full License Text\n\nFor the complete legal text, definitions, detailed terms, and comprehensive FAQ, see:\n**[PHARMA_RESTRICTED_LICENSE.md](PHARMA_RESTRICTED_LICENSE.md)**\n\n---\n\n**License Version:** 1.0  \n**Effective Date:** January 2025  \n**SPDX-License-Identifier:** LicenseRef-Pharma-Restricted-Open-Healthcare-1.0  \n**Last Updated:** January 2025"
+        },
+        "title": {
+          "en": "**Pharma-Restricted Open Healthcare License v1.0**"
+        }
+      }
+    ],
+    "subjects": [
+      {
+        "id": "mesh:D006678",
+        "scheme": "MeSH",
+        "subject": "HIV"
+      },
+      {
+        "id": "mesh:D015658",
+        "scheme": "MeSH",
+        "subject": "HIV Infections"
+      },
+      {
+        "id": "mesh:D015497",
+        "scheme": "MeSH",
+        "subject": "HIV-1"
+      },
+      {
+        "id": "mesh:D000082922",
+        "scheme": "MeSH",
+        "subject": "HIV Testing"
+      },
+      {
+        "subject": "Clinical Decision Support"
+      },
+      {
+        "id": "mesh:D000465",
+        "scheme": "MeSH",
+        "subject": "Algorithms"
+      },
+      {
+        "subject": "HIV Prevention"
+      },
+      {
+        "subject": "Long Acting Injectable Antiretrovirals"
+      },
+      {
+        "subject": "PrEP Cascade"
+      },
+      {
+        "subject": "Cabotegravir"
+      },
+      {
+        "subject": "Lenacapavir"
+      },
+      {
+        "subject": "Islatravir"
+      },
+      {
+        "id": "mesh:D000077626",
+        "scheme": "MeSH",
+        "subject": "Implementation Science"
+      },
+      {
+        "subject": "UNAIDS Targets"
+      },
+      {
+        "subject": "Computational Validation"
+      },
+      {
+        "id": "mesh:D000069576",
+        "scheme": "MeSH",
+        "subject": "Health Equity"
+      },
+      {
+        "id": "mesh:D062526",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation"
+      },
+      {
+        "id": "mesh:D062526Q000191",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation/economics"
+      },
+      {
+        "id": "mesh:D062526Q000941",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation/ethics"
+      },
+      {
+        "id": "mesh:D062526Q000379",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation/methods"
+      },
+      {
+        "id": "mesh:D062526Q000592",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation/standards"
+      },
+      {
+        "id": "mesh:D062526Q000458",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation/organization & administration"
+      },
+      {
+        "id": "mesh:D062526Q000706",
+        "scheme": "MeSH",
+        "subject": "Patient Navigation/statistics & numerical data"
+      },
+      {
+        "subject": "Patient Navigation"
+      },
+      {
+        "id": "mesh:D065129",
+        "scheme": "MeSH",
+        "subject": "Pre-Exposure Prophylaxis"
+      },
+      {
+        "id": "mesh:D065129Q000379",
+        "scheme": "MeSH",
+        "subject": "Pre-Exposure Prophylaxis/methods"
+      },
+      {
+        "id": "mesh:D065129Q000145",
+        "scheme": "MeSH",
+        "subject": "Pre-Exposure Prophylaxis/classification"
+      },
+      {
+        "id": "mesh:D065129Q000639",
+        "scheme": "MeSH",
+        "subject": "Pre-Exposure Prophylaxis/trends"
+      },
+      {
+        "id": "mesh:D065129Q000458",
+        "scheme": "MeSH",
+        "subject": "Pre-Exposure Prophylaxis/organization & administration"
+      },
+      {
+        "id": "mesh:D065129Q000706",
+        "scheme": "MeSH",
+        "subject": "Pre-Exposure Prophylaxis/statistics & numerical data"
+      },
+      {
+        "id": "mesh:D014943",
+        "scheme": "MeSH",
+        "subject": "Global Health"
+      },
+      {
+        "id": "mesh:D014943Q000191",
+        "scheme": "MeSH",
+        "subject": "Global Health/economics"
+      },
+      {
+        "id": "mesh:D014943Q000941",
+        "scheme": "MeSH",
+        "subject": "Global Health/ethics"
+      },
+      {
+        "id": "mesh:D014943Q000706",
+        "scheme": "MeSH",
+        "subject": "Global Health/statistics & numerical data"
+      }
+    ],
+    "title": "Computational Validation of a Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale",
+    "version": "V.2.1"
+  },
+  "parent": {
+    "access": {
+      "grants": [],
+      "links": [],
+      "owned_by": {
+        "user": "1320439"
+      },
+      "settings": {
+        "accept_conditions_text": null,
+        "allow_guest_requests": false,
+        "allow_user_requests": false,
+        "secret_link_expiration": 0
+      }
+    },
+    "communities": {},
+    "id": "17429832",
+    "pids": {
+      "doi": {
+        "client": "datacite",
+        "identifier": "10.5281/zenodo.17429832",
+        "provider": "datacite"
+      }
+    }
+  },
+  "pids": {
+    "doi": {
+      "client": "datacite",
+      "identifier": "10.5281/zenodo.17429833",
+      "provider": "datacite"
+    },
+    "oai": {
+      "identifier": "oai:zenodo.org:17429833",
+      "provider": "oai"
+    }
+  },
+  "revision_id": 3,
+  "stats": {
+    "all_versions": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    },
+    "this_version": {
+      "data_volume": 0.0,
+      "downloads": 0,
+      "unique_downloads": 0,
+      "unique_views": 0,
+      "views": 0
+    }
+  },
+  "status": "published",
+  "swh": {},
+  "updated": "2025-10-24T02:24:23.965723+00:00",
+  "versions": {
+    "index": 1,
+    "is_latest": true,
+    "is_latest_draft": true
+  }
+}

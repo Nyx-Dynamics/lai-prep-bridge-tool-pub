@@ -1,0 +1,557 @@
+{
+  "version": "2.0.0",
+  "last_updated": "2025-01-12",
+  "description": "Configuration file for LAI-PrEP Bridge Period Decision Support Tool",
+  
+  "populations": {
+    "MSM": {
+      "name": "Men who have sex with men",
+      "baseline_attrition": 0.45,
+      "attrition_range": [0.40, 0.50],
+      "evidence_level": "strong",
+      "evidence_source": "HPTN 083 (n=4,566)",
+      "clinical_notes": "MSM: Address stigma, privacy concerns, and social network disclosure. HPTN 083 showed 89% relative risk reduction.",
+      "priority_interventions": ["PATIENT_NAVIGATION", "PEER_NAVIGATION", "SAME_DAY_SWITCHING"]
+    },
+    "CISGENDER_WOMEN": {
+      "name": "Cisgender women",
+      "baseline_attrition": 0.55,
+      "attrition_range": [0.50, 0.60],
+      "evidence_level": "strong",
+      "evidence_source": "HPTN 084 (n=3,224), PURPOSE-1 (n=5,338)",
+      "clinical_notes": "Women: Address medical mistrust, structural barriers (transportation, childcare). HPTN 084 showed 89% superior efficacy; PURPOSE-1 had zero infections in 5,338 women.",
+      "priority_interventions": ["PATIENT_NAVIGATION", "TRANSPORTATION_SUPPORT", "CHILDCARE_SUPPORT", "MEDICAL_MISTRUST_INTERVENTION"]
+    },
+    "TRANSGENDER_WOMEN": {
+      "name": "Transgender women",
+      "baseline_attrition": 0.50,
+      "attrition_range": [0.45, 0.55],
+      "evidence_level": "strong",
+      "evidence_source": "HPTN 083, PURPOSE-2 (n=2,183)",
+      "clinical_notes": "Transgender women: Address healthcare discrimination, hormone interaction concerns. PURPOSE-2 showed 96% reduction in HIV incidence across all gender identities.",
+      "priority_interventions": ["PEER_NAVIGATION", "ANTI_DISCRIMINATION_PROTOCOLS", "PATIENT_NAVIGATION"]
+    },
+    "ADOLESCENT": {
+      "name": "Adolescent (16-24 years)",
+      "baseline_attrition": 0.65,
+      "attrition_range": [0.60, 0.70],
+      "evidence_level": "moderate",
+      "evidence_source": "PURPOSE-1 adolescent cohort (n=56 aged 16-17), oral PrEP extrapolation",
+      "clinical_notes": "Adolescents: Address temporal discounting, transportation dependence, privacy concerns. PURPOSE-1 demonstrated zero infections in 56 adolescents aged 16-17.",
+      "priority_interventions": ["PATIENT_NAVIGATION", "TRANSPORTATION_SUPPORT", "CONFIDENTIALITY_PROTECTIONS", "FLEXIBLE_SCHEDULING"]
+    },
+    "PWID": {
+      "name": "People who inject drugs",
+      "baseline_attrition": 0.75,
+      "attrition_range": [0.70, 0.80],
+      "evidence_level": "emerging",
+      "evidence_source": "Oral PrEP cascade extrapolation, PURPOSE-4 (ongoing)",
+      "clinical_notes": "PWID: Harm reduction approach essential. No abstinence requirement. PURPOSE-4 trial (ongoing) will provide critical implementation evidence.",
+      "priority_interventions": ["HARM_REDUCTION_INTEGRATION", "PEER_NAVIGATION", "LOW_BARRIER_PROTOCOLS", "MOBILE_DELIVERY"]
+    },
+    "PREGNANT_LACTATING": {
+      "name": "Pregnant/lactating individuals",
+      "baseline_attrition": 0.55,
+      "attrition_range": [0.50, 0.60],
+      "evidence_level": "emerging",
+      "evidence_source": "PURPOSE-1 inclusion, extrapolated from general women data",
+      "clinical_notes": "Pregnant/lactating: Address pregnancy-specific concerns, competing priorities. PURPOSE-1 first trial to include pregnant/lactating individuals from the beginning.",
+      "priority_interventions": ["PATIENT_NAVIGATION", "PREGNANCY_COUNSELING", "PRENATAL_INTEGRATION"]
+    },
+    "GENERAL": {
+      "name": "General population",
+      "baseline_attrition": 0.47,
+      "attrition_range": [0.45, 0.50],
+      "evidence_level": "strong",
+      "evidence_source": "CAN Community Health Network Study (2021-2023)",
+      "clinical_notes": "General population: Standard protocols appropriate. Focus on efficient bridge period navigation.",
+      "priority_interventions": ["PATIENT_NAVIGATION", "ACCELERATED_TESTING", "INSURANCE_SUPPORT"]
+    }
+  },
+  
+  "barriers": {
+    "TRANSPORTATION": {
+      "name": "Transportation barriers",
+      "impact": 0.10,
+      "evidence_level": "strong",
+      "affected_populations": ["CISGENDER_WOMEN", "ADOLESCENT", "PWID", "PREGNANT_LACTATING"],
+      "description": "Lack of reliable transportation to multiple appointments"
+    },
+    "CHILDCARE": {
+      "name": "Childcare needs",
+      "impact": 0.08,
+      "evidence_level": "moderate",
+      "affected_populations": ["CISGENDER_WOMEN", "PREGNANT_LACTATING"],
+      "description": "Need for childcare during medical appointments"
+    },
+    "HOUSING_INSTABILITY": {
+      "name": "Housing instability",
+      "impact": 0.15,
+      "evidence_level": "strong",
+      "affected_populations": ["PWID"],
+      "description": "Homelessness or unstable housing affecting follow-up"
+    },
+    "INSURANCE_DELAYS": {
+      "name": "Insurance authorization delays",
+      "impact": 0.12,
+      "evidence_level": "strong",
+      "affected_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "GENERAL"],
+      "description": "Prior authorization requirements causing delays"
+    },
+    "SCHEDULING_CONFLICTS": {
+      "name": "Scheduling conflicts",
+      "impact": 0.05,
+      "evidence_level": "moderate",
+      "affected_populations": ["MSM", "GENERAL", "ADOLESCENT"],
+      "description": "Work, school, or other commitments preventing appointment attendance"
+    },
+    "MEDICAL_MISTRUST": {
+      "name": "Medical mistrust",
+      "impact": 0.10,
+      "evidence_level": "strong",
+      "affected_populations": ["CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "PWID"],
+      "description": "Historical and ongoing experiences of medical racism and discrimination"
+    },
+    "PRIVACY_CONCERNS": {
+      "name": "Privacy/confidentiality concerns",
+      "impact": 0.08,
+      "evidence_level": "moderate",
+      "affected_populations": ["ADOLESCENT", "MSM", "TRANSGENDER_WOMEN"],
+      "description": "Concerns about disclosure of sexual activity or HIV prevention"
+    },
+    "HEALTHCARE_DISCRIMINATION": {
+      "name": "Healthcare discrimination experience",
+      "impact": 0.12,
+      "evidence_level": "strong",
+      "affected_populations": ["TRANSGENDER_WOMEN", "PWID", "MSM"],
+      "description": "Past experiences of discrimination in healthcare settings"
+    },
+    "COMPETING_PRIORITIES": {
+      "name": "Competing health/life priorities",
+      "impact": 0.08,
+      "evidence_level": "moderate",
+      "affected_populations": ["PWID", "CISGENDER_WOMEN", "PREGNANT_LACTATING"],
+      "description": "Other health needs or life circumstances taking precedence"
+    },
+    "LIMITED_NAVIGATION_EXPERIENCE": {
+      "name": "Limited healthcare navigation experience",
+      "impact": 0.10,
+      "evidence_level": "moderate",
+      "affected_populations": ["ADOLESCENT", "PWID"],
+      "description": "Lack of experience scheduling appointments and coordinating care"
+    },
+    "LEGAL_CONCERNS": {
+      "name": "Criminalization/legal concerns",
+      "impact": 0.15,
+      "evidence_level": "strong",
+      "affected_populations": ["PWID"],
+      "description": "Fear of legal consequences from healthcare engagement"
+    },
+    "LACK_IDENTIFICATION": {
+      "name": "Lack of government ID",
+      "impact": 0.10,
+      "evidence_level": "moderate",
+      "affected_populations": ["PWID", "ADOLESCENT"],
+      "description": "Missing identification documents required for care"
+    },
+    "SUBSTANCE_USE": {
+      "name": "Active substance use",
+      "impact": 0.12,
+      "evidence_level": "moderate",
+      "affected_populations": ["PWID"],
+      "description": "Active substance use affecting appointment attendance (harm reduction: no abstinence required)"
+    }
+  },
+  
+  "interventions": {
+    "ORAL_TO_INJECTABLE": {
+      "name": "Oral-to-injectable transition",
+      "improvement": 0.35,
+      "evidence_level": "strong",
+      "evidence_source": "CAN Community Health Network, Ryan White clinics oral-to-LA-ART data",
+      "note": "1.5-fold improvement in relative odds. Eliminates most bridge barriers. 85-90% success vs 53% baseline.",
+      "cost_level": "low",
+      "implementation_complexity": "low",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "GENERAL"],
+      "requires_oral_prep": true
+    },
+    "SAME_DAY_SWITCHING": {
+      "name": "Same-day switching protocol",
+      "improvement": 0.40,
+      "evidence_level": "strong",
+      "evidence_source": "CDC LAI-PrEP guidelines 2021",
+      "note": "If HIV testing within 7 days, can inject same day. Completely eliminates bridge period.",
+      "cost_level": "low",
+      "implementation_complexity": "low",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "GENERAL"],
+      "requires_oral_prep": true,
+      "requires_recent_test": true
+    },
+    "PATIENT_NAVIGATION": {
+      "name": "Patient navigation program",
+      "improvement": 0.15,
+      "evidence_level": "strong",
+      "evidence_source": "San Francisco PrEP navigation (HR 1.5), cancer care meta-analyses (10-40% improvement)",
+      "note": "1.5-fold increase in initiation rate. Particularly effective for populations with structural barriers.",
+      "cost_level": "medium",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["CISGENDER_WOMEN", "ADOLESCENT", "PWID", "PREGNANT_LACTATING", "TRANSGENDER_WOMEN"]
+    },
+    "ACCELERATED_TESTING": {
+      "name": "Accelerated HIV testing (RNA + Ag/Ab)",
+      "improvement": 0.10,
+      "evidence_level": "moderate",
+      "evidence_source": "WHO July 2025 guidance, window period literature",
+      "note": "RNA testing reduces window period from 33-45 days to 10-14 days. Compresses bridge duration.",
+      "cost_level": "high",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "PWID", "GENERAL"]
+    },
+    "TRANSPORTATION_SUPPORT": {
+      "name": "Transportation vouchers/support",
+      "improvement": 0.08,
+      "evidence_level": "moderate",
+      "evidence_source": "Cancer care transportation studies, PrEP barrier literature",
+      "note": "Key barrier for women and PWID populations. Ride-share partnerships or transit vouchers.",
+      "cost_level": "medium",
+      "implementation_complexity": "low",
+      "applicable_populations": ["CISGENDER_WOMEN", "ADOLESCENT", "PWID", "PREGNANT_LACTATING"],
+      "addresses_barriers": ["TRANSPORTATION"]
+    },
+    "CHILDCARE_SUPPORT": {
+      "name": "Childcare vouchers/on-site care",
+      "improvement": 0.08,
+      "evidence_level": "moderate",
+      "evidence_source": "Family planning service models",
+      "note": "Critical for women with caregiving responsibilities. On-site or voucher support.",
+      "cost_level": "medium",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["CISGENDER_WOMEN", "PREGNANT_LACTATING"],
+      "addresses_barriers": ["CHILDCARE"]
+    },
+    "TEXT_MESSAGE_NAVIGATION": {
+      "name": "SMS/text message navigation",
+      "improvement": 0.05,
+      "evidence_level": "moderate",
+      "evidence_source": "Healthcare appointment reminder meta-analyses",
+      "note": "SMS reminders improve appointment attendance by 20-30%. Low-cost, high-reach.",
+      "cost_level": "low",
+      "implementation_complexity": "low",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "GENERAL"]
+    },
+    "PEER_NAVIGATION": {
+      "name": "Peer navigator support",
+      "improvement": 0.12,
+      "evidence_level": "moderate",
+      "evidence_source": "HIV care cascade peer navigation studies",
+      "note": "Particularly effective for key populations with lived experience. Greater effect than non-peer navigation.",
+      "cost_level": "medium",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["PWID", "TRANSGENDER_WOMEN", "MSM"]
+    },
+    "TELEHEALTH_COUNSELING": {
+      "name": "Telehealth bridge counseling",
+      "improvement": 0.06,
+      "evidence_level": "emerging",
+      "evidence_source": "Telehealth implementation during COVID-19",
+      "note": "Reduces visit burden but still requires in-person testing/injection.",
+      "cost_level": "low",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "GENERAL"]
+    },
+    "EXPEDITED_AUTHORIZATION": {
+      "name": "Expedited insurance authorization",
+      "improvement": 0.10,
+      "evidence_level": "moderate",
+      "evidence_source": "Insurance authorization delay literature",
+      "note": "Insurance delays are major cause of bridge period attrition. Expedited pathways essential.",
+      "cost_level": "low",
+      "implementation_complexity": "high",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "GENERAL"],
+      "addresses_barriers": ["INSURANCE_DELAYS"]
+    },
+    "MOBILE_DELIVERY": {
+      "name": "Mobile/community-based delivery",
+      "improvement": 0.12,
+      "evidence_level": "moderate",
+      "evidence_source": "Mobile clinic HIV services, community-based models",
+      "note": "Brings services to patients, eliminates transportation barrier. Requires infrastructure investment.",
+      "cost_level": "high",
+      "implementation_complexity": "high",
+      "applicable_populations": ["CISGENDER_WOMEN", "PWID", "ADOLESCENT"],
+      "addresses_barriers": ["TRANSPORTATION"]
+    },
+    "HARM_REDUCTION_INTEGRATION": {
+      "name": "SSP/harm reduction integration",
+      "improvement": 0.15,
+      "evidence_level": "emerging",
+      "evidence_source": "PURPOSE-4 trial design, SSP integration models",
+      "note": "Essential for PWID - leverages existing trust. PURPOSE-4 will provide implementation evidence.",
+      "cost_level": "medium",
+      "implementation_complexity": "high",
+      "applicable_populations": ["PWID"],
+      "addresses_barriers": ["LEGAL_CONCERNS", "MEDICAL_MISTRUST", "HEALTHCARE_DISCRIMINATION"]
+    },
+    "BUNDLED_PAYMENT": {
+      "name": "Bundled payment model",
+      "improvement": 0.08,
+      "evidence_level": "emerging",
+      "evidence_source": "Value-based payment models in preventive care",
+      "note": "Reduces authorization delays and administrative burden. System-level intervention.",
+      "cost_level": "low",
+      "implementation_complexity": "high",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "GENERAL"],
+      "addresses_barriers": ["INSURANCE_DELAYS"]
+    },
+    "MEDICAL_MISTRUST_INTERVENTION": {
+      "name": "Medical mistrust intervention",
+      "improvement": 0.10,
+      "evidence_level": "moderate",
+      "evidence_source": "Community health worker models",
+      "note": "Culturally concordant care and community health worker support to address medical mistrust.",
+      "cost_level": "medium",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "PWID"],
+      "addresses_barriers": ["MEDICAL_MISTRUST"]
+    },
+    "ANTI_DISCRIMINATION_PROTOCOLS": {
+      "name": "Anti-discrimination protocols",
+      "improvement": 0.12,
+      "evidence_level": "moderate",
+      "evidence_source": "LGBTQ+ healthcare training studies",
+      "note": "Staff training and policies to prevent discrimination.",
+      "cost_level": "low",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["TRANSGENDER_WOMEN", "MSM", "PWID"],
+      "addresses_barriers": ["HEALTHCARE_DISCRIMINATION"]
+    },
+    "CONFIDENTIALITY_PROTECTIONS": {
+      "name": "Enhanced confidentiality protections",
+      "improvement": 0.08,
+      "evidence_level": "moderate",
+      "evidence_source": "Adolescent health services literature",
+      "note": "Stronger privacy protections for adolescents and populations with privacy concerns.",
+      "cost_level": "low",
+      "implementation_complexity": "low",
+      "applicable_populations": ["ADOLESCENT", "MSM", "TRANSGENDER_WOMEN"],
+      "addresses_barriers": ["PRIVACY_CONCERNS"]
+    },
+    "FLEXIBLE_SCHEDULING": {
+      "name": "Flexible scheduling options",
+      "improvement": 0.06,
+      "evidence_level": "moderate",
+      "evidence_source": "Healthcare access literature",
+      "note": "Extended hours, weekend appointments, walk-in options.",
+      "cost_level": "low",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["ADOLESCENT", "MSM", "CISGENDER_WOMEN", "GENERAL"],
+      "addresses_barriers": ["SCHEDULING_CONFLICTS"]
+    },
+    "LOW_BARRIER_PROTOCOLS": {
+      "name": "Low-barrier access protocols",
+      "improvement": 0.12,
+      "evidence_level": "emerging",
+      "evidence_source": "Harm reduction services models",
+      "note": "Reduced documentation requirements, no abstinence requirement, accepting care where people are.",
+      "cost_level": "low",
+      "implementation_complexity": "low",
+      "applicable_populations": ["PWID"],
+      "addresses_barriers": ["LEGAL_CONCERNS", "LACK_IDENTIFICATION"]
+    },
+    "PREGNANCY_COUNSELING": {
+      "name": "Pregnancy-specific PrEP counseling",
+      "improvement": 0.08,
+      "evidence_level": "emerging",
+      "evidence_source": "PURPOSE-1 study protocols",
+      "note": "Specialized counseling addressing pregnancy and lactation concerns.",
+      "cost_level": "low",
+      "implementation_complexity": "low",
+      "applicable_populations": ["PREGNANT_LACTATING", "CISGENDER_WOMEN"],
+      "addresses_barriers": ["COMPETING_PRIORITIES"]
+    },
+    "PRENATAL_INTEGRATION": {
+      "name": "Prenatal care integration",
+      "improvement": 0.10,
+      "evidence_level": "moderate",
+      "evidence_source": "Integrated care models",
+      "note": "LAI-PrEP services integrated into prenatal care visits.",
+      "cost_level": "medium",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["PREGNANT_LACTATING"],
+      "addresses_barriers": ["COMPETING_PRIORITIES"]
+    },
+    "INSURANCE_SUPPORT": {
+      "name": "Insurance navigation support",
+      "improvement": 0.10,
+      "evidence_level": "strong",
+      "evidence_source": "Healthcare navigation literature",
+      "note": "Assistance with insurance enrollment, authorization processes, and appeals.",
+      "cost_level": "medium",
+      "implementation_complexity": "medium",
+      "applicable_populations": ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "GENERAL"],
+      "addresses_barriers": ["INSURANCE_DELAYS"]
+    }
+  },
+  
+  "healthcare_settings": {
+    "ACADEMIC_MEDICAL_CENTER": {
+      "name": "Academic medical center",
+      "typical_barrier_reduction": 0.05,
+      "strengths": ["Comprehensive services", "Research infrastructure", "Specialist availability"],
+      "challenges": ["Complex navigation", "Long wait times", "Less community connection"],
+      "recommended_interventions": ["PATIENT_NAVIGATION", "EXPEDITED_AUTHORIZATION", "TELEHEALTH_COUNSELING"]
+    },
+    "COMMUNITY_HEALTH_CENTER": {
+      "name": "Community health center",
+      "typical_barrier_reduction": 0.03,
+      "strengths": ["Community trust", "Sliding scale fees", "Culturally concordant care"],
+      "challenges": ["Resource constraints", "Limited specialist access"],
+      "recommended_interventions": ["PATIENT_NAVIGATION", "TEXT_MESSAGE_NAVIGATION", "PEER_NAVIGATION"]
+    },
+    "PRIVATE_PRACTICE": {
+      "name": "Private practice",
+      "typical_barrier_reduction": 0.02,
+      "strengths": ["Personalized care", "Flexible scheduling", "Continuity"],
+      "challenges": ["Cost barriers", "Insurance requirements", "Limited support services"],
+      "recommended_interventions": ["SAME_DAY_SWITCHING", "EXPEDITED_AUTHORIZATION"]
+    },
+    "PHARMACY": {
+      "name": "Pharmacy-based care",
+      "typical_barrier_reduction": 0.04,
+      "strengths": ["Convenient access", "Extended hours", "Community presence"],
+      "challenges": ["Limited private space", "Reimbursement models", "Scope of practice restrictions"],
+      "recommended_interventions": ["ACCELERATED_TESTING", "TEXT_MESSAGE_NAVIGATION", "SAME_DAY_SWITCHING"]
+    },
+    "HARM_REDUCTION": {
+      "name": "Harm reduction/SSP",
+      "typical_barrier_reduction": 0.08,
+      "strengths": ["Trusted by PWID", "Low-barrier", "Peer-led", "Non-judgmental"],
+      "challenges": ["Funding constraints", "Limited clinical capacity", "Geographic coverage gaps"],
+      "recommended_interventions": ["HARM_REDUCTION_INTEGRATION", "PEER_NAVIGATION", "MOBILE_DELIVERY"],
+      "primary_population": "PWID"
+    },
+    "LGBTQ_CENTER": {
+      "name": "LGBTQ community center",
+      "typical_barrier_reduction": 0.06,
+      "strengths": ["LGBTQ-affirming", "Community trust", "Holistic services"],
+      "challenges": ["Resource constraints", "Clinical capacity"],
+      "recommended_interventions": ["PEER_NAVIGATION", "PATIENT_NAVIGATION", "TEXT_MESSAGE_NAVIGATION"],
+      "primary_populations": ["MSM", "TRANSGENDER_WOMEN"]
+    },
+    "MOBILE_CLINIC": {
+      "name": "Mobile clinic",
+      "typical_barrier_reduction": 0.07,
+      "strengths": ["Brings services to community", "Eliminates transportation barrier", "Flexible locations"],
+      "challenges": ["Limited clinical capacity", "Cold chain maintenance", "Scheduling complexity"],
+      "recommended_interventions": ["MOBILE_DELIVERY", "PEER_NAVIGATION", "ACCELERATED_TESTING"]
+    },
+    "TELEHEALTH": {
+      "name": "Telehealth-integrated",
+      "typical_barrier_reduction": 0.03,
+      "strengths": ["Reduced visit burden", "Flexible scheduling", "Geographic reach"],
+      "challenges": ["Still requires in-person testing/injection", "Technology barriers", "Digital divide"],
+      "recommended_interventions": ["TELEHEALTH_COUNSELING", "TEXT_MESSAGE_NAVIGATION", "PATIENT_NAVIGATION"]
+    }
+  },
+  
+  "risk_categories": {
+    "LOW": {
+      "threshold_max": 0.40,
+      "label": "Low attrition risk",
+      "color": "green",
+      "icon": "✓",
+      "clinical_action": "Standard protocols appropriate. Minimal intervention required."
+    },
+    "MODERATE": {
+      "threshold_min": 0.40,
+      "threshold_max": 0.55,
+      "label": "Moderate attrition risk",
+      "color": "yellow",
+      "icon": "⚠",
+      "clinical_action": "Standard navigation recommended. Monitor for barriers."
+    },
+    "HIGH": {
+      "threshold_min": 0.55,
+      "threshold_max": 0.70,
+      "label": "High attrition risk",
+      "color": "orange",
+      "icon": "⚠",
+      "clinical_action": "Prioritize navigation and barrier removal. Multiple interventions may be needed."
+    },
+    "VERY_HIGH": {
+      "threshold_min": 0.70,
+      "label": "Very high attrition risk",
+      "color": "red",
+      "icon": "⚠️",
+      "clinical_action": "Multiple intensive interventions required. Consider harm reduction or community-based models."
+    }
+  },
+  
+  "algorithm_parameters": {
+    "max_attrition_ceiling": 0.95,
+    "intervention_diminishing_returns_factor": 0.70,
+    "max_success_rate_with_interventions": 0.95,
+    "minimum_bridge_duration_days": 2,
+    "maximum_bridge_duration_days": 56,
+    "bridge_duration_oral_prep_recent_test": [0, 3],
+    "bridge_duration_oral_prep_no_recent_test": [7, 14],
+    "bridge_duration_naive_recent_test": [14, 35],
+    "bridge_duration_naive_no_recent_test": [21, 56],
+    "barrier_count_adjustment_factor": {
+      "0_barriers": 0.00,
+      "1_barrier": 0.05,
+      "2_barriers": 0.08,
+      "3_plus_barriers": 0.10
+    }
+  },
+  
+  "clinical_guidance": {
+    "oral_prep_transition_priority": {
+      "message": "Currently on oral PrEP: PRIORITY for transition pathway. 85-90% initiation success vs 53% for PrEP-naive.",
+      "urgency": "high"
+    },
+    "discontinued_oral_prep": {
+      "message": "Discontinued oral PrEP: LAI-PrEP addresses adherence challenges that led to discontinuation. ~50% discontinue oral PrEP within 6-12 months.",
+      "urgency": "high"
+    },
+    "medical_mistrust": {
+      "message": "Medical mistrust present. Provide culturally concordant support; acknowledge historical/ongoing medical racism.",
+      "interventions": ["PEER_NAVIGATION", "culturally_concordant_care"]
+    },
+    "housing_instability": {
+      "message": "Housing instability complicates follow-up. Ensure multiple contact methods; consider mobile/community-based delivery.",
+      "interventions": ["MOBILE_DELIVERY", "flexible_contact_methods"]
+    },
+    "pharmacy_setting": {
+      "message": "Pharmacy-based care: Leverage extended hours and convenient access. Address reimbursement and private space barriers."
+    },
+    "harm_reduction_setting": {
+      "message": "Harm reduction setting: Ideal for PWID populations. Low-barrier protocols, no abstinence requirement."
+    },
+    "evidence_base": {
+      "message": "Evidence: >15,000 participants across HPTN 083, 084, PURPOSE-1, PURPOSE-2. >96% efficacy, 81-83% persistence once initiated."
+    }
+  },
+  
+  "validation_metadata": {
+    "validation_scales": [1000, 1000000, 10000000, 21200000],
+    "unaids_global_target": 21200000,
+    "regional_distribution": {
+      "sub_saharan_africa": 0.62,
+      "north_america": 0.18,
+      "latin_america_caribbean": 0.09,
+      "europe_central_asia": 0.06,
+      "asia_pacific": 0.05
+    },
+    "current_global_prep_users": [3500000, 3800000],
+    "gap_to_target": [17400000, 17700000],
+    "evidence_sources": {
+      "hptn_083": "n=4,566 MSM and transgender women",
+      "hptn_084": "n=3,224 cisgender women",
+      "purpose_1": "n=5,338 cisgender women including 56 adolescents aged 16-17",
+      "purpose_2": "n=2,183 diverse participants",
+      "can_community_health": "Real-world implementation data 2021-2023",
+      "trio_health": "Persistence data 2021-2024"
+    }
+  }
+}

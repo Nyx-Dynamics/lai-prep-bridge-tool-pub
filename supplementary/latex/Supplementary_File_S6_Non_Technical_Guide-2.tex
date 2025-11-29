@@ -1,0 +1,681 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+
+\titleformat{\section}{\Large\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{blue!50!black}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{blue!40!black}}{\thesubsubsection}{1em}{}
+
+% Define color boxes for key information
+\newtcolorbox{clinicaltip}{
+  colback=blue!5!white,
+  colframe=blue!75!black,
+  fonttitle=\bfseries,
+  title=Clinical Tip
+}
+
+\newtcolorbox{keypoint}{
+  colback=green!5!white,
+  colframe=green!65!black,
+  fonttitle=\bfseries,
+  title=Key Takeaway
+}
+
+\newtcolorbox{warning}{
+  colback=orange!5!white,
+  colframe=orange!75!black,
+  fonttitle=\bfseries,
+  title=Important Note
+}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries Supplementary File S6}\\[0.3cm]
+{\LARGE LAI-PrEP Bridge Period Decision Tool}\\[0.2cm]
+{\Large A Non-Technical Guide for Clinicians and Healthcare Workers}\\[0.5cm]
+{\normalsize A.C Demidont, DO}\\[0.2cm]
+{\small\textit{Viruses} Journal Supplementary Materials}\\[0.2cm]
+{\footnotesize Accompanying: ``Bridging the Gap: The PrEP Cascade Paradigm Shift for Long-Acting Injectable HIV Prevention''}
+\end{center}
+
+\vspace{0.5cm}
+
+\tableofcontents
+\newpage
+
+\section{What Is This Tool?}
+
+This is a \textbf{clinical decision support calculator} that helps you predict whether a patient will successfully complete the ``bridge period'' (the time between prescribing LAI-PrEP and administering the first injection).
+
+Think of it like a \textbf{risk calculator} similar to cardiovascular risk scores (like Framingham) or fracture risk tools (like FRAX), but specifically designed for LAI-PrEP implementation.
+
+\subsection{Why This Matters}
+
+Research shows that \textbf{only 53\% of patients who are prescribed LAI-PrEP actually receive their first injection}. The other 47\% are lost during the bridge period due to various barriers. This tool helps you:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Predict} which patients are at high risk of never starting
+\item \textbf{Identify} specific barriers preventing initiation
+\item \textbf{Select} interventions proven to improve success rates
+\item \textbf{Estimate} how much those interventions will help
+\end{enumerate}
+
+\begin{keypoint}
+LAI-PrEP demonstrates superior clinical outcomes (96\% efficacy, 81--83\% persistence), but only if patients successfully initiate treatment. The bridge period is where implementation fails.
+\end{keypoint}
+
+\section{Understanding the Bridge Period}
+
+\subsection{What is the Bridge Period?}
+
+The \textbf{bridge period} is everything that happens between when you decide to prescribe LAI-PrEP and when the patient receives their first injection. This includes:
+
+\begin{itemize}[leftmargin=*]
+\item Getting HIV test results back (must confirm HIV-negative)
+\item Scheduling the injection appointment
+\item Getting insurance authorization
+\item Patient arranging transportation
+\item Patient managing childcare (if needed)
+\item Waiting period for test results
+\end{itemize}
+
+\textbf{Duration:} Usually 2--8 weeks, depending on circumstances
+
+\subsection{Why Does This Matter?}
+
+Unlike oral PrEP (where patients can start the same day they get their prescription), LAI-PrEP \textbf{cannot} be started immediately. This delay creates opportunities for patients to:
+
+\begin{itemize}[leftmargin=*]
+\item Change their mind
+\item Face logistical barriers
+\item Lose motivation
+\item Get frustrated with the process
+\item Acquire HIV during the waiting period
+\end{itemize}
+
+\begin{warning}
+\textbf{47\% of patients never make it through this bridge period.} The tool helps you prevent that by identifying high-risk patients and implementing targeted interventions.
+\end{warning}
+
+\section{How Does the Tool Work?}
+
+\subsection{Step 1: Input Patient Information}
+
+The tool asks for basic information about your patient:
+
+\subsubsection{Population Category}
+
+Which group best describes your patient?
+\begin{itemize}[leftmargin=*]
+\item Men who have sex with men (MSM)
+\item Cisgender women
+\item Transgender women
+\item Adolescents (ages 16--24)
+\item People who inject drugs (PWID)
+\item Pregnant or lactating individuals
+\item General population
+\end{itemize}
+
+\begin{clinicaltip}
+\textbf{Why this matters:} Different populations face different barriers. For example, adolescents have a 60--70\% risk of not completing the bridge period, while MSM have a 40--50\% risk.
+\end{clinicaltip}
+
+\subsubsection{Current PrEP Status}
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Never been on PrEP} (``naive'') -- Highest risk
+\item \textbf{Currently taking oral PrEP} -- Much lower risk (85--90\% success!)
+\item \textbf{Previously on oral PrEP but stopped} -- Moderate risk
+\end{itemize}
+
+\begin{keypoint}
+Patients already on oral PrEP are your BEST candidates -- they've already proven they can navigate the healthcare system and are motivated for prevention.
+\end{keypoint}
+
+\subsubsection{Recent HIV Test?}
+
+\begin{itemize}[leftmargin=*]
+\item Has the patient had an HIV test within the last 7 days?
+\item YES = Can potentially start same day or very soon
+\item NO = Will need testing, adding 2--3 weeks to bridge period
+\end{itemize}
+
+\subsubsection{Barriers Present}
+
+Does your patient face any of these challenges? \textbf{Check ALL that apply} -- each barrier increases risk.
+
+\textit{Access Barriers:}
+\begin{itemize}[leftmargin=*]
+\item[$\square$] Transportation difficulties
+\item[$\square$] Childcare needs
+\item[$\square$] Housing instability
+\item[$\square$] Insurance authorization delays expected
+\item[$\square$] Scheduling conflicts (work, school)
+\item[$\square$] No government ID
+\end{itemize}
+
+\textit{Trust and Safety Barriers:}
+\begin{itemize}[leftmargin=*]
+\item[$\square$] Medical mistrust
+\item[$\square$] Privacy/confidentiality concerns
+\item[$\square$] Past healthcare discrimination
+\item[$\square$] Legal concerns (for PWID)
+\end{itemize}
+
+\textit{System Navigation Barriers:}
+\begin{itemize}[leftmargin=*]
+\item[$\square$] Competing health priorities
+\item[$\square$] Limited experience navigating healthcare
+\item[$\square$] Active substance use
+\end{itemize}
+
+\subsubsection{Healthcare Setting}
+
+Where will the patient receive care?
+\begin{itemize}[leftmargin=*]
+\item Academic medical center
+\item Community health center
+\item Private practice
+\item Pharmacy
+\item Harm reduction/syringe service program
+\item LGBTQ community center
+\item Mobile clinic
+\item Telehealth-integrated
+\end{itemize}
+
+\subsection{Step 2: Tool Calculates Risk}
+
+The tool automatically calculates:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Baseline Success Rate:} Starting point based on population (e.g., MSM = 55\%)
+\item \textbf{Adjusted Success Rate:} After accounting for individual barriers (may drop to 20\% or lower with multiple barriers)
+\item \textbf{Risk Level:} Low, Moderate, High, or Very High
+\item \textbf{Estimated Bridge Duration:} How long from prescription to injection (0--56 days)
+\end{enumerate}
+
+\subsection{Step 3: Tool Recommends Interventions}
+
+The tool provides a \textbf{prioritized list} of interventions, ranked by:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Priority Level:} Critical, High, or Moderate
+\item \textbf{Expected Improvement:} How many percentage points this intervention adds to success rate
+\item \textbf{Evidence Level:} Strong, Moderate, or Emerging
+\end{itemize}
+
+\textit{Example output:}
+\begin{verbatim}
+1. Same-day switching protocol
+   Priority: CRITICAL
+   Expected Improvement: +40 percentage points
+   Evidence: Strong
+   
+2. Patient navigation program
+   Priority: High
+   Expected Improvement: +15 percentage points
+   Evidence: Strong
+\end{verbatim}
+
+\subsection{Step 4: Tool Predicts Final Outcome}
+
+The tool estimates success rate \textbf{WITH} your top interventions implemented:
+\begin{center}
+Baseline: 20\% $\rightarrow$ With interventions: 48\% (+28 points)
+\end{center}
+
+This helps you understand if your interventions are sufficient or if more intensive support is needed.
+
+\section{Real-World Examples}
+
+\subsection{Example 1: Best Case Scenario}
+
+\textbf{Patient:} 28-year-old MSM currently on oral PrEP, had HIV test 3 days ago
+
+\textbf{Tool Output:}
+\begin{itemize}[leftmargin=*]
+\item Baseline Success: 55\%
+\item With barriers: 50\% (mild scheduling conflict)
+\item \textbf{Recommended Action:} Same-day switching protocol
+\item \textbf{Final Success Prediction:} 86\%
+\item \textbf{Bridge Duration:} 0--3 days
+\end{itemize}
+
+\begin{keypoint}
+\textbf{What This Means:} This patient is a PRIORITY for immediate transition. Don't make them wait! You can inject today or within a few days. This is your easiest case.
+\end{keypoint}
+
+\textbf{Action Steps:}
+\begin{enumerate}[leftmargin=*]
+\item Confirm HIV test is current (\checkmark -- 3 days ago)
+\item Schedule injection appointment for this week
+\item Submit insurance authorization immediately
+\item Done! Patient has 86\% chance of success
+\end{enumerate}
+
+\subsection{Example 2: Moderate Risk Case}
+
+\textbf{Patient:} 32-year-old cisgender woman who stopped oral PrEP 6 months ago, has transportation and childcare barriers
+
+\textbf{Tool Output:}
+\begin{itemize}[leftmargin=*]
+\item Baseline Success: 45\%
+\item With barriers: 17\% (very high risk!)
+\item \textbf{Recommended Actions:}
+\begin{enumerate}
+  \item Patient navigation program (+15 points)
+  \item Transportation vouchers (+8 points)
+  \item Childcare support (+8 points)
+\end{enumerate}
+\item \textbf{Final Success Prediction:} 45\%
+\item \textbf{Bridge Duration:} 21--56 days
+\end{itemize}
+
+\begin{warning}
+Without help, this patient has only a 17\% chance of starting LAI-PrEP. But with navigation, transportation, and childcare support, you can increase success to 45\%.
+\end{warning}
+
+\textbf{Action Steps:}
+\begin{enumerate}[leftmargin=*]
+\item Assign patient navigator immediately
+\item Provide Uber/Lyft vouchers for appointments
+\item Offer on-site childcare or childcare vouchers
+\item Navigator should call within 24 hours of prescription
+\item Schedule HIV testing at most convenient location
+\item Text reminders 48h and 24h before appointments
+\end{enumerate}
+
+\subsection{Example 3: Very High Risk Case}
+
+\textbf{Patient:} 35-year-old person who injects drugs (PWID), experiencing housing instability, no ID, multiple barriers
+
+\textbf{Tool Output:}
+\begin{itemize}[leftmargin=*]
+\item Baseline Success: 25\%
+\item With barriers: 5\% (extremely high risk!)
+\item \textbf{Recommended Actions:}
+\begin{enumerate}
+  \item Harm reduction integration (SSP) (+15 points)
+  \item Peer navigation (+15 points)
+  \item Mobile delivery (+12 points)
+  \item Accelerated testing (+10 points)
+\end{enumerate}
+\item \textbf{Final Success Prediction:} 31\%
+\item \textbf{Bridge Duration:} 21--56 days
+\end{itemize}
+
+\begin{warning}
+Traditional clinic-based approach will fail. This patient needs services brought to them in a trusted setting with peer support.
+\end{warning}
+
+\textbf{Action Steps:}
+\begin{enumerate}[leftmargin=*]
+\item Partner with local syringe service program (SSP)
+\item Assign peer navigator with lived experience
+\item Arrange mobile testing at SSP location
+\item Use point-of-care HIV testing (results in 20 minutes)
+\item Schedule injection at SSP site or mobile clinic
+\item Eliminate ID requirements through low-barrier protocols
+\item Provide injection at most convenient time/location for patient
+\item Build trust through non-judgmental, harm reduction-informed care
+\end{enumerate}
+
+\section{Quick Reference Tables}
+
+\subsection{Table 1: Population-Specific Baseline Success Rates}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Population} & \textbf{Baseline Success} & \textbf{Baseline Attrition} \\
+\midrule
+MSM & 55\% & 45\% \\
+Cisgender Women & 45\% & 55\% \\
+Transgender Women & 40\% & 60\% \\
+Adolescents (16--24) & 35\% & 65\% \\
+PWID & 25\% & 75\% \\
+Pregnant/Lactating & 50\% & 50\% \\
+General Population & 50\% & 50\% \\
+\bottomrule
+\end{tabular}
+\caption{Baseline initiation success rates by population, derived from clinical trial data (HPTN 083, 084, PURPOSE-1/2) and implementation studies.}
+\end{table}
+
+\subsection{Table 2: Barrier Impact on Success Rate}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lc}
+\toprule
+\textbf{Barrier} & \textbf{Impact on Success} \\
+\midrule
+Transportation difficulties & -12\% \\
+Childcare needs & -10\% \\
+Housing instability & -15\% \\
+Insurance delays & -8\% \\
+Scheduling conflicts & -5\% \\
+Medical mistrust & -12\% \\
+Privacy concerns & -8\% \\
+Past discrimination & -10\% \\
+Competing health priorities & -7\% \\
+Limited healthcare navigation & -10\% \\
+Legal concerns (PWID) & -15\% \\
+No government ID & -12\% \\
+Active substance use & -10\% \\
+\bottomrule
+\end{tabular}
+\caption{Quantified impact of structural barriers on bridge period success rate. Impacts are cumulative but not strictly additive due to overlapping mechanisms.}
+\end{table}
+
+\subsection{Table 3: Evidence-Based Interventions}
+
+\begin{longtable}{lcp{6cm}}
+\toprule
+\textbf{Intervention} & \textbf{Improvement} & \textbf{Best For} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{\textit{(continued from previous page)}} \\
+\toprule
+\textbf{Intervention} & \textbf{Improvement} & \textbf{Best For} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\textit{(continued on next page)}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Same-day switching & +40\% & Patient on oral PrEP + recent HIV test \\
+Oral-to-injectable transition & +35\% & Patient on oral PrEP (no recent test) \\
+Patient navigation & +15\% & Any high-risk patient or vulnerable population \\
+Harm reduction integration & +15\% & PWID -- ESSENTIAL \\
+Peer navigation & +12\% & PWID, adolescents, transgender individuals \\
+Accelerated HIV testing & +10\% & All PrEP-naive patients \\
+Transportation support & +8\% & When transportation is a known barrier \\
+Childcare support & +8\% & Parents with childcare responsibilities \\
+Medical mistrust intervention & +10\% & Populations with healthcare mistrust \\
+Anti-discrimination protocols & +12\% & LGBTQ+ populations, PWID \\
+Confidentiality protections & +8\% & Adolescents, populations with privacy concerns \\
+Flexible scheduling & +6\% & Patients with work/school conflicts \\
+Low-barrier protocols & +12\% & PWID, unhoused individuals \\
+Pregnancy counseling & +8\% & Pregnant individuals \\
+Prenatal integration & +10\% & Pregnant individuals \\
+Insurance support & +10\% & All patients with insurance barriers \\
+Mobile delivery & +12\% & Hard-to-reach populations \\
+\caption{Evidence-based interventions with quantified improvements in bridge period success rates. Evidence levels range from strong (clinical trials, systematic reviews) to moderate (implementation studies).}
+\end{longtable}
+
+\subsection{Table 4: Bridge Period Duration}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcp{6cm}}
+\toprule
+\textbf{Scenario} & \textbf{Duration} & \textbf{Notes} \\
+\midrule
+Oral PrEP + recent test & 0--3 days & Same-day possible \\
+Oral PrEP + need test & 7--14 days & Fast track \\
+PrEP-naive + minimal barriers & 14--35 days & Standard \\
+PrEP-naive + multiple barriers & 35--56 days & High attrition risk \\
+\bottomrule
+\end{tabular}
+\caption{Typical bridge period durations by patient scenario.}
+\end{table}
+
+\section{Setting Up Your Program}
+
+\subsection{What You Need to Implement This}
+
+\subsubsection{Minimal Setup (For Low-Risk Patients)}
+
+\begin{itemize}[leftmargin=*]
+\item[$\checkmark$] Protocol for same-day switching (oral PrEP patients)
+\item[$\checkmark$] Rapid HIV testing turnaround ($<$ 48 hours)
+\item[$\checkmark$] Text message reminder system
+\item[$\checkmark$] Staff training on LAI-PrEP basics
+\end{itemize}
+
+\subsubsection{Standard Setup (For Moderate-Risk Patients)}
+
+Everything above, PLUS:
+\begin{itemize}[leftmargin=*]
+\item[$\checkmark$] Patient navigator (can be part-time)
+\item[$\checkmark$] Transportation voucher program
+\item[$\checkmark$] Expedited insurance authorization process
+\item[$\checkmark$] Telehealth capability for counseling
+\end{itemize}
+
+\subsubsection{Comprehensive Setup (For High-Risk Populations)}
+
+Everything above, PLUS:
+\begin{itemize}[leftmargin=*]
+\item[$\checkmark$] Full-time dedicated navigator
+\item[$\checkmark$] Childcare support or on-site childcare
+\item[$\checkmark$] Partnership with harm reduction services
+\item[$\checkmark$] Peer navigators for key populations
+\item[$\checkmark$] Mobile delivery capability
+\item[$\checkmark$] Flexible scheduling (evenings/weekends)
+\end{itemize}
+
+\subsection{Staffing Models}
+
+\textbf{Option 1: Nurse Navigator}
+\begin{itemize}[leftmargin=*]
+\item Best for academic medical centers and large community health centers
+\item Can handle clinical tasks (testing, injection)
+\item Typical caseload: 100--150 patients
+\end{itemize}
+
+\textbf{Option 2: Pharmacist Navigator}
+\begin{itemize}[leftmargin=*]
+\item Ideal for pharmacy-based programs
+\item Can prescribe (in states with authority)
+\item Extended hours (evenings, weekends)
+\end{itemize}
+
+\textbf{Option 3: Community Health Worker}
+\begin{itemize}[leftmargin=*]
+\item Best for underserved populations
+\item Culturally concordant support
+\item Can assist with non-clinical barriers
+\end{itemize}
+
+\textbf{Option 4: Peer Navigator}
+\begin{itemize}[leftmargin=*]
+\item ESSENTIAL for PWID populations
+\item Highly effective for LGBTQ+ populations
+\item Lived experience builds trust
+\end{itemize}
+
+\textbf{Option 5: Hybrid Model}
+\begin{itemize}[leftmargin=*]
+\item Nurse/pharmacist for clinical tasks
+\item Peer/CHW for barrier navigation
+\item Most comprehensive but most resource-intensive
+\end{itemize}
+
+\section{Frequently Asked Questions}
+
+\subsection{Do I need to know how to code to use this?}
+
+\textbf{No!} This guide provides all the information you need without touching code. You can:
+\begin{itemize}[leftmargin=*]
+\item Use the reference tables to quickly assess risk
+\item Follow the decision trees for intervention selection
+\item Apply the principles in your clinical practice
+\end{itemize}
+
+If your organization wants to implement the actual computer tool, your IT department can help set it up.
+
+\subsection{How accurate is this tool?}
+
+The tool is based on published data from:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Over 15,000 participants} in clinical trials (HPTN 083, 084, PURPOSE-1, PURPOSE-2)
+\item \textbf{Real-world implementation studies} (CAN Community Health Network Study)
+\item \textbf{Systematic reviews} of patient navigation in healthcare
+\end{itemize}
+
+Predictions are \textbf{population-level estimates} -- individual patients may vary, but the tool provides scientifically-grounded guidance.
+
+\subsection{What if my patient doesn't fit neatly into one category?}
+
+Use your clinical judgment to select the \textbf{closest match}. For example:
+\begin{itemize}[leftmargin=*]
+\item A 25-year-old MSM could be categorized as either ``MSM'' or ``Adolescent'' -- choose based on which barriers seem most relevant
+\item A transgender man who has sex with men might be best categorized as ``MSM'' for risk prediction purposes
+\end{itemize}
+
+The barriers list is more important than perfect category matching.
+
+\subsection{Can I use this tool for lenacapavir AND cabotegravir?}
+
+\textbf{Yes!} The bridge period challenges apply to both formulations. The main differences:
+\begin{itemize}[leftmargin=*]
+\item Lenacapavir: Every 6 months (fewer appointments)
+\item Cabotegravir: Every 2 months (more frequent)
+\item Lenacapavir is subcutaneous (under skin), cabotegravir is intramuscular (into muscle)
+\end{itemize}
+
+The tool's predictions apply to both.
+
+\subsection{What about once-yearly lenacapavir?}
+
+Once-yearly formulations are currently in Phase 3 trials (expected results second half of 2025). When approved, the bridge period will likely be:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Longer} (more conservative testing needed due to year-long exposure)
+\item \textbf{More crucial} (missing one injection = entire year without protection)
+\end{itemize}
+
+The tool's principles will apply, but specific numbers may need updating.
+
+\subsection{How do I know if interventions are working?}
+
+\textbf{Track these metrics:}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Initiation Rate:} \% of prescriptions resulting in first injection
+\item \textbf{Bridge Duration:} Days from prescription to injection
+\item \textbf{Attrition Reasons:} Why did patients not initiate? (insurance? transportation? lost to follow-up?)
+\item \textbf{Population-Specific Rates:} Are outcomes equitable across groups?
+\end{enumerate}
+
+\textbf{Target benchmarks:}
+\begin{itemize}[leftmargin=*]
+\item Overall initiation rate: $>$70\% (currently only 53\% nationally)
+\item Bridge duration: $<$14 days for oral-to-injectable, $<$28 days for PrEP-naive
+\item Attrition due to system barriers (insurance, scheduling): $<$10\%
+\end{itemize}
+
+\subsection{This seems like a lot of work. Is it worth it?}
+
+Consider:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Current situation:} 47\% of patients never get their first injection -- that's a complete prevention failure
+\item \textbf{LAI-PrEP advantages:} Once initiated, 81--83\% stay on LAI-PrEP (vs. only 52\% on oral PrEP)
+\item \textbf{Math:} Investing in successful initiation means you DON'T have to invest in ongoing retention support
+\end{itemize}
+
+\begin{keypoint}
+\textbf{It's actually LESS work overall} to get people started on LAI-PrEP successfully than to support ongoing oral PrEP adherence.
+\end{keypoint}
+
+\section{Action Steps for Your Clinic}
+
+\subsection{This Week}
+
+\begin{itemize}[leftmargin=*]
+\item[$\square$] \textbf{Identify your current oral PrEP patients} -- they are your EASIEST wins
+\item[$\square$] \textbf{Start conversations} about switching to LAI-PrEP
+\item[$\square$] \textbf{Implement same-day switching} for patients with recent HIV tests
+\item[$\square$] \textbf{Map your barriers} -- what do YOUR patients face?
+\end{itemize}
+
+\subsection{This Month}
+
+\begin{itemize}[leftmargin=*]
+\item[$\square$] \textbf{Designate a bridge period navigator} (even part-time)
+\item[$\square$] \textbf{Set up text message reminders} for appointments
+\item[$\square$] \textbf{Establish rapid HIV testing protocol} ($<$ 48 hour turnaround)
+\item[$\square$] \textbf{Create transportation voucher program} (even small scale)
+\item[$\square$] \textbf{Train staff} on LAI-PrEP bridge period challenges
+\end{itemize}
+
+\subsection{This Quarter}
+
+\begin{itemize}[leftmargin=*]
+\item[$\square$] \textbf{Measure your initiation rate} -- track prescriptions vs. injections
+\item[$\square$] \textbf{Analyze attrition reasons} -- where are you losing patients?
+\item[$\square$] \textbf{Implement population-specific interventions} based on your patient mix
+\item[$\square$] \textbf{Establish community partnerships} (SSPs, LGBTQ centers, mobile clinics)
+\item[$\square$] \textbf{Evaluate and adjust} your protocols
+\end{itemize}
+
+\section{Additional Resources}
+
+\subsection{Clinical Guidelines}
+\begin{itemize}[leftmargin=*]
+\item \textbf{CDC:} US Public Health Service PrEP Guidelines (2021 Update)
+\item \textbf{WHO:} Consolidated Guidelines on HIV Prevention (with July 2025 LAI-PrEP addendum)
+\end{itemize}
+
+\subsection{Implementation Support}
+\begin{itemize}[leftmargin=*]
+\item \textbf{National Clinician Consultation Center:} nccc.ucsf.edu (PrEP Quick Guide)
+\item \textbf{PrEPWatch:} prepwatch.org (tracking LAI-PrEP access and implementation)
+\end{itemize}
+
+\subsection{Training}
+\begin{itemize}[leftmargin=*]
+\item \textbf{Clinician Consultation Center:} Free phone consultation for complex cases
+\item \textbf{AETC National Coordinating Resource Center:} HIV education and training
+\end{itemize}
+
+\section{Summary: Key Takeaways}
+
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=\textbf{The Core Problem}]
+Only 53\% of patients prescribed LAI-PrEP actually get their first injection. The bridge period is where we lose people.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=green!5!white,colframe=green!65!black,title=\textbf{The Core Solution}]
+Proactively identify high-risk patients and implement evidence-based interventions \textbf{before} they get lost.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=yellow!10!white,colframe=orange!75!black,title=\textbf{The Biggest Win}]
+Patients already on oral PrEP have 85--90\% success with transitions. \textbf{Prioritize them!}
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=purple!5!white,colframe=purple!75!black,title=\textbf{The Equity Imperative}]
+Without intentional intervention, populations most likely to benefit (adolescents, women, PWID) will have the lowest access. This is a \textbf{health equity issue}.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=gray!5!white,colframe=gray!75!black,title=\textbf{The Evidence Base}]
+This isn't guesswork -- it's based on data from over 15,000 clinical trial participants and real-world implementation studies.
+\end{tcolorbox}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{tcolorbox}[width=0.9\textwidth,colback=blue!10!white,colframe=blue!75!black]
+\textbf{Remember:} LAI-PrEP is clinically extraordinary ($>$96\% efficacy, 81--83\% persistence). The challenge isn't the medication -- it's the bridge period. This tool helps you bridge that gap.
+\end{tcolorbox}
+\end{center}
+
+\vspace{1cm}
+
+\begin{center}
+{\small\textit{Based on: Demidont, A.C.; Backus, K.V. (2025). Bridging the Gap: The PrEP Cascade Paradigm Shift for Long-Acting Injectable HIV Prevention. Viruses.}}
+\end{center}
+
+\end{document}

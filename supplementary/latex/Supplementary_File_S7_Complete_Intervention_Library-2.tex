@@ -1,0 +1,399 @@
+\documentclass[11pt]{article}
+\usepackage[landscape,margin=0.5in]{geometry}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage{amsmath}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{textgreek}
+\usepackage{pifont}
+
+\begin{document}
+
+\begin{center}
+{\Huge\bfseries Supplementary File S7}\\[0.3cm]
+{\LARGE Complete Intervention Library}\\[0.2cm]
+{\large Evidence-Based Strategies for LAI-PrEP Bridge Period Navigation}\\[0.5cm]
+{\normalsize 21 Interventions with Evidence Sources, Effect Sizes, and Implementation Guidance}\\[0.2cm]
+{\small \textit{Version 2.1 | October 2025 | Corresponds to configuration v3.1.0}}\\[0.1cm]
+{\footnotesize \textit{Zenodo DOI: 10.5281/zenodo.17429833}}
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Purpose}
+
+This comprehensive intervention library synthesizes evidence from LAI-PrEP clinical trials (HPTN 083, HPTN 084, PURPOSE-1/2), implementation studies, and analogous healthcare interventions (cancer screening navigation, oral PrEP cascades, HIV care continuum). Each intervention includes:
+
+\begin{itemize}
+\item \textbf{Mechanism classification} for diversity-aware selection
+\item \textbf{Effect size estimates} from published literature
+\item \textbf{Evidence strength ratings} (Strong/Moderate/Emerging)
+\item \textbf{Implementation complexity} assessment
+\item \textbf{Target populations} and barrier specificity
+\item \textbf{Mechanism tags} for algorithm diversity scoring
+\end{itemize}
+
+The mechanism diversity scoring prevents redundant recommendations by selecting interventions with complementary mechanisms of action (see Section on Mechanism Overlap Penalty).
+
+\vspace{0.5cm}
+
+\begin{landscape}
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{3.5cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{3cm}>{\raggedright\arraybackslash}p{1.8cm}}
+\caption{Complete Intervention Library: Evidence-Based Strategies for LAI-PrEP Bridge Period Navigation (n=21 interventions). All interventions include documented evidence sources, estimated effect sizes, implementation complexity, and mechanism classifications enabling diversity-aware selection.}\label{tab:intervention_library}\\
+\toprule
+\textbf{Intervention} & \textbf{Description} & \textbf{Mechanisms \& Tags} & \textbf{Effect Size} & \textbf{Evidence Level \& Source} & \textbf{Implementation Complexity} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{c}{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+\toprule
+\textbf{Intervention} & \textbf{Description} & \textbf{Mechanisms \& Tags} & \textbf{Effect Size} & \textbf{Evidence Level \& Source} & \textbf{Implementation Complexity} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\multicolumn{6}{l}{\textbf{ELIMINATE THE BRIDGE PERIOD}} \\
+\midrule
+Oral-to-Injectable Same-Day Switching & Eliminate mandatory re-testing delay for patients with recent negative HIV test on oral PrEP & \textit{eliminate\_bridge} (primary), \textit{structural\_support} (secondary) & +35\% absolute (88--90\% vs 53\% baseline) & \textbf{Strong}: CAN study; Ryan White LA-ART data & Low (policy change) \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{COMPRESS THE BRIDGE PERIOD}} \\
+\midrule
+HIV-1 RNA Testing & Reduce mandatory window period from 33--45 days to 10--14 days post-exposure & \textit{compress\_bridge} (primary) & +15--20\% & \textbf{Moderate}: WHO 2025 guidelines; CDC recommendations & Medium (lab infrastructure) \\
+
+Rapid Laboratory Turnaround (24--48h) & Accelerate test-to-result time, reducing total bridge duration by 3--5 days & \textit{compress\_bridge} (primary), \textit{structural\_support} (secondary) & +10--15\% & \textbf{Moderate}: Lab optimization studies & Medium (system redesign) \\
+
+Point-of-Care HIV Testing & Enable same-day testing at injection visit, eliminating separate testing appointment & \textit{compress\_bridge} (primary), \textit{remove\_barriers} (secondary) & +8--12\% & \textbf{Emerging}: FDA-approved Ag/Ab POC available; RNA POC limited & High (technology adoption) \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{NAVIGATE THE BRIDGE PERIOD}} \\
+\midrule
+Dedicated Patient Navigation & Trained navigator coordinates appointments, insurance, transportation, addresses information gaps & \textit{navigate\_bridge} (primary), \textit{structural\_support, clinical\_support} (secondary) & +12--20\% (1.5--2× improvement) & \textbf{Strong}: SF PrEP navigation HR 1.5; Cancer care meta-analysis & Medium (staffing) \\
+
+Peer Navigation & Peer navigators with lived experience provide culturally-congruent support, reduce mistrust & \textit{navigate\_bridge} (primary), \textit{clinical\_support} (secondary) & +15--20\% for key populations & \textbf{Moderate}: HIV care cascade peer navigation; greater effect than non-peer & Medium (recruitment, training) \\
+
+SMS/Text Message Reminders & Automated appointment reminders, adherence support, reduce no-shows by 20--30\% & \textit{navigate\_bridge} (primary) & +10--15\% & \textbf{Strong}: Meta-analyses across healthcare conditions & Low (existing platforms) \\
+
+Population-Tailored Navigation & Adolescent-specific (address autonomy, parental consent), PWID-specific (harm reduction integration), etc. & \textit{navigate\_bridge, clinical\_support, system\_level} & +20--30\% for highest-barrier groups & \textbf{Moderate}: Population-specific literature & Medium-High (specialization) \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{REMOVE FINANCIAL \& LOGISTICAL BARRIERS}} \\
+\midrule
+Transportation Support & Ride-share vouchers, transit passes, mileage reimbursement for multiple appointments & \textit{remove\_barriers} (primary) & +10--15\% (high impact for women, rural) & \textbf{Moderate}: Cancer care transportation studies; PrEP barrier literature & Low-Medium (voucher systems) \\
+
+Childcare Assistance & On-site childcare or vouchers enabling appointment attendance for parents/caregivers & \textit{remove\_barriers} (primary) & +8--12\% (concentrated among caregivers) & \textbf{Emerging}: Family planning service parallels & Medium (facility/partnerships) \\
+
+Mobile Delivery Services & Home or community-based injection services, eliminate clinic visit barriers & \textit{remove\_barriers, system\_level} & +15--25\% & \textbf{Moderate}: HIV treatment community delivery; WHO 2025 guidance & High (mobile units, staffing) \\
+
+Bundled Payment Models & Single authorization covers all bridge period services, streamlines multi-visit approval & \textit{structural\_support, system\_level} & +12--18\% & \textbf{Emerging}: Episode-based payment theory & High (payer negotiation) \\
+
+Accelerated Insurance Authorization & Priority review pathway, reduce 7--14 day delays affecting 30--40\% of patients & \textit{structural\_support} (primary) & +12--15\% & \textbf{Emerging}: Health policy literature on prior authorization & Medium (payer partnerships) \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{ADDRESS CLINICAL \& INTERPERSONAL BARRIERS}} \\
+\midrule
+Medical Mistrust Intervention & Community health worker support, cultural concordance, address historical trauma & \textit{clinical\_support} (primary) & +8--12\% & \textbf{Moderate}: Patient navigation for marginalized populations & Medium (CHW training) \\
+
+Anti-Discrimination Protocols & LGBTQ+-affirming care, staff training, visible inclusivity signals & \textit{clinical\_support} (primary) & +10--15\% for SGM populations & \textbf{Moderate}: Sexual and gender minority healthcare literature & Low-Medium (training) \\
+
+Confidentiality Protections & Youth-friendly services, anonymous scheduling, privacy-preserving systems & \textit{clinical\_support} (primary) & +8--12\% for adolescents & \textbf{Moderate}: Adolescent PrEP literature & Medium (system redesign) \\
+
+Language-Concordant Services & Professional interpretation, translated materials, multilingual staff & \textit{clinical\_support, remove\_barriers} & +10--12\% for LEP populations & \textbf{Moderate}: Healthcare language access studies & Medium (interpreter services) \\
+\midrule
+
+\multicolumn{6}{l}{\textbf{SYSTEM-LEVEL REDESIGN}} \\
+\midrule
+Telemedicine Integration & Virtual visits for counseling/follow-up, reduce in-person visits from 3 to 2 & \textit{navigate\_bridge, remove\_barriers, system\_level} & +10--15\% & \textbf{Moderate}: COVID-era telehealth expansion demonstrated feasibility & Medium (technology platform) \\
+
+Pharmacist-Led Prescribing & Expand prescriber pool 5--10×, reduce provider appointment barriers & \textit{system\_level, structural\_support} & +15--20\% & \textbf{Moderate}: Pharmacist PrEP prescribing studies; requires scope-of-practice expansion & High (regulatory change) \\
+
+Harm Reduction Integration (PWID) & Co-locate LAI-PrEP with syringe services, reduce stigma/criminalization fears & \textit{system\_level, clinical\_support} & +25--35\% for PWID (10\% baseline → 35--45\%) & \textbf{Moderate}: SSP-integrated HIV services; PURPOSE-4 will provide direct evidence & Medium-High (service integration) \\
+
+Community-Based Delivery & Deliver services in community settings vs. clinical facilities, address medical mistrust & \textit{system\_level, clinical\_support, remove\_barriers} & +15--25\% in under-resourced settings & \textbf{Moderate}: HIV treatment community models; WHO 2025 guidance & High (community partnerships) \\
+
+\end{longtable}
+\end{landscape}
+
+\section*{Methodological Notes}
+
+\subsection*{Effect Size Estimation and Evidence Quality}
+
+All effect sizes in this library are derived from:
+\begin{enumerate}
+\item \textbf{Direct LAI-PrEP implementation data} (when available): CAN Community Health Network study, PURPOSE trial real-world implementation cohorts
+\item \textbf{Oral PrEP cascade extrapolation} (with caution): Effect sizes from oral PrEP navigation interventions, adjusted for LAI-specific barriers
+\item \textbf{Analogous healthcare interventions}: Cancer screening navigation, HIV treatment cascade, maternal health navigation programs with similar structural barriers
+\end{enumerate}
+
+\textbf{Evidence strength ratings:}
+\begin{itemize}
+\item \textbf{Strong}: Multiple studies, meta-analyses, or large implementation cohorts with consistent findings
+\item \textbf{Moderate}: Limited studies, single large cohort, or extrapolation from closely analogous settings
+\item \textbf{Emerging}: Theoretical rationale, pilot data, or extrapolation from less directly comparable interventions
+\end{itemize}
+
+\subsection*{Intervention Effect Calculation: Two-Stage Model}
+
+\textbf{CRITICAL CLARIFICATION:} The algorithm uses TWO distinct parameters for combined intervention effects:
+
+\subsubsection*{Stage 1: Diminishing Returns Factor (α = 0.70)}
+
+Individual intervention effects (after mechanism overlap penalties) are summed, then multiplied by diminishing returns factor:
+
+\begin{equation}
+\Delta\text{Success}_{intermediate} = 0.70 \times \sum_{i=1}^{n} e_i
+\end{equation}
+
+where $e_i$ is the adjusted effect of intervention $i$.
+
+\textbf{Rationale:} Multi-component healthcare interventions typically yield 60--80\% of their theoretical additive effect due to:
+\begin{itemize}
+\item Overlapping mechanisms (e.g., both navigation and transportation help with appointment attendance)
+\item Patient saturation effects (limited capacity to participate in multiple simultaneous interventions)
+\item Irreducible failure modes (e.g., patients who move out of state during bridge period)
+\end{itemize}
+
+\textbf{Example:} Three interventions with adjusted effects +8\%, +10\%, +12\%:
+\begin{itemize}
+\item Naive additive prediction: 8 + 10 + 12 = 30\% improvement
+\item Realistic combined effect: 0.70 × 30 = 21\% improvement
+\end{itemize}
+
+\subsubsection*{Stage 2: Absolute Success Rate Ceiling (max = 0.95)}
+
+The final success rate (baseline + Stage 1 improvement) is capped at maximum absolute success rate of 95\%:
+
+\begin{equation}
+\text{Success}_{final} = \min(\text{Success}_{baseline} + \Delta\text{Success}_{intermediate}, 0.95)
+\end{equation}
+
+\textbf{Important Note:} This ceiling represents maximum \textit{absolute} success rate, not maximum improvement. The maximum possible improvement therefore varies by baseline:
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+\textbf{Baseline Success} & \textbf{Max Final Success} & \textbf{Max Improvement} \\
+\midrule
+10\% & 95\% & 85 percentage points \\
+25\% & 95\% & 70 percentage points \\
+50\% & 95\% & 45 percentage points \\
+75\% & 95\% & 20 percentage points \\
+90\% & 95\% & 5 percentage points \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Rationale:} Even with optimal intervention bundles, some attrition is unavoidable due to:
+\begin{itemize}
+\item Patient relocation outside service area
+\item Insurance changes or loss of coverage
+\item Personal decisions to discontinue PrEP
+\item Unforeseeable life events (hospitalization, family emergencies)
+\end{itemize}
+
+The 95\% ceiling reflects clinical reality that some small proportion of patients will not successfully complete bridge period regardless of interventions.
+
+\textbf{Validation data:} In 21.2 million patient validation, average success with interventions was 43.5\%, well below the 95\% ceiling, confirming the ceiling is appropriate and not artificially constraining predictions.
+
+\textbf{Configuration note:} Both parameters are externally configurable in the JSON file (configuration v3.1.0):
+\begin{itemize}
+\item \texttt{intervention\_diminishing\_returns\_factor: 0.70}
+\item \texttt{max\_success\_rate\_with\_interventions: 0.95}
+\end{itemize}
+
+Sensitivity analysis (Supplementary Figure S1) shows results are robust to variations in \textalpha{} from 0.60 to 0.80 (±2.5 percentage points).
+
+\subsection*{Mechanism Classification System}
+
+The mechanism diversity scoring uses six categories to prevent redundant recommendations:
+
+\begin{enumerate}
+\item \textbf{eliminate\_bridge:} Interventions that completely remove the bridge period (e.g., same-day switching for oral PrEP patients with recent HIV test)
+
+\item \textbf{compress\_bridge:} Interventions that shorten bridge duration without eliminating it (e.g., RNA testing reducing window period, rapid lab turnaround)
+
+\item \textbf{navigate\_bridge:} Interventions that guide patients through existing bridge period (e.g., patient navigation, peer navigation, text reminders)
+
+\item \textbf{remove\_barriers:} Interventions that eliminate specific structural obstacles (e.g., transportation support, childcare, mobile delivery)
+
+\item \textbf{clinical\_support:} Interventions addressing interpersonal and clinical barriers (e.g., medical mistrust interventions, cultural concordance, confidentiality protections)
+
+\item \textbf{structural\_support:} Interventions targeting systemic/administrative barriers (e.g., insurance authorization, bundled payments, rapid lab processing)
+
+\item \textbf{system\_level:} Interventions requiring fundamental healthcare delivery redesign (e.g., pharmacist prescribing, harm reduction integration, community-based delivery)
+\end{enumerate}
+
+\subsection*{Mechanism Overlap Penalty}
+
+When selecting multiple interventions, the algorithm applies a 10\% penalty for each shared mechanism tag:
+
+\begin{equation}
+\text{adjusted\_effect} = \text{base\_effect} \times (1 - 0.10 \times k)
+\end{equation}
+
+where $k$ is the number of mechanism tags shared with already-selected interventions.
+
+\textbf{Example:}
+\begin{enumerate}
+\item \textbf{First intervention} (Patient Navigation): \textit{navigate\_bridge, structural\_support} → +12\% (no penalty, first selection)
+\item \textbf{Second intervention} (Peer Navigation): \textit{navigate\_bridge} → +10\% × (1 - 0.10×1) = +9\% (1 shared tag with \#1)
+\item \textbf{Third intervention} (Transportation Support): \textit{remove\_barriers} → +8\% (no penalty, distinct mechanisms)
+\item \textbf{Fourth intervention} (Insurance Navigation): \textit{structural\_support} → +10\% × (1 - 0.10×1) = +9\% (1 shared tag with \#1)
+\item \textbf{Fifth intervention} (Medical Mistrust): \textit{clinical\_support} → +12\% (no penalty, distinct mechanisms)
+\end{enumerate}
+
+\textbf{Total:} 12 + 9 + 8 + 9 + 12 = 50\% (sum of adjusted effects)\\
+\textbf{After Stage 1 (α=0.70):} 0.70 × 50 = 35\% improvement\\
+\textbf{Final (Stage 2):} If baseline = 24\%, final = min(24+35, 95) = 59\% success rate
+
+This penalty ensures diverse approaches addressing complementary failure modes rather than redundant strategies.
+
+\subsection*{Barrier Impact Calculation}
+
+Individual barrier impacts in this library reflect \textbf{marginal effects} assuming multiplicative combination (as specified in algorithm configuration). When multiple barriers are present:
+
+\begin{equation}
+P_{attrition} = 1 - \prod_{j=1}^{m}(1 - b_j)
+\end{equation}
+
+where $b_j$ is the impact of barrier $j$.
+
+This multiplicative approach reflects that barriers often interact synergistically (e.g., transportation barriers are more severe when combined with childcare needs), and prevents mathematical impossibilities that can occur with simple addition.
+
+\textbf{Example:} Patient with transportation (0.10), insurance delays (0.12), and medical mistrust (0.10):
+\begin{itemize}
+\item \textbf{Additive} (incorrect): 0.10 + 0.12 + 0.10 = 0.32 (32\% additional attrition)
+\item \textbf{Multiplicative} (correct): 1 - (0.90 × 0.88 × 0.90) = 0.2884 (28.84\% additional attrition)
+\end{itemize}
+
+The multiplicative model is conservative (yields lower attrition than additive) but more realistic for multiple co-occurring barriers.
+
+\subsection*{Cost Considerations and ROI Calculations}
+
+\begin{itemize}
+\item \textbf{Manuscript ROI calculations (Table 9):} Used \$900/patient as estimated implementation cost for comprehensive intervention bundle (navigation + transportation + insurance support)
+
+\item \textbf{Actual costs vary substantially by intervention:}
+  \begin{itemize}
+  \item \textbf{Low-cost, high-impact:} Text reminders (\$10--30/patient), same-day switching (policy change, \$0 marginal cost)
+  \item \textbf{Medium-cost:} Patient navigation (\$150--300/patient), transportation vouchers (\$50--150/patient), insurance navigation (\$100--200/patient)
+  \item \textbf{High-cost:} Mobile delivery (\$500--1000/patient per visit), community-based infrastructure development (\$50K--500K capital investment), harm reduction integration (\$200--400/patient with system development costs)
+  \end{itemize}
+
+\item \textbf{Critical limitation:} Intervention-specific costs not included in this table pending comprehensive health economics analysis. Sites should conduct local cost-benefit analyses before implementation.
+
+\item \textbf{ROI methodology:} Assumed \$900/patient intervention cost vs \$100,000/HIV infection prevented (medical costs) and \$400,000 lifetime treatment cost. Annual ROI of 2.1:1 (\$40B saved per \$19B investment); five-year cumulative ROI of 10.5:1. Site-specific costs and HIV incidence rates will affect local ROI calculations.
+\end{itemize}
+
+\subsection*{Target Populations and Barrier Specificity}
+
+\textbf{Universal interventions} (applicable to all populations):
+\begin{itemize}\itemsep0em
+\item Patient navigation
+\item SMS/text reminders
+\item Accelerated HIV testing
+\item Same-day switching (for oral PrEP patients)
+\end{itemize}
+
+\textbf{Population-tailored interventions:}
+\begin{itemize}\itemsep0em
+\item \textbf{PWID:} Harm reduction integration (ESSENTIAL), peer navigation, mobile delivery
+\item \textbf{Adolescents:} Youth-specific navigation, confidentiality protections, school-friendly scheduling
+\item \textbf{Cisgender women:} Transportation support, childcare assistance, community-based delivery
+\item \textbf{Transgender women:} Anti-discrimination protocols, peer navigation, affirming care training
+\item \textbf{Rural populations:} Mobile delivery, telemedicine, transportation support
+\end{itemize}
+
+\textbf{Barrier-specific interventions:}
+\begin{itemize}\itemsep0em
+\item Transportation barriers → Transportation support, mobile delivery, telemedicine
+\item Childcare barriers → Childcare assistance, extended hours, home delivery
+\item Insurance barriers → Expedited authorization, bundled payments
+\item Medical mistrust → CHW interventions, peer navigation, cultural concordance
+\item Scheduling conflicts → Extended hours, telemedicine, mobile delivery
+\item Privacy concerns → Confidentiality protections, community-based delivery
+\end{itemize}
+
+\section*{Evidence Gaps and Future Research}
+
+\subsection*{Distinction: Computational vs Clinical Validation}
+
+\textbf{What has been validated computationally (at 21.2M patient scale):}
+\begin{itemize}
+\item Algorithmic stability across scales (1K to 21.2M patients)
+\item Mathematical consistency of probability calculations
+\item Convergence of estimates with increasing sample size (95\% CI: ±0.018 percentage points at 21.2M)
+\item Sensitivity to parameter variations (α from 0.60 to 0.80: ±2.5 points)
+\item Edge case handling (100\% test pass rate on 18 edge cases)
+\end{itemize}
+
+\textbf{What requires clinical validation (prospective implementation research):}
+\begin{enumerate}
+\item \textbf{LAI-PrEP-specific effect sizes:} Most estimates extrapolate from oral PrEP or analogous interventions. Direct LAI-PrEP implementation trials needed.
+
+\item \textbf{Synergistic interactions:} Current model assumes additive effects (with diminishing returns). Some intervention combinations may have multiplicative benefits (e.g., peer navigation + harm reduction integration for PWID).
+
+\item \textbf{Optimal intervention bundle size:} At what point do additional interventions provide minimal incremental benefit? Current model limits to 5--7 interventions, but optimal bundle composition is unknown.
+
+\item \textbf{Population heterogeneity:} Effect sizes may vary substantially within broad categories (e.g., "MSM" aggregates diverse subpopulations with different barriers and resources).
+
+\item \textbf{Cost-effectiveness ratios:} Which interventions provide best value for investment? Resource-constrained settings need prioritization guidance based on local costs and HIV incidence.
+
+\item \textbf{Implementation fidelity:} Real-world effectiveness depends on intervention quality and adherence to protocol. Fidelity measurement tools and quality assurance methods needed.
+
+\item \textbf{Sustainability:} Long-term maintenance of intervention programs beyond pilot funding requires study of financing mechanisms and workforce development.
+
+\item \textbf{Regional adaptation:} How do effect sizes vary across healthcare systems and cultural contexts? Multi-site implementation research needed.
+\end{enumerate}
+
+\textbf{Critical Note on Computational Precision:} The tool achieves exceptional computational precision (±0.018 percentage points at 21.2M scale), but this does NOT imply clinical certainty about parameters. Parameter uncertainty remains substantial pending prospective validation. The tool demonstrates what algorithm outputs \textit{would be} given these parameter inputs, not whether the parameter inputs accurately reflect real-world effects. Prospective validation is essential to establish clinical utility and refine effect size estimates.
+
+\section*{Use in Clinical Decision Support Tool}
+
+This intervention library serves as the external configuration for the LAI-PrEP Bridge Decision Support Tool. The tool:
+
+\begin{enumerate}
+\item \textbf{Matches interventions to barriers:} Identifies patient-specific barriers and selects interventions targeting those barriers
+\item \textbf{Applies mechanism diversity scoring:} Prevents recommending multiple interventions with redundant mechanisms (10\% penalty per shared tag)
+\item \textbf{Calculates combined effects:} Uses two-stage model (Stage 1: 70\% diminishing returns; Stage 2: 95\% absolute success ceiling)
+\item \textbf{Prioritizes by effect size and evidence:} Ranks recommendations by expected impact and evidence strength
+\item \textbf{Considers implementation complexity:} Flags high-complexity interventions requiring substantial resources
+\item \textbf{Enables local adaptation:} Sites can modify effect sizes, add interventions, or disable unavailable strategies by editing the JSON configuration file (Supplementary File S3)
+\end{enumerate}
+
+\textbf{Continuous updates:} As new evidence emerges from ongoing trials (HPTN 102, HPTN 103, PURPOSE-3/4) and real-world implementation, this library should be updated to reflect improved effect size estimates and evidence strength ratings. Version control and change logs maintained in GitHub repository (see Supplementary File S8).
+
+\section*{Conclusion}
+
+This comprehensive intervention library represents the synthesis of best available evidence for LAI-PrEP bridge period navigation. The 21 interventions span six mechanism categories, three evidence strength levels, and three implementation complexity tiers, enabling flexible, evidence-based decision support tailored to patient populations, local resources, and specific barriers.
+
+\textbf{Implementation readiness:} The tool is computationally validated at unprecedented scale (21.2M synthetic patients matching UNAIDS 2025 global targets) with policy-grade precision (±0.018 percentage points). Open-source code, comprehensive documentation, and externalized configuration enable rapid deployment. Validation results show average baseline success of 23.96\% improving to 43.50\% with evidence-based interventions—an 81.6\% relative improvement representing approximately 4.1 million additional successful LAI-PrEP initiations globally.
+
+\textbf{Critical caveat:} While computational validation demonstrates algorithmic precision, prospective validation with real patients in diverse settings is essential to validate effect size estimates, identify optimal intervention bundles, refine implementation strategies, and establish clinical utility. This tool provides a rigorous computational framework for decision support; clinical validation will determine real-world effectiveness.
+
+\vspace{1cm}
+
+\noindent\textit{Correspondence to main manuscript:} {A.C Demidont, DO} (2025). Computational Validation of a Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale. \textit{Viruses}.
+
+\vspace{0.5cm}
+
+\noindent\textit{Software repository:} \url{https://github.com/Nyx-Dynamics/LAI-PrEP-Bridge-Tool}
+
+\noindent\textit{Zenodo archive:} \url{https://doi.org/10.5281/zenodo.17429833} (v3.1)
+
+\noindent\textit{Configuration file:} See Supplementary File S3 (JSON Configuration v3.1.0)
+
+\noindent\textit{Code documentation:} See Supplementary File S8 (Code \& Data Repository)
+
+\end{document}
