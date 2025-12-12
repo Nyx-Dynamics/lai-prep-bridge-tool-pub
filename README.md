@@ -1,313 +1,439 @@
-# LAI-PrEP Bridge Period Decision Support Tool
+# HAI PREDICTIVE MODEL PROJECT
+## Hospital-Acquired Infection Prevention via Optimization
 
-## Zenodo Archive Package
-
-**Version:** 2.1.0  
-**DOI:** [To be assigned upon upload]  
-**Date:** November 26, 2025  
-**License:** Pharma-Restricted Open Healthcare License v1.0
+**For:** Infectious Disease Physician + MITx 6.00.2x Student  
+**Goal:** Build predictive models to optimize isolation bed utilization and maximize patient throughput
 
 ---
 
-## Overview
+## 📋 PROJECT OVERVIEW
 
-This archive contains the complete LAI-PrEP Bridge Period Decision Support Tool, 
-a computational tool designed to help clinicians and healthcare systems navigate 
-the critical "bridge period" between LAI-PrEP prescription and first injection.
+You're combining three powerful fields:
+1. **Infectious Disease Medicine** - Understanding HAI risk factors
+2. **Machine Learning** - Predicting patient outcomes
+3. **Operations Research** - Optimizing hospital resources (your 6.00.2x project!)
 
-### Key Features
-
-- **Patient Risk Stratification:** Assesses individual patient risk based on 
-  population, barriers, and healthcare setting
-- **Evidence-Based Interventions:** Recommends from 21 validated interventions
-- **Outcome Prediction:** Estimates success probability with and without interventions
-- **Mechanism Diversity:** Prevents redundant recommendations using diversity scoring
-- **Progressive Validation:** Tested at scales from 1,000 to 21.2 million patients
-
-### Clinical Impact Potential
-
-- 47% of patients currently fail to receive first LAI-PrEP injection
-- Systematic interventions could improve success from 24% to 44%
-- Potential to prevent ~100,000 HIV infections annually
-- Estimated $40 billion in lifetime treatment costs saved (11:1 ROI)
+This is the **paradox you're testing**: Can delaying some high-risk patients actually **increase** total patient throughput while **reducing** HAI rates?
 
 ---
 
-## Package Contents
+## 📁 FILES IN THIS PACKAGE
 
-### Core Algorithm
-**Directory:** `code/algorithm/`  
-**Files:** 2  
-**Size:** 59.7 KB
+### 📖 Documentation
+- **`HAI_Predictive_Model_Design.md`** - Complete design specification
+  - All 4 models explained in detail
+  - Feature engineering guide
+  - Training strategies
+  - Integration with optimization
 
-Main decision support algorithm implementation
+### 💻 Code Files
+- **`hai_models_starter.py`** - Core prediction models
+  - Model 1: P(HAI | Risk Factors) - Logistic Regression
+  - Model 2: Length of Stay - Random Forest
+  - Complete prediction pipeline
+  - Working demo with synthetic data
 
-### Command Line Interface
-**Directory:** `code/cli/`  
-**Files:** 1  
-**Size:** 15.0 KB
+- **`hai_visualizations.py`** - Visualization tools
+  - Daily isolation bed usage charts
+  - Patient timeline diagrams
+  - Risk vs resource usage scatter plots
+  - Optimization opportunity analysis
 
-CLI for tool interaction and batch processing
-
-### Test Suites
-**Directory:** `code/tests/`  
-**Files:** 5  
-**Size:** 113.1 KB
-
-Comprehensive testing for validation
-
-### Configuration
-**Directory:** `config/`  
-**Files:** 4  
-**Size:** 45.5 KB
-
-External JSON configuration for parameters
-
-### Figures
-**Directory:** `figures/`  
-**Files:** 10  
-**Size:** 949.2 KB
-
-Publication figures and visualizations
-
-### Supplementary LaTeX
-**Directory:** `supplementary/latex/`  
-**Files:** 9  
-**Size:** 180.9 KB
-
-Supplementary material LaTeX source files
-
-### Documentation Markdown
-**Directory:** `documentation/`  
-**Files:** 14  
-**Size:** 196.6 KB
-
-Project documentation and guides
-
-### Manuscript PDFs
-**Directory:** `manuscripts/`  
-**Files:** 5  
-**Size:** 19.8 MB
-
-Main manuscript and supplementary PDFs
-
-### Word Documents
-**Directory:** `supplementary/docx/`  
-**Files:** 2  
-**Size:** 32.8 KB
-
-Supplementary Word documents
-
-### HTML Visualizations
-**Directory:** `visualizations/`  
-**Files:** 1  
-**Size:** 24.3 KB
-
-Interactive HTML visualizations
+### 📊 Generated Visualizations
+- **`isolation_usage.png`** - Shows how isolation bed demand varies over time
+- **`patient_timeline.png`** - Example patient's predicted stay
+- **`risk_vs_beddays.png`** - Which patients use most isolation resources
+- **`optimization_opportunity.png`** - **KEY CHART** showing optimization potential
 
 ---
 
-## Directory Structure
+## 🚀 GETTING STARTED
 
-```
-lai_bridge_tool_zenodo_package/
-├── code/
-│   ├── algorithm/          # Core decision support algorithm
-│   ├── cli/                # Command-line interface
-│   └── tests/              # Comprehensive test suites
-├── config/                 # External JSON configuration
-├── validation/             # Validation results (1M-21.2M scale)
-├── figures/                # Publication figures
-├── documentation/          # Markdown documentation
-├── manuscripts/            # PDF manuscripts
-├── supplementary/
-│   ├── latex/              # LaTeX source files
-│   └── docx/               # Word documents
-├── visualizations/         # Interactive HTML visualizations
-├── README.md               # This file
-├── MANIFEST.json           # File checksums and metadata
-└── CHECKSUMS.sha256        # SHA-256 checksums
+### Step 1: Review the Design
+```bash
+# Read the comprehensive design document
+open HAI_Predictive_Model_Design.md
 ```
 
----
+Key sections to focus on:
+- **Model 1**: How to predict P(HAI) - this is your core prediction
+- **Feature Engineering**: Which risk factors matter most
+- **Integrated System Output**: How all models combine
 
-## Quick Start
+### Step 2: Run the Starter Code
+```bash
+# Test the models with synthetic data
+python hai_models_starter.py
+```
 
-### Requirements
+This will:
+- Train Model 1 (HAI Risk) and Model 2 (LOS)
+- Generate predictions for test patients
+- Show you the key metric: **expected isolation bed-days**
 
-- Python 3.8+
-- No external dependencies for core algorithm
-- Optional: NumPy for enhanced performance
+Expected output:
+```
+✓ Model 1 trained: AUC-ROC: 0.77
+✓ Model 2 trained: MAE: 2.8 days
 
-### Basic Usage
+Predictions:
+- Low-risk patient: 2.1 isolation bed-days
+- High-risk patient: 7.2 isolation bed-days
+```
 
+### Step 3: Create Visualizations
+```bash
+# Generate charts showing optimization opportunity
+python hai_visualizations.py
+```
+
+This creates PNG files showing:
+- Where isolation bed surges occur (days 4-5 in example)
+- How optimization could smooth these out
+- Which patients are "expensive" in isolation resources
+
+### Step 4: Understand the Optimization Problem
+
+**The Core Challenge:**
+```
+Given: 20 elective patients scheduled over 14 days
+Given: 10 isolation beds available
+Goal: Schedule patients to maximize throughput
+Constraint: P(isolation beds > capacity) < 5%
+```
+
+**Your predictions feed the optimization:**
 ```python
-from code.algorithm.lai_prep_decision_tool import LAIPrEPDecisionTool, PatientProfile, Population, Barrier
+# For each patient i, day d:
+x_ipd = binary decision (0 or 1: schedule or not?)
 
-# Initialize tool
-tool = LAIPrEPDecisionTool()
+# Constraint: Expected isolation beds on day t
+E[isolation_t] = sum over all patients of:
+    x_ipd * p_hai_i * overlap(patient_i, day_t)
 
-# Create patient profile
-patient = PatientProfile(
-    population=Population.MSM,
-    age=28,
-    current_prep_status="oral_prep",
-    barriers=[Barrier.SCHEDULING_CONFLICTS],
-    recent_hiv_test=True
-)
-
-# Get assessment
-assessment = tool.assess_patient(patient)
-
-# View report
-print(tool.generate_report(patient, assessment))
-```
-
-### Command Line Interface
-
-```bash
-# Single patient assessment
-python code/cli/cli.py assess -i patient.json -o results.json
-
-# Batch processing
-python code/cli/cli.py batch -i patients.csv -o results.csv
-
-# Run validation
-python code/cli/cli.py validate -n 1000000 -o validation.json
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-python -m pytest code/tests/ -v
-
-# Run specific test suite
-python -m pytest code/tests/test_edge_cases.py -v
+# Must be: E[isolation_t] <= capacity
 ```
 
 ---
 
-## Validation Summary
+## 🎯 THE PARADOX TO EXPLORE
 
-### Progressive Scale Testing
+### Paradox 1: Delay → More Throughput
+**Hypothesis:** By delaying high-risk Patient A by 2 days, you free up isolation beds to admit 3 lower-risk patients who couldn't fit before.
 
-| Scale | Patients | Mean Success | Margin of Error |
-|-------|----------|--------------|-----------------|
-| Tier 1 | 1,000 | 27.7% | ±2.8% |
-| Tier 2 | 1,000,000 | 27.7% | ±0.09% |
-| Tier 3 | 10,000,000 | 24.0% | ±0.03% |
-| Tier 4 | 21,200,000 | 24.0% | ±0.018% |
+**Test this:** Run optimization with and without delay flexibility
 
-### Unit Test Results
+### Paradox 2: Clustering > Spreading
+**Hypothesis:** Scheduling 3 C.diff-risk patients on the SAME day might be better than spreading them out (cohorting allows 2 patients per room).
 
-- **Test Pass Rate:** 100% (18/18 edge cases)
-- **Categories Tested:**
-  - Clinical edge cases (9 tests)
-  - Mathematical validation (2 tests)
-  - Mechanism diversity (2 tests)
-  - JSON export (2 tests)
-  - Error handling (3 tests)
+**Test this:** Compare clustered vs distributed schedules
+
+### Paradox 3: Weekend = Lower HAI
+**Hypothesis:** Better nurse-to-patient ratios on weekends might actually REDUCE HAI rates despite "weekend effect" concerns.
+
+**Test this:** Stratify model by day of week
 
 ---
 
-## Evidence Base
+## 📊 KEY METRICS TO TRACK
 
-### Clinical Trials
+### Model Performance
+- **P(HAI) Model:**
+  - AUC-ROC > 0.75 (good discrimination)
+  - Calibration: predicted probabilities are accurate
+  - Top risk factors: prior_cdiff, recent_abx, GI procedure
 
-- **HPTN 083** (n=4,566): CAB-LA in MSM/TGW, 89% relative risk reduction
-- **HPTN 084** (n=3,224): CAB-LA in cisgender women, 89% superior efficacy
-- **PURPOSE-1** (n=5,338): Lenacapavir in cisgender women, zero infections
-- **PURPOSE-2** (n=2,183): Lenacapavir across gender identities, 96% reduction
+- **LOS Model:**
+  - MAE < 2 days (within 2 days of actual)
+  - R² > 0.5 (explains 50%+ of variance)
 
-### Implementation Studies
-
-- CAN Community Health Network Study (2021-2023): 47% bridge period attrition
-- Patient navigation literature: 10-40% improvement in care completion
+### Optimization Results
+- **Variance Reduction:** How much smoother is optimized vs current?
+- **Throughput Increase:** Can you schedule MORE patients?
+- **Overflow Prevention:** Days exceeding capacity reduced to 0?
+- **HAI Rate Impact:** Does optimization reduce HAI incidence?
 
 ---
 
-## Citation
+## 🔬 DATA YOU'LL NEED (Real Implementation)
 
-### Software Citation
-
-```bibtex
-@software{{demidont2025laiprep,
-  author = {{Demidont, Adrian C. and Backus, Kandis V.}},
-  title = {{LAI-PrEP Bridge Period Decision Support Tool}},
-  version = {{2.1.0}},
-  year = {{2025}},
-  publisher = {{Zenodo}},
-  doi = {{10.5281/zenodo.XXXXXXX}},
-  url = {{https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool}}
-}}
+### From EMR (Epic, Cerner):
+```sql
+-- Patient risk factors
+SELECT 
+    patient_id,
+    age,
+    prior_cdiff,
+    recent_abx,
+    immunosuppressed,
+    planned_procedure,
+    los,
+    developed_hai,
+    hai_type,
+    isolation_duration
+FROM patient_admissions
+WHERE admission_date > '2022-01-01'
 ```
 
-### Manuscript Citation
+### From Infection Control Database:
+- NHSN reports
+- C.diff surveillance
+- MRSA colonization tracking
+- Isolation room usage logs
 
-```bibtex
-@article{{demidont2025bridging,
-  author = {{Demidont, Adrian C. and Backus, Kandis V.}},
-  title = {{Computational Validation of Clinical Decision Support Algorithm 
-            for Long-Acting Injectable PrEP Bridge Period Navigation 
-            at UNAIDS Global Target Scale}},
-  journal = {{Viruses}},
-  year = {{2025}},
-  volume = {{XX}},
-  number = {{XX}},
-  pages = {{XXX--XXX}},
-  doi = {{10.3390/vXXXXXXXX}}
-}}
+### From OR Scheduling System:
+- Current OR block schedule
+- Surgeon-specific HAI rates
+- Procedure-specific HAI risks
+
+---
+
+## 📈 NEXT STEPS FOR 6.00.2X
+
+### Phase 1: Master the Predictions (Now)
+- [ ] Understand all 4 models
+- [ ] Run code on synthetic data
+- [ ] Visualize the optimization opportunity
+- [ ] Calculate expected isolation bed-days
+
+### Phase 2: Build the MILP (Your 6.00.2x Project!)
+```python
+from pulp import *
+
+# Decision variables
+x = {}  # x[patient_id, day] = 0 or 1
+
+# Objective: Minimize variance (or maximize throughput)
+prob = LpProblem("HAI_Optimization", LpMinimize)
+
+# Constraints:
+# 1. Each patient scheduled at most once
+# 2. Isolation beds <= capacity each day
+# 3. Clinical urgency windows
+# 4. OR capacity
+```
+
+### Phase 3: Test on Historical Data
+- Take 6 months of historical admissions
+- Predict what optimal schedule would have been
+- Compare to what actually happened
+- Calculate improvement metrics
+
+### Phase 4: Prospective Pilot
+- Partner with one surgical service
+- Use model to schedule 1-2 weeks ahead
+- Monitor outcomes
+- Iterate based on feedback
+
+---
+
+## 🧠 CONCEPTUAL INSIGHTS
+
+### Why This Is Hard (and Cool!)
+
+**Stochasticity:** HAI development is probabilistic
+- Patient A: 30% chance of 7-day isolation
+- Patient B: 70% chance of 3-day isolation
+- Who's "more expensive" in expectation? Both are 2.1 bed-days!
+- But variance differs hugely
+
+**Non-linearity:** Impact isn't additive
+- 2 patients with 50% HAI risk ≠ 1 patient with 100% risk
+- Because of cohorting, capacity constraints, timing
+
+**Multi-objective:** Competing goals
+- Maximize throughput
+- Minimize overflow risk
+- Respect clinical urgency
+- Reduce HAI rates
+- Keep surgeons happy
+
+### Connection to 6.00.2x Concepts
+
+- **Optimization:** MILP formulation (PuLP library)
+- **Stochastic Models:** Monte Carlo simulation
+- **Greedy Algorithms:** Baseline comparisons
+- **Dynamic Programming:** Could solve smaller subproblems
+- **Graph Theory:** Patient-day scheduling as bipartite matching
+
+---
+
+## 💡 TIPS FOR SUCCESS
+
+### For Coding (6.00.1x → 6.00.2x Bridge)
+1. **Start simple:** Get deterministic MILP working first
+2. **Debug with small examples:** 5 patients, 3 days, 2 beds
+3. **Visualize everything:** Charts make debugging easier
+4. **Use assertions:** Check constraints are satisfied
+5. **Save intermediate results:** Don't re-run expensive models
+
+### For Machine Learning
+1. **Handle class imbalance:** Use SMOTE or class weights (HAIs are rare!)
+2. **Temporal validation:** Train on old data, test on recent
+3. **Check calibration:** Are probabilities accurate?
+4. **Feature engineering matters most:** 
+   - prior_cdiff is super predictive
+   - Procedure type is critical
+   - Interactions (age × diabetes) help
+
+### For Optimization
+1. **Start with relaxed problem:** Allow fractional x_ipd first
+2. **Add constraints incrementally:** Debug one at a time
+3. **Check feasibility:** Does solution exist?
+4. **Sensitivity analysis:** How do results change with capacity ±1?
+
+---
+
+## 📚 RELEVANT RESOURCES
+
+### For 6.00.2x
+- PuLP documentation: https://coin-or.github.io/pulp/
+- MIT OpenCourseWare 6.00.2x
+- "Introduction to Linear Optimization" - Bertsimas
+
+### For Machine Learning
+- Scikit-learn documentation
+- "Introduction to Statistical Learning" - free PDF
+- Kaggle tutorials on class imbalance
+
+### For Healthcare Optimization
+- MIT OR block scheduling paper (search: MIT flatten census)
+- NHSN HAI data and benchmarks
+- CDC HAI prevention guidelines
+
+---
+
+## 🎓 LEARNING OBJECTIVES
+
+By completing this project, you'll master:
+
+1. **Predictive Modeling**
+   - Logistic regression for classification
+   - Random forests for regression
+   - Feature engineering for healthcare data
+   - Model validation and calibration
+
+2. **Optimization**
+   - MILP formulation
+   - Constraint satisfaction
+   - Multi-objective optimization
+   - Stochastic programming concepts
+
+3. **Healthcare Analytics**
+   - HAI risk stratification
+   - Resource utilization modeling
+   - Clinical constraint handling
+   - Real-world deployment considerations
+
+4. **Systems Thinking**
+   - How predictions feed optimization
+   - Balancing competing objectives
+   - Stakeholder management (surgeons, IPs, administrators)
+
+---
+
+## 🔍 DEBUGGING CHECKLIST
+
+If predictions seem wrong:
+- [ ] Check feature scaling (Model 1 needs StandardScaler)
+- [ ] Verify class imbalance handling (use class_weight='balanced')
+- [ ] Confirm temporal validation (not random split)
+- [ ] Review feature importance (do top features make clinical sense?)
+
+If optimization is infeasible:
+- [ ] Reduce capacity constraint temporarily
+- [ ] Check admission window constraints
+- [ ] Verify no patient impossible to schedule
+- [ ] Try relaxed (fractional) version first
+
+If results don't match intuition:
+- [ ] Visualize the schedule
+- [ ] Check predictions for outlier patients
+- [ ] Verify overlap function (isolation timing)
+- [ ] Print intermediate constraint values
+
+---
+
+## 🌟 SUCCESS CRITERIA
+
+You'll know you've succeeded when:
+
+✅ **Models perform well:**
+- P(HAI) AUC > 0.75
+- LOS MAE < 2 days
+- Predictions make clinical sense
+
+✅ **Optimization finds solutions:**
+- Feasible schedules generated
+- Constraints all satisfied
+- Better than greedy baseline
+
+✅ **Demonstrates paradox:**
+- Strategic delays increase throughput, OR
+- Clustering reduces variance, OR
+- Optimization finds non-obvious improvements
+
+✅ **Ready for deployment:**
+- Code is documented
+- Validation is robust
+- Results are explainable to clinicians
+
+---
+
+## 🚦 YOUR ROADMAP
+
+```
+Week 1-2:  Master the predictions ← YOU ARE HERE
+           • Understand all 4 models
+           • Run starter code
+           • Generate visualizations
+
+Week 3-4:  Build MILP optimization
+           • Formulate constraints
+           • Implement in PuLP
+           • Debug on small examples
+
+Week 5-6:  Validate and improve
+           • Test on historical data
+           • Sensitivity analysis
+           • Refine models
+
+Week 7-8:  Polish and present
+           • Create final visualizations
+           • Write up results
+           • Prepare for deployment
 ```
 
 ---
 
-## License
+## 💬 QUESTIONS TO PONDER
 
-This software is released under the **Pharma-Restricted Open Healthcare License v1.0**.
+1. **Clinical:** Should you optimize for HAI rate or isolation bed utilization? Can you do both?
 
-### Free for:
-- Healthcare providers
-- Researchers and academics
-- Non-profit organizations
-- Government agencies
+2. **Mathematical:** Is minimizing variance the right objective? What about minimizing P(overflow)?
 
-### Requires permission for:
-- Pharmaceutical companies (commercial use)
-- Biotechnology companies (commercial use)
+3. **Practical:** How do you get surgeon buy-in for schedule changes?
 
-**Exception:** Patient care use by pharma-employed clinicians allowed with notification.
+4. **Ethical:** Is it fair to delay high-risk patients? What if delay itself increases risk?
 
-See `documentation/LICENSE.md` and `documentation/PHARMA_RESTRICTED_LICENSE.md` for full terms.
+5. **Implementation:** How often should you re-train models? Re-optimize schedules?
 
 ---
 
-## Authors
+## 🎉 YOU'RE READY!
 
-**Adrian C. Demidont, DO**  
-Infectious Diseases Physician  
-Nyx Dynamics, LLC  
-Email: acdemidont@nyxdynamics.org
+You now have:
+- Complete design specification
+- Working starter code
+- Visualizations showing the opportunity
+- Clear path to optimization
 
-**Kandis V. Backus, PharmD**  
-Gilead Sciences
+**Next Action:** Start running the code and understanding the predictions. The optimization will make sense once you see what the models are telling you.
 
----
+**Remember:** You're not just building a model - you're testing a paradox and potentially improving patient care at scale. This is where ID medicine meets operations research!
 
-## Support
-
-- **Issues:** https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool/issues
-- **Documentation:** https://github.com/Nyx-Dynamics/lai-prep-bridge-decision-tool/docs
-- **Email:** acdemidont@nyxdynamics.org
+Good luck! 🚀
 
 ---
 
-## Acknowledgments
-
-This work builds upon evidence from HPTN 083, HPTN 084, PURPOSE-1, PURPOSE-2, 
-and real-world implementation studies. We acknowledge the trial participants, 
-research teams, and the broader HIV prevention community.
-
----
-
-*Generated by Zenodo Package Organizer on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*
+**Questions?** Review the design doc or explore the code comments - everything is documented for a 6.00.1x → 6.00.2x learner.
