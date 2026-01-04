@@ -768,24 +768,24 @@ class LAIPrEPDecisionTool:
         
         # Population-specific notes
         if 'clinical_notes' in pop_config:
-            notes.append(f" {pop_config['clinical_notes']}")
+            notes.append(f"{pop_config['clinical_notes']}")
         
         # PrEP status notes
         if profile.current_prep_status == "oral_prep":
             if 'oral_prep_transition_priority' in guidance:
-                notes.append(f" {guidance['oral_prep_transition_priority']['message']}")
+                notes.append(f"{guidance['oral_prep_transition_priority']['message']}")
         elif profile.current_prep_status == "discontinued_oral":
             if 'discontinued_oral_prep' in guidance:
-                notes.append(f" {guidance['discontinued_oral_prep']['message']}")
+                notes.append(f"{guidance['discontinued_oral_prep']['message']}")
         
         # High barrier count warning
         if len(profile.barriers) > 3:
-            notes.append(f"  {len(profile.barriers)} barriers identified - "
+            notes.append(f"{len(profile.barriers)} barriers identified - "
                         "multiple intensive interventions will be required")
         
         # Evidence base
         if 'evidence_base' in guidance:
-            notes.append(f" {guidance['evidence_base']['message']}")
+            notes.append(f"{guidance['evidence_base']['message']}")
         
         return notes
     
@@ -941,8 +941,8 @@ def main():
             print(f"{'='*80}\n")
             
             tool = LAIPrEPDecisionTool(use_logit=use_logit)
-            print(f"[OK] Configuration loaded: {tool.config.config_path}")
-            print(f"[OK] Calculation method: {method}")
+            print(f"✓ Configuration loaded: {tool.config.config_path}")
+            print(f"✓ Calculation method: {method}")
             print()
             
             # Example: PWID with multiple barriers
@@ -979,11 +979,11 @@ def main():
                 print("\n\n")
     
     except ConfigurationError as e:
-        print(f"Error: Configuration Error: {e}")
+        print(f"❌ Configuration Error: {e}")
         return
     
     print("\n" + "=" * 80)
-    print("Enhanced tool with mechanism diversity and JSON export")
+    print("✅ Enhanced tool with mechanism diversity and JSON export")
     print("=" * 80)
 
 

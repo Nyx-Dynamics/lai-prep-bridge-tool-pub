@@ -142,7 +142,7 @@ class TestEdgeCases:
         
         # Should have very high success rate
         assert assessment.adjusted_success_rate >= 0.85, \
-            "Best-case scenario should have >= 85% success rate"
+            "Best-case scenario should have ≥85% success rate"
         
         # Should categorize as low risk
         assert assessment.attrition_risk == "Low attrition risk", \
@@ -157,7 +157,7 @@ class TestEdgeCases:
         
         # Bridge duration should be minimal
         assert assessment.estimated_bridge_duration_days[0] <= 3, \
-            "Minimum bridge duration should be <= 3 days"
+            "Minimum bridge duration should be ≤3 days"
     
     def test_discontinued_oral_prep_re_engagement(self):
         """Test patient re-engaging after discontinuing oral PrEP"""
@@ -202,7 +202,7 @@ class TestEdgeCases:
         
         # Should have moderate-high risk
         assert assessment.adjusted_success_rate < 0.60, \
-            "Multiple barriers should result in < 60% success"
+            "Multiple barriers should result in <60% success"
         
         # Should recommend barrier-specific interventions
         intervention_names = [r.intervention for r in assessment.recommended_interventions]

@@ -1,0 +1,69 @@
+{
+  "_comment": "Example patient profile for LAI-PrEP Bridge Decision Support Tool",
+  "_usage": "python cli.py assess -i example_patient.json -o results.json",
+  
+  "patient_id": "example_001",
+  "population": "PWID",
+  "age": 35,
+  "current_prep_status": "naive",
+  "barriers": [
+    "HOUSING_INSTABILITY",
+    "TRANSPORTATION",
+    "LEGAL_CONCERNS"
+  ],
+  "healthcare_setting": "HARM_REDUCTION",
+  "insurance_status": "uninsured",
+  "recent_hiv_test": false,
+  "transportation_access": false,
+  "childcare_needs": false,
+  
+  "_valid_populations": [
+    "MSM - Men who have sex with men",
+    "CISGENDER_WOMEN - Cisgender women",
+    "TRANSGENDER_WOMEN - Transgender women",
+    "ADOLESCENT - Adolescents (16-24 years)",
+    "PWID - People who inject drugs",
+    "PREGNANT_LACTATING - Pregnant/lactating individuals",
+    "GENERAL - General population"
+  ],
+  
+  "_valid_prep_status": [
+    "naive - Never used PrEP",
+    "oral_prep - Currently on oral PrEP",
+    "discontinued_oral - Previously on oral PrEP but discontinued"
+  ],
+  
+  "_valid_barriers": [
+    "TRANSPORTATION",
+    "CHILDCARE",
+    "HOUSING_INSTABILITY",
+    "INSURANCE_DELAYS",
+    "SCHEDULING_CONFLICTS",
+    "MEDICAL_MISTRUST",
+    "PRIVACY_CONCERNS",
+    "HEALTHCARE_DISCRIMINATION",
+    "COMPETING_PRIORITIES",
+    "LIMITED_NAVIGATION_EXPERIENCE",
+    "LEGAL_CONCERNS",
+    "LACK_IDENTIFICATION",
+    "SUBSTANCE_USE"
+  ],
+  
+  "_valid_healthcare_settings": [
+    "ACADEMIC_MEDICAL_CENTER",
+    "COMMUNITY_HEALTH_CENTER",
+    "PRIVATE_PRACTICE",
+    "PHARMACY",
+    "HARM_REDUCTION",
+    "LGBTQ_CENTER",
+    "MOBILE_CLINIC",
+    "TELEHEALTH"
+  ],
+  
+  "_valid_insurance_status": [
+    "insured",
+    "uninsured",
+    "underinsured",
+    "parental"
+  ]
+}

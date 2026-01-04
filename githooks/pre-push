@@ -1,0 +1,9 @@
+#!/bin/sh
+# Local policy: Block all git push operations from this repository.
+# Context: Keep GitHub only for version control locally; no further pushes to Git.
+# To (temporarily) override in an emergency, you could run: git push --no-verify
+# However, this repo also sets a dummy pushurl, so pushes should still fail.
+
+printf "\n[BLOCKED] git push is disabled for this repository by local policy.\n" >&2
+printf "Use patches or archives for sharing; do not push to remote.\n\n" >&2
+exit 1

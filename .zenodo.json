@@ -1,0 +1,45 @@
+{
+  "upload_type": "software",
+  "title": "LAI-PrEP Bridge Period Decision Support Tool v2.1.1",
+  "version": "v2.1.1",
+  "creators": [
+    {
+      "name": "Demidont, Adrian C.",
+      "orcid": "0000-0002-9216-8569",
+      "affiliation": "A.C. Demidont, DO — Independent Researcher; Nyx Dynamics, LLC"
+    }
+  ],
+  "description": "Clinical decision support for LAI-PrEP bridge period navigation validated at UNAIDS global target scale (21.2M patients). This release provides algorithmic refinements, explainable JSON output, command-line tools, comprehensive validation across synthetic populations, and implementation-ready clinical guides.",
+  "keywords": [
+    "HIV prevention",
+    "pre-exposure prophylaxis",
+    "long-acting injectable cabotegravir",
+    "injectable lenacapavir",
+    "islatravir",
+    "implementation science",
+    "clinical decision support",
+    "health equity",
+    "bridge period",
+    "patient navigation",
+    "LAI-PrEP"
+  ],
+  "language": "eng",
+  "license": "other",
+  "access_right": "open",
+  "notes": "License: Pharma-Restricted Open Healthcare v1.0. See LICENSE.md and PHARMA_RESTRICTED_LICENSE.md in the repository for full terms.",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "https://github.com/TheonlyqueenAC/lai-prep-bridge-tool",
+      "scheme": "url"
+    },
+    {
+      "relation": "isNewVersionOf",
+      "identifier": "https://doi.org/10.5281/zenodo.17429833",
+      "scheme": "doi"
+    }
+  ],
+  "contributors": [],
+  "communities": [],
+  "prereserve_doi": true
+}

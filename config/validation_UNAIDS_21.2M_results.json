@@ -1,0 +1,395 @@
+{
+  "total": 21200000,
+  "unaids_target": 21200000,
+  "avg_success_rate": 0.23957388206593794,
+  "avg_improvement": 0.19539235939389482,
+  "avg_with_interventions": 0.43496624146642987,
+  "by_region": {
+    "sub_saharan_africa": {
+      "count": 13144000,
+      "avg_success": 0.21693537431123386,
+      "avg_improvement": 0.197633918975388,
+      "by_population": {
+        "General population": {
+          "count": 1878438,
+          "total_success": 536074.0900005623,
+          "avg_success": 0.28538290324224824
+        },
+        "Adolescent (16-24 years)": {
+          "count": 1877642,
+          "total_success": 271761.48999724607,
+          "avg_success": 0.14473551933608542
+        },
+        "Men who have sex with men": {
+          "count": 1876632,
+          "total_success": 570419.2999977878,
+          "avg_success": 0.3039590606990544
+        },
+        "Transgender women": {
+          "count": 1878193,
+          "total_success": 485693.95999912405,
+          "avg_success": 0.25859640622615676
+        },
+        "People who inject drugs": {
+          "count": 1877239,
+          "total_success": 172572.47999903202,
+          "avg_success": 0.09192888065879305
+        },
+        "Pregnant/lactating individuals": {
+          "count": 1878048,
+          "total_success": 407825.78999757714,
+          "avg_success": 0.21715408232248437
+        },
+        "Cisgender women": {
+          "count": 1877808,
+          "total_success": 407051.44999757916,
+          "avg_success": 0.21676947270305547
+        }
+      }
+    },
+    "north_america": {
+      "count": 3816000,
+      "avg_success": 0.29321324947737504,
+      "avg_improvement": 0.19012784564932328,
+      "by_population": {
+        "Transgender women": {
+          "count": 544394,
+          "total_success": 188413.30000011518,
+          "avg_success": 0.3460973118735974
+        },
+        "Adolescent (16-24 years)": {
+          "count": 544886,
+          "total_success": 113465.52000037923,
+          "avg_success": 0.20823717254687996
+        },
+        "Men who have sex with men": {
+          "count": 545564,
+          "total_success": 215362.7499994473,
+          "avg_success": 0.39475249466505724
+        },
+        "General population": {
+          "count": 545530,
+          "total_success": 204632.20999978544,
+          "avg_success": 0.3751071618422185
+        },
+        "People who inject drugs": {
+          "count": 545593,
+          "total_success": 71883.94000019877,
+          "avg_success": 0.13175377983258357
+        },
+        "Cisgender women": {
+          "count": 545328,
+          "total_success": 162689.45000001308,
+          "avg_success": 0.29833320497024374
+        },
+        "Pregnant/lactating individuals": {
+          "count": 544705,
+          "total_success": 162454.59000001408,
+          "avg_success": 0.29824325093401766
+        }
+      }
+    },
+    "latin_america_caribbean": {
+      "count": 1908000,
+      "avg_success": 0.2478275157220149,
+      "avg_improvement": 0.1945003637315425,
+      "by_population": {
+        "Adolescent (16-24 years)": {
+          "count": 272400,
+          "total_success": 46145.47999999995,
+          "avg_success": 0.1694033773861966
+        },
+        "General population": {
+          "count": 272530,
+          "total_success": 87940.85999997875,
+          "avg_success": 0.3226832275345054
+        },
+        "Cisgender women": {
+          "count": 272162,
+          "total_success": 68104.0600000284,
+          "avg_success": 0.25023353737857745
+        },
+        "Transgender women": {
+          "count": 272346,
+          "total_success": 80292.96000001155,
+          "avg_success": 0.29481967790976016
+        },
+        "Men who have sex with men": {
+          "count": 272828,
+          "total_success": 93149.12000005101,
+          "avg_success": 0.34142067529744385
+        },
+        "Pregnant/lactating individuals": {
+          "count": 273135,
+          "total_success": 68076.08000002865,
+          "avg_success": 0.24923968001182073
+        },
+        "People who inject drugs": {
+          "count": 272599,
+          "total_success": 29146.339999928554,
+          "avg_success": 0.1069202014678284
+        }
+      }
+    },
+    "europe_central_asia": {
+      "count": 1272000,
+      "avg_success": 0.2933215644649821,
+      "avg_improvement": 0.19009330974901117,
+      "by_population": {
+        "Adolescent (16-24 years)": {
+          "count": 181475,
+          "total_success": 37791.36999996718,
+          "avg_success": 0.20824559856711491
+        },
+        "General population": {
+          "count": 182161,
+          "total_success": 68426.19999998045,
+          "avg_success": 0.37563583862616284
+        },
+        "Men who have sex with men": {
+          "count": 181356,
+          "total_success": 71632.16000005716,
+          "avg_success": 0.3949809215027745
+        },
+        "Transgender women": {
+          "count": 181435,
+          "total_success": 62843.34999998324,
+          "avg_success": 0.346368396395311
+        },
+        "Cisgender women": {
+          "count": 181294,
+          "total_success": 54053.95999999281,
+          "avg_success": 0.29815636479967794
+        },
+        "Pregnant/lactating individuals": {
+          "count": 182803,
+          "total_success": 54463.71999999148,
+          "avg_success": 0.2979366859405561
+        },
+        "People who inject drugs": {
+          "count": 181476,
+          "total_success": 23894.269999968255,
+          "avg_success": 0.13166628094055552
+        }
+      }
+    },
+    "asia_pacific": {
+      "count": 1060000,
+      "avg_success": 0.24783589622575486,
+      "avg_improvement": 0.19451372169844747,
+      "by_population": {
+        "Transgender women": {
+          "count": 151131,
+          "total_success": 44487.41999999346,
+          "avg_success": 0.2943633007125835
+        },
+        "Men who have sex with men": {
+          "count": 151427,
+          "total_success": 51810.27000002831,
+          "avg_success": 0.3421468430334637
+        },
+        "Cisgender women": {
+          "count": 151123,
+          "total_success": 37725.19000000405,
+          "avg_success": 0.24963235245464985
+        },
+        "General population": {
+          "count": 151568,
+          "total_success": 48950.10000000409,
+          "avg_success": 0.3229580122453558
+        },
+        "Adolescent (16-24 years)": {
+          "count": 152135,
+          "total_success": 25781.669999973754,
+          "avg_success": 0.16946573766703096
+        },
+        "Pregnant/lactating individuals": {
+          "count": 151274,
+          "total_success": 37763.37000000518,
+          "avg_success": 0.24963556196045047
+        },
+        "People who inject drugs": {
+          "count": 151342,
+          "total_success": 16188.029999973662,
+          "avg_success": 0.10696323558545322
+        }
+      }
+    }
+  },
+  "by_population": {
+    "General population": {
+      "count": 3030227,
+      "total_success": 946023.460014165,
+      "total_improvement": 465275.9159900132,
+      "avg_success": 0.312195574791646,
+      "avg_improvement": 0.15354490471836374
+    },
+    "Adolescent (16-24 years)": {
+      "count": 3028538,
+      "total_success": 494945.5299893215,
+      "total_improvement": 725620.6720081748,
+      "avg_success": 0.1634272147119572,
+      "avg_improvement": 0.2395943759028861
+    },
+    "Men who have sex with men": {
+      "count": 3027807,
+      "total_success": 1002373.6000072903,
+      "total_improvement": 464676.10699004924,
+      "avg_success": 0.33105597549886445,
+      "avg_improvement": 0.15346952662109878
+    },
+    "Transgender women": {
+      "count": 3027499,
+      "total_success": 861730.9900047979,
+      "total_improvement": 465153.82199008774,
+      "avg_success": 0.2846346076430737,
+      "avg_improvement": 0.1536429316706918
+    },
+    "People who inject drugs": {
+      "count": 3028249,
+      "total_success": 313685.0599946297,
+      "total_improvement": 831617.6890001983,
+      "avg_success": 0.10358628368890065,
+      "avg_improvement": 0.2746199830331648
+    },
+    "Pregnant/lactating individuals": {
+      "count": 3029965,
+      "total_success": 730583.5499920013,
+      "total_improvement": 464603.69199005817,
+      "avg_success": 0.24111946837405754,
+      "avg_improvement": 0.15333632302355246
+    },
+    "Cisgender women": {
+      "count": 3027715,
+      "total_success": 729624.1099919378,
+      "total_improvement": 725370.1210081943,
+      "avg_success": 0.24098176677525388,
+      "avg_improvement": 0.23957675045643143
+    }
+  },
+  "by_prep_status": {
+    "naive": {
+      "count": 15902325,
+      "total_success": 3810271.1499879044,
+      "avg_success": 0.2396046584375495
+    },
+    "oral_prep": {
+      "count": 3178519,
+      "total_success": 761264.3600004829,
+      "avg_success": 0.23950285022693993
+    },
+    "discontinued_oral": {
+      "count": 2119156,
+      "total_success": 507430.7899973547,
+      "avg_success": 0.23944947422339585
+    }
+  },
+  "by_risk_level": {
+    "Low": 0,
+    "Moderate": 1728082,
+    "High": 5624859,
+    "Very High": 13847059
+  },
+  "by_barrier_count": {
+    "2": {
+      "count": 5297719,
+      "total_success": 1244801.9900236784,
+      "avg_success": 0.23496942552515118
+    },
+    "3": {
+      "count": 3772033,
+      "total_success": 558031.0399946185,
+      "avg_success": 0.14793906627927658
+    },
+    "1": {
+      "count": 4897554,
+      "total_success": 1646277.0699745612,
+      "avg_success": 0.3361427091920908
+    },
+    "4": {
+      "count": 2634602,
+      "total_success": 213342.45999547222,
+      "avg_success": 0.08097711153163636
+    },
+    "0": {
+      "count": 3031642,
+      "total_success": 1333793.56000178,
+      "avg_success": 0.4399574751905997
+    },
+    "5": {
+      "count": 1566450,
+      "total_success": 82720.18000227358,
+      "avg_success": 0.05280741804862816
+    }
+  },
+  "by_setting": {
+    "Pharmacy-based care": {
+      "count": 2650991,
+      "total_success": 635104.7699989928,
+      "avg_success": 0.23957258625132744
+    },
+    "Telehealth-integrated": {
+      "count": 2648087,
+      "total_success": 634356.0799989988,
+      "avg_success": 0.23955258267534216
+    },
+    "Harm reduction/SSP": {
+      "count": 2650174,
+      "total_success": 635040.9699990316,
+      "avg_success": 0.23962236819130805
+    },
+    "LGBTQ community center": {
+      "count": 2650408,
+      "total_success": 634500.5099990213,
+      "avg_success": 0.23939729656680078
+    },
+    "Community health center": {
+      "count": 2649444,
+      "total_success": 634953.5499990176,
+      "avg_success": 0.23965539562225796
+    },
+    "Academic medical center": {
+      "count": 2648373,
+      "total_success": 634513.7199989855,
+      "avg_success": 0.23958623653049835
+    },
+    "Private practice": {
+      "count": 2650372,
+      "total_success": 635003.7199989846,
+      "avg_success": 0.2395904122134495
+    },
+    "Mobile clinic": {
+      "count": 2652151,
+      "total_success": 635492.9799990007,
+      "avg_success": 0.23961417732210596
+    }
+  },
+  "interventions": {
+    "Accelerated HIV testing (RNA + Ag/Ab)": 10600361,
+    "Expedited insurance authorization": 3472964,
+    "Transportation vouchers/support": 3040263,
+    "SMS/text message navigation": 21200000,
+    "Patient navigation program": 8175409,
+    "SSP/harm reduction integration": 2649820,
+    "Peer navigator support": 3028249,
+    "Telehealth bridge counseling": 5297817,
+    "Same-day switching protocol": 1589695,
+    "Childcare vouchers/on-site care": 3474750,
+    "Oral-to-injectable transition": 1588824,
+    "Mobile/community-based delivery": 433624
+  },
+  "regional_counts": {
+    "sub_saharan_africa": 13144000,
+    "north_america": 3816000,
+    "latin_america_caribbean": 1908000,
+    "europe_central_asia": 1272000,
+    "asia_pacific": 1060000
+  },
+  "test_date": "2025-10-11T11:34:09.122513",
+  "metadata": {
+    "test_type": "unaids_global_scale_validation",
+    "sample_size": 21200000,
+    "note": "21.2 million patient synthetic validation matching UNAIDS 2025 target",
+    "alignment": "UN SDG 3.3, UNAIDS 95-95-95, WHO PrEP guidelines"
+  }
+}

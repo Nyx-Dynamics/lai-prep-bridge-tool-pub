@@ -1,0 +1,174 @@
+{
+  "total": 10000000,
+  "avg_success_rate": 0.27698210800002604,
+  "avg_improvement": 0.19169496569598868,
+  "avg_with_interventions": 0.4686770736986625,
+  "by_population": {
+    "Men who have sex with men": {
+      "count": 1428387,
+      "total_success": 537744.2199972206,
+      "total_improvement": 212194.18500107105,
+      "avg_success": 0.3764695562177621,
+      "avg_improvement": 0.14855510796518803
+    },
+    "Pregnant/lactating individuals": {
+      "count": 1427799,
+      "total_success": 401194.89000000944,
+      "total_improvement": 212224.0890010749,
+      "avg_success": 0.28098835340269146,
+      "avg_improvement": 0.14863723045125743
+    },
+    "People who inject drugs": {
+      "count": 1428874,
+      "total_success": 173476.23999968483,
+      "total_improvement": 390975.4380008938,
+      "avg_success": 0.12140765385869211,
+      "avg_improvement": 0.2736248528567906
+    },
+    "Transgender women": {
+      "count": 1428854,
+      "total_success": 468875.4600005597,
+      "total_improvement": 212430.54000106506,
+      "avg_success": 0.3281479143429347,
+      "avg_improvement": 0.14867197068494406
+    },
+    "Cisgender women": {
+      "count": 1429718,
+      "total_success": 401807.6900000438,
+      "total_improvement": 338595.7330035026,
+      "avg_success": 0.28103982044014536,
+      "avg_improvement": 0.2368269358037757
+    },
+    "Adolescent (16-24 years)": {
+      "count": 1427625,
+      "total_success": 276688.1199995437,
+      "total_improvement": 338156.54600346746,
+      "avg_success": 0.1938100831797872,
+      "avg_improvement": 0.23686650626282635
+    },
+    "General population": {
+      "count": 1428743,
+      "total_success": 510034.4600023409,
+      "total_improvement": 212373.12600107864,
+      "avg_success": 0.35698124855368735,
+      "avg_improvement": 0.1486433361360851
+    }
+  },
+  "by_prep_status": {
+    "oral_prep": {
+      "count": 1499810,
+      "total_success": 415017.3399989238,
+      "avg_success": 0.27671327701437104
+    },
+    "discontinued_oral": {
+      "count": 999060,
+      "total_success": 276801.4199996045,
+      "avg_success": 0.277061858146262
+    },
+    "naive": {
+      "count": 7501130,
+      "total_success": 2078002.3200309062,
+      "avg_success": 0.2770252375349989
+    }
+  },
+  "by_risk_level": {
+    "Low": 0,
+    "Moderate": 1122220,
+    "High": 3294051,
+    "Very High": 5583729
+  },
+  "by_barrier_count": {
+    "5": {
+      "count": 300506,
+      "total_success": 15868.759999920901,
+      "avg_success": 0.05280679919842167
+    },
+    "0": {
+      "count": 1997595,
+      "total_success": 879337.4899972659,
+      "avg_success": 0.4401980831936733
+    },
+    "3": {
+      "count": 1499695,
+      "total_success": 221657.09999889927,
+      "avg_success": 0.14780145296136832
+    },
+    "2": {
+      "count": 2499362,
+      "total_success": 587198.1599997462,
+      "avg_success": 0.2349392204889673
+    },
+    "1": {
+      "count": 3001777,
+      "total_success": 1008987.130000145,
+      "avg_success": 0.336129942364188
+    },
+    "4": {
+      "count": 701065,
+      "total_success": 56772.44000033551,
+      "avg_success": 0.08098028000304609
+    }
+  },
+  "by_setting": {
+    "Pharmacy-based care": {
+      "count": 1250572,
+      "total_success": 346365.439999248,
+      "avg_success": 0.2769656125351023
+    },
+    "LGBTQ community center": {
+      "count": 1250255,
+      "total_success": 346245.33999924717,
+      "avg_success": 0.2769397762850356
+    },
+    "Mobile clinic": {
+      "count": 1249738,
+      "total_success": 346409.6199992517,
+      "avg_success": 0.27718579414185346
+    },
+    "Harm reduction/SSP": {
+      "count": 1249216,
+      "total_success": 345864.4599992448,
+      "avg_success": 0.27686521786404017
+    },
+    "Community health center": {
+      "count": 1249559,
+      "total_success": 345929.91999927035,
+      "avg_success": 0.27684160571791355
+    },
+    "Academic medical center": {
+      "count": 1249232,
+      "total_success": 346156.79999926104,
+      "avg_success": 0.277095687589864
+    },
+    "Telehealth-integrated": {
+      "count": 1250481,
+      "total_success": 346341.9999992572,
+      "avg_success": 0.2769670230889211
+    },
+    "Private practice": {
+      "count": 1250947,
+      "total_success": 346507.4999992508,
+      "avg_success": 0.27699614771788955
+    }
+  },
+  "interventions": {
+    "Oral-to-injectable transition": 749617,
+    "Accelerated HIV testing (RNA + Ag/Ab)": 4996809,
+    "SMS/text message navigation": 10000000,
+    "Patient navigation program": 3856403,
+    "Transportation vouchers/support": 1131549,
+    "SSP/harm reduction integration": 1250600,
+    "Peer navigator support": 1428874,
+    "Childcare vouchers/on-site care": 1292302,
+    "Expedited insurance authorization": 1293240,
+    "Telehealth bridge counseling": 2498791,
+    "Same-day switching protocol": 750193,
+    "Mobile/community-based delivery": 161553
+  },
+  "test_date": "2025-10-10T21:49:13.460713",
+  "metadata": {
+    "test_type": "ultra_large_scale_validation",
+    "sample_size": 10000000,
+    "note": "10 million patient synthetic validation"
+  }
+}

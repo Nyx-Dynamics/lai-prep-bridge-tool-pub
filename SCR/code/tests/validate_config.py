@@ -86,7 +86,7 @@ class ConfigValidator:
         try:
             with open(self.config_path, 'r') as f:
                 self.config = json.load(f)
-            self.info.append(f"[OK] JSON syntax valid")
+            self.info.append(f"✓ JSON syntax valid")
             return True
         except FileNotFoundError:
             self.errors.append(f"Configuration file not found: {self.config_path}")
@@ -104,7 +104,7 @@ class ConfigValidator:
             if section not in self.config:
                 self.errors.append(f"Missing required section: '{section}'")
             else:
-                self.info.append(f"[OK] Section '{section}' present")
+                self.info.append(f"✓ Section '{section}' present")
     
     def _validate_populations(self):
         """Validate populations section"""
@@ -112,7 +112,7 @@ class ConfigValidator:
             return
         
         pops = self.config['populations']
-        self.info.append(f"[OK] Found {len(pops)} populations")
+        self.info.append(f"✓ Found {len(pops)} populations")
         
         for pop_key, pop_data in pops.items():
             # Check required fields
@@ -158,7 +158,7 @@ class ConfigValidator:
             return
         
         barriers = self.config['barriers']
-        self.info.append(f"[OK] Found {len(barriers)} barriers")
+        self.info.append(f"✓ Found {len(barriers)} barriers")
         
         for barrier_key, barrier_data in barriers.items():
             # Check required fields
@@ -190,7 +190,7 @@ class ConfigValidator:
             return
         
         interventions = self.config['interventions']
-        self.info.append(f"[OK] Found {len(interventions)} interventions")
+        self.info.append(f"✓ Found {len(interventions)} interventions")
         
         for int_key, int_data in interventions.items():
             # Check required fields
