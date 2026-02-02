@@ -10,7 +10,7 @@
 
 ---
 
-## The Problem: The Bridge Period Paradox
+## The LAI-PrEP Bridge Period Paradox
 
 Long-acting injectable PrEP (LAI-PrEP) offers **superior efficacy** compared to daily oral PrEP:
 - **89% relative risk reduction** vs. oral PrEP in clinical trials (HPTN 083, HPTN 084)
@@ -158,13 +158,13 @@ lai-prep-bridge-tool-pub/
 
 | Population | Baseline Success | With Interventions | Improvement |
 |------------|------------------|--------------------| ------------|
-| MSM | 55.0% | 78.3% | +42% |
-| Cisgender Women | 45.0% | 69.1% | +54% |
-| Transgender Women | 50.0% | 73.7% | +47% |
-| Adolescents | 35.0% | 58.4% | +67% |
-| **PWID** | **25.0%** | **51.6%** | **+106%** |
-| Pregnant/Lactating | 45.0% | 68.9% | +53% |
-| General | 53.0% | 76.2% | +44% |
+| MSM | 55.0% | 78.3% | +23.3 pp |
+| Cisgender Women | 45.0% | 69.1% | +24.1 pp |
+| Transgender Women | 50.0% | 73.7% | +23.7 pp |
+| Adolescents | 35.0% | 58.4% | +23.4 pp |
+| **PWID** | **25.0%** | **51.6%** | **+26.6 pp** |
+| Pregnant/Lactating | 45.0% | 68.9% | +23.9 pp |
+| General | 53.0% | 76.2% | +23.2 pp |
 
 **Key finding**: Populations with lowest baseline success show **greatest relative improvement** with evidence-based interventions.
 
@@ -230,11 +230,10 @@ test_edge_cases.py::test_pregnant_comprehensive PASSED
 ## Publications
 
 ### Computational Validation Manuscript
-> Demidont, A.C. Computational Validation of Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale. *Viruses* 2025.
+> Demidont, A.C. Computational Validation of Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale. *Viruses* in press.
 
 ### Clinical Implementation Manuscript  
-> Demidont, A.C. Bridging the Gap: The PrEP Cascade Paradigm Shift for Long-Acting Injectable HIV Prevention. *Viruses* 2025.
-
+>  Demidont,  A. Bridging the Gap: The Prep Cascade Paradign Shift for Long-Acting Injectable HIV Prevention. Preprints 2025, 2025122354. https://doi.org/10.20944/preprints202512.2354.v1
 ---
 
 ## License
@@ -243,11 +242,11 @@ test_edge_cases.py::test_pregnant_comprehensive PASSED
 
 | User Type | Access | Requirements |
 |-----------|--------|--------------|
-| Healthcare Providers || Attribution only |
-| Researchers || Attribution only |
-| Non-Profits || Attribution only |
-| Government || Attribution only |
-| Pharma/Biotech || Written permission required |
+| Healthcare Providers | | Attribution only |
+| Researchers |  | Attribution only |
+| Non-Profits |  | Attribution only |
+| Government |  Attribution only |
+| Pharma/Biotech |  Written permission required |
 
 See [LICENSE.md](LICENSE.md) for full details.
 
@@ -271,7 +270,7 @@ See [LICENSE.md](LICENSE.md) for full details.
 ```bibtex
 @article{demidont2025validation,
   author = {Demidont, Adrian C.},
-  title = {Computational Validation of Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale, 21.2 M Individuals)},
+  title = {Computational Validation of Clinical Decision Support Algorithm for Long-Acting Injectable PrEP Bridge Period Navigation at UNAIDS Global Target Scale, 21.2 M Individuals},
   journal = {Viruses},
   year = {2025}
 }
@@ -293,7 +292,7 @@ We welcome contributions! Please see our contributing guidelines.
 
 ## Contact
 
-**A.C. Demidont, DO**  
+**Adrian C. Demidont, DO**  
 Founder & CEO, Nyx Dynamics LLC  
 Email: acdemidont@nyxdynamics.org
 
@@ -303,7 +302,7 @@ Email: acdemidont@nyxdynamics.org
 
 ## Clinical Disclaimer
 
-This tool is intended to assist healthcare providers in clinical decision-making. It does not replace clinical judgment. All treatment decisions remain the responsibility of the treating healthcare provider.
+This tool is intended to **ASSIST** healthcare providers in clinical decision-making. It does not replace clinical judgment. All treatment decisions remain the responsibility of the treating healthcare provider.
 
 This tool has been **computationally validated** and requires **prospective clinical validation** before widespread deployment.
 
@@ -317,4 +316,3 @@ This tool has been **computationally validated** and requires **prospective clin
 - All patients and communities contributing to HIV prevention research
 
 ---
-
