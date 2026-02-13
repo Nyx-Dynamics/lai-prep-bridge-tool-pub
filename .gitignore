@@ -1,4 +1,41 @@
-.idea/
+# Python
 __pycache__/
 *.pyc
-.idea/
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# PyCharm - Ignore personal workspace files but keep shared configs
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/shelf/
+.idea/**/dictionaries/
+
+# Keep these for consistency across machines:
+!.idea/codeStyles/
+!.idea/inspectionProfiles/
+!.idea/runConfigurations/
+!.idea/vcs.xml
+!.idea/modules.xml
+!.idea/*.iml
+!.idea/misc.xml
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.png
+*.pdf
