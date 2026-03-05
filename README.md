@@ -69,7 +69,7 @@ The computational validation companion to this review has been published:
                for Long-Acting Injectable HIV Prevention},
   journal   = {Viruses},
   year      = {2026},
-  note      = {Under review, manuscript ID: viruses-4064402},
+  note      = {Accepted 5 March 2026, in press. Manuscript ID: viruses-4192169},
   doi       = {10.20944/preprints202512.2354.v1}
 }
 ```
