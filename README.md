@@ -60,7 +60,7 @@ The computational validation companion to this review has been published:
 - **Noise Decorrelation in HIV:** [Nyx-Dynamics/noise_decorrelation_hiv](https://github.com/Nyx-Dynamics/noise_decorrelation_hiv)
 - **Algorithmic Discrimination:** [Nyx-Dynamics/algorithmic-bias-epidemiology-academic](https://github.com/Nyx-Dynamics/algorithmic-bias-epidemiology-academic)
 
-## Citation
+## Citations
 
 ```bibtex
 @article{demidont2026bridging,
@@ -72,6 +72,20 @@ The computational validation companion to this review has been published:
   note      = {Accepted 5 March 2026, in press. Manuscript ID: viruses-4192169},
   doi       = {10.20944/preprints202512.2354.v1}
 }
+@Article{v18020237,
+AUTHOR = {Demidont, Adrian Charles},
+TITLE = {Computational Validation of a Clinical Decision Support Algorithm for LAI-PrEP Bridge Period Navigation at UNAIDS PrEP Target Scale (21.2 Million Individuals)},
+JOURNAL = {Viruses},
+VOLUME = {18},
+YEAR = {2026},
+NUMBER = {2},
+ARTICLE-NUMBER = {237},
+URL = {https://www.mdpi.com/1999-4915/18/2/237},
+PubMedID = {41754580},
+ISSN = {1999-4915},
+DOI = {10.3390/v18020237}
+}
+
 ```
 
 ## License
