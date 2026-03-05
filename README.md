@@ -13,7 +13,7 @@ The paper formally defines the **bridge period** — the 2–8 week gap between 
 ## Status
 
 - **Journal:** *Viruses* (MDPI) — Manuscript ID: viruses-4064402
-- **Status:** Under review (accepted, in press, March 5, 2026)
+- **Status:** Accepted, in press (March 5, 2026)
 
 
 ## Key Contributions
