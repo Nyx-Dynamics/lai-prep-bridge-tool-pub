@@ -194,7 +194,7 @@ class ZenodoPackageOrganizer:
                 description="Project documentation and guides",
                 subdirectory="documentation",
                 patterns=[
-                    "Project Docs/*.md",
+                    "docs/*.md",
                     "Clinical Implementation Guides/*.md",
                     "README*.md"
                 ]
@@ -224,9 +224,9 @@ class ZenodoPackageOrganizer:
                 files=[
                     "CITATION.cff",
                     ".zenodo.json",
-                    "Project Docs/LICENSE",
-                    "Project Docs/LICENSE.md",
-                    "Project Docs/PHARMA_RESTRICTED_LICENSE.md"
+                    "docs/LICENSE",
+                    "docs/LICENSE.md",
+                    "docs/PHARMA_RESTRICTED_LICENSE.md"
                 ]
             ),
             # HTML visualizations
