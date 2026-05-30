@@ -9,8 +9,8 @@ LAI-PrEP Bridge Period Decision Support Tool — a clinical decision support sys
 ## Setup
 
 ```bash
-pip install -r docs/requirements.txt
-pip install -r docs/requirements-dev.txt
+pip install -r "Project Docs/requirements.txt"
+pip install -r "Project Docs/requirements-dev.txt"
 ```
 
 No `setup.py` or `pyproject.toml` — this is a pure Python project with a JSON-driven configuration.
@@ -84,4 +84,5 @@ All five were migrated from a legacy `LAI_DMT_v1` API to the current `lai_prep_d
 - Population keys are **UPPERCASE_SNAKE_CASE**: `"MSM"`, `"CISGENDER_WOMEN"`, `"TRANSGENDER_WOMEN"`, `"ADOLESCENT"`, `"PWID"`, `"PREGNANT_LACTATING"`, `"GENERAL"`.
 - Barrier keys are **UPPERCASE_SNAKE_CASE**: e.g., `"TRANSPORTATION"`, `"CHILDCARE"`, `"INSURANCE_DELAYS"`, `"MEDICAL_MISTRUST"` (13 total — see config for full list).
 - Healthcare setting keys are **UPPERCASE_SNAKE_CASE**: e.g., `"COMMUNITY_HEALTH_CENTER"`, `"HARM_REDUCTION"`, `"LGBTQ_CENTER"` (8 total).
-- License is MIT with a pharma restriction (`docs/PHARMA_RESTRICTED_LICENSE.md`) — pharmaceutical companies require separate licensing.
+- License is MIT with a pharma restriction (`Project Docs/PHARMA_RESTRICTED_LICENSE.md`) — pharmaceutical companies require separate licensing.
+- `Project Docs/` holds infrastructure files (requirements, license, CHANGELOG, contributing guides). `docs/` holds dissemination-facing materials (policy briefs, UNAIDS executive summaries).
