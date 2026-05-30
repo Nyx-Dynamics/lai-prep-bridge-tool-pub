@@ -36,7 +36,7 @@ Note: `test_suite.py`, `test_suite_2.py`, `test_suite_3.py`, and `test_suite_4.p
 python SCR/code/cli/cli.py --help
 python SCR/code/cli/cli.py assess --input patient.json --output result.json
 python SCR/code/cli/cli.py batch --input patients.csv --output results.json
-python SCR/code/cli/cli.py validate
+python SCR/code/cli/cli.py validate --config SCR/lai_prep_config.json
 python SCR/code/cli/cli.py template
 ```
 
@@ -79,6 +79,8 @@ cd SCR/code/tests && PYTHONPATH=../algorithm pytest test_edge_cases.py -v
 
 ## Key Constraints
 
-- The canonical config is `SCR/lai_prep_config.json`. Scripts that load it by relative path assume they are run from `SCR/` or receive the path explicitly via `config_path`. There is no copy in `SCR/code/algorithm/`.
-- Populations are keyed by exact string names (`"MSM"`, `"adolescents"`, `"women"`, `"transgender_women"`, `"PWID"`, `"pregnant_lactating"`, `"general"`).
+- **Working directory matters.** The canonical config is `SCR/lai_prep_config.json`. The algorithm's `_find_config_file()` tries `Path(__file__).parent / "lai_prep_config.json"` first, but falls back to CWD-relative paths. The CLI and tests must be invoked from `SCR/` (or with an explicit `--config` flag) or they will fail to find the config. Config loading robustness (`Path(__file__).parent` as primary) is flagged as a TODO for a future session — see `TODO_config_loading.md` at repo root.
+- Population keys are **UPPERCASE_SNAKE_CASE**: `"MSM"`, `"CISGENDER_WOMEN"`, `"TRANSGENDER_WOMEN"`, `"ADOLESCENT"`, `"PWID"`, `"PREGNANT_LACTATING"`, `"GENERAL"`.
+- Barrier keys are **UPPERCASE_SNAKE_CASE**: e.g., `"TRANSPORTATION"`, `"CHILDCARE"`, `"INSURANCE_DELAYS"`, `"MEDICAL_MISTRUST"` (13 total — see config for full list).
+- Healthcare setting keys are **UPPERCASE_SNAKE_CASE**: e.g., `"COMMUNITY_HEALTH_CENTER"`, `"HARM_REDUCTION"`, `"LGBTQ_CENTER"` (8 total).
 - License is MIT with a pharma restriction (`Project Docs/PHARMA_RESTRICTED_LICENSE.md`) — pharmaceutical companies require separate licensing.
