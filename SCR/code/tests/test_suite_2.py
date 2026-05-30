@@ -6,16 +6,31 @@ Tests with 1 million synthetic patients for statistical significance
 This is a computationally intensive test - expected runtime: 10-30 minutes
 """
 
-from LAI_DMT_v1 import *
 import random
+import sys
 from datetime import datetime
+from pathlib import Path
 import json
 from collections import defaultdict
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "algorithm"))
+from lai_prep_decision_tool_v2_1 import LAIPrEPDecisionTool, PatientProfile
+
+CONFIG_PATH = str(Path(__file__).parent.parent.parent / "lai_prep_config.json")
+
+POPULATIONS = ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "PWID", "PREGNANT_LACTATING", "GENERAL"]
+HEALTHCARE_SETTINGS = ["ACADEMIC_MEDICAL_CENTER", "COMMUNITY_HEALTH_CENTER", "PRIVATE_PRACTICE",
+                       "PHARMACY", "HARM_REDUCTION", "LGBTQ_CENTER", "MOBILE_CLINIC", "TELEHEALTH"]
+BARRIERS = ["TRANSPORTATION", "CHILDCARE", "HOUSING_INSTABILITY", "INSURANCE_DELAYS",
+            "SCHEDULING_CONFLICTS", "MEDICAL_MISTRUST", "PRIVACY_CONCERNS",
+            "HEALTHCARE_DISCRIMINATION", "COMPETING_PRIORITIES",
+            "LIMITED_NAVIGATION_EXPERIENCE", "LEGAL_CONCERNS", "LACK_IDENTIFICATION",
+            "SUBSTANCE_USE"]
 
 
 class LargeScaleTestSuite:
     def __init__(self):
-        self.tool = LAIPrEPDecisionTool()
+        self.tool = LAIPrEPDecisionTool(config_path=CONFIG_PATH)
         self.test_results = []
 
     def generate_test_population(self, n=1000000):
@@ -23,23 +38,17 @@ class LargeScaleTestSuite:
         print(f"Generating {n:,} synthetic patients...")
         print("This may take several minutes...")
 
-        populations = list(Population)
-        settings = list(HealthcareSetting)
-        barriers = list(Barrier)
         prep_statuses = ["naive", "oral_prep", "discontinued_oral"]
 
         test_profiles = []
 
-        # Progress tracking
-        checkpoint = n // 10  # Report every 10%
+        checkpoint = n // 10
 
         for i in range(n):
             if (i + 1) % checkpoint == 0:
                 progress = ((i + 1) / n) * 100
                 print(f"  Progress: {progress:.0f}% ({i + 1:,}/{n:,} patients generated)")
 
-            # Random patient generation with realistic distributions
-            # Weight oral PrEP status more realistically (15% on oral, 10% discontinued, 75% naive)
             prep_roll = random.random()
             if prep_roll < 0.15:
                 prep_status = "oral_prep"
@@ -48,25 +57,24 @@ class LargeScaleTestSuite:
             else:
                 prep_status = "naive"
 
-            # More realistic barrier distribution (weighted toward fewer barriers)
-            barrier_count_weights = [0.2, 0.3, 0.25, 0.15, 0.07, 0.03]  # 0-5 barriers
+            barrier_count_weights = [0.2, 0.3, 0.25, 0.15, 0.07, 0.03]
             num_barriers = random.choices(range(6), weights=barrier_count_weights)[0]
 
             profile = PatientProfile(
-                population=random.choice(populations),
+                population=random.choice(POPULATIONS),
                 age=random.randint(16, 65),
                 current_prep_status=prep_status,
-                healthcare_setting=random.choice(settings),
-                barriers=random.sample(barriers, k=num_barriers) if num_barriers > 0 else [],
+                healthcare_setting=random.choice(HEALTHCARE_SETTINGS),
+                barriers=random.sample(BARRIERS, k=num_barriers) if num_barriers > 0 else [],
                 recent_hiv_test=random.choice([True, False]),
                 insurance_status=random.choices(
                     ["insured", "uninsured", "underinsured"],
-                    weights=[0.70, 0.15, 0.15]  # Realistic distribution
+                    weights=[0.70, 0.15, 0.15]
                 )[0]
             )
             test_profiles.append(profile)
 
-        print(f"âœ“ Generation complete: {n:,} patients created\n")
+        print(f"✓ Generation complete: {n:,} patients created\n")
         return test_profiles
 
     def validate_predictions(self, test_profiles):
@@ -85,7 +93,6 @@ class LargeScaleTestSuite:
             'total_improvement': 0
         }
 
-        # Progress tracking
         checkpoint = len(test_profiles) // 10
 
         for i, profile in enumerate(test_profiles):
@@ -95,42 +102,34 @@ class LargeScaleTestSuite:
 
             assessment = self.tool.assess_patient(profile)
 
-            # Track by population
-            pop = profile.population.value
+            pop = profile.population
             results['by_population'][pop]['count'] += 1
             results['by_population'][pop]['total_success'] += assessment.adjusted_success_rate
             results['by_population'][pop]['total_improvement'] += (
                     assessment.estimated_success_with_interventions - assessment.adjusted_success_rate
             )
 
-            # Track by PrEP status
             status = profile.current_prep_status
             results['by_prep_status'][status]['count'] += 1
             results['by_prep_status'][status]['total_success'] += assessment.adjusted_success_rate
 
-            # Track by risk level
             results['by_risk_level'][assessment.attrition_risk] += 1
 
-            # Track by barrier count
             barrier_count = len(profile.barriers)
             results['by_barrier_count'][barrier_count]['count'] += 1
             results['by_barrier_count'][barrier_count]['total_success'] += assessment.adjusted_success_rate
 
-            # Track interventions
             for rec in assessment.recommended_interventions:
-                results['interventions'][rec.intervention.value] += 1
+                results['interventions'][rec.intervention] += 1
 
-            # Totals
             results['total_success'] += assessment.adjusted_success_rate
             results['total_improvement'] += (
                     assessment.estimated_success_with_interventions - assessment.adjusted_success_rate
             )
 
-        # Calculate averages
         results['avg_success_rate'] = results['total_success'] / results['total']
         results['avg_improvement'] = results['total_improvement'] / results['total']
 
-        # Calculate population averages
         for pop in results['by_population']:
             count = results['by_population'][pop]['count']
             results['by_population'][pop]['avg_success'] = (
@@ -140,21 +139,19 @@ class LargeScaleTestSuite:
                     results['by_population'][pop]['total_improvement'] / count
             )
 
-        # Calculate PrEP status averages
         for status in results['by_prep_status']:
             count = results['by_prep_status'][status]['count']
             results['by_prep_status'][status]['avg_success'] = (
                     results['by_prep_status'][status]['total_success'] / count
             )
 
-        # Calculate barrier count averages
         for count in results['by_barrier_count']:
             total = results['by_barrier_count'][count]['count']
             results['by_barrier_count'][count]['avg_success'] = (
                     results['by_barrier_count'][count]['total_success'] / total
             )
 
-        print(f"âœ“ All assessments complete\n")
+        print(f"✓ All assessments complete\n")
         return results
 
     def generate_detailed_report(self, results):
@@ -167,7 +164,6 @@ class LargeScaleTestSuite:
         report.append("=" * 100)
         report.append("")
 
-        # Executive Summary
         report.append("EXECUTIVE SUMMARY")
         report.append("-" * 100)
         report.append(f"Total Patients Tested:                {results['total']:,}")
@@ -180,13 +176,11 @@ class LargeScaleTestSuite:
             f"Relative Improvement:                 +{(results['avg_improvement'] / results['avg_success_rate']) * 100:.1f}%")
         report.append("")
 
-        # Success Rates by Population
         report.append("SUCCESS RATES BY POPULATION")
         report.append("-" * 100)
         report.append(f"{'Population':<35} {'N':>10} {'Success Rate':>15} {'Improvement':>15}")
         report.append("-" * 100)
 
-        # Sort by success rate (descending)
         pop_sorted = sorted(
             results['by_population'].items(),
             key=lambda x: x[1]['avg_success'],
@@ -201,7 +195,6 @@ class LargeScaleTestSuite:
             )
         report.append("")
 
-        # Success Rates by PrEP Status
         report.append("SUCCESS RATES BY CURRENT PrEP STATUS")
         report.append("-" * 100)
         report.append(f"{'Status':<20} {'N':>10} {'Success Rate':>15}")
@@ -219,7 +212,6 @@ class LargeScaleTestSuite:
             )
         report.append("")
 
-        # Success Rates by Barrier Count
         report.append("SUCCESS RATES BY NUMBER OF BARRIERS")
         report.append("-" * 100)
         report.append(f"{'Barriers':<15} {'N':>10} {'Success Rate':>15} {'% of Total':>15}")
@@ -235,7 +227,6 @@ class LargeScaleTestSuite:
             )
         report.append("")
 
-        # Risk Level Distribution
         report.append("RISK LEVEL DISTRIBUTION")
         report.append("-" * 100)
         report.append(f"{'Risk Level':<20} {'N':>10} {'Percentage':>15}")
@@ -247,7 +238,6 @@ class LargeScaleTestSuite:
             report.append(f"{risk:<20} {count:>10,} {pct:>14.1f}%")
         report.append("")
 
-        # Most Frequently Recommended Interventions
         report.append("TOP 15 RECOMMENDED INTERVENTIONS")
         report.append("-" * 100)
         report.append(f"{'Intervention':<50} {'Frequency':>15} {'% of Patients':>15}")
@@ -264,10 +254,8 @@ class LargeScaleTestSuite:
             report.append(f"{intervention:<50} {count:>15,} {pct:>14.1f}%")
         report.append("")
 
-        # Statistical Significance
         report.append("STATISTICAL CONFIDENCE")
         report.append("-" * 100)
-        # With 1M patients, standard error is very small
         import math
         se = math.sqrt(results['avg_success_rate'] * (1 - results['avg_success_rate']) / results['total'])
         ci_95_lower = results['avg_success_rate'] - (1.96 * se)
@@ -276,17 +264,15 @@ class LargeScaleTestSuite:
         report.append(f"Sample Size:                          {results['total']:,}")
         report.append(f"Standard Error:                       {se:.6f}")
         report.append(f"95% Confidence Interval:              {ci_95_lower:.4%} - {ci_95_upper:.4%}")
-        report.append(f"Margin of Error:                      Â±{(1.96 * se) * 100:.4f} percentage points")
+        report.append(f"Margin of Error:                      ±{(1.96 * se) * 100:.4f} percentage points")
         report.append("")
         report.append(
             "With 1 million patients, estimates are statistically robust with very narrow confidence intervals.")
         report.append("")
 
-        # Key Findings
         report.append("KEY FINDINGS")
         report.append("-" * 100)
 
-        # Find oral PrEP advantage
         oral_success = results['by_prep_status']['oral_prep']['avg_success']
         naive_success = results['by_prep_status']['naive']['avg_success']
         oral_advantage = (oral_success - naive_success) * 100
@@ -296,7 +282,6 @@ class LargeScaleTestSuite:
         report.append(f"   - PrEP-naive patients: {naive_success:.2%} success rate")
         report.append("")
 
-        # Barrier impact
         no_barrier = results['by_barrier_count'][0]['avg_success']
         three_barrier = results['by_barrier_count'][3]['avg_success']
         barrier_impact = (no_barrier - three_barrier) * 100
@@ -306,7 +291,6 @@ class LargeScaleTestSuite:
         report.append(f"   - 3 barriers: {three_barrier:.2%} success rate")
         report.append("")
 
-        # Population disparity
         pop_data = {k: v['avg_success'] for k, v in results['by_population'].items()}
         highest_pop = max(pop_data, key=pop_data.get)
         lowest_pop = min(pop_data, key=pop_data.get)
@@ -317,13 +301,11 @@ class LargeScaleTestSuite:
         report.append(f"   - Lowest: {lowest_pop} at {pop_data[lowest_pop]:.2%}")
         report.append("")
 
-        # Intervention impact
         report.append(f"4. INTERVENTION EFFECTIVENESS: +{results['avg_improvement'] * 100:.2f} points average")
         report.append(
             f"   - This represents a {(results['avg_improvement'] / results['avg_success_rate']) * 100:.1f}% relative improvement")
         report.append("")
 
-        # Footer
         report.append("=" * 100)
         report.append("CONCLUSION")
         report.append("-" * 100)
@@ -341,7 +323,6 @@ class LargeScaleTestSuite:
         """Save detailed results to JSON"""
         print(f"Saving detailed results to {filename}...")
 
-        # Convert defaultdicts to regular dicts for JSON serialization
         export_results = {
             'total': results['total'],
             'avg_success_rate': results['avg_success_rate'],
@@ -357,7 +338,7 @@ class LargeScaleTestSuite:
         with open(filename, 'w') as f:
             json.dump(export_results, f, indent=2)
 
-        print(f"âœ“ Results saved to {filename}\n")
+        print(f"✓ Results saved to {filename}\n")
 
     def run_full_validation(self, n=1000000):
         """Run complete large-scale validation"""
@@ -370,20 +351,14 @@ class LargeScaleTestSuite:
         print("=" * 100)
         print()
 
-        # Generate population
         test_profiles = self.generate_test_population(n)
-
-        # Run predictions
         results = self.validate_predictions(test_profiles)
 
-        # Generate report
         report = self.generate_detailed_report(results)
         print(report)
 
-        # Save results
         self.save_results(results)
 
-        # Summary
         end_time = datetime.now()
         duration = end_time - start_time
 

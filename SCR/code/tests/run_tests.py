@@ -2,11 +2,22 @@
 Convenience script to re-run the test suite for the LAI-PrEP Bridge Tool.
 
 Usage:
-  python run_tests.py            # run unit/edge-case tests
+  python run_tests.py            # run unit/edge-case tests + simulation tests
   python run_tests.py --all      # run tests and configuration validation
   python run_tests.py --quiet    # minimal pytest output
 
-This is useful after upgrading to a new version to quickly check for regressions.
+Pytest-runnable tests (collected automatically):
+  test_edge_cases.py  -- boundary conditions, error handling (18 tests)
+
+Standalone simulation scripts (run directly, not via this runner):
+  test_suite.py       -- unit tests: oral PrEP, barriers, populations (python test_suite.py)
+  test_suite_2.py     -- 1M patient validation (~30 min)
+  test_suite_3.py     -- 10M patient streaming validation (~5 min)
+  test_suite_4.py     -- 21.2M UNAIDS-scale validation (~10 min)
+                         NOTE: results will differ from published validation_UNAIDS_21.2M_results.json
+                         because v2.1 config removed the SEX_WORKER population present in v1.
+
+Must be run from SCR/ directory (config is at SCR/lai_prep_config.json).
 """
 from __future__ import annotations
 
