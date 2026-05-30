@@ -55,13 +55,18 @@ def main(argv: list[str] | None = None) -> int:
     if args.all:
         print("\n==> Running configuration validation\n")
         validate_script = repo_root / "validate_config.py"
+        config_path = repo_root.parent.parent / "lai_prep_config.json"
         if validate_script.exists():
-            # Run validate_config as a module for portability
             try:
+                import sys as _sys
                 import runpy
-                runpy.run_path(str(validate_script), run_name="__main__")
+                _old_argv = _sys.argv[:]
+                _sys.argv = [str(validate_script), str(config_path)]
+                try:
+                    runpy.run_path(str(validate_script), run_name="__main__")
+                finally:
+                    _sys.argv = _old_argv
             except SystemExit as se:
-                # Some scripts may call sys.exit; treat non-zero as failure
                 if int(se.code or 0) != 0:
                     result_code = result_code or int(se.code)
             except Exception as e:
