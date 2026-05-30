@@ -5,6 +5,31 @@ All notable changes to the LAI-PrEP Bridge Period Decision Support Tool will be 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2026-05-30
+
+### Housekeeping release — no algorithm logic changes, no schema changes
+
+#### Fixed
+- Resolved filename collision: `SCR/lai_prep_decision_tool_v2_1.py` (figure generation suite, 696 lines) renamed to `manuscripts/lai_figures/generate_figures_viruses_2026.py`. Previously, `from lai_prep_decision_tool_v2_1 import LAIPrEPDecisionTool` was ambiguous if `SCR/` appeared before `SCR/code/algorithm/` on sys.path.
+- Fixed `run_tests.py --all` sys.argv bug: config validation step was receiving `--all` as the config file path instead of the actual config path.
+- Fixed CLI import: `SCR/code/cli/cli.py` now adds the algorithm directory to sys.path at startup, enabling invocation from any working directory.
+- Corrected CLAUDE.md population keys (were lowercase snake_case; actual keys are UPPERCASE_SNAKE_CASE).
+
+#### Changed
+- Migrated all four previously-broken test suites (`test_suite.py`, `test_suite_2.py`, `test_suite_3.py`, `test_suite_4.py`) from the removed `LAI_DMT_v1` module to the current `lai_prep_decision_tool_v2_1` API. All five test files are now runnable.
+- Added `SCR/code/tests/conftest.py` so pytest finds the algorithm module without manual `PYTHONPATH` export.
+- Moved `SCR/lai_prep_config_FIXED.json` (deprecated v2.0.0 copy) to `archive/lai_prep_config_v2.0.0_2025-01-12.json`.
+- Consolidated validation JSONs: removed duplicates from `config/` (identical to copies at repo root). Canonical location is repo root.
+- Moved UNAIDS policy documents from `Validation_progressive/` to `docs/`.
+- Renamed `archieve/` → `archive/mdpi_figures_viruses_2026/` (directory typo fix).
+- Removed 6 duplicate Python files at `SCR/` root (cosmetic ASCII/Unicode diffs only; canonical versions in `SCR/code/`).
+- Renamed `SCR/cascaades_revised.py` → `SCR/code/fig_gen/cascades_revised.py` (fixed double-a typo; this is the canonical cascade figure generator).
+- Removed `organize.py` and `sync_projects.py` (personal developer utilities not appropriate for a public research repo).
+- Untracked `.DS_Store` (was already in .gitignore).
+
+#### Known divergence (documented, not a bug)
+- `test_suite_4.py` (21.2M UNAIDS validation) will produce different numbers from the published `validation_UNAIDS_21.2M_results.json`. Root cause: v1 included a `SEX_WORKER` population absent from v2.1's config, changing regional weight distributions in Latin America and Asia-Pacific. The published JSON remains the v1 validation artifact. Config-loading robustness deferred to a future session; see `TODO_config_loading.md`.
+
 ## [Unreleased]
 
 ### Planned Features
@@ -13,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Multi-language support (Spanish, French)
 - Mobile application
 - Machine learning enhancements
+- Config loading robustness: move config into `SCR/code/algorithm/` and load via `Path(__file__).parent` (see `TODO_config_loading.md`)
 
 ## [1.0.0] - 2025-10-10
 
