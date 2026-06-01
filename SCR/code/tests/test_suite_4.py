@@ -13,34 +13,60 @@ COMPUTATIONAL REQUIREMENTS:
 CLINICAL SIGNIFICANCE:
 This validation models the ENTIRE global PrEP target population, providing
 insights at the scale needed for international HIV prevention policy.
+
+MIGRATION NOTE (v2.1 API):
+- v1 had enum-based Population/Barrier/HealthcareSetting types with a .value attribute.
+  v2.1 uses plain string keys from lai_prep_config.json directly.
+- v1 included a SEX_WORKER population not present in v2.1. The regional weight logic
+  in get_population_weights_by_region() has been updated: SEX_WORKER branches now
+  fall through to the general-population weight bucket since no matching key exists.
+  This changes regional population weights from v1 — results will differ from the
+  published validation_UNAIDS_21.2M_results.json (which was generated with v1).
+- v1 matched PWID via 'INJECT' substring; v2.1 uses 'PWID' substring. Updated.
 """
 
-from LAI_DMT_v1 import *
 import random
+import sys
 from datetime import datetime
+from pathlib import Path
 import json
 from collections import defaultdict
-import gc  # Garbage collection for memory optimization
-import sys
+import gc
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "algorithm"))
+from lai_prep_decision_tool_v2_1 import LAIPrEPDecisionTool, PatientProfile
+
+CONFIG_PATH = str(Path(__file__).parent.parent.parent / "lai_prep_config.json")
+
+# v2.1 population keys (UPPERCASE_SNAKE_CASE from lai_prep_config.json)
+# NOTE: SEX_WORKER from v1 is absent in v2.1. Regional weights adjusted accordingly.
+POPULATIONS = ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "PWID", "PREGNANT_LACTATING", "GENERAL"]
+HEALTHCARE_SETTINGS = ["ACADEMIC_MEDICAL_CENTER", "COMMUNITY_HEALTH_CENTER", "PRIVATE_PRACTICE",
+                       "PHARMACY", "HARM_REDUCTION", "LGBTQ_CENTER", "MOBILE_CLINIC", "TELEHEALTH"]
+BARRIERS = ["TRANSPORTATION", "CHILDCARE", "HOUSING_INSTABILITY", "INSURANCE_DELAYS",
+            "SCHEDULING_CONFLICTS", "MEDICAL_MISTRUST", "PRIVACY_CONCERNS",
+            "HEALTHCARE_DISCRIMINATION", "COMPETING_PRIORITIES",
+            "LIMITED_NAVIGATION_EXPERIENCE", "LEGAL_CONCERNS", "LACK_IDENTIFICATION",
+            "SUBSTANCE_USE"]
 
 
 class UNAIDSGlobalScaleTestSuite:
     """
     Test suite calibrated to UNAIDS global PrEP target of 21.2 million users by 2025.
-    
+
     This represents the scale needed to achieve the UN Sustainable Development Goal
     of ending AIDS as a public health threat by 2030.
     """
-    
+
     def __init__(self):
-        self.tool = LAIPrEPDecisionTool()
+        self.tool = LAIPrEPDecisionTool(config_path=CONFIG_PATH)
         self.test_results = []
         self.unaids_target = 21200000  # 21.2 million
-        
+
     def get_regional_distribution(self):
         """
         Returns realistic regional distribution based on current global PrEP data.
-        
+
         Based on search results:
         - Sub-Saharan Africa: ~60-65% of global need
         - North America: ~15-20%
@@ -55,103 +81,95 @@ class UNAIDSGlobalScaleTestSuite:
             'europe_central_asia': 0.06,
             'asia_pacific': 0.05
         }
-    
+
     def get_population_weights_by_region(self, region):
         """
         Get population weights based on regional HIV epidemiology.
-        
+
         Different regions have different epidemic patterns:
         - SSA: More heterosexual transmission, AGYW priority
         - North America/Europe: MSM predominant
         - Latin America: Mixed epidemic with MSM and transgender focus
-        
-        Note: Using all available Population enum values equally if specific
-        populations aren't defined. This ensures compatibility.
+
+        NOTE: v2.1 API change — populations are plain strings, not enums.
+        SEX_WORKER population from v1 is absent in v2.1; those cases fall through
+        to the else/general bucket. This changes weight distribution from v1.
+        PWID is matched via 'PWID' substring (v1 used 'INJECT').
         """
-        
-        # Get all available populations from the enum
-        all_pops = list(Population)
-        
+
+        all_pops = list(POPULATIONS)
+
         if region == 'sub_saharan_africa':
-            # SSA: Priority on heterosexual transmission and AGYW
             weights = {}
             for pop in all_pops:
-                if 'MSM' in pop.value:
+                if 'MSM' in pop:
                     weights[pop] = 0.15
-                elif 'TRANSGENDER' in pop.value:
+                elif 'TRANSGENDER' in pop:
                     weights[pop] = 0.10
-                elif 'INJECT' in pop.value:
+                elif 'PWID' in pop:
                     weights[pop] = 0.05
-                elif 'SEX_WORKER' in pop.value:
-                    weights[pop] = 0.12
                 else:
-                    weights[pop] = 0.20  # Heterosexual populations, AGYW, serodifferent
-            # Normalize
+                    # Heterosexual populations, AGYW, serodifferent, and (v2.1) no SEX_WORKER bucket
+                    weights[pop] = 0.20
             total = sum(weights.values())
-            return {k: v/total for k, v in weights.items()}
-            
+            return {k: v / total for k, v in weights.items()}
+
         elif region == 'north_america':
-            # North America: MSM predominant
             weights = {}
             for pop in all_pops:
-                if 'MSM' in pop.value:
+                if 'MSM' in pop:
                     weights[pop] = 0.60
-                elif 'TRANSGENDER' in pop.value:
+                elif 'TRANSGENDER' in pop:
                     weights[pop] = 0.15
-                elif 'INJECT' in pop.value:
+                elif 'PWID' in pop:
                     weights[pop] = 0.08
                 else:
                     weights[pop] = 0.05
             total = sum(weights.values())
-            return {k: v/total for k, v in weights.items()}
-            
+            return {k: v / total for k, v in weights.items()}
+
         elif region == 'latin_america_caribbean':
-            # Latin America: MSM and transgender focus
             weights = {}
             for pop in all_pops:
-                if 'MSM' in pop.value:
+                if 'MSM' in pop:
                     weights[pop] = 0.45
-                elif 'TRANSGENDER' in pop.value:
+                elif 'TRANSGENDER' in pop:
                     weights[pop] = 0.25
-                elif 'SEX_WORKER' in pop.value:
-                    weights[pop] = 0.15
                 else:
+                    # v1 had SEX_WORKER at 0.15 here; falls to general bucket in v2.1
                     weights[pop] = 0.05
             total = sum(weights.values())
-            return {k: v/total for k, v in weights.items()}
-            
+            return {k: v / total for k, v in weights.items()}
+
         elif region == 'europe_central_asia':
-            # Europe/Central Asia: MSM and PWID
             weights = {}
             for pop in all_pops:
-                if 'MSM' in pop.value:
+                if 'MSM' in pop:
                     weights[pop] = 0.50
-                elif 'INJECT' in pop.value:
+                elif 'PWID' in pop:
                     weights[pop] = 0.20
-                elif 'TRANSGENDER' in pop.value:
+                elif 'TRANSGENDER' in pop:
                     weights[pop] = 0.12
                 else:
                     weights[pop] = 0.06
             total = sum(weights.values())
-            return {k: v/total for k, v in weights.items()}
-            
+            return {k: v / total for k, v in weights.items()}
+
         else:  # asia_pacific
-            # Asia Pacific: Mixed epidemic
             weights = {}
             for pop in all_pops:
-                if 'MSM' in pop.value:
+                if 'MSM' in pop:
                     weights[pop] = 0.35
-                elif 'SEX_WORKER' in pop.value:
-                    weights[pop] = 0.20
-                elif 'TRANSGENDER' in pop.value:
+                elif 'TRANSGENDER' in pop:
                     weights[pop] = 0.15
-                elif 'INJECT' in pop.value:
+                elif 'PWID' in pop:
                     weights[pop] = 0.12
                 else:
+                    # v1 had SEX_WORKER at 0.20 here; falls to general bucket in v2.1
                     weights[pop] = 0.09
             total = sum(weights.values())
-            return {k: v/total for k, v in weights.items()}
-    
+            return {k: v / total for k, v in weights.items()}
+
     def generate_and_assess_streaming(self, n=21200000):
         """
         Generate and assess patients in streaming fashion to minimize memory usage.
@@ -161,23 +179,19 @@ class UNAIDSGlobalScaleTestSuite:
         print(f"Matching UNAIDS 2025 global PrEP target: 21.2 MILLION users")
         print("Processing in real-time with regional stratification...")
         print()
-        
-        # Get regional distribution
+
         regional_dist = self.get_regional_distribution()
-        
-        # Calculate patients per region
+
         regional_counts = {
-            region: int(n * proportion) 
+            region: int(n * proportion)
             for region, proportion in regional_dist.items()
         }
-        
-        # Adjust for rounding to ensure we hit exactly n
+
         total_allocated = sum(regional_counts.values())
         if total_allocated < n:
-            # Add remainder to largest region
             largest_region = max(regional_counts, key=regional_counts.get)
             regional_counts[largest_region] += (n - total_allocated)
-        
+
         print("REGIONAL ALLOCATION:")
         print("-" * 80)
         for region, count in regional_counts.items():
@@ -185,24 +199,19 @@ class UNAIDSGlobalScaleTestSuite:
             print(f"  {region.replace('_', ' ').title():<35} {count:>12,} ({pct:>5.2f}%)")
         print("-" * 80)
         print()
-        
-        settings = list(HealthcareSetting)
-        barriers = list(Barrier)
-        prep_statuses = ["naive", "oral_prep", "discontinued_oral"]
-        
-        # Results tracking (lightweight - only aggregates, not individual patients)
+
         results = {
             'total': n,
             'unaids_target': self.unaids_target,
             'by_region': defaultdict(lambda: {
-                'count': 0, 
-                'total_success': 0, 
+                'count': 0,
+                'total_success': 0,
                 'total_improvement': 0,
                 'by_population': defaultdict(lambda: {'count': 0, 'total_success': 0})
             }),
             'by_population': defaultdict(lambda: {
-                'count': 0, 
-                'total_success': 0, 
+                'count': 0,
+                'total_success': 0,
                 'total_improvement': 0
             }),
             'by_prep_status': defaultdict(lambda: {'count': 0, 'total_success': 0}),
@@ -215,36 +224,31 @@ class UNAIDSGlobalScaleTestSuite:
             'total_with_interventions': 0,
             'regional_counts': regional_counts
         }
-        
-        # Progress tracking
-        checkpoint = n // 50  # Report every 2%
+
+        checkpoint = n // 50
         start_time = datetime.now()
         patients_processed = 0
-        
-        # Process each region
+
         for region, region_count in regional_counts.items():
             print(f"\nProcessing {region.replace('_', ' ').title()}...")
             print("-" * 80)
-            
-            # Get population weights for this region
+
             pop_weights = self.get_population_weights_by_region(region)
             populations = list(pop_weights.keys())
             weights = list(pop_weights.values())
-            
+
             for i in range(region_count):
-                # Progress reporting
                 if (patients_processed + 1) % checkpoint == 0:
                     progress = ((patients_processed + 1) / n) * 100
                     elapsed = (datetime.now() - start_time).total_seconds()
                     rate = (patients_processed + 1) / elapsed
                     eta_seconds = (n - patients_processed - 1) / rate if rate > 0 else 0
                     eta_minutes = eta_seconds / 60
-                    
+
                     print(f"  Progress: {progress:5.1f}% ({patients_processed + 1:>11,}/{n:,}) | "
                           f"Rate: {rate:>8,.0f} pts/sec | "
                           f"ETA: {eta_minutes:>5.1f} min", end='\r')
-                
-                # Generate single patient with region-specific distributions
+
                 prep_roll = random.random()
                 if prep_roll < 0.15:
                     prep_status = "oral_prep"
@@ -252,100 +256,89 @@ class UNAIDSGlobalScaleTestSuite:
                     prep_status = "discontinued_oral"
                 else:
                     prep_status = "naive"
-                
-                # Regional barrier patterns (resource-limited settings have more barriers)
+
                 if region == 'sub_saharan_africa':
                     barrier_weights = [0.10, 0.20, 0.25, 0.20, 0.15, 0.10]
                 elif region in ['north_america', 'europe_central_asia']:
                     barrier_weights = [0.25, 0.30, 0.25, 0.12, 0.06, 0.02]
                 else:
                     barrier_weights = [0.15, 0.25, 0.25, 0.18, 0.12, 0.05]
-                
+
                 num_barriers = random.choices(range(6), weights=barrier_weights)[0]
-                
-                # Select population based on regional weights
+
                 population = random.choices(populations, weights=weights)[0]
-                
+
                 profile = PatientProfile(
                     population=population,
                     age=random.randint(16, 65),
                     current_prep_status=prep_status,
-                    healthcare_setting=random.choice(settings),
-                    barriers=random.sample(barriers, k=num_barriers) if num_barriers > 0 else [],
+                    healthcare_setting=random.choice(HEALTHCARE_SETTINGS),
+                    barriers=random.sample(BARRIERS, k=num_barriers) if num_barriers > 0 else [],
                     recent_hiv_test=random.choice([True, False]),
                     insurance_status=random.choices(
                         ["insured", "uninsured", "underinsured"],
                         weights=[0.70, 0.15, 0.15]
                     )[0]
                 )
-                
-                # Assess patient
+
                 assessment = self.tool.assess_patient(profile)
-                
-                # Update regional aggregates
+
                 results['by_region'][region]['count'] += 1
                 results['by_region'][region]['total_success'] += assessment.adjusted_success_rate
                 results['by_region'][region]['total_improvement'] += (
                     assessment.estimated_success_with_interventions - assessment.adjusted_success_rate
                 )
-                
-                # Update regional population breakdown
-                pop = profile.population.value
+
+                pop = profile.population
                 results['by_region'][region]['by_population'][pop]['count'] += 1
                 results['by_region'][region]['by_population'][pop]['total_success'] += (
                     assessment.adjusted_success_rate
                 )
-                
-                # Update global population aggregates
+
                 results['by_population'][pop]['count'] += 1
                 results['by_population'][pop]['total_success'] += assessment.adjusted_success_rate
                 results['by_population'][pop]['total_improvement'] += (
                     assessment.estimated_success_with_interventions - assessment.adjusted_success_rate
                 )
-                
-                # Update other global aggregates
+
                 status = profile.current_prep_status
                 results['by_prep_status'][status]['count'] += 1
                 results['by_prep_status'][status]['total_success'] += assessment.adjusted_success_rate
-                
+
                 results['by_risk_level'][assessment.attrition_risk] += 1
-                
+
                 barrier_count = len(profile.barriers)
                 results['by_barrier_count'][barrier_count]['count'] += 1
                 results['by_barrier_count'][barrier_count]['total_success'] += assessment.adjusted_success_rate
-                
-                setting = profile.healthcare_setting.value
+
+                setting = profile.healthcare_setting
                 results['by_setting'][setting]['count'] += 1
                 results['by_setting'][setting]['total_success'] += assessment.adjusted_success_rate
-                
+
                 for rec in assessment.recommended_interventions:
-                    results['interventions'][rec.intervention.value] += 1
-                
+                    results['interventions'][rec.intervention] += 1
+
                 results['total_success'] += assessment.adjusted_success_rate
                 results['total_improvement'] += (
                     assessment.estimated_success_with_interventions - assessment.adjusted_success_rate
                 )
                 results['total_with_interventions'] += assessment.estimated_success_with_interventions
-                
+
                 patients_processed += 1
-                
-                # Periodic garbage collection (every 100K patients)
+
                 if patients_processed % 100000 == 0:
                     gc.collect()
-        
-        # Final progress
-        print()  # New line after progress
+
+        print()
         total_time = (datetime.now() - start_time).total_seconds()
         final_rate = n / total_time
         print(f"\n  Progress: 100.0% ({n:,}/{n:,}) | Rate: {final_rate:>8,.0f} pts/sec | Complete!")
         print()
-        
-        # Calculate averages
+
         results['avg_success_rate'] = results['total_success'] / results['total']
         results['avg_improvement'] = results['total_improvement'] / results['total']
         results['avg_with_interventions'] = results['total_with_interventions'] / results['total']
-        
-        # Regional averages
+
         for region in results['by_region']:
             count = results['by_region'][region]['count']
             results['by_region'][region]['avg_success'] = (
@@ -354,15 +347,13 @@ class UNAIDSGlobalScaleTestSuite:
             results['by_region'][region]['avg_improvement'] = (
                 results['by_region'][region]['total_improvement'] / count
             )
-            
-            # Regional population averages
+
             for pop in results['by_region'][region]['by_population']:
                 pop_count = results['by_region'][region]['by_population'][pop]['count']
                 results['by_region'][region]['by_population'][pop]['avg_success'] = (
                     results['by_region'][region]['by_population'][pop]['total_success'] / pop_count
                 )
-        
-        # Global population averages
+
         for pop in results['by_population']:
             count = results['by_population'][pop]['count']
             results['by_population'][pop]['avg_success'] = (
@@ -371,41 +362,37 @@ class UNAIDSGlobalScaleTestSuite:
             results['by_population'][pop]['avg_improvement'] = (
                 results['by_population'][pop]['total_improvement'] / count
             )
-        
-        # PrEP status averages
+
         for status in results['by_prep_status']:
             count = results['by_prep_status'][status]['count']
             results['by_prep_status'][status]['avg_success'] = (
                 results['by_prep_status'][status]['total_success'] / count
             )
-        
-        # Barrier count averages
+
         for count in results['by_barrier_count']:
             total = results['by_barrier_count'][count]['count']
             results['by_barrier_count'][count]['avg_success'] = (
                 results['by_barrier_count'][count]['total_success'] / total
             )
-        
-        # Setting averages
+
         for setting in results['by_setting']:
             count = results['by_setting'][setting]['count']
             results['by_setting'][setting]['avg_success'] = (
                 results['by_setting'][setting]['total_success'] / count
             )
-        
+
         return results
-    
+
     def generate_detailed_report(self, results):
         """Generate comprehensive report with global health equity focus"""
         report = []
-        
+
         report.append("=" * 120)
         report.append("LAI-PrEP DECISION TOOL - UNAIDS GLOBAL TARGET SCALE VALIDATION")
         report.append(f"Test Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         report.append("=" * 120)
         report.append("")
-        
-        # UNAIDS Context
+
         report.append("UNAIDS GLOBAL HIV PREVENTION CONTEXT")
         report.append("-" * 120)
         report.append(f"UNAIDS 2025 PrEP Target:              {results['unaids_target']:>15,} users")
@@ -415,8 +402,7 @@ class UNAIDSGlobalScaleTestSuite:
         report.append("")
         report.append("Goal: End AIDS as a public health threat by 2030 (UN SDG 3.3)")
         report.append("")
-        
-        # Executive Summary
+
         report.append("EXECUTIVE SUMMARY - GLOBAL SCALE")
         report.append("-" * 120)
         report.append(f"Total Patients Tested:                {results['total']:>15,}")
@@ -425,27 +411,25 @@ class UNAIDSGlobalScaleTestSuite:
         report.append(f"Average Improvement:                  {results['avg_improvement']:>13.3%}  (+{results['avg_improvement'] * 100:.2f} points)")
         report.append(f"Relative Improvement:                 +{(results['avg_improvement'] / results['avg_success_rate']) * 100:>13.1f}%")
         report.append("")
-        
-        # Estimated Lives Saved (if scaled globally)
-        lives_saved_per_point = 212000  # 1% of 21.2M
+
+        lives_saved_per_point = 212000
         estimated_lives_saved = results['avg_improvement'] * lives_saved_per_point
         report.append(f"PROJECTED IMPACT AT GLOBAL SCALE:")
         report.append(f"  If interventions implemented globally: ~{estimated_lives_saved:,.0f} additional successful LAI-PrEP transitions")
         report.append(f"  This represents {results['avg_improvement']*100:.2f}% improvement over baseline across 21.2M users")
         report.append("")
-        
-        # Regional Analysis
+
         report.append("SUCCESS RATES BY WORLD REGION")
         report.append("-" * 120)
         report.append(f"{'Region':<40} {'N':>12} {'Success Rate':>15} {'Improvement':>15} {'Final Rate':>15}")
         report.append("-" * 120)
-        
+
         region_sorted = sorted(
             results['by_region'].items(),
             key=lambda x: x[1]['avg_success'],
             reverse=True
         )
-        
+
         for region, data in region_sorted:
             region_name = region.replace('_', ' ').title()
             final_rate = data['avg_success'] + data['avg_improvement']
@@ -456,13 +440,12 @@ class UNAIDSGlobalScaleTestSuite:
                 f"{final_rate:>14.3%}"
             )
         report.append("")
-        
-        # Regional Health Equity Gap
+
         region_success_rates = {k: v['avg_success'] for k, v in results['by_region'].items()}
         best_region = max(region_success_rates, key=region_success_rates.get)
         worst_region = min(region_success_rates, key=region_success_rates.get)
         equity_gap = (region_success_rates[best_region] - region_success_rates[worst_region]) * 100
-        
+
         report.append("GLOBAL HEALTH EQUITY ANALYSIS")
         report.append("-" * 120)
         report.append(f"Regional Equity Gap:                  {equity_gap:.2f} percentage points")
@@ -470,19 +453,18 @@ class UNAIDSGlobalScaleTestSuite:
         report.append(f"  Lowest:  {worst_region.replace('_', ' ').title():<30} {region_success_rates[worst_region]:.3%}")
         report.append(f"  Relative disparity: {(equity_gap / region_success_rates[worst_region]) * 100:.1f}%")
         report.append("")
-        
-        # Success Rates by Population (Global)
+
         report.append("SUCCESS RATES BY POPULATION (GLOBAL)")
         report.append("-" * 120)
         report.append(f"{'Population':<40} {'N':>12} {'Success Rate':>15} {'Improvement':>15} {'Final Rate':>15}")
         report.append("-" * 120)
-        
+
         pop_sorted = sorted(
             results['by_population'].items(),
             key=lambda x: x[1]['avg_success'],
             reverse=True
         )
-        
+
         for pop, data in pop_sorted:
             final_rate = data['avg_success'] + data['avg_improvement']
             report.append(
@@ -492,19 +474,18 @@ class UNAIDSGlobalScaleTestSuite:
                 f"{final_rate:>14.3%}"
             )
         report.append("")
-        
-        # Success Rates by PrEP Status
+
         report.append("SUCCESS RATES BY CURRENT PrEP STATUS")
         report.append("-" * 120)
         report.append(f"{'Status':<25} {'N':>12} {'Success Rate':>15} {'% of Total':>15}")
         report.append("-" * 120)
-        
+
         status_sorted = sorted(
             results['by_prep_status'].items(),
             key=lambda x: x[1]['avg_success'],
             reverse=True
         )
-        
+
         for status, data in status_sorted:
             pct_total = (data['count'] / results['total']) * 100
             report.append(
@@ -513,19 +494,18 @@ class UNAIDSGlobalScaleTestSuite:
                 f"{pct_total:>14.1f}%"
             )
         report.append("")
-        
-        # Success Rates by Healthcare Setting
+
         report.append("SUCCESS RATES BY HEALTHCARE SETTING")
         report.append("-" * 120)
         report.append(f"{'Setting':<40} {'N':>12} {'Success Rate':>15} {'% of Total':>15}")
         report.append("-" * 120)
-        
+
         setting_sorted = sorted(
             results['by_setting'].items(),
             key=lambda x: x[1]['avg_success'],
             reverse=True
         )
-        
+
         for setting, data in setting_sorted:
             pct_total = (data['count'] / results['total']) * 100
             report.append(
@@ -534,22 +514,20 @@ class UNAIDSGlobalScaleTestSuite:
                 f"{pct_total:>14.1f}%"
             )
         report.append("")
-        
-        # Success Rates by Barrier Count
+
         report.append("SUCCESS RATES BY NUMBER OF BARRIERS")
         report.append("-" * 120)
         report.append(f"{'Barriers':<15} {'N':>12} {'Success Rate':>15} {'% of Total':>15} {'Per-Barrier Impact':>20}")
         report.append("-" * 120)
-        
+
         barrier_data = []
         for count in sorted(results['by_barrier_count'].keys()):
             data = results['by_barrier_count'][count]
             pct_total = (data['count'] / results['total']) * 100
             barrier_data.append((count, data, pct_total))
-        
-        # Calculate per-barrier impact
+
         no_barrier_success = results['by_barrier_count'][0]['avg_success']
-        
+
         for count, data, pct_total in barrier_data:
             if count > 0:
                 total_impact = no_barrier_success - data['avg_success']
@@ -557,7 +535,7 @@ class UNAIDSGlobalScaleTestSuite:
                 per_barrier_str = f"-{per_barrier * 100:.2f}pts/barrier"
             else:
                 per_barrier_str = "baseline"
-            
+
             report.append(
                 f"{count:<15} {data['count']:>12,} "
                 f"{data['avg_success']:>14.3%} "
@@ -565,83 +543,77 @@ class UNAIDSGlobalScaleTestSuite:
                 f"{per_barrier_str:>20}"
             )
         report.append("")
-        
-        # Risk Level Distribution
+
         report.append("ATTRITION RISK DISTRIBUTION")
         report.append("-" * 120)
         report.append(f"{'Risk Level':<25} {'N':>12} {'Percentage':>15}")
         report.append("-" * 120)
-        
+
         for risk in ['Low', 'Moderate', 'High', 'Very High']:
             count = results['by_risk_level'][risk]
             pct = (count / results['total']) * 100
             report.append(f"{risk:<25} {count:>12,} {pct:>14.2f}%")
         report.append("")
-        
-        # Top 25 Recommended Interventions
+
         report.append("TOP 25 RECOMMENDED INTERVENTIONS (GLOBAL SCALE)")
         report.append("-" * 120)
         report.append(f"{'Intervention':<55} {'Frequency':>15} {'% of Patients':>15}")
         report.append("-" * 120)
-        
+
         intervention_sorted = sorted(
             results['interventions'].items(),
             key=lambda x: x[1],
             reverse=True
         )[:25]
-        
+
         for intervention, count in intervention_sorted:
             pct = (count / results['total']) * 100
             report.append(f"{intervention:<55} {count:>15,} {pct:>14.2f}%")
         report.append("")
-        
-        # Statistical Confidence (Enhanced for 21.2M)
+
         report.append("STATISTICAL CONFIDENCE (GLOBAL SCALE)")
         report.append("-" * 120)
         import math
-        
+
         se = math.sqrt(results['avg_success_rate'] * (1 - results['avg_success_rate']) / results['total'])
         ci_95_lower = results['avg_success_rate'] - (1.96 * se)
         ci_95_upper = results['avg_success_rate'] + (1.96 * se)
         ci_99_lower = results['avg_success_rate'] - (2.576 * se)
         ci_99_upper = results['avg_success_rate'] + (2.576 * se)
-        
+
         report.append(f"Sample Size:                          {results['total']:>15,} patients")
         report.append(f"Standard Error:                       {se:>15.7f}")
         report.append(f"95% Confidence Interval:              {ci_95_lower:.5%} - {ci_95_upper:.5%}")
         report.append(f"99% Confidence Interval:              {ci_99_lower:.5%} - {ci_99_upper:.5%}")
-        report.append(f"Margin of Error (95%):                Â±{(1.96 * se) * 100:.5f} percentage points")
-        report.append(f"Margin of Error (99%):                Â±{(2.576 * se) * 100:.5f} percentage points")
+        report.append(f"Margin of Error (95%):                ±{(1.96 * se) * 100:.5f} percentage points")
+        report.append(f"Margin of Error (99%):                ±{(2.576 * se) * 100:.5f} percentage points")
         report.append("")
         report.append("With 21.2 MILLION patients (UNAIDS target scale), estimates have EXCEPTIONAL")
         report.append("statistical precision - suitable for international policy recommendations.")
         report.append(f"Confidence intervals are ~4.6x narrower than with 1M patients.")
         report.append("")
-        
-        # Key Findings
+
         report.append("KEY FINDINGS - GLOBAL HEALTH IMPLICATIONS")
         report.append("-" * 120)
-        
-        # Oral PrEP advantage
+
         oral_success = results['by_prep_status']['oral_prep']['avg_success']
         naive_success = results['by_prep_status']['naive']['avg_success']
         oral_advantage = (oral_success - naive_success) * 100
-        
+
         report.append(f"1. ORAL PrEP EXPERIENCE ADVANTAGE: {oral_advantage:+.3f} percentage points")
         report.append(f"   - Oral PrEP patients: {oral_success:.3%} baseline success rate")
         report.append(f"   - PrEP-naive patients: {naive_success:.3%} baseline success rate")
         report.append(f"   - At global scale: ~{oral_advantage * results['unaids_target'] / 100:,.0f} additional transitions")
         report.append(f"   - Statistical significance: p < 0.0001 (N=21.2M provides maximum power)")
         report.append("")
-        
-        # Barrier impact analysis
+
         no_barrier = results['by_barrier_count'][0]['avg_success']
         one_barrier = results['by_barrier_count'][1]['avg_success']
         three_barrier = results['by_barrier_count'][3]['avg_success']
         five_barrier = results['by_barrier_count'][5]['avg_success']
-        
+
         per_barrier_avg = (no_barrier - five_barrier) / 5
-        
+
         report.append(f"2. BARRIER IMPACT ANALYSIS (GLOBAL):")
         report.append(f"   - No barriers:    {no_barrier:.3%} success rate")
         report.append(f"   - 1 barrier:      {one_barrier:.3%} success rate (-{(no_barrier - one_barrier) * 100:.2f} pts)")
@@ -650,21 +622,19 @@ class UNAIDSGlobalScaleTestSuite:
         report.append(f"   - Average impact per barrier: -{per_barrier_avg * 100:.2f} percentage points")
         report.append(f"   - Global implication: Removing barriers could improve {results['unaids_target']:,} transitions")
         report.append("")
-        
-        # Population disparity
+
         pop_data = {k: v['avg_success'] for k, v in results['by_population'].items()}
         highest_pop = max(pop_data, key=pop_data.get)
         lowest_pop = min(pop_data, key=pop_data.get)
         disparity = (pop_data[highest_pop] - pop_data[lowest_pop]) * 100
-        
+
         report.append(f"3. POPULATION HEALTH EQUITY GAP: {disparity:.2f} percentage point disparity")
         report.append(f"   - Highest success: {highest_pop} at {pop_data[highest_pop]:.3%}")
         report.append(f"   - Lowest success:  {lowest_pop} at {pop_data[lowest_pop]:.3%}")
         report.append(f"   - Relative disadvantage: {(disparity / pop_data[lowest_pop]) * 100:.1f}%")
         report.append(f"   - This gap must be addressed to achieve HIV elimination goals")
         report.append("")
-        
-        # Regional disparity
+
         report.append(f"4. REGIONAL HEALTH EQUITY GAP: {equity_gap:.2f} percentage points")
         best_region_name = best_region.replace('_', ' ').title()
         worst_region_name = worst_region.replace('_', ' ').title()
@@ -673,8 +643,7 @@ class UNAIDSGlobalScaleTestSuite:
         report.append(f"   - Resource allocation must address regional disparities")
         report.append(f"   - Focus interventions in {worst_region_name} for maximum impact")
         report.append("")
-        
-        # Intervention impact
+
         report.append(f"5. INTERVENTION EFFECTIVENESS (GLOBAL SCALE): +{results['avg_improvement'] * 100:.3f} points average")
         relative_improvement = (results['avg_improvement'] / results['avg_success_rate']) * 100
         report.append(f"   - Relative improvement: {relative_improvement:.2f}%")
@@ -682,20 +651,18 @@ class UNAIDSGlobalScaleTestSuite:
         report.append(f"   - Number needed to treat (NNT): {1 / results['avg_improvement']:.1f} patients")
         report.append(f"   - At UNAIDS scale: ~{estimated_lives_saved:,.0f} additional successful transitions")
         report.append("")
-        
-        # Setting analysis
+
         setting_data = {k: v['avg_success'] for k, v in results['by_setting'].items()}
         best_setting = max(setting_data, key=setting_data.get)
         worst_setting = min(setting_data, key=setting_data.get)
-        
+
         report.append(f"6. HEALTHCARE SETTING IMPACT:")
         report.append(f"   - Highest success setting: {best_setting} at {setting_data[best_setting]:.3%}")
         report.append(f"   - Lowest success setting:  {worst_setting} at {setting_data[worst_setting]:.3%}")
         report.append(f"   - Setting matters: {(setting_data[best_setting] - setting_data[worst_setting]) * 100:.2f} point difference")
         report.append(f"   - Model of care optimization can bridge this gap")
         report.append("")
-        
-        # Footer
+
         report.append("=" * 120)
         report.append("CONCLUSION - GLOBAL HIV PREVENTION POLICY IMPLICATIONS")
         report.append("-" * 120)
@@ -704,33 +671,32 @@ class UNAIDSGlobalScaleTestSuite:
         report.append("and robustness at the scale required for international HIV prevention policy.")
         report.append("")
         report.append("POLICY RECOMMENDATIONS:")
-        report.append("  âœ“ Prioritize resource allocation to regions with lowest success rates")
-        report.append("  âœ“ Implement targeted interventions for populations facing highest barriers")
-        report.append("  âœ“ Address health equity gaps to achieve UN SDG 3.3 (End AIDS by 2030)")
-        report.append("  âœ“ Scale evidence-based interventions shown to improve outcomes globally")
-        report.append("  âœ“ Strengthen healthcare settings with lowest performance")
+        report.append("  ✓ Prioritize resource allocation to regions with lowest success rates")
+        report.append("  ✓ Implement targeted interventions for populations facing highest barriers")
+        report.append("  ✓ Address health equity gaps to achieve UN SDG 3.3 (End AIDS by 2030)")
+        report.append("  ✓ Scale evidence-based interventions shown to improve outcomes globally")
+        report.append("  ✓ Strengthen healthcare settings with lowest performance")
         report.append("")
         report.append("STATISTICAL POWER:")
         report.append(f"With 21.2M patients, this validation can detect differences as small as 0.019 percentage")
         report.append("points with 95% confidence - providing the precision needed for international policy.")
         report.append("")
         report.append("This tool is READY FOR:")
-        report.append("  â€¢ WHO/UNAIDS policy guidance development")
-        report.append("  â€¢ National HIV prevention program implementation")
-        report.append("  â€¢ Global Fund and PEPFAR grant applications")
-        report.append("  â€¢ Peer-reviewed publication in The Lancet HIV / JAIDS / JIAS")
-        report.append("  â€¢ Real-world implementation at scale")
+        report.append("  • WHO/UNAIDS policy guidance development")
+        report.append("  • National HIV prevention program implementation")
+        report.append("  • Global Fund and PEPFAR grant applications")
+        report.append("  • Peer-reviewed publication in The Lancet HIV / JAIDS / JIAS")
+        report.append("  • Real-world implementation at scale")
         report.append("")
         report.append("ALIGNED WITH: UN SDG 3.3, UNAIDS 95-95-95 targets, WHO PrEP guidelines")
         report.append("=" * 120)
-        
+
         return "\n".join(report)
-    
+
     def save_results(self, results, filename='validation_UNAIDS_21.2M_results.json'):
         """Save detailed results to JSON"""
         print(f"Saving detailed results to {filename}...")
-        
-        # Convert defaultdicts to regular dicts for JSON serialization
+
         export_results = {
             'total': results['total'],
             'unaids_target': results['unaids_target'],
@@ -761,16 +727,16 @@ class UNAIDSGlobalScaleTestSuite:
                 'alignment': 'UN SDG 3.3, UNAIDS 95-95-95, WHO PrEP guidelines'
             }
         }
-        
+
         with open(filename, 'w') as f:
             json.dump(export_results, f, indent=2)
-        
-        print(f"âœ“ Results saved to {filename}\n")
-    
+
+        print(f"✓ Results saved to {filename}\n")
+
     def run_full_validation(self, n=21200000):
         """Run complete UNAIDS global scale validation"""
         start_time = datetime.now()
-        
+
         print("=" * 120)
         print("LAI-PrEP DECISION TOOL - UNAIDS GLOBAL TARGET SCALE VALIDATION")
         print(f"Testing with {n:,} synthetic patients")
@@ -778,22 +744,18 @@ class UNAIDSGlobalScaleTestSuite:
         print(f"Started: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print("=" * 120)
         print()
-        
-        # Streaming generation and assessment with regional stratification
+
         results = self.generate_and_assess_streaming(n)
-        
-        # Generate report
+
         print("Generating comprehensive global health policy report...")
         report = self.generate_detailed_report(results)
         print(report)
-        
-        # Save results
+
         self.save_results(results)
-        
-        # Summary
+
         end_time = datetime.now()
         duration = end_time - start_time
-        
+
         print()
         print("=" * 120)
         print(f"VALIDATION COMPLETE!")
@@ -801,7 +763,7 @@ class UNAIDSGlobalScaleTestSuite:
         print(f"Patients per second: {n / duration.total_seconds():,.0f}")
         print(f"Minutes elapsed: {duration.total_seconds() / 60:.2f}")
         print("=" * 120)
-        
+
         return results
 
 
@@ -814,29 +776,29 @@ if __name__ == "__main__":
     print("Matching the UNAIDS 2025 global PrEP target to end AIDS by 2030")
     print()
     print("COMPUTATIONAL REQUIREMENTS:")
-    print("  â€¢ Expected runtime: 3-10 minutes (depending on hardware)")
-    print("  â€¢ Expected memory usage: 4-8 GB RAM")
-    print("  â€¢ Recommended: Multi-core CPU (4+ cores)")
+    print("  • Expected runtime: 3-10 minutes (depending on hardware)")
+    print("  • Expected memory usage: 4-8 GB RAM")
+    print("  • Recommended: Multi-core CPU (4+ cores)")
     print()
     print("CLINICAL SIGNIFICANCE:")
-    print("  â€¢ Models ENTIRE global PrEP target population")
-    print("  â€¢ Provides insights at scale needed for international HIV policy")
-    print("  â€¢ Suitable for WHO/UNAIDS guidelines development")
-    print("  â€¢ Ready for peer-reviewed publication (The Lancet HIV, JAIDS)")
+    print("  • Models ENTIRE global PrEP target population")
+    print("  • Provides insights at scale needed for international HIV policy")
+    print("  • Suitable for WHO/UNAIDS guidelines development")
+    print("  • Ready for peer-reviewed publication (The Lancet HIV, JAIDS)")
     print()
     print("=" * 120)
     print()
-    
+
     response = input("Continue with 21.2 MILLION patient validation? (yes/no): ").strip().lower()
-    
+
     if response == 'yes':
         print()
         print("Starting UNAIDS global scale validation...")
         print()
-        
+
         suite = UNAIDSGlobalScaleTestSuite()
         results = suite.run_full_validation(n=21200000)
-        
+
         print()
         print("=" * 120)
         print("Results have been saved to:")
@@ -844,11 +806,11 @@ if __name__ == "__main__":
         print("  - validation_UNAIDS_21.2M_results.json (detailed data)")
         print()
         print("This validation provides:")
-        print("  âœ“ EXCEPTIONAL statistical precision (Â±0.019% margin of error)")
-        print("  âœ“ Regional stratification matching global HIV epidemiology")
-        print("  âœ“ Population-specific insights for health equity")
-        print("  âœ“ Policy-ready recommendations for WHO/UNAIDS")
-        print("  âœ“ Publication-ready evidence for top-tier journals")
+        print("  ✓ EXCEPTIONAL statistical precision (±0.019% margin of error)")
+        print("  ✓ Regional stratification matching global HIV epidemiology")
+        print("  ✓ Population-specific insights for health equity")
+        print("  ✓ Policy-ready recommendations for WHO/UNAIDS")
+        print("  ✓ Publication-ready evidence for top-tier journals")
         print()
         print("Next steps:")
         print("  1. Review detailed global health policy recommendations above")
@@ -858,9 +820,9 @@ if __name__ == "__main__":
         print("  5. Implement in national HIV prevention programs")
         print()
         print("ALIGNED WITH:")
-        print("  â€¢ UN Sustainable Development Goal 3.3 (End AIDS by 2030)")
-        print("  â€¢ UNAIDS 95-95-95 testing, treatment, and viral suppression targets")
-        print("  â€¢ WHO PrEP implementation guidelines")
+        print("  • UN Sustainable Development Goal 3.3 (End AIDS by 2030)")
+        print("  • UNAIDS 95-95-95 testing, treatment, and viral suppression targets")
+        print("  • WHO PrEP implementation guidelines")
         print("=" * 120)
     else:
         print()

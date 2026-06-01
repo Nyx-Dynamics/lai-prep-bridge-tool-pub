@@ -2,11 +2,22 @@
 Convenience script to re-run the test suite for the LAI-PrEP Bridge Tool.
 
 Usage:
-  python run_tests.py            # run unit/edge-case tests
+  python run_tests.py            # run unit/edge-case tests + simulation tests
   python run_tests.py --all      # run tests and configuration validation
   python run_tests.py --quiet    # minimal pytest output
 
-This is useful after upgrading to a new version to quickly check for regressions.
+Pytest-runnable tests (collected automatically):
+  test_edge_cases.py  -- boundary conditions, error handling (18 tests)
+
+Standalone simulation scripts (run directly, not via this runner):
+  test_suite.py       -- unit tests: oral PrEP, barriers, populations (python test_suite.py)
+  test_suite_2.py     -- 1M patient validation (~30 min)
+  test_suite_3.py     -- 10M patient streaming validation (~5 min)
+  test_suite_4.py     -- 21.2M UNAIDS-scale validation (~10 min)
+                         NOTE: results will differ from published validation_UNAIDS_21.2M_results.json
+                         because v2.1 config removed the SEX_WORKER population present in v1.
+
+Must be run from SCR/ directory (config is at SCR/lai_prep_config.json).
 """
 from __future__ import annotations
 
@@ -44,13 +55,18 @@ def main(argv: list[str] | None = None) -> int:
     if args.all:
         print("\n==> Running configuration validation\n")
         validate_script = repo_root / "validate_config.py"
+        config_path = repo_root.parent.parent / "lai_prep_config.json"
         if validate_script.exists():
-            # Run validate_config as a module for portability
             try:
+                import sys as _sys
                 import runpy
-                runpy.run_path(str(validate_script), run_name="__main__")
+                _old_argv = _sys.argv[:]
+                _sys.argv = [str(validate_script), str(config_path)]
+                try:
+                    runpy.run_path(str(validate_script), run_name="__main__")
+                finally:
+                    _sys.argv = _old_argv
             except SystemExit as se:
-                # Some scripts may call sys.exit; treat non-zero as failure
                 if int(se.code or 0) != 0:
                     result_code = result_code or int(se.code)
             except Exception as e:

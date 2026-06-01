@@ -7,17 +7,32 @@ This is computationally intensive - expected runtime: 90-300 seconds (1.5-5 minu
 Memory usage: ~2-4 GB RAM
 """
 
-from LAI_DMT_v1 import *
 import random
+import sys
 from datetime import datetime
+from pathlib import Path
 import json
 from collections import defaultdict
-import gc  # Garbage collection for memory optimization
+import gc
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "algorithm"))
+from lai_prep_decision_tool_v2_1 import LAIPrEPDecisionTool, PatientProfile
+
+CONFIG_PATH = str(Path(__file__).parent.parent.parent / "lai_prep_config.json")
+
+POPULATIONS = ["MSM", "CISGENDER_WOMEN", "TRANSGENDER_WOMEN", "ADOLESCENT", "PWID", "PREGNANT_LACTATING", "GENERAL"]
+HEALTHCARE_SETTINGS = ["ACADEMIC_MEDICAL_CENTER", "COMMUNITY_HEALTH_CENTER", "PRIVATE_PRACTICE",
+                       "PHARMACY", "HARM_REDUCTION", "LGBTQ_CENTER", "MOBILE_CLINIC", "TELEHEALTH"]
+BARRIERS = ["TRANSPORTATION", "CHILDCARE", "HOUSING_INSTABILITY", "INSURANCE_DELAYS",
+            "SCHEDULING_CONFLICTS", "MEDICAL_MISTRUST", "PRIVACY_CONCERNS",
+            "HEALTHCARE_DISCRIMINATION", "COMPETING_PRIORITIES",
+            "LIMITED_NAVIGATION_EXPERIENCE", "LEGAL_CONCERNS", "LACK_IDENTIFICATION",
+            "SUBSTANCE_USE"]
 
 
 class UltraLargeScaleTestSuite:
     def __init__(self):
-        self.tool = LAIPrEPDecisionTool()
+        self.tool = LAIPrEPDecisionTool(config_path=CONFIG_PATH)
         self.test_results = []
 
     def generate_and_assess_streaming(self, n=10000000):
@@ -29,12 +44,8 @@ class UltraLargeScaleTestSuite:
         print("Processing in real-time to minimize memory usage...")
         print()
 
-        populations = list(Population)
-        settings = list(HealthcareSetting)
-        barriers = list(Barrier)
         prep_statuses = ["naive", "oral_prep", "discontinued_oral"]
 
-        # Results tracking (lightweight - only aggregates, not individual patients)
         results = {
             'total': n,
             'by_population': defaultdict(lambda: {'count': 0, 'total_success': 0, 'total_improvement': 0}),
@@ -48,12 +59,10 @@ class UltraLargeScaleTestSuite:
             'total_with_interventions': 0
         }
 
-        # Progress tracking
-        checkpoint = n // 20  # Report every 5%
+        checkpoint = n // 20
         start_time = datetime.now()
 
         for i in range(n):
-            # Progress reporting
             if (i + 1) % checkpoint == 0:
                 progress = ((i + 1) / n) * 100
                 elapsed = (datetime.now() - start_time).total_seconds()
@@ -65,7 +74,6 @@ class UltraLargeScaleTestSuite:
                       f"Rate: {rate:>8,.0f} pts/sec | "
                       f"ETA: {eta_minutes:>5.1f} min")
 
-            # Generate single patient with realistic distributions
             prep_roll = random.random()
             if prep_roll < 0.15:
                 prep_status = "oral_prep"
@@ -74,16 +82,15 @@ class UltraLargeScaleTestSuite:
             else:
                 prep_status = "naive"
 
-            # Realistic barrier distribution
             barrier_count_weights = [0.2, 0.3, 0.25, 0.15, 0.07, 0.03]
             num_barriers = random.choices(range(6), weights=barrier_count_weights)[0]
 
             profile = PatientProfile(
-                population=random.choice(populations),
+                population=random.choice(POPULATIONS),
                 age=random.randint(16, 65),
                 current_prep_status=prep_status,
-                healthcare_setting=random.choice(settings),
-                barriers=random.sample(barriers, k=num_barriers) if num_barriers > 0 else [],
+                healthcare_setting=random.choice(HEALTHCARE_SETTINGS),
+                barriers=random.sample(BARRIERS, k=num_barriers) if num_barriers > 0 else [],
                 recent_hiv_test=random.choice([True, False]),
                 insurance_status=random.choices(
                     ["insured", "uninsured", "underinsured"],
@@ -91,11 +98,9 @@ class UltraLargeScaleTestSuite:
                 )[0]
             )
 
-            # Assess patient
             assessment = self.tool.assess_patient(profile)
 
-            # Update aggregates (no need to store individual results)
-            pop = profile.population.value
+            pop = profile.population
             results['by_population'][pop]['count'] += 1
             results['by_population'][pop]['total_success'] += assessment.adjusted_success_rate
             results['by_population'][pop]['total_improvement'] += (
@@ -112,12 +117,12 @@ class UltraLargeScaleTestSuite:
             results['by_barrier_count'][barrier_count]['count'] += 1
             results['by_barrier_count'][barrier_count]['total_success'] += assessment.adjusted_success_rate
 
-            setting = profile.healthcare_setting.value
+            setting = profile.healthcare_setting
             results['by_setting'][setting]['count'] += 1
             results['by_setting'][setting]['total_success'] += assessment.adjusted_success_rate
 
             for rec in assessment.recommended_interventions:
-                results['interventions'][rec.intervention.value] += 1
+                results['interventions'][rec.intervention] += 1
 
             results['total_success'] += assessment.adjusted_success_rate
             results['total_improvement'] += (
@@ -125,22 +130,18 @@ class UltraLargeScaleTestSuite:
             )
             results['total_with_interventions'] += assessment.estimated_success_with_interventions
 
-            # Periodic garbage collection (every 100K patients)
             if (i + 1) % 100000 == 0:
                 gc.collect()
 
-        # Final progress
         total_time = (datetime.now() - start_time).total_seconds()
         final_rate = n / total_time
         print(f"  Progress: 100.0% ({n:,}/{n:,}) | Rate: {final_rate:>8,.0f} pts/sec | Complete!")
         print()
 
-        # Calculate averages
         results['avg_success_rate'] = results['total_success'] / results['total']
         results['avg_improvement'] = results['total_improvement'] / results['total']
         results['avg_with_interventions'] = results['total_with_interventions'] / results['total']
 
-        # Population averages
         for pop in results['by_population']:
             count = results['by_population'][pop]['count']
             results['by_population'][pop]['avg_success'] = (
@@ -150,21 +151,18 @@ class UltraLargeScaleTestSuite:
                     results['by_population'][pop]['total_improvement'] / count
             )
 
-        # PrEP status averages
         for status in results['by_prep_status']:
             count = results['by_prep_status'][status]['count']
             results['by_prep_status'][status]['avg_success'] = (
                     results['by_prep_status'][status]['total_success'] / count
             )
 
-        # Barrier count averages
         for count in results['by_barrier_count']:
             total = results['by_barrier_count'][count]['count']
             results['by_barrier_count'][count]['avg_success'] = (
                     results['by_barrier_count'][count]['total_success'] / total
             )
 
-        # Setting averages
         for setting in results['by_setting']:
             count = results['by_setting'][setting]['count']
             results['by_setting'][setting]['avg_success'] = (
@@ -183,7 +181,6 @@ class UltraLargeScaleTestSuite:
         report.append("=" * 120)
         report.append("")
 
-        # Executive Summary
         report.append("EXECUTIVE SUMMARY")
         report.append("-" * 120)
         report.append(f"Total Patients Tested:                {results['total']:>15,}")
@@ -195,7 +192,6 @@ class UltraLargeScaleTestSuite:
             f"Relative Improvement:                 +{(results['avg_improvement'] / results['avg_success_rate']) * 100:>13.1f}%")
         report.append("")
 
-        # Success Rates by Population
         report.append("SUCCESS RATES BY POPULATION")
         report.append("-" * 120)
         report.append(f"{'Population':<40} {'N':>12} {'Success Rate':>15} {'Improvement':>15} {'Final Rate':>15}")
@@ -217,7 +213,6 @@ class UltraLargeScaleTestSuite:
             )
         report.append("")
 
-        # Success Rates by PrEP Status
         report.append("SUCCESS RATES BY CURRENT PrEP STATUS")
         report.append("-" * 120)
         report.append(f"{'Status':<25} {'N':>12} {'Success Rate':>15} {'% of Total':>15}")
@@ -238,7 +233,6 @@ class UltraLargeScaleTestSuite:
             )
         report.append("")
 
-        # Success Rates by Healthcare Setting
         report.append("SUCCESS RATES BY HEALTHCARE SETTING")
         report.append("-" * 120)
         report.append(f"{'Setting':<40} {'N':>12} {'Success Rate':>15} {'% of Total':>15}")
@@ -259,7 +253,6 @@ class UltraLargeScaleTestSuite:
             )
         report.append("")
 
-        # Success Rates by Barrier Count
         report.append("SUCCESS RATES BY NUMBER OF BARRIERS")
         report.append("-" * 120)
         report.append(f"{'Barriers':<15} {'N':>12} {'Success Rate':>15} {'% of Total':>15} {'Per-Barrier Impact':>20}")
@@ -271,7 +264,6 @@ class UltraLargeScaleTestSuite:
             pct_total = (data['count'] / results['total']) * 100
             barrier_data.append((count, data, pct_total))
 
-        # Calculate per-barrier impact
         no_barrier_success = results['by_barrier_count'][0]['avg_success']
 
         for count, data, pct_total in barrier_data:
@@ -290,7 +282,6 @@ class UltraLargeScaleTestSuite:
             )
         report.append("")
 
-        # Risk Level Distribution
         report.append("RISK LEVEL DISTRIBUTION")
         report.append("-" * 120)
         report.append(f"{'Risk Level':<25} {'N':>12} {'Percentage':>15}")
@@ -302,7 +293,6 @@ class UltraLargeScaleTestSuite:
             report.append(f"{risk:<25} {count:>12,} {pct:>14.2f}%")
         report.append("")
 
-        # Top 20 Recommended Interventions
         report.append("TOP 20 RECOMMENDED INTERVENTIONS")
         report.append("-" * 120)
         report.append(f"{'Intervention':<55} {'Frequency':>15} {'% of Patients':>15}")
@@ -319,7 +309,6 @@ class UltraLargeScaleTestSuite:
             report.append(f"{intervention:<55} {count:>15,} {pct:>14.2f}%")
         report.append("")
 
-        # Statistical Confidence (Enhanced for 10M)
         report.append("STATISTICAL CONFIDENCE")
         report.append("-" * 120)
         import math
@@ -334,18 +323,16 @@ class UltraLargeScaleTestSuite:
         report.append(f"Standard Error:                       {se:>15.7f}")
         report.append(f"95% Confidence Interval:              {ci_95_lower:.5%} - {ci_95_upper:.5%}")
         report.append(f"99% Confidence Interval:              {ci_99_lower:.5%} - {ci_99_upper:.5%}")
-        report.append(f"Margin of Error (95%):                Â±{(1.96 * se) * 100:.5f} percentage points")
-        report.append(f"Margin of Error (99%):                Â±{(2.576 * se) * 100:.5f} percentage points")
+        report.append(f"Margin of Error (95%):                ±{(1.96 * se) * 100:.5f} percentage points")
+        report.append(f"Margin of Error (99%):                ±{(2.576 * se) * 100:.5f} percentage points")
         report.append("")
         report.append("With 10 MILLION patients, estimates have EXCEPTIONAL statistical precision.")
         report.append("Confidence intervals are approximately 3.16x narrower than with 1M patients.")
         report.append("")
 
-        # Key Findings
         report.append("KEY FINDINGS")
         report.append("-" * 120)
 
-        # Oral PrEP advantage
         oral_success = results['by_prep_status']['oral_prep']['avg_success']
         naive_success = results['by_prep_status']['naive']['avg_success']
         oral_advantage = (oral_success - naive_success) * 100
@@ -356,7 +343,6 @@ class UltraLargeScaleTestSuite:
         report.append(f"   - Statistical significance: p < 0.0001 (highly significant with 10M sample)")
         report.append("")
 
-        # Barrier impact analysis
         no_barrier = results['by_barrier_count'][0]['avg_success']
         one_barrier = results['by_barrier_count'][1]['avg_success']
         three_barrier = results['by_barrier_count'][3]['avg_success']
@@ -375,7 +361,6 @@ class UltraLargeScaleTestSuite:
         report.append(f"   - Average impact per barrier: -{per_barrier_avg * 100:.2f} percentage points")
         report.append("")
 
-        # Population disparity
         pop_data = {k: v['avg_success'] for k, v in results['by_population'].items()}
         highest_pop = max(pop_data, key=pop_data.get)
         lowest_pop = min(pop_data, key=pop_data.get)
@@ -387,7 +372,6 @@ class UltraLargeScaleTestSuite:
         report.append(f"   - This represents a {(disparity / pop_data[lowest_pop]) * 100:.1f}% relative disadvantage")
         report.append("")
 
-        # Intervention impact
         report.append(f"4. INTERVENTION EFFECTIVENESS: +{results['avg_improvement'] * 100:.3f} points average")
         relative_improvement = (results['avg_improvement'] / results['avg_success_rate']) * 100
         report.append(f"   - Relative improvement: {relative_improvement:.2f}%")
@@ -395,7 +379,6 @@ class UltraLargeScaleTestSuite:
         report.append(f"   - Number needed to treat (NNT): {1 / results['avg_improvement']:.1f} patients")
         report.append("")
 
-        # Setting analysis
         setting_data = {k: v['avg_success'] for k, v in results['by_setting'].items()}
         best_setting = max(setting_data, key=setting_data.get)
         worst_setting = min(setting_data, key=setting_data.get)
@@ -407,7 +390,6 @@ class UltraLargeScaleTestSuite:
             f"   - Setting matters: {(setting_data[best_setting] - setting_data[worst_setting]) * 100:.2f} point difference")
         report.append("")
 
-        # Footer
         report.append("=" * 120)
         report.append("CONCLUSION")
         report.append("-" * 120)
@@ -416,10 +398,10 @@ class UltraLargeScaleTestSuite:
         report.append("with published clinical trial data across all population categories.")
         report.append("")
         report.append("The tool successfully:")
-        report.append("  âœ“ Identifies high-risk patients with extraordinary precision")
-        report.append("  âœ“ Recommends evidence-based interventions proven to improve outcomes")
-        report.append("  âœ“ Quantifies health equity gaps requiring targeted interventions")
-        report.append("  âœ“ Provides setting-specific guidance for optimal implementation")
+        report.append("  ✓ Identifies high-risk patients with extraordinary precision")
+        report.append("  ✓ Recommends evidence-based interventions proven to improve outcomes")
+        report.append("  ✓ Quantifies health equity gaps requiring targeted interventions")
+        report.append("  ✓ Provides setting-specific guidance for optimal implementation")
         report.append("")
         report.append("Statistical power: With 10M patients, this validation can detect differences as small as")
         report.append(f"0.028 percentage points with 95% confidence - far exceeding clinical significance thresholds.")
@@ -433,7 +415,6 @@ class UltraLargeScaleTestSuite:
         """Save detailed results to JSON"""
         print(f"Saving detailed results to {filename}...")
 
-        # Convert defaultdicts to regular dicts for JSON serialization
         export_results = {
             'total': results['total'],
             'avg_success_rate': results['avg_success_rate'],
@@ -456,7 +437,7 @@ class UltraLargeScaleTestSuite:
         with open(filename, 'w') as f:
             json.dump(export_results, f, indent=2)
 
-        print(f"âœ“ Results saved to {filename}\n")
+        print(f"✓ Results saved to {filename}\n")
 
     def run_full_validation(self, n=10000000):
         """Run complete ultra large-scale validation"""
@@ -469,18 +450,14 @@ class UltraLargeScaleTestSuite:
         print("=" * 120)
         print()
 
-        # Streaming generation and assessment
         results = self.generate_and_assess_streaming(n)
 
-        # Generate report
         print("Generating comprehensive report...")
         report = self.generate_detailed_report(results)
         print(report)
 
-        # Save results
         self.save_results(results)
 
-        # Summary
         end_time = datetime.now()
         duration = end_time - start_time
 
@@ -515,10 +492,10 @@ if __name__ == "__main__":
         print("  - validation_10M_results.json (detailed data)")
         print()
         print("This validation provides:")
-        print("  âœ“ Exceptional statistical precision (Â±0.028% margin of error)")
-        print("  âœ“ Publication-ready evidence")
-        print("  âœ“ Comprehensive population analysis")
-        print("  âœ“ Setting-specific insights")
+        print("  ✓ Exceptional statistical precision (±0.028% margin of error)")
+        print("  ✓ Publication-ready evidence")
+        print("  ✓ Comprehensive population analysis")
+        print("  ✓ Setting-specific insights")
         print()
         print("Next steps:")
         print("  1. Review the detailed report above")
